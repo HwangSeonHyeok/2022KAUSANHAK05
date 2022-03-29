@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_recipes">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.takeeat.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_recipes"
+        android:name="com.example.takeeat.ui.recipes.RecipesFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipes" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.takeeat.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_fridge"
+        android:name="com.example.takeeat.ui.fridge.FridgeFragment"
+        android:label="@string/title_fridge"
+        tools:layout="@layout/fragment_fridge" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.takeeat.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_myrecipes"
+        android:name="com.example.takeeat.ui.myrecipes.MyrecipesFragment"
+        android:label="@string/title_myrecipes"
+        tools:layout="@layout/fragment_myrecipes" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.takeeat.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
