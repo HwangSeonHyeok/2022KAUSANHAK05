@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Takeeat</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">꺼내먹어요</string>
+    <string name="title_recipe">레시피</string>
+    <string name="title_refrigerator">냉장고</string>
+    <string name="title_myrecipe">마이레시피</string>
+    <string name="title_menu">메뉴</string>
 </resources>
