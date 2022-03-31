@@ -8,7 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.takeeat.databinding.ActivityMainBinding
-
+//testmerge
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -24,9 +24,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        // test
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_recipes, R.id.navigation_fridge, R.id.navigation_myrecipes, R.id.navigation_settings
+                R.id.navigation_recipe, R.id.navigation_refrigerator, R.id.navigation_myrecipe, R.id.navigation_menu
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

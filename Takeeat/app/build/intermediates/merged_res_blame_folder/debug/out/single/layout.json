@@ -1,22 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_refrigerator.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_refrigerator.xml"
     },
     {
-        "merged": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_fridge.xml",
-        "source": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_fridge.xml"
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_menu.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_menu.xml"
     },
     {
-        "merged": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_recipes.xml",
-        "source": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_recipes.xml"
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_recipe.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_recipe.xml"
     },
     {
-        "merged": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_settings.xml",
-        "source": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_settings.xml"
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_myrecipe.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_myrecipe.xml"
     },
     {
-        "merged": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_myrecipes.xml",
-        "source": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_myrecipes.xml"
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_main.xml"
     }
 ]

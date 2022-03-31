@@ -9,11 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <string name="app_name">Takeeat</string>
-    <string name="title_fridge">냉장고</string>
-    <string name="title_myrecipes">내 레시피</string>
-    <string name="title_recipes">레시피</string>
-    <string name="title_settings">설정</string>
+    <string name="app_name">꺼내먹어요</string>
+    <string name="title_menu">메뉴</string>
+    <string name="title_myrecipe">마이레시피</string>
+    <string name="title_recipe">레시피</string>
+    <string name="title_refrigerator">냉장고</string>
     <style name="Theme.Takeeat" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
