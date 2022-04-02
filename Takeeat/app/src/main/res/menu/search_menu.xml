@@ -8,4 +8,19 @@
         android:title="검색"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/notification_button"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="notifications_button"
+        app:showAsAction="always"
+        android:text="Button" />
+
+    <item
+        android:id="@+id/cart_button"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="cart_button"
+        app:showAsAction="always"
+        android:text="Button" />
+
 </menu>
