@@ -2639,6 +2639,7 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id app_bar_search
 id arc
 id asConfigured
 id async
@@ -3234,6 +3235,7 @@ layout text_view_without_line_height
 menu bottom_nav_menu
 menu example_menu
 menu example_menu2
+menu search_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
