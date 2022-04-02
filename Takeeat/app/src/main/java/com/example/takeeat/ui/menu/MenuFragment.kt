@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.takeeat.databinding.FragmentMenuBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MenuFragment: Fragment() {
@@ -33,6 +34,7 @@ class MenuFragment: Fragment() {
         myrecipeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 

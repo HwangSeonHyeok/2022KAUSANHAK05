@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="unitArray">
+
+        <item> 개 </item>
+
+        <item> g </item>
+
+        <item> Kg </item>
+
+        <item> L </item>
+
+        <item> ml </item>
+
+
+    </string-array>
+</resources>

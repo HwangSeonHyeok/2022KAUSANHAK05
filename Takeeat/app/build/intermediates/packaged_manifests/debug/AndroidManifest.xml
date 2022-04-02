@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Takeeat" >
+        <activity android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity" />
         <activity
             android:name="com.example.takeeat.MainActivity"
             android:exported="true"

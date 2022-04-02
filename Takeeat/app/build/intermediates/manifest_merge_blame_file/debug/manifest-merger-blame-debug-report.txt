@@ -11,7 +11,7 @@
 9-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:5:5-22:19
+11-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:5:5-25:19
 12        android:allowBackup="true"
 12-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -29,60 +29,63 @@
 20        android:testOnly="true"
 21        android:theme="@style/Theme.Takeeat" >
 21-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:9-45
-22        <activity
-22-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:12:9-21:20
-23            android:name="com.example.takeeat.MainActivity"
-23-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:13:13-41
-24            android:exported="true"
-24-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:14:13-36
-25            android:label="@string/app_name" >
-25-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:15:13-45
-26            <intent-filter>
-26-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:16:13-20:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:17-69
-27-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:19:17-77
-29-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:19:27-74
-30            </intent-filter>
-31        </activity>
-32
-33        <uses-library
-33-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-34            android:name="androidx.window.extensions"
-34-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-35            android:required="false" />
-35-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-36        <uses-library
-36-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-37            android:name="androidx.window.sidecar"
-37-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-38            android:required="false" />
-38-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-39
-40        <provider
-40-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-41            android:name="androidx.startup.InitializationProvider"
-41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
-42            android:authorities="com.example.takeeat.androidx-startup"
-42-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
-43            android:exported="false" >
-43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
-44            <meta-data
-44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-45                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
-46                android:value="androidx.startup" />
-46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
-47            <meta-data
-47-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-48                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-48-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-49                android:value="androidx.startup" />
-49-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-50        </provider>
-51    </application>
-52
-53</manifest>
+22        <activity android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity" />
+22-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:13:9-77
+22-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:13:19-74
+23        <activity
+23-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:15:9-24:20
+24            android:name="com.example.takeeat.MainActivity"
+24-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:16:13-41
+25            android:exported="true"
+25-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:13-36
+26            android:label="@string/app_name" >
+26-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:18:13-45
+27            <intent-filter>
+27-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:19:13-23:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:17-69
+28-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:17-77
+30-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:27-74
+31            </intent-filter>
+32        </activity>
+33
+34        <uses-library
+34-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+35            android:name="androidx.window.extensions"
+35-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+36            android:required="false" />
+36-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+37        <uses-library
+37-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+38            android:name="androidx.window.sidecar"
+38-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+39            android:required="false" />
+39-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+40
+41        <provider
+41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+42            android:name="androidx.startup.InitializationProvider"
+42-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+43            android:authorities="com.example.takeeat.androidx-startup"
+43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+44            android:exported="false" >
+44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+45            <meta-data
+45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+46                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+47                android:value="androidx.startup" />
+47-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+48            <meta-data
+48-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+49                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+49-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+50                android:value="androidx.startup" />
+50-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+51        </provider>
+52    </application>
+53
+54</manifest>

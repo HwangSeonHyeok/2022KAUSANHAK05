@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_addrefrigerator.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_addrefrigerator.xml"
+    },
+    {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_refrigerator.xml",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_refrigerator.xml"
     },
@@ -18,5 +22,9 @@
     {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_addref.xml",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_addref.xml"
     }
 ]

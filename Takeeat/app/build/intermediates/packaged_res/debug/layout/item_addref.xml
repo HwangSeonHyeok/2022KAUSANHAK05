@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/addref_EditItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="품목 이름을 입력하세요"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addref_TagButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#C1BDBD"
+                android:text="Tag" />
+
+            <TextView
+                android:id="@+id/addref_EXPText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="유통기한" />
+
+            <EditText
+                android:id="@+id/editItemAmount"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Spinner
+                android:id="@+id/add_addref_UnitSpinner"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown"
+                android:text="개" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/addref_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#32191818" />
+
+</LinearLayout>

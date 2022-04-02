@@ -27,6 +27,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fab_close
+anim fab_open
 anim fragment_fast_out_extra_slow_in
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
@@ -35,6 +37,8 @@ anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
+anim rotate_backward
+anim rotate_forward
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -71,6 +75,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array unitArray
 attr SharedValue
 attr SharedValueId
 attr action
@@ -2498,6 +2503,11 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_baseline_add_24
+drawable ic_baseline_add_photo_alternate
+drawable ic_baseline_camera_alt
+drawable ic_baseline_create
+drawable ic_baseline_delete_sweep
 drawable ic_baseline_menu
 drawable ic_clock_black_24dp
 drawable ic_dashboard_black_24dp
@@ -2629,6 +2639,13 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_addref_UnitSpinner
+id addref_AddButton
+id addref_EXPText
+id addref_EditItemName
+id addref_RecyclerView
+id addref_TagButton
+id addref_divider
 id alertTitle
 id aligned
 id all
@@ -2660,6 +2677,7 @@ id bounceStart
 id buttonPanel
 id cache_measures
 id callMeasure
+id camera_sub_fab
 id cancel_button
 id carryVelocity
 id center
@@ -2698,6 +2716,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id dataBinding
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2713,6 +2732,7 @@ id design_navigation_view
 id dialog_button
 id dimensions
 id direct
+id direct_sub_fab
 id disableHome
 id disableIntraAutoTransition
 id disablePostScroll
@@ -2731,6 +2751,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editItemAmount
 id edit_query
 id elastic
 id end
@@ -2752,6 +2773,7 @@ id floating
 id forever
 id fragment_container_view_tag
 id frost
+id gallery_sub_fab
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2883,6 +2905,8 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onAttachStateChangeListener
+id onDateChanged
 id onInterceptTouchReturnSwipe
 id outline
 id outward
@@ -2906,6 +2930,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id refrigeratorfab
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3002,6 +3027,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3139,6 +3165,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_addrefrigerator
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3160,6 +3187,7 @@ layout fragment_menu
 layout fragment_myrecipe
 layout fragment_recipe
 layout fragment_refrigerator
+layout item_addref
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

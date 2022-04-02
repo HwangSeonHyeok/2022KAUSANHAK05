@@ -19,4 +19,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/camera_sub_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_photo_alternate"
+        android:visibility="invisible"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@id/gallery_sub_fab"
+        app:layout_constraintEnd_toEndOf="@+id/refrigeratorfab"
+        app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/gallery_sub_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_photo_alternate"
+        android:visibility="invisible"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@id/direct_sub_fab"
+        app:layout_constraintEnd_toEndOf="@+id/refrigeratorfab"
+        app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/direct_sub_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_create"
+        android:visibility="invisible"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/refrigeratorfab"
+        app:layout_constraintEnd_toEndOf="@+id/refrigeratorfab"
+        app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/refrigeratorfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="90dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:maxImageSize="30dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
