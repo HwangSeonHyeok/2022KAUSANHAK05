@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_recipe">
+
+    <fragment
+        android:id="@+id/navigation_recipe"
+        android:name="com.example.takeeat.ui.recipe.RecipeFragment"
+        android:label="@string/title_recipe"
+        tools:layout="@layout/fragment_recipe" />
+
+    <fragment
+        android:id="@+id/navigation_refrigerator"
+        android:name="com.example.takeeat.ui.refrigerator.RefrigeratorFragment"
+        android:label="@string/title_refrigerator"
+        tools:layout="@layout/fragment_refrigerator" />
+
+    <fragment
+        android:id="@+id/navigation_myrecipe"
+        android:name="com.example.takeeat.ui.myrecipe.MyRecipeFragment"
+        android:label="@string/title_myrecipe"
+        tools:layout="@layout/fragment_myrecipe" />
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="com.example.takeeat.ui.menu.MenuFragment"
+        android:label="@string/title_menu"
+        tools:layout="@layout/fragment_menu" />
+</navigation>

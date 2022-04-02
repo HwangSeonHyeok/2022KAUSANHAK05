@@ -1,0 +1,84 @@
+CREATE TABLE recipe(
+  recipeID INT NOT NULL,
+  recipename VARCHAR(50) NOT NULL,
+  summary VARCHAR(100),
+  serving VARCHAR(10),
+  cooktime VARCHAR(10),
+  difficulty VARCHAR(10),
+  ingre VARCHAR(100) NOT NULL,
+  process VARCHAR(1000) NOT NULL,
+  img_url VARCHAR(100),
+  vid_url VARCHAR(100),
+  tag VARCHAR(50),
+  PRIMARY KEY (recipeID)
+);
+
+CREATE TABLE ingredient(
+  recipeID INT NOT NULL,
+  ingre_num int NOT NULL,
+  ingre VARCHAR(100)  NOT NULL,
+  count INT,
+  unit VARCHAR(10),
+  tag VARCHAR(50),
+  PRIMARY KEY (recipeID, ingre),
+  FOREIGN KEY (recipeID) REFERENCES recipe(recipeID)
+);
+
+CREATE TABLE recipe_tag(
+  tag VARCHAR(50),
+  ingre VARCHAR(100),
+  PRIMARY KEY (tag),
+  FOREIGN KEY (ingre) REFERENCES ingredient(ingre)
+);
+
+CREATE TABLE userinfo(
+  id int NOT NULL,
+  userid varchar(20),
+  passwd varchar(20),
+  mailadr varchar(30),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE refrigerator(
+  refriID int,
+  id int,
+  refriname VARCHAR(30),
+  PRIMARY KEY (refriID),
+  FOREIGN KEY (id) REFERENCES userinfo(id)
+);
+
+CREATE TABLE item(
+  itemID int,
+  refriID int,
+  itemname VARCHAR(50),
+  exdate VARCHAR(10),
+  count INT,
+  unit VARCHAR(5),
+  tag VARCHAR(50),
+  PRIMARY KEY (itemID),
+  FOREIGN KEY (refriID) REFERENCES refrigerator(refriID)
+  FOREIGN KEY (tag) REFERENCES recipe_tag(tag)
+);
+
+CREATE TABLE cart(
+ cartID int NOT NULL,
+ itemname VARCHAR(50),
+ PRIMARY KEY (cartID)
+);
+
+CREATE TABLE rating(
+  recipeID INT NOT NULL,
+  id int NOT NULL,
+  rating int,
+  PRIMARY KEY (recipeID, id),
+  FOREIGN KEY (recipeID) REFERENCES recipe(id),
+  FOREIGN KEY (id) REFERENCES userinfo(id)
+);
+
+
+
+
+
+
+
+ 
