@@ -15,6 +15,7 @@ drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
+id app_bar_search
 id container
 id mobile_navigation
 id nav_host_fragment_activity_main
@@ -33,6 +34,7 @@ layout fragment_myrecipe
 layout fragment_recipe
 layout fragment_refrigerator
 menu bottom_nav_menu
+menu search_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
