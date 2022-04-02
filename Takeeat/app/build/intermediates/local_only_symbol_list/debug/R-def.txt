@@ -16,6 +16,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
 id app_bar_search
+id cart_button
 id container
 id mobile_navigation
 id nav_host_fragment_activity_main
@@ -24,6 +25,7 @@ id navigation_menu
 id navigation_myrecipe
 id navigation_recipe
 id navigation_refrigerator
+id notification_button
 id text_menu
 id text_myrecipe
 id text_recipe

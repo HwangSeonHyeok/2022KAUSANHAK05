@@ -2662,6 +2662,7 @@ int id cache_measures 0x7f080065
 int id callMeasure 0x7f080066
 int id cancel_button 0x7f080067
 int id carryVelocity 0x7f080068
+int id cart_button 0x7f0801f1
 int id center 0x7f080069
 int id center_horizontal 0x7f08006a
 int id center_vertical 0x7f08006b
@@ -2879,6 +2880,7 @@ int id none 0x7f08013e
 int id normal 0x7f08013f
 int id north 0x7f080140
 int id notification_background 0x7f080141
+int id notification_button 0x7f0801f2
 int id notification_main_column 0x7f080142
 int id notification_main_column_container 0x7f080143
 int id off 0x7f080144
