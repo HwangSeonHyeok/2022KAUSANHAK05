@@ -2641,6 +2641,7 @@ id activity_chooser_view_content
 id add
 id add_addref_UnitSpinner
 id addref_AddButton
+id addref_Apply
 id addref_EXPText
 id addref_EditItemName
 id addref_RecyclerView
@@ -2818,6 +2819,7 @@ id legacy
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id locale
@@ -3031,6 +3033,9 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textWatcher
+id text_camera
+id text_direct
+id text_gallery
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon

@@ -27,6 +27,7 @@ drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
 id add_addref_UnitSpinner
 id addref_AddButton
+id addref_Apply
 id addref_EXPText
 id addref_EditItemName
 id addref_RecyclerView
@@ -39,6 +40,7 @@ id container
 id direct_sub_fab
 id editItemAmount
 id gallery_sub_fab
+id linearLayout
 id mobile_navigation
 id nav_host_fragment_activity_main
 id nav_view
@@ -48,6 +50,9 @@ id navigation_recipe
 id navigation_refrigerator
 id notification_button
 id refrigeratorfab
+id text_camera
+id text_direct
+id text_gallery
 id text_menu
 id text_myrecipe
 id text_recipe

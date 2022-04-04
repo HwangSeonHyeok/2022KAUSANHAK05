@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.takeeat.R;
@@ -20,7 +20,7 @@ import java.lang.String;
 
 public final class ItemAddrefBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final Spinner addAddrefUnitSpinner;
@@ -40,10 +40,10 @@ public final class ItemAddrefBinding implements ViewBinding {
   @NonNull
   public final EditText editItemAmount;
 
-  private ItemAddrefBinding(@NonNull LinearLayout rootView, @NonNull Spinner addAddrefUnitSpinner,
-      @NonNull View addrefDivider, @NonNull TextView addrefEXPText,
-      @NonNull EditText addrefEditItemName, @NonNull Button addrefTagButton,
-      @NonNull EditText editItemAmount) {
+  private ItemAddrefBinding(@NonNull ConstraintLayout rootView,
+      @NonNull Spinner addAddrefUnitSpinner, @NonNull View addrefDivider,
+      @NonNull TextView addrefEXPText, @NonNull EditText addrefEditItemName,
+      @NonNull Button addrefTagButton, @NonNull EditText editItemAmount) {
     this.rootView = rootView;
     this.addAddrefUnitSpinner = addAddrefUnitSpinner;
     this.addrefDivider = addrefDivider;
@@ -55,7 +55,7 @@ public final class ItemAddrefBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -116,7 +116,7 @@ public final class ItemAddrefBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemAddrefBinding((LinearLayout) rootView, addAddrefUnitSpinner, addrefDivider,
+      return new ItemAddrefBinding((ConstraintLayout) rootView, addAddrefUnitSpinner, addrefDivider,
           addrefEXPText, addrefEditItemName, addrefTagButton, editItemAmount);
     }
     String missingId = rootView.getResources().getResourceName(id);

@@ -34,6 +34,18 @@
         app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
         app:pressedTranslationZ="12dp" />
 
+    <TextView
+        android:id="@+id/text_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="영수증 찍기"
+        android:textColor="#C6636060"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/camera_sub_fab"
+        app:layout_constraintRight_toLeftOf="@id/camera_sub_fab"
+        app:layout_constraintTop_toTopOf="@id/camera_sub_fab" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/gallery_sub_fab"
         android:layout_width="wrap_content"
@@ -48,6 +60,18 @@
         app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
         app:pressedTranslationZ="12dp" />
 
+    <TextView
+        android:id="@+id/text_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="갤러리에서 등록"
+        android:textColor="#C6636060"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/gallery_sub_fab"
+        app:layout_constraintRight_toLeftOf="@id/gallery_sub_fab"
+        app:layout_constraintTop_toTopOf="@id/gallery_sub_fab" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/direct_sub_fab"
         android:layout_width="wrap_content"
@@ -61,6 +85,18 @@
         app:layout_constraintEnd_toEndOf="@+id/refrigeratorfab"
         app:layout_constraintStart_toStartOf="@+id/refrigeratorfab"
         app:pressedTranslationZ="12dp" />
+
+    <TextView
+        android:id="@+id/text_direct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="직접 입력"
+        android:textColor="#C6636060"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/direct_sub_fab"
+        app:layout_constraintRight_toLeftOf="@id/direct_sub_fab"
+        app:layout_constraintTop_toTopOf="@id/direct_sub_fab" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/refrigeratorfab"

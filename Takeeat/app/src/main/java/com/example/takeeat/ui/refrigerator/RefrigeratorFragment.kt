@@ -25,6 +25,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.takeeat.BuildConfig
@@ -52,7 +53,11 @@ class RefrigeratorFragment : Fragment() {
     lateinit var directFab:FloatingActionButton
     lateinit var galleryFab:FloatingActionButton
     lateinit var cameraFab:FloatingActionButton
+    lateinit var directText:TextView
+    lateinit var galleryText:TextView
+    lateinit var cameraText:TextView
     lateinit var currentPhotoPath: String
+
     var isFabOpen = false
     val CAMERA = arrayOf(Manifest.permission.CAMERA)
     val STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -83,6 +88,9 @@ class RefrigeratorFragment : Fragment() {
         directFab = binding.directSubFab
         galleryFab = binding.gallerySubFab
         cameraFab = binding.cameraSubFab
+        directText = binding.textDirect
+        galleryText = binding.textGallery
+        cameraText = binding.textCamera
         val fabOpen = AnimationUtils.loadAnimation(context, R.anim.fab_open)
         val fabClose = AnimationUtils.loadAnimation(context, R.anim.fab_close)
         val rotateForward = AnimationUtils.loadAnimation(context, R.anim.rotate_forward)
@@ -95,11 +103,17 @@ class RefrigeratorFragment : Fragment() {
                 directFab.startAnimation(fabClose)
                 galleryFab.startAnimation(fabClose)
                 cameraFab.startAnimation(fabClose)
+                directText.startAnimation(fabClose)
+                galleryText.startAnimation(fabClose)
+                cameraText.startAnimation(fabClose)
                 directFab.hide()
+                directText.isVisible = false
                 directFab.isClickable = false
                 galleryFab.hide()
+                galleryText.isVisible = false
                 galleryFab.isClickable = false
                 cameraFab.hide()
+                cameraText.isVisible = false
                 cameraFab.isClickable = false
                 isFabOpen=false
             }
@@ -108,11 +122,17 @@ class RefrigeratorFragment : Fragment() {
                 directFab.startAnimation(fabOpen)
                 galleryFab.startAnimation(fabOpen)
                 cameraFab.startAnimation(fabOpen)
+                directText.startAnimation(fabOpen)
+                galleryText.startAnimation(fabOpen)
+                cameraText.startAnimation(fabOpen)
                 directFab.show()
+                directText.isVisible = true
                 directFab.isClickable = true
                 galleryFab.show()
+                galleryText.isVisible = true
                 galleryFab.isClickable = true
                 cameraFab.show()
+                cameraText.isVisible = true
                 cameraFab.isClickable = true
                 isFabOpen=true
 
