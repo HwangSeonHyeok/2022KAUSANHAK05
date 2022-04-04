@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_add_photo_alternate"
+        android:src="@drawable/ic_baseline_camera_alt"
         android:visibility="invisible"
         app:backgroundTint="#ffffff"
         app:layout_constraintBottom_toTopOf="@id/gallery_sub_fab"

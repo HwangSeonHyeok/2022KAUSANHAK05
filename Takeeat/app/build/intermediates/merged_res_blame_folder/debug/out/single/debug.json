@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_recipe.xml.flat",
-        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_recipe.xml"
-    },
-    {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_recipe.xml.flat",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_recipe.xml"
     },
     {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_home_black_24dp.xml.flat",
@@ -60,6 +60,10 @@
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\drawable\\ic_baseline_add_photo_alternate.xml"
     },
     {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\menu_search_menu.xml.flat",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\menu\\search_menu.xml"
+    },
+    {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_addrefrigerator.xml.flat",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_addrefrigerator.xml"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_menu.xml.flat",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\drawable\\ic_baseline_menu.xml"
+    },
+    {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\xml_file_paths.xml.flat",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\xml\\file_paths.xml"
     },
     {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",

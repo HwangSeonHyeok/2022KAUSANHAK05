@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@+id/app_bar_search"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="검색"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="always|collapseActionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+    <item
+        android:id="@+id/notification_button"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="notifications_button"
+        app:showAsAction="ifRoom"
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+    <item
+        android:id="@+id/cart_button"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="cart_button"
+        app:showAsAction="ifRoom"
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
 </menu>

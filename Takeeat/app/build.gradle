@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 
 android {
     compileSdk 31
@@ -14,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "OCR_API_GW_URL", properties['ocrApiGwUrl']
+        buildConfigField "String", "OCR_SECRETKEY", properties['ocrSecretKey']
     }
 
     buildTypes {

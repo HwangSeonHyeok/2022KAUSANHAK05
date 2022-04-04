@@ -27,7 +27,7 @@
 
             <Button
                 android:id="@+id/addref_TagButton"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#C1BDBD"
@@ -43,19 +43,21 @@
 
             <EditText
                 android:id="@+id/editItemAmount"
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:gravity="right"
                 android:inputType="number" />
 
             <Spinner
                 android:id="@+id/add_addref_UnitSpinner"
-                android:layout_width="50dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:spinnerMode="dropdown"
-                android:text="개" />
+                android:spinnerMode="dialog"
+                android:text="개"
+                android:textAlignment="center" />
 
         </LinearLayout>
 

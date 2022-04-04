@@ -2681,6 +2681,7 @@ id callMeasure
 id camera_sub_fab
 id cancel_button
 id carryVelocity
+id cart_button
 id center
 id center_horizontal
 id center_vertical
@@ -2902,6 +2903,7 @@ id none
 id normal
 id north
 id notification_background
+id notification_button
 id notification_main_column
 id notification_main_column_container
 id off
@@ -4590,6 +4592,7 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
+xml file_paths
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start

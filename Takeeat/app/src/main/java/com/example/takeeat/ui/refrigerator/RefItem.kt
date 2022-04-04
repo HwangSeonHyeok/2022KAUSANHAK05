@@ -1,5 +1,7 @@
 package com.example.takeeat.ui.refrigerator
 
+
+import java.io.Serializable
 import java.util.*
 
 data class RefItem(
@@ -8,5 +10,4 @@ data class RefItem(
     var itemexp : Date?,
     var itemamount : Int?,
     var itemunit : String?
-)
-
+) : Serializable

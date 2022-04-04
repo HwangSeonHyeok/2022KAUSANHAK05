@@ -21,10 +21,16 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding = ActivityAddrefrigeratorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewmodel = ViewModelProviders.of(this).get(AddRefrigeratorViewModel::class.java)
-        setSupportActionBar(binding.addrefToolbar)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val intentExtra = intent.getSerializableExtra("OCR_RESULT") as ArrayList<RefItem>
+        for(resultItem in intentExtra){
+            viewmodel.addData(resultItem)
+        }
+
         binding.addrefAddButton.setOnClickListener {
             viewmodel.addData(RefItem(null, null, null, null, null))
+            Log.d("Response", "inMain"+viewmodel.getCount().toString())
         }
         val dataObserver: Observer<ArrayList<RefItem>> =
             Observer {livedata ->
@@ -33,5 +39,8 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                 binding.addrefRecyclerView.adapter = newAdapter
             }
         viewmodel.liveData.observe(this, dataObserver)
+    }
+    public fun test(){
+
     }
 }

@@ -32,7 +32,9 @@ id addref_EditItemName
 id addref_RecyclerView
 id addref_TagButton
 id addref_divider
+id app_bar_search
 id camera_sub_fab
+id cart_button
 id container
 id direct_sub_fab
 id editItemAmount
@@ -44,6 +46,7 @@ id navigation_menu
 id navigation_myrecipe
 id navigation_recipe
 id navigation_refrigerator
+id notification_button
 id refrigeratorfab
 id text_menu
 id text_myrecipe
@@ -57,6 +60,7 @@ layout fragment_recipe
 layout fragment_refrigerator
 layout item_addref
 menu bottom_nav_menu
+menu search_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
@@ -66,3 +70,4 @@ string title_myrecipe
 string title_recipe
 string title_refrigerator
 style Theme.Takeeat
+xml file_paths

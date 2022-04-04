@@ -7,10 +7,11 @@ import androidx.lifecycle.ViewModel
 class AddRefrigeratorViewModel : ViewModel()  {
     var liveData : MutableLiveData<ArrayList<RefItem>> = MutableLiveData<ArrayList<RefItem>>()
     var refItemData = ArrayList<RefItem>()
+
+
+
     init{
-        refItemData.add(RefItem("우유",null, null, 3, null))
-        Log.d("Response", "New Data : " +refItemData.get(0).itemname)
-        liveData.postValue(refItemData)
+        //liveData.postValue(refItemData)
     }
     fun addData(refItem: RefItem){
         refItemData.add(refItem)
@@ -19,5 +20,11 @@ class AddRefrigeratorViewModel : ViewModel()  {
     fun deleteData(at : Int){
         val deletedData = refItemData.removeAt(at)
         liveData.postValue(refItemData)
+    }
+    fun updateData(index:Int, refItem:RefItem){
+        refItemData.set(index,refItem)
+    }
+    fun getCount():Int{
+        return refItemData.size
     }
 }

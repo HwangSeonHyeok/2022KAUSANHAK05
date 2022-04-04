@@ -3,6 +3,7 @@ package com.example.takeeat
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
+import android.text.TextWatcher
 import android.view.Menu
 import android.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
