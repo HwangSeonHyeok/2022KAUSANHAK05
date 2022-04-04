@@ -37,13 +37,13 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("Response", "ItemName"+ data.value!!.get(0).toString())
+        var a = AddRefrigeratorViewModel()
 
         data.value!!.get(position).let{item ->
             with(holder){
                 itemNameEdit.setText(item.itemname)
-                //if(item.itemamount!=null)
-                    //itemAmmountEdit.setText(item.itemamount!!)
+                if(item.itemamount!=null)
+                    itemAmmountEdit.setText(item.itemamount!!)
                 val spinnerUnitItem = holder.itemUnitSpinner.context.getResources().getStringArray(R.array.unitArray)
                 val spinnerAdapter : ArrayAdapter<String> = ArrayAdapter(holder.itemUnitSpinner.context,android.R.layout.simple_spinner_dropdown_item,spinnerUnitItem)
                 holder.itemUnitSpinner.setAdapter(spinnerAdapter)

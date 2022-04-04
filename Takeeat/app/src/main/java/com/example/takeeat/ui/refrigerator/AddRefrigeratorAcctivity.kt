@@ -21,7 +21,8 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding = ActivityAddrefrigeratorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewmodel = ViewModelProviders.of(this).get(AddRefrigeratorViewModel::class.java)
-
+        setSupportActionBar(binding.addrefToolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         binding.addrefAddButton.setOnClickListener {
             viewmodel.addData(RefItem(null, null, null, null, null))
         }
