@@ -2,13 +2,11 @@ package com.example.takeeat.ui.refrigerator
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.takeeat.R
 import com.example.takeeat.databinding.ActivityAddrefrigeratorBinding
 
 class AddRefrigeratorActivity :AppCompatActivity() {
@@ -43,4 +41,14 @@ class AddRefrigeratorActivity :AppCompatActivity() {
     public fun test(){
 
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
