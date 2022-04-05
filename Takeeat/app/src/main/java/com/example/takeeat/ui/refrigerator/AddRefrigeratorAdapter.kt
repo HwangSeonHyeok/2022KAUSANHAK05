@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.LiveData
@@ -24,7 +25,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
         var calendar = Calendar.getInstance()
         var year = calendar.get(Calendar.YEAR)
         var month = calendar.get(Calendar.MONTH)
-        var day = calendar.get(Calendar.DAY_OF_MONTH)
+        var date = calendar.get(Calendar.DAY_OF_MONTH)
         init {
             itemNameEdit = itemView.findViewById(R.id.addref_EditItemName)
             itemTagButton = itemView.findViewById(R.id.addref_TagButton)
@@ -39,44 +40,70 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
         return ViewHolder(parent)
     }
     override fun getItemCount(): Int {
-
-        Log.d("Response", "getItemCount() "+ data.value!!.size)
         return data.value!!.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        var a = AddRefrigeratorViewModel()
-        /*val editTextWatcher =object : TextWatcher {
+        val itemNameEditTextWatcher =object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
             }
             override fun afterTextChanged(s: Editable) {
+                data.value!!.get(holder.position).itemname = s.toString()
 
             }
-        }*/
+        }
+        val itemAmountEditTextWatcher =object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            }
+            override fun afterTextChanged(s: Editable) {
+                data.value!!.get(holder.position).itemamount = s.toString().toInt()
+
+            }
+        }
         data.value!!.get(position).let{item ->
             with(holder){
                 itemNameEdit.setText(item.itemname)
-                if(item.itemamount!=null)
+                if(item.itemamount != null)
                     itemAmountEdit.setText(item.itemamount!!.toString())
-                Log.d("Response", item.itemamount.toString())
+                if(item.itemexp != null)
+                    itemEXPText.setText(item.itemexp!!.getYear().toString() + "." + (item.itemexp!!.getMonth() + 1).toString() + "." + item.itemexp!!.getDate().toString())
                 itemEXPText.setOnClickListener {
-                    val dateSelector = DatePickerDialog(holder.itemEXPText.context, {_, year, month, day ->
-                        itemEXPText.setText(year.toString() + "." + (month + 1).toString() + "." + day.toString())
-                    },year,month,day)
+                    val dateSelector = DatePickerDialog(holder.itemEXPText.context, {_, year, month, date ->
+                        itemEXPText.setText(year.toString() + "." + (month + 1).toString() + "." + date.toString())
+                        item.itemexp = Date(year,month,date)
+
+                    },year,month,date)
                     dateSelector.show()
                 }
                 if(item.itemamount!=null)
                     itemAmountEdit.setText(item.itemamount.toString())
                 val spinnerUnitItem = holder.itemUnitSpinner.context.getResources().getStringArray(R.array.unitArray)
-                val spinnerAdapter : ArrayAdapter<String> = ArrayAdapter(holder.itemUnitSpinner.context,android.R.layout.simple_spinner_dropdown_item,spinnerUnitItem)
+                val spinnerAdapter : ArrayAdapter<String> =
+                    ArrayAdapter(holder.itemUnitSpinner.context,android.R.layout.simple_spinner_dropdown_item,spinnerUnitItem)
                 holder.itemUnitSpinner.setAdapter(spinnerAdapter)
-                //holder.itemNameEdit.addTextChangedListener(editTextWatcher)
-                //holder.itemAmountEdit.addTextChangedListener(editTextWatcher)
+                for(i:Int in 0 until spinnerUnitItem.size) {
+                    if(item.itemunit == spinnerUnitItem[i])
+                        holder.itemUnitSpinner.setSelection(i)
+                }
+                holder.itemUnitSpinner.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
+                    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                        item.itemunit = spinnerUnitItem[p2]
+                    }
+
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                    }
+                }
+
+                holder.itemNameEdit.addTextChangedListener(itemNameEditTextWatcher)
+                holder.itemAmountEdit.addTextChangedListener(itemAmountEditTextWatcher)
 
 
             }

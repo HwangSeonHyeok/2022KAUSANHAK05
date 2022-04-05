@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:stackFromEnd="true"
                 tools:listitem="@layout/item_addref"></androidx.recyclerview.widget.RecyclerView>
 
             <TextView

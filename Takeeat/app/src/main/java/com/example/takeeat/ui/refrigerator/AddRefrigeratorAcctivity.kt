@@ -35,6 +35,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                 data.value = livedata
                 var newAdapter = AddRefrigeratorAdapter(data)
                 binding.addrefRecyclerView.adapter = newAdapter
+                Log.d("Response", "???????")
             }
         viewmodel.liveData.observe(this, dataObserver)
     }
