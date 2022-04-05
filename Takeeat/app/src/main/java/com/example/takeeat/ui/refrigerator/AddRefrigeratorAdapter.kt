@@ -62,7 +62,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
             with(holder){
                 itemNameEdit.setText(item.itemname)
                 if(item.itemamount!=null)
-                    itemAmountEdit.setText(item.itemamount!!)
+                    itemAmountEdit.setText(item.itemamount!!.toString())
                 Log.d("Response", item.itemamount.toString())
                 itemEXPText.setOnClickListener {
                     val dateSelector = DatePickerDialog(holder.itemEXPText.context, {_, year, month, day ->
