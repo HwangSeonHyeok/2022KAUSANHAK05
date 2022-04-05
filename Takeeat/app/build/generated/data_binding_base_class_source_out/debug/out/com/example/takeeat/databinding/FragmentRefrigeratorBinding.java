@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.takeeat.R;
@@ -33,6 +34,9 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
   public final FloatingActionButton refrigeratorfab;
 
   @NonNull
+  public final RecyclerView refrigeratorrecyclerview;
+
+  @NonNull
   public final TextView textCamera;
 
   @NonNull
@@ -47,13 +51,15 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
   private FragmentRefrigeratorBinding(@NonNull ConstraintLayout rootView,
       @NonNull FloatingActionButton cameraSubFab, @NonNull FloatingActionButton directSubFab,
       @NonNull FloatingActionButton gallerySubFab, @NonNull FloatingActionButton refrigeratorfab,
-      @NonNull TextView textCamera, @NonNull TextView textDirect, @NonNull TextView textGallery,
+      @NonNull RecyclerView refrigeratorrecyclerview, @NonNull TextView textCamera,
+      @NonNull TextView textDirect, @NonNull TextView textGallery,
       @NonNull TextView textRefrigerator) {
     this.rootView = rootView;
     this.cameraSubFab = cameraSubFab;
     this.directSubFab = directSubFab;
     this.gallerySubFab = gallerySubFab;
     this.refrigeratorfab = refrigeratorfab;
+    this.refrigeratorrecyclerview = refrigeratorrecyclerview;
     this.textCamera = textCamera;
     this.textDirect = textDirect;
     this.textGallery = textGallery;
@@ -111,6 +117,12 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.refrigeratorrecyclerview;
+      RecyclerView refrigeratorrecyclerview = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorrecyclerview == null) {
+        break missingId;
+      }
+
       id = R.id.text_camera;
       TextView textCamera = ViewBindings.findChildViewById(rootView, id);
       if (textCamera == null) {
@@ -136,8 +148,8 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
       }
 
       return new FragmentRefrigeratorBinding((ConstraintLayout) rootView, cameraSubFab,
-          directSubFab, gallerySubFab, refrigeratorfab, textCamera, textDirect, textGallery,
-          textRefrigerator);
+          directSubFab, gallerySubFab, refrigeratorfab, refrigeratorrecyclerview, textCamera,
+          textDirect, textGallery, textRefrigerator);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -114,4 +114,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:maxImageSize="30dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/refrigeratorrecyclerview"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:listitem="@layout/item_refrig" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,10 @@
 package com.example.takeeat.ui.refrigerator
 
+import RefrigeratorAdapter
 import android.Manifest
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -28,6 +30,8 @@ import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.BuildConfig
 import com.example.takeeat.R
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
@@ -39,6 +43,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class RefrigeratorFragment : Fragment() {
 
@@ -84,6 +89,9 @@ class RefrigeratorFragment : Fragment() {
         refrigeratorViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
+        recyclerView.adapter = RefrigeratorAdapter(itemTestList)
+
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
         galleryFab = binding.gallerySubFab
@@ -420,5 +428,36 @@ class RefrigeratorFragment : Fragment() {
         }
 
     }
+
+    class RefrigeratorItemModel(
+        var itemName: String,
+        var itemExpiration: Int,
+        var itemQuantity: Int,
+        )
+
+    private val itemTestList = ArrayList<RefrigeratorItemModel>().apply {
+        add(RefrigeratorItemModel("우유",12,1))
+        add(RefrigeratorItemModel("두유",6,3))
+        add(RefrigeratorItemModel("마늘",3,8))
+        add(RefrigeratorItemModel("마늘2",3,8))
+        add(RefrigeratorItemModel("마늘3",3,8))
+        add(RefrigeratorItemModel("마늘4",3,8))
+        add(RefrigeratorItemModel("마늘5",3,8))
+        add(RefrigeratorItemModel("마늘6",3,8))
+        add(RefrigeratorItemModel("마늘7",3,8))
+        add(RefrigeratorItemModel("마늘8",3,8))
+        add(RefrigeratorItemModel("마늘9",3,8))
+        add(RefrigeratorItemModel("마늘10",3,8))
+        add(RefrigeratorItemModel("마늘11",3,8))
+        add(RefrigeratorItemModel("마늘12",3,8))
+        add(RefrigeratorItemModel("마늘13",3,8))
+        add(RefrigeratorItemModel("마늘14",3,8))
+        add(RefrigeratorItemModel("마늘15",3,8))
+
+    }
+
+
+
+
 
 }
