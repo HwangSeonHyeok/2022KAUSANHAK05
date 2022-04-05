@@ -49,7 +49,11 @@ id navigation_myrecipe
 id navigation_recipe
 id navigation_refrigerator
 id notification_button
+id refrigerator_item_expiration
+id refrigerator_item_name
+id refrigerator_item_quantity
 id refrigeratorfab
+id refrigeratorrecyclerview
 id text_camera
 id text_direct
 id text_gallery
@@ -64,6 +68,7 @@ layout fragment_myrecipe
 layout fragment_recipe
 layout fragment_refrigerator
 layout item_addref
+layout item_refrig
 menu bottom_nav_menu
 menu search_menu
 mipmap ic_launcher

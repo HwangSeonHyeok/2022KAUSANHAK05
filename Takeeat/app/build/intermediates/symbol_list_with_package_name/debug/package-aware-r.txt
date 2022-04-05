@@ -2935,7 +2935,11 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id refrigerator_item_expiration
+id refrigerator_item_name
+id refrigerator_item_quantity
 id refrigeratorfab
+id refrigeratorrecyclerview
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3196,6 +3200,7 @@ layout fragment_myrecipe
 layout fragment_recipe
 layout fragment_refrigerator
 layout item_addref
+layout item_refrig
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
