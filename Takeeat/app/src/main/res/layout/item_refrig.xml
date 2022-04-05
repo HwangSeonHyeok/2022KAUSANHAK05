@@ -14,7 +14,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="top"
             android:text="이름"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:paddingLeft="20sp"/>
 
         <TextView
             android:id="@+id/refrigerator_item_expiration"
