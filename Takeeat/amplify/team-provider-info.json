@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-takeeat-dev-211354-authRole",
+      "UnauthRoleArn": "arn:aws:iam::843254080786:role/amplify-takeeat-dev-211354-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::843254080786:role/amplify-takeeat-dev-211354-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-takeeat-dev-211354-deployment",
+      "UnauthRoleName": "amplify-takeeat-dev-211354-unauthRole",
+      "StackName": "amplify-takeeat-dev-211354",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:843254080786:stack/amplify-takeeat-dev-211354/0c28a610-b5a3-11ec-9080-02a29b1fdd64",
+      "AmplifyAppId": "d3nfqccwbrtmo1"
+    }
+  }
+}
