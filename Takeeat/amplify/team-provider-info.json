@@ -10,6 +10,11 @@
       "StackName": "amplify-takeeat-dev-211354",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:843254080786:stack/amplify-takeeat-dev-211354/0c28a610-b5a3-11ec-9080-02a29b1fdd64",
       "AmplifyAppId": "d3nfqccwbrtmo1"
+    },
+    "categories": {
+      "auth": {
+        "takeeat2c95962e": {}
+      }
     }
   }
 }
