@@ -11,6 +11,7 @@ import com.example.takeeat.databinding.FragmentMenuBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
+
 class MenuFragment: Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
