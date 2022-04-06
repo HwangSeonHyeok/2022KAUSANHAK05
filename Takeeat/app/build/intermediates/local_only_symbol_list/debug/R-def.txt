@@ -41,7 +41,6 @@ id direct_sub_fab
 id editItemAmount
 id gallery_sub_fab
 id linearLayout
-id logoutbutton
 id mobile_navigation
 id nav_host_fragment_activity_main
 id nav_view
@@ -74,6 +73,8 @@ menu search_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw amplifyconfiguration
+raw awsconfiguration
 string app_name
 string title_menu
 string title_myrecipe
