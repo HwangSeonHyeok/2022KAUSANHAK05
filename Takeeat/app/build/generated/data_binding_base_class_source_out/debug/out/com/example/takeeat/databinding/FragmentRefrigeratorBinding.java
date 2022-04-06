@@ -45,15 +45,11 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
   @NonNull
   public final TextView textGallery;
 
-  @NonNull
-  public final TextView textRefrigerator;
-
   private FragmentRefrigeratorBinding(@NonNull ConstraintLayout rootView,
       @NonNull FloatingActionButton cameraSubFab, @NonNull FloatingActionButton directSubFab,
       @NonNull FloatingActionButton gallerySubFab, @NonNull FloatingActionButton refrigeratorfab,
       @NonNull RecyclerView refrigeratorrecyclerview, @NonNull TextView textCamera,
-      @NonNull TextView textDirect, @NonNull TextView textGallery,
-      @NonNull TextView textRefrigerator) {
+      @NonNull TextView textDirect, @NonNull TextView textGallery) {
     this.rootView = rootView;
     this.cameraSubFab = cameraSubFab;
     this.directSubFab = directSubFab;
@@ -63,7 +59,6 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
     this.textCamera = textCamera;
     this.textDirect = textDirect;
     this.textGallery = textGallery;
-    this.textRefrigerator = textRefrigerator;
   }
 
   @Override
@@ -141,15 +136,9 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_refrigerator;
-      TextView textRefrigerator = ViewBindings.findChildViewById(rootView, id);
-      if (textRefrigerator == null) {
-        break missingId;
-      }
-
       return new FragmentRefrigeratorBinding((ConstraintLayout) rootView, cameraSubFab,
           directSubFab, gallerySubFab, refrigeratorfab, refrigeratorrecyclerview, textCamera,
-          textDirect, textGallery, textRefrigerator);
+          textDirect, textGallery);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

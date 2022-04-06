@@ -35,6 +35,7 @@ class MenuFragment: Fragment() {
             textView.text = it
         }
 
+
         return root
     }
 

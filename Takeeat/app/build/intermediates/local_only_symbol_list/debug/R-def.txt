@@ -41,6 +41,7 @@ id direct_sub_fab
 id editItemAmount
 id gallery_sub_fab
 id linearLayout
+id logoutbutton
 id mobile_navigation
 id nav_host_fragment_activity_main
 id nav_view
@@ -60,7 +61,6 @@ id text_gallery
 id text_menu
 id text_myrecipe
 id text_recipe
-id text_refrigerator
 layout activity_addrefrigerator
 layout activity_main
 layout fragment_menu

@@ -84,11 +84,7 @@ class RefrigeratorFragment : Fragment() {
 
         _binding = FragmentRefrigeratorBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textRefrigerator
-        refrigeratorViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         recyclerView.adapter = RefrigeratorAdapter(itemTestList)
 

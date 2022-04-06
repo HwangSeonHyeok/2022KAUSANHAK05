@@ -2822,6 +2822,7 @@ int id linearLayout 0x7f0900fb
 int id listMode 0x7f0900fc
 int id list_item 0x7f0900fd
 int id locale 0x7f0900fe
+int id logoutbutton 0x7f09020b
 int id ltr 0x7f0900ff
 int id masked 0x7f090100
 int id match_constraint 0x7f090101
@@ -3045,7 +3046,6 @@ int id text_input_start_icon 0x7f0901da
 int id text_menu 0x7f0901db
 int id text_myrecipe 0x7f0901dc
 int id text_recipe 0x7f0901dd
-int id text_refrigerator 0x7f0901de
 int id textinput_counter 0x7f0901df
 int id textinput_error 0x7f0901e0
 int id textinput_helper_text 0x7f0901e1
