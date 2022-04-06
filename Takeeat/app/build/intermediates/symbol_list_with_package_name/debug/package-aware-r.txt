@@ -2596,6 +2596,8 @@ id CTRL
 id FUNCTION
 id META
 id NO_DEBUG
+id Ok_button
+id Re_Ok_button
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -2724,6 +2726,9 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id code_button
+id code_name
+id code_name_text
 id collapseActionView
 id compress
 id confirm_account_button
@@ -2864,6 +2869,7 @@ id login_id
 id login_id_text
 id login_paw
 id login_paw_text
+id logoutbutton
 id ltr
 id masked
 id match_constraint
@@ -2945,6 +2951,9 @@ id navigation_refrigerator
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id new_paw_button
+id new_paw_name
+id new_paw_name_text
 id noScroll
 id noState
 id none
@@ -2955,6 +2964,7 @@ id notification_button
 id notification_main_column
 id notification_main_column_container
 id off
+id ok_text
 id on
 id onAttachStateChangeListener
 id onDateChanged
@@ -2971,6 +2981,10 @@ id parent_matrix
 id password_toggle
 id path
 id pathRelative
+id paw_code_name
+id paw_code_name_text
+id paw_signUpUsername
+id paw_signUpUsername_text
 id peekHeight
 id percent
 id pin
@@ -3029,6 +3043,8 @@ id signUpName_text
 id signUpPassword
 id signUpPassword_text
 id signUpUsername
+id signUpUsername2
+id signUpUsername2_text
 id signUpUsername_text
 id signUp_button
 id signUp_button2
@@ -3243,9 +3259,11 @@ layout abc_tooltip
 layout activity_addrefrigerator
 layout activity_auth
 layout activity_force_change_password
+layout activity_forgot
 layout activity_forgot_password
 layout activity_main
 layout activity_mfa
+layout activity_ok
 layout activity_sign_in
 layout activity_sign_up
 layout activity_sign_up_confirm

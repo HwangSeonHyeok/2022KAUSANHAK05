@@ -25,6 +25,8 @@ drawable ic_home_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
+id Ok_button
+id Re_Ok_button
 id add_addref_UnitSpinner
 id addref_AddButton
 id addref_Apply
@@ -36,6 +38,9 @@ id addref_divider
 id app_bar_search
 id camera_sub_fab
 id cart_button
+id code_button
+id code_name
+id code_name_text
 id container
 id direct_sub_fab
 id editItemAmount
@@ -46,6 +51,7 @@ id login_id
 id login_id_text
 id login_paw
 id login_paw_text
+id logoutbutton
 id mobile_navigation
 id nav_host_fragment_activity_main
 id nav_view
@@ -53,7 +59,15 @@ id navigation_menu
 id navigation_myrecipe
 id navigation_recipe
 id navigation_refrigerator
+id new_paw_button
+id new_paw_name
+id new_paw_name_text
 id notification_button
+id ok_text
+id paw_code_name
+id paw_code_name_text
+id paw_signUpUsername
+id paw_signUpUsername_text
 id refrigerator_item_expiration
 id refrigerator_item_name
 id refrigerator_item_quantity
@@ -65,6 +79,8 @@ id signUpName_text
 id signUpPassword
 id signUpPassword_text
 id signUpUsername
+id signUpUsername2
+id signUpUsername2_text
 id signUpUsername_text
 id signUp_button
 id signUp_button2
@@ -76,7 +92,9 @@ id text_myrecipe
 id text_recipe
 layout activity_addrefrigerator
 layout activity_auth
+layout activity_forgot
 layout activity_main
+layout activity_ok
 layout activity_signup
 layout fragment_menu
 layout fragment_myrecipe

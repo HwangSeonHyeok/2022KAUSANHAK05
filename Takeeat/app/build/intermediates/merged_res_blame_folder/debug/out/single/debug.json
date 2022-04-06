@@ -116,6 +116,10 @@
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\anim\\rotate_forward.xml"
     },
     {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_forgot.xml.flat",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_forgot.xml"
+    },
+    {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_24.xml.flat",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
     },
@@ -158,6 +162,10 @@
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_ok.xml.flat",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_ok.xml"
     },
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",

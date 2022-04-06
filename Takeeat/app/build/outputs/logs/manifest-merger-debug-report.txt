@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
 MERGED from [androidx.databinding:databinding-adapters:7.1.2] C:\Users\soult\.gradle\caches\transforms-3\5d910903585c7b3ec22936c3a7dc9be5\transformed\databinding-adapters-7.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-ktx:7.1.2] C:\Users\soult\.gradle\caches\transforms-3\0d94037c798f77704ceb67921857143f\transformed\databinding-ktx-7.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:7.1.2] C:\Users\soult\.gradle\caches\transforms-3\8a900d0b214cd8513cc300e2fd544434\transformed\databinding-runtime-7.1.2\AndroidManifest.xml:17:1-24:12
@@ -71,20 +71,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\bf11d5f709f8b4982d65ae78eb7a0a6a\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\soult\.gradle\caches\transforms-3\fa71066934ce7b959416ab07c2d56d3b\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\0f8ea571e406922200e37343a83fc84e\transformed\aws-android-sdk-auth-core-2.8.5\AndroidManifest.xml:2:1-4:80
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
 	package
 		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-45:12
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-54:12
 		INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:11-69
@@ -111,7 +111,7 @@ ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-43:19
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-52:19
 MERGED from [androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\soult\.gradle\caches\transforms-3\5423c65485a974611bfb437c61e9a2e1\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
@@ -134,6 +134,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\so
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\soult\.gradle\caches\transforms-3\f402c227810f854944e859f834a3003b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\5f6791cabcf7ae297e8689ef537c9936\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\5f6791cabcf7ae297e8689ef537c9936\transformed\startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+	android:requestLegacyExternalStorage
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:18:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\soult\.gradle\caches\transforms-3\adacc4bbdca3c037c01e5031782c646c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -148,46 +150,66 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\soult\.gradle\cach
 		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:12:9-35
 	android:theme
 		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:9-45
+activity#com.example.takeeat.SignUpActivity
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:9-61
+	android:name
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:19-49
+activity#com.example.takeeat.OkActivity
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:9-48
+	android:name
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:19-45
+activity#com.example.takeeat.ForgotActivity
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-52
+	android:name
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:19-49
 activity#com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:19:9-20:47
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:47
 	android:label
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:13-45
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-45
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:19:19-74
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-74
 activity#com.example.takeeat.MainActivity
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-31:20
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:9-29:47
 	android:label
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:13-45
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-45
 	android:exported
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-36
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:13-36
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:13-41
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:13-41
+activity#com.example.takeeat.AuthActivity
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:9-40:20
+	android:noHistory
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:13-37
+	android:exported
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-36
+	android:name
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:32:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:13-30:29
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-39:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:17-69
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:17-77
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:17-77
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:27-74
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:27-74
 provider#androidx.core.content.FileProvider
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:9-41:20
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:9-50:20
 	android:grantUriPermissions
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:37:13-47
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:13-47
 	android:authorities
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-63
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:44:13-63
 	android:exported
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:13-37
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:45:13-37
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-62
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:43:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:13-40:64
+ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-49:64
 	android:resource
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:17-51
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:17-51
 	android:name
-		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:39:17-67
+		ADDED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:17-67
 uses-sdk
 INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml

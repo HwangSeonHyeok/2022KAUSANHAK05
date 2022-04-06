@@ -4,6 +4,7 @@ package com.example.takeeat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,10 +21,15 @@ public final class FragmentMenuBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button logoutbutton;
+
+  @NonNull
   public final TextView textMenu;
 
-  private FragmentMenuBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textMenu) {
+  private FragmentMenuBinding(@NonNull ConstraintLayout rootView, @NonNull Button logoutbutton,
+      @NonNull TextView textMenu) {
     this.rootView = rootView;
+    this.logoutbutton = logoutbutton;
     this.textMenu = textMenu;
   }
 
@@ -54,13 +60,19 @@ public final class FragmentMenuBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.logoutbutton;
+      Button logoutbutton = ViewBindings.findChildViewById(rootView, id);
+      if (logoutbutton == null) {
+        break missingId;
+      }
+
       id = R.id.text_menu;
       TextView textMenu = ViewBindings.findChildViewById(rootView, id);
       if (textMenu == null) {
         break missingId;
       }
 
-      return new FragmentMenuBinding((ConstraintLayout) rootView, textMenu);
+      return new FragmentMenuBinding((ConstraintLayout) rootView, logoutbutton, textMenu);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

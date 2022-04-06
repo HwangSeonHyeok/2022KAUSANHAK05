@@ -14,15 +14,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Takeeat">
+        android:theme="@style/Theme.Takeeat"
+        android:requestLegacyExternalStorage="true">
 
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".OkActivity" />
+        <activity android:name=".ForgotActivity" />
         <activity android:name=".ui.refrigerator.AddRefrigeratorActivity"
             android:label="@string/app_name"/>
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name"/>
+
+        <activity
+            android:name=".AuthActivity"
+            android:noHistory="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

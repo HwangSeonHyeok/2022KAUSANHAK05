@@ -4,12 +4,24 @@
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_myrecipe.xml"
     },
     {
-        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_refrigerator.xml",
-        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_refrigerator.xml"
-    },
-    {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_addref.xml",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_addref.xml"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_ok.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_ok.xml"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_refrig.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_refrig.xml"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_forgot.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_forgot.xml"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_refrigerator.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_refrigerator.xml"
     },
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_signup.xml",
@@ -26,10 +38,6 @@
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_auth.xml",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_auth.xml"
-    },
-    {
-        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_refrig.xml",
-        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_refrig.xml"
     },
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_recipe.xml",

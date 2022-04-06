@@ -13,7 +13,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.takeeat.databinding.ActivityMainBinding
-
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
+import android.content.Intent
+import android.widget.Button
+import android.widget.Toast
 
 //testmerge
 class MainActivity : AppCompatActivity() {

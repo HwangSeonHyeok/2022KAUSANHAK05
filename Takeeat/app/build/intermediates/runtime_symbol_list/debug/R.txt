@@ -2595,6 +2595,8 @@ int id CTRL 0x7f090003
 int id FUNCTION 0x7f090004
 int id META 0x7f090005
 int id NO_DEBUG 0x7f090006
+int id Ok_button 0x7f090235
+int id Re_Ok_button 0x7f090236
 int id SHIFT 0x7f090007
 int id SHOW_ALL 0x7f090008
 int id SHOW_PATH 0x7f090009
@@ -2723,6 +2725,9 @@ int id clip_horizontal 0x7f090083
 int id clip_vertical 0x7f090084
 int id clockwise 0x7f090085
 int id closest 0x7f090086
+int id code_button 0x7f090237
+int id code_name 0x7f090238
+int id code_name_text 0x7f090239
 int id collapseActionView 0x7f090087
 int id compress 0x7f090088
 int id confirm_account_button 0x7f09020a
@@ -2863,6 +2868,7 @@ int id login_id 0x7f09021a
 int id login_id_text 0x7f09021b
 int id login_paw 0x7f09021c
 int id login_paw_text 0x7f09021d
+int id logoutbutton 0x7f09023a
 int id ltr 0x7f0900ff
 int id masked 0x7f090100
 int id match_constraint 0x7f090101
@@ -2944,6 +2950,9 @@ int id navigation_refrigerator 0x7f090147
 int id never 0x7f090148
 int id neverCompleteToEnd 0x7f090149
 int id neverCompleteToStart 0x7f09014a
+int id new_paw_button 0x7f09023b
+int id new_paw_name 0x7f09023c
+int id new_paw_name_text 0x7f09023d
 int id noScroll 0x7f09014b
 int id noState 0x7f09014c
 int id none 0x7f09014d
@@ -2954,6 +2963,7 @@ int id notification_button 0x7f090151
 int id notification_main_column 0x7f090152
 int id notification_main_column_container 0x7f090153
 int id off 0x7f090154
+int id ok_text 0x7f09023e
 int id on 0x7f090155
 int id onAttachStateChangeListener 0x7f090156
 int id onDateChanged 0x7f090157
@@ -2970,6 +2980,10 @@ int id parent_matrix 0x7f090161
 int id password_toggle 0x7f090162
 int id path 0x7f090163
 int id pathRelative 0x7f090164
+int id paw_code_name 0x7f09023f
+int id paw_code_name_text 0x7f090240
+int id paw_signUpUsername 0x7f090241
+int id paw_signUpUsername_text 0x7f090242
 int id peekHeight 0x7f090165
 int id percent 0x7f090166
 int id pin 0x7f090167
@@ -3028,6 +3042,8 @@ int id signUpName_text 0x7f090225
 int id signUpPassword 0x7f090226
 int id signUpPassword_text 0x7f090227
 int id signUpUsername 0x7f090228
+int id signUpUsername2 0x7f090243
+int id signUpUsername2_text 0x7f090244
 int id signUpUsername_text 0x7f090229
 int id signUp_button 0x7f09022a
 int id signUp_button2 0x7f09022b
@@ -3242,9 +3258,11 @@ int layout abc_tooltip 0x7f0c001b
 int layout activity_addrefrigerator 0x7f0c001c
 int layout activity_auth 0x7f0c007b
 int layout activity_force_change_password 0x7f0c007c
+int layout activity_forgot 0x7f0c0085
 int layout activity_forgot_password 0x7f0c007d
 int layout activity_main 0x7f0c001d
 int layout activity_mfa 0x7f0c007e
+int layout activity_ok 0x7f0c0086
 int layout activity_sign_in 0x7f0c007f
 int layout activity_sign_up 0x7f0c0080
 int layout activity_sign_up_confirm 0x7f0c0081
