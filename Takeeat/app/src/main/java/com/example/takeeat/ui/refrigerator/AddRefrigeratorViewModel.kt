@@ -18,7 +18,7 @@ class AddRefrigeratorViewModel : ViewModel()  {
         liveData.postValue(refItemData)
     }
     fun deleteData(at : Int){
-        val deletedData = refItemData.removeAt(at)
+        refItemData.removeAt(at)
         liveData.postValue(refItemData)
     }
     fun updateData(index:Int, refItem:RefItem){
