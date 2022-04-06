@@ -56,6 +56,10 @@
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_refrigerator.xml"
     },
     {
+        "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\layout_item_refrig.xml.flat",
+        "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_refrig.xml"
+    },
+    {
         "merged": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_add_photo_alternate.xml.flat",
         "source": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\drawable\\ic_baseline_add_photo_alternate.xml"
     },
