@@ -33,12 +33,6 @@ class RecipeFragment : Fragment() {
         recipeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        //로그아웃 임시버튼
-        val logoutbutton : Button = binding.logoutbutton
-        logoutbutton.setOnClickListener {
-            //여기다 auth값을 false로 하거나 계정관련 변수를 초기화 해주세요
-
-        }
         return root
     }
 
