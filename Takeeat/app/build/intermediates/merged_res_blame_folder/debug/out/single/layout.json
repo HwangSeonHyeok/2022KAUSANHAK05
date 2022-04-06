@@ -12,12 +12,20 @@
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\item_addref.xml"
     },
     {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_signup.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_signup.xml"
+    },
+    {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_menu.xml",
         "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\fragment_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_auth.xml",
+        "source": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\src\\main\\res\\layout\\activity_auth.xml"
     },
     {
         "merged": "C:\\Users\\soult\\Desktop\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_refrig.xml",

@@ -211,6 +211,7 @@ int attr buttonStyle 0x7f040084
 int attr buttonStyleSmall 0x7f040085
 int attr buttonTint 0x7f040086
 int attr buttonTintMode 0x7f040087
+int attr button_style 0x7f04046e
 int attr cardBackgroundColor 0x7f040088
 int attr cardCornerRadius 0x7f040089
 int attr cardElevation 0x7f04008a
@@ -542,6 +543,7 @@ int attr fontVariationSettings 0x7f0401cf
 int attr fontWeight 0x7f0401d0
 int attr forceApplySystemWindowInsetTop 0x7f0401d1
 int attr foregroundInsidePadding 0x7f0401d2
+int attr forgotPasswordViewBackgroundColor 0x7f04046f
 int attr framePosition 0x7f0401d3
 int attr gapBetweenBars 0x7f0401d4
 int attr gestureInsetBottomIgnored 0x7f0401d5
@@ -781,7 +783,10 @@ int attr maxWidth 0x7f0402be
 int attr measureWithLargestChild 0x7f0402bf
 int attr menu 0x7f0402c0
 int attr menuGravity 0x7f0402c1
+int attr metaButtonBarButtonStyle 0x7f040470
+int attr metaButtonBarStyle 0x7f040471
 int attr methodName 0x7f0402c2
+int attr mfaViewBackgroundColor 0x7f040472
 int attr mimeType 0x7f0402c3
 int attr minHeight 0x7f0402c4
 int attr minHideDelay 0x7f0402c5
@@ -951,6 +956,10 @@ int attr showPaths 0x7f040368
 int attr showText 0x7f040369
 int attr showTitle 0x7f04036a
 int attr shrinkMotionSpec 0x7f04036b
+int attr signInBackgroundColor 0x7f040473
+int attr signInImageResId 0x7f040474
+int attr signUpConfirmViewBackgroundColor 0x7f040475
+int attr signUpViewBackgroundColor 0x7f040476
 int attr singleChoiceItemLayout 0x7f04036c
 int attr singleLine 0x7f04036d
 int attr singleSelection 0x7f04036e
@@ -1045,6 +1054,7 @@ int attr targetPackage 0x7f0403c6
 int attr telltales_tailColor 0x7f0403c7
 int attr telltales_tailScale 0x7f0403c8
 int attr telltales_velocityMode 0x7f0403c9
+int attr text 0x7f040477
 int attr textAllCaps 0x7f0403ca
 int attr textAppearanceBody1 0x7f0403cb
 int attr textAppearanceBody2 0x7f0403cc
@@ -1808,6 +1818,7 @@ int color secondary_text_default_material_dark 0x7f060241
 int color secondary_text_default_material_light 0x7f060242
 int color secondary_text_disabled_material_dark 0x7f060243
 int color secondary_text_disabled_material_light 0x7f060244
+int color sign_in_separator_color 0x7f060253
 int color switch_thumb_disabled_material_dark 0x7f060245
 int color switch_thumb_disabled_material_light 0x7f060246
 int color switch_thumb_material_dark 0x7f060247
@@ -2386,6 +2397,10 @@ int dimen notification_small_icon_size_as_large 0x7f070230
 int dimen notification_subtext_size 0x7f070231
 int dimen notification_top_pad 0x7f070232
 int dimen notification_top_pad_large_text 0x7f070233
+int dimen sign_in_button_height 0x7f07024a
+int dimen sign_in_button_margin 0x7f07024b
+int dimen sign_in_button_width 0x7f07024c
+int dimen sign_in_separator_height 0x7f07024d
 int dimen sliding_pane_detail_pane_width 0x7f070234
 int dimen test_dimen 0x7f070235
 int dimen test_mtrl_calendar_day_cornerSize 0x7f070236
@@ -2408,6 +2423,11 @@ int dimen tooltip_precise_anchor_threshold 0x7f070246
 int dimen tooltip_vertical_padding 0x7f070247
 int dimen tooltip_y_offset_non_touch 0x7f070248
 int dimen tooltip_y_offset_touch 0x7f070249
+int dimen user_pools_button_height 0x7f07024e
+int dimen user_pools_button_text_size 0x7f07024f
+int dimen user_pools_form_margin 0x7f070250
+int dimen user_pools_intra_group_separation 0x7f070251
+int dimen user_pools_sign_in_button_margin_top_bottom 0x7f070252
 int drawable abc_ab_share_pack_mtrl_alpha 0x7f080007
 int drawable abc_action_bar_item_background_material 0x7f080008
 int drawable abc_btn_borderless_material 0x7f080009
@@ -2497,6 +2517,7 @@ int drawable btn_radio_off_mtrl 0x7f08005c
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f08005d
 int drawable btn_radio_on_mtrl 0x7f08005e
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f08005f
+int drawable default_sign_in_logo 0x7f0800a6
 int drawable design_fab_background 0x7f080060
 int drawable design_ic_visibility 0x7f080061
 int drawable design_ic_visibility_off 0x7f080062
@@ -2704,6 +2725,10 @@ int id clockwise 0x7f090085
 int id closest 0x7f090086
 int id collapseActionView 0x7f090087
 int id compress 0x7f090088
+int id confirm_account_button 0x7f09020a
+int id confirm_account_message1 0x7f09020b
+int id confirm_account_message2 0x7f09020c
+int id confirm_account_title 0x7f09020d
 int id confirm_button 0x7f090089
 int id constraint 0x7f09008a
 int id container 0x7f09008b
@@ -2772,7 +2797,18 @@ int id fitToContents 0x7f0900c9
 int id fixed 0x7f0900ca
 int id flip 0x7f0900cb
 int id floating 0x7f0900cc
+int id force_change_password_button 0x7f09020e
+int id force_change_password_form 0x7f09020f
+int id force_change_password_message 0x7f090210
+int id force_change_password_title 0x7f090211
+int id force_change_password_view 0x7f090212
 int id forever 0x7f0900cd
+int id forgot_Password_button 0x7f090213
+int id forgot_password_button 0x7f090214
+int id forgot_password_form 0x7f090215
+int id forgot_password_message 0x7f090216
+int id forgot_password_title 0x7f090217
+int id forgot_password_view 0x7f090218
 int id fragment_container_view_tag 0x7f0900ce
 int id frost 0x7f0900cf
 int id gallery_sub_fab 0x7f0900d0
@@ -2811,6 +2847,7 @@ int id item_touch_helper_previous_elevation 0x7f0900f0
 int id jumpToEnd 0x7f0900f1
 int id jumpToStart 0x7f0900f2
 int id labeled 0x7f0900f3
+int id large 0x7f090219
 int id layout 0x7f0900f4
 int id left 0x7f0900f5
 int id leftToRight 0x7f0900f6
@@ -2822,6 +2859,10 @@ int id linearLayout 0x7f0900fb
 int id listMode 0x7f0900fc
 int id list_item 0x7f0900fd
 int id locale 0x7f0900fe
+int id login_id 0x7f09021a
+int id login_id_text 0x7f09021b
+int id login_paw 0x7f09021c
+int id login_paw_text 0x7f09021d
 int id ltr 0x7f0900ff
 int id masked 0x7f090100
 int id match_constraint 0x7f090101
@@ -2846,6 +2887,11 @@ int id material_timepicker_ok_button 0x7f090113
 int id material_timepicker_view 0x7f090114
 int id material_value_index 0x7f090115
 int id message 0x7f090116
+int id mfa_button 0x7f09021e
+int id mfa_form 0x7f09021f
+int id mfa_message 0x7f090220
+int id mfa_title 0x7f090221
+int id mfa_view 0x7f090222
 int id middle 0x7f090117
 int id mini 0x7f090118
 int id mobile_navigation 0x7f090119
@@ -2976,12 +3022,29 @@ int id shortcut 0x7f090195
 int id showCustom 0x7f090196
 int id showHome 0x7f090197
 int id showTitle 0x7f090198
+int id signIn_button 0x7f090223
+int id signUpName 0x7f090224
+int id signUpName_text 0x7f090225
+int id signUpPassword 0x7f090226
+int id signUpPassword_text 0x7f090227
+int id signUpUsername 0x7f090228
+int id signUpUsername_text 0x7f090229
+int id signUp_button 0x7f09022a
+int id signUp_button2 0x7f09022b
+int id signup_button 0x7f09022c
+int id signup_confirm_form 0x7f09022d
+int id signup_confirm_view 0x7f09022e
+int id signup_form 0x7f09022f
+int id signup_layout 0x7f090230
+int id signup_message 0x7f090231
+int id signup_view 0x7f090232
 int id sin 0x7f090199
 int id skipCollapsed 0x7f09019a
 int id skipped 0x7f09019b
 int id slide 0x7f09019c
 int id sliding_pane_detail_container 0x7f09019d
 int id sliding_pane_layout 0x7f09019e
+int id small 0x7f090233
 int id snackbar_action 0x7f09019f
 int id snackbar_text 0x7f0901a0
 int id snap 0x7f0901a1
@@ -3072,6 +3135,7 @@ int id uniform 0x7f0901f5
 int id unlabeled 0x7f0901f6
 int id up 0x7f0901f7
 int id useLogo 0x7f0901f8
+int id user_pool_sign_in_view_id 0x7f090234
 int id vertical_only 0x7f0901f9
 int id view_offset_helper 0x7f0901fa
 int id view_transition 0x7f0901fb
@@ -3176,7 +3240,15 @@ int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
 int layout activity_addrefrigerator 0x7f0c001c
+int layout activity_auth 0x7f0c007b
+int layout activity_force_change_password 0x7f0c007c
+int layout activity_forgot_password 0x7f0c007d
 int layout activity_main 0x7f0c001d
+int layout activity_mfa 0x7f0c007e
+int layout activity_sign_in 0x7f0c007f
+int layout activity_sign_up 0x7f0c0080
+int layout activity_sign_up_confirm 0x7f0c0081
+int layout activity_signup 0x7f0c0082
 int layout custom_dialog 0x7f0c001e
 int layout design_bottom_navigation_item 0x7f0c001f
 int layout design_bottom_sheet_dialog 0x7f0c0020
@@ -3197,6 +3269,8 @@ int layout fragment_menu 0x7f0c002e
 int layout fragment_myrecipe 0x7f0c002f
 int layout fragment_recipe 0x7f0c0030
 int layout fragment_refrigerator 0x7f0c0031
+int layout horizontal_or_sign_in_divider 0x7f0c0083
+int layout horizontal_sign_in_divider 0x7f0c0084
 int layout item_addref 0x7f0c0032
 int layout item_refrig 0x7f0c0033
 int layout m3_alert_dialog 0x7f0c0034
@@ -3317,13 +3391,24 @@ int string character_counter_overflowed_content_description 0x7f120021
 int string character_counter_pattern 0x7f120022
 int string chip_text 0x7f120023
 int string clear_text_end_icon_content_description 0x7f120024
+int string email_address_text 0x7f12008a
 int string error_icon_content_description 0x7f120025
 int string exposed_dropdown_menu_content_description 0x7f120026
 int string fab_transformation_scrim_behavior 0x7f120027
 int string fab_transformation_sheet_behavior 0x7f120028
+int string force_change_password_body 0x7f12008b
+int string force_change_password_button_hint 0x7f12008c
+int string force_change_password_header 0x7f12008d
+int string forgot_password_body 0x7f12008e
+int string forgot_password_button_hint 0x7f12008f
+int string forgot_password_header 0x7f120090
+int string forgot_password_input_code_hint 0x7f120091
+int string given_name_text 0x7f120092
 int string hide_bottom_view_on_scroll_behavior 0x7f120029
 int string icon_content_description 0x7f12002a
+int string incorrect_username_or_password 0x7f120093
 int string item_view_role_description 0x7f12002b
+int string login_failed 0x7f120094
 int string m3_ref_typeface_brand_display_regular 0x7f12002c
 int string m3_ref_typeface_brand_medium 0x7f12002d
 int string m3_ref_typeface_brand_regular 0x7f12002e
@@ -3369,6 +3454,10 @@ int string material_timepicker_minute 0x7f120055
 int string material_timepicker_pm 0x7f120056
 int string material_timepicker_select_time 0x7f120057
 int string material_timepicker_text_input_mode_description 0x7f120058
+int string mfa_code_empty 0x7f120095
+int string mfa_code_sent_message 0x7f120096
+int string mfa_failed 0x7f120097
+int string mfa_header 0x7f120098
 int string mtrl_badge_numberless_content_description 0x7f120059
 int string mtrl_chip_close_icon_content_description 0x7f12005a
 int string mtrl_exceed_max_badge_number_content_description 0x7f12005b
@@ -3407,17 +3496,58 @@ int string mtrl_picker_toggle_to_year_selection 0x7f12007b
 int string mtrl_timepicker_confirm 0x7f12007c
 int string nav_app_bar_navigate_up_description 0x7f12007d
 int string nav_app_bar_open_drawer_description 0x7f12007e
+int string password_change_failed 0x7f120099
+int string password_change_no_verification_failed 0x7f12009a
+int string password_change_success 0x7f12009b
+int string password_length_validation_failed 0x7f12009c
 int string password_toggle_content_description 0x7f12007f
 int string path_password_eye 0x7f120080
 int string path_password_eye_mask_strike_through 0x7f120081
 int string path_password_eye_mask_visible 0x7f120082
 int string path_password_strike_through 0x7f120083
+int string phone_number_text 0x7f12009d
+int string please_wait 0x7f12009e
 int string search_menu_title 0x7f120084
+int string sign_in_button_text 0x7f12009f
+int string sign_in_canceled_message_format 0x7f1200a0
+int string sign_in_failure_message_format 0x7f1200a1
+int string sign_in_forgot_password 0x7f1200a2
+int string sign_in_hide_password 0x7f1200a3
+int string sign_in_new_account 0x7f1200a4
+int string sign_in_or 0x7f1200a5
+int string sign_in_password 0x7f1200a6
+int string sign_in_show_password 0x7f1200a7
+int string sign_in_succeeded_message_format 0x7f1200a8
+int string sign_in_username 0x7f1200a9
+int string sign_in_with 0x7f1200aa
+int string sign_up_confirm_code 0x7f1200ab
+int string sign_up_confirm_code_missing 0x7f1200ac
+int string sign_up_confirm_code_sent 0x7f1200ad
+int string sign_up_confirm_enter_code 0x7f1200ae
+int string sign_up_confirm_failed 0x7f1200af
+int string sign_up_confirm_success 0x7f1200b0
+int string sign_up_confirm_text 0x7f1200b1
+int string sign_up_confirm_title 0x7f1200b2
+int string sign_up_failed 0x7f1200b3
+int string sign_up_header 0x7f1200b4
+int string sign_up_in_progress 0x7f1200b5
+int string sign_up_success 0x7f1200b6
+int string sign_up_username_missing 0x7f1200b7
 int string status_bar_notification_info_overflow 0x7f120085
+int string title_activity_force_change_password 0x7f1200b8
+int string title_activity_forgot_password 0x7f1200b9
+int string title_activity_mfa 0x7f1200ba
+int string title_activity_sign_in 0x7f1200bb
+int string title_activity_sign_up 0x7f1200bc
+int string title_activity_sign_up_confirm 0x7f1200bd
+int string title_dialog_sign_up_failed 0x7f1200be
 int string title_menu 0x7f120086
 int string title_myrecipe 0x7f120087
 int string title_recipe 0x7f120088
 int string title_refrigerator 0x7f120089
+int string user_does_not_exist 0x7f1200bf
+int string username_text 0x7f1200c0
+int string verify_button_text 0x7f1200c1
 int style AlertDialog_AppCompat 0x7f130000
 int style AlertDialog_AppCompat_Light 0x7f130001
 int style AndroidThemeColorAccentYellow 0x7f130002
@@ -4764,6 +4894,9 @@ int styleable BottomSheetBehavior_Layout_paddingRightSystemWindowInsets 15
 int styleable BottomSheetBehavior_Layout_paddingTopSystemWindowInsets 16
 int styleable BottomSheetBehavior_Layout_shapeAppearance 17
 int styleable BottomSheetBehavior_Layout_shapeAppearanceOverlay 18
+int[] styleable ButtonBarContainerTheme { 0x7f040470, 0x7f040471 }
+int styleable ButtonBarContainerTheme_metaButtonBarButtonStyle 0
+int styleable ButtonBarContainerTheme_metaButtonBarStyle 1
 int[] styleable ButtonBarLayout { 0x7f04002e }
 int styleable ButtonBarLayout_allowStacking 0
 int[] styleable Capability { 0x7f040337, 0x7f040362 }
@@ -5472,6 +5605,8 @@ int[] styleable ForegroundLinearLayout { 0x01010109, 0x01010200, 0x7f0401d2 }
 int styleable ForegroundLinearLayout_android_foreground 0
 int styleable ForegroundLinearLayout_android_foregroundGravity 1
 int styleable ForegroundLinearLayout_foregroundInsidePadding 2
+int[] styleable ForgotPasswordView { 0x7f04046f }
+int styleable ForgotPasswordView_forgotPasswordViewBackgroundColor 0
 int[] styleable Fragment { 0x01010003, 0x010100d0, 0x010100d1 }
 int styleable Fragment_android_name 0
 int styleable Fragment_android_id 1
@@ -5709,6 +5844,8 @@ int styleable LinearProgressIndicator_indicatorDirectionLinear 1
 int[] styleable ListPopupWindow { 0x010102ac, 0x010102ad }
 int styleable ListPopupWindow_android_dropDownHorizontalOffset 0
 int styleable ListPopupWindow_android_dropDownVerticalOffset 1
+int[] styleable MFAView { 0x7f040472 }
+int styleable MFAView_mfaViewBackgroundColor 0
 int[] styleable MaterialAlertDialog { 0x7f040047, 0x7f040048, 0x7f040049, 0x7f04004a }
 int styleable MaterialAlertDialog_backgroundInsetBottom 0
 int styleable MaterialAlertDialog_backgroundInsetEnd 1
@@ -6119,6 +6256,16 @@ int styleable ShapeableImageView_shapeAppearance 7
 int styleable ShapeableImageView_shapeAppearanceOverlay 8
 int styleable ShapeableImageView_strokeColor 9
 int styleable ShapeableImageView_strokeWidth 10
+int[] styleable SignInButton { 0x7f04046e, 0x7f040477 }
+int styleable SignInButton_button_style 0
+int styleable SignInButton_text 1
+int[] styleable SignInView { 0x7f040473, 0x7f040474 }
+int styleable SignInView_signInBackgroundColor 0
+int styleable SignInView_signInImageResId 1
+int[] styleable SignUpConfirmView { 0x7f040475 }
+int styleable SignUpConfirmView_signUpConfirmViewBackgroundColor 0
+int[] styleable SignUpView { 0x7f040476 }
+int styleable SignUpView_signUpViewBackgroundColor 0
 int[] styleable Slider { 0x0101000e, 0x01010024, 0x01010146, 0x010102de, 0x010102df, 0x7f0401d9, 0x7f0401da, 0x7f04022b, 0x7f04022c, 0x7f04040e, 0x7f04040f, 0x7f040410, 0x7f040411, 0x7f040412, 0x7f040416, 0x7f040417, 0x7f040418, 0x7f04041c, 0x7f04043a, 0x7f04043b, 0x7f04043c, 0x7f04043e }
 int styleable Slider_android_enabled 0
 int styleable Slider_android_value 1
