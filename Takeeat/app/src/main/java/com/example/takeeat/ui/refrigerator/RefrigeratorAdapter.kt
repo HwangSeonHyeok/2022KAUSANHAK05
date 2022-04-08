@@ -30,7 +30,7 @@ class RefrigeratorAdapter(private val itemTestList: List<RefrigeratorFragment.Re
             holder.apply {
                 txtItemName.text = items.itemName
                 txtItemExp.text = items.itemExpiration.toString()+"일"
-                txtItemQuan.text = items.itemQuantity.toString()+"개"
+                txtItemQuan.text = items.itemQuantity.toString()+items.itemUnit
 
         }
     }

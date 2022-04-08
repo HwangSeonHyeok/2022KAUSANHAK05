@@ -429,27 +429,16 @@ class RefrigeratorFragment : Fragment() {
         var itemName: String,
         var itemExpiration: Int,
         var itemQuantity: Int,
+        var itemUnit: String
         )
 
     private val itemTestList = ArrayList<RefrigeratorItemModel>().apply {
-        add(RefrigeratorItemModel("우유",12,1))
-        add(RefrigeratorItemModel("두유",6,3))
-        add(RefrigeratorItemModel("마늘",3,8))
-        add(RefrigeratorItemModel("마늘2",3,8))
-        add(RefrigeratorItemModel("마늘3",3,8))
-        add(RefrigeratorItemModel("마늘4",3,8))
-        add(RefrigeratorItemModel("마늘5",3,8))
-        add(RefrigeratorItemModel("마늘6",3,8))
-        add(RefrigeratorItemModel("마늘7",3,8))
-        add(RefrigeratorItemModel("마늘8",3,8))
-        add(RefrigeratorItemModel("마늘9",3,8))
-        add(RefrigeratorItemModel("마늘10",3,8))
-        add(RefrigeratorItemModel("마늘11",3,8))
-        add(RefrigeratorItemModel("마늘12",3,8))
-        add(RefrigeratorItemModel("마늘13",3,8))
-        add(RefrigeratorItemModel("마늘14",3,8))
-        add(RefrigeratorItemModel("마늘15",3,8))
-
+        add(RefrigeratorItemModel("우유",12,1,"L"))
+        add(RefrigeratorItemModel("두유",6,3,"개"))
+        add(RefrigeratorItemModel("마늘",3,8,"개"))
+        add(RefrigeratorItemModel("마늘2",3,8,"g"))
+        add(RefrigeratorItemModel("마늘3",3,8,"kg"))
+        add(RefrigeratorItemModel("마늘4",3,8,"mg"))
     }
 
 
