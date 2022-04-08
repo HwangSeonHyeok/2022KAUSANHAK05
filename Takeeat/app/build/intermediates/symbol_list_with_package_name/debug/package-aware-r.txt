@@ -2737,6 +2737,7 @@ id confirm_account_message2
 id confirm_account_title
 id confirm_button
 id constraint
+id constraintLayout
 id container
 id content
 id contentPanel
@@ -2995,9 +2996,17 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id refrig_divider1
+id refrig_divider2
+id refrig_item_divider
+id refrig_item_types
 id refrigerator_item_expiration
 id refrigerator_item_name
 id refrigerator_item_quantity
+id refrigerator_sort_button
+id refrigerator_switch
+id refrigerator_textView1
+id refrigerator_textView2
 id refrigeratorfab
 id refrigeratorrecyclerview
 id reverseSawtooth

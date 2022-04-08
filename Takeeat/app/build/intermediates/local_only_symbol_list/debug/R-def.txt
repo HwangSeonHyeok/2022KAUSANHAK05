@@ -41,6 +41,7 @@ id cart_button
 id code_button
 id code_name
 id code_name_text
+id constraintLayout
 id container
 id direct_sub_fab
 id editItemAmount
@@ -68,9 +69,17 @@ id paw_code_name
 id paw_code_name_text
 id paw_signUpUsername
 id paw_signUpUsername_text
+id refrig_divider1
+id refrig_divider2
+id refrig_item_divider
+id refrig_item_types
 id refrigerator_item_expiration
 id refrigerator_item_name
 id refrigerator_item_quantity
+id refrigerator_sort_button
+id refrigerator_switch
+id refrigerator_textView1
+id refrigerator_textView2
 id refrigeratorfab
 id refrigeratorrecyclerview
 id signIn_button

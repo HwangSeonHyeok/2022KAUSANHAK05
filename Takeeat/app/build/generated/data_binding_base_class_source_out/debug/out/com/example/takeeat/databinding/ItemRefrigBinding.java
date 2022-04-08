@@ -4,10 +4,10 @@ package com.example.takeeat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.takeeat.R;
@@ -17,7 +17,10 @@ import java.lang.String;
 
 public final class ItemRefrigBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final View refrigItemDivider;
 
   @NonNull
   public final TextView refrigeratorItemExpiration;
@@ -28,10 +31,11 @@ public final class ItemRefrigBinding implements ViewBinding {
   @NonNull
   public final TextView refrigeratorItemQuantity;
 
-  private ItemRefrigBinding(@NonNull LinearLayout rootView,
+  private ItemRefrigBinding(@NonNull ConstraintLayout rootView, @NonNull View refrigItemDivider,
       @NonNull TextView refrigeratorItemExpiration, @NonNull TextView refrigeratorItemName,
       @NonNull TextView refrigeratorItemQuantity) {
     this.rootView = rootView;
+    this.refrigItemDivider = refrigItemDivider;
     this.refrigeratorItemExpiration = refrigeratorItemExpiration;
     this.refrigeratorItemName = refrigeratorItemName;
     this.refrigeratorItemQuantity = refrigeratorItemQuantity;
@@ -39,7 +43,7 @@ public final class ItemRefrigBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -64,6 +68,12 @@ public final class ItemRefrigBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.refrig_item_divider;
+      View refrigItemDivider = ViewBindings.findChildViewById(rootView, id);
+      if (refrigItemDivider == null) {
+        break missingId;
+      }
+
       id = R.id.refrigerator_item_expiration;
       TextView refrigeratorItemExpiration = ViewBindings.findChildViewById(rootView, id);
       if (refrigeratorItemExpiration == null) {
@@ -82,8 +92,8 @@ public final class ItemRefrigBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemRefrigBinding((LinearLayout) rootView, refrigeratorItemExpiration,
-          refrigeratorItemName, refrigeratorItemQuantity);
+      return new ItemRefrigBinding((ConstraintLayout) rootView, refrigItemDivider,
+          refrigeratorItemExpiration, refrigeratorItemName, refrigeratorItemQuantity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

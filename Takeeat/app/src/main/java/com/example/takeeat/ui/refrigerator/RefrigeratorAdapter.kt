@@ -24,27 +24,19 @@ class RefrigeratorAdapter(private val itemTestList: List<RefrigeratorFragment.Re
     override fun onBindViewHolder(holder: RowViewHolder, position: Int) {
         val rowPos = holder.absoluteAdapterPosition
 
-        if (rowPos == 0) {
-            // Header Cells. Main Headings appear here
-            holder.apply{
-                txtItemName.text = "이름"
-                txtItemExp.text = "유통기한"
-                txtItemQuan.text = "갯수"
-            }
 
-        } else {
-            val items = itemTestList[rowPos - 1]
+            val items = itemTestList[rowPos]
 
             holder.apply {
                 txtItemName.text = items.itemName
                 txtItemExp.text = items.itemExpiration.toString()+"일"
                 txtItemQuan.text = items.itemQuantity.toString()+"개"
-            }
+
         }
     }
 
     override fun getItemCount(): Int {
-        return itemTestList.size + 1 // one more to add header row
+        return itemTestList.size
     }
 
 
