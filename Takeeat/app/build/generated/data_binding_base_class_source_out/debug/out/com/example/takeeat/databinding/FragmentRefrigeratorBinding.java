@@ -4,6 +4,9 @@ package com.example.takeeat.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TableRow;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,10 +28,43 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
   public final FloatingActionButton cameraSubFab;
 
   @NonNull
+  public final ConstraintLayout constraintLayout;
+
+  @NonNull
   public final FloatingActionButton directSubFab;
 
   @NonNull
   public final FloatingActionButton gallerySubFab;
+
+  @NonNull
+  public final View refrigDivider1;
+
+  @NonNull
+  public final View refrigDivider2;
+
+  @NonNull
+  public final TableRow refrigItemTypes;
+
+  @NonNull
+  public final TextView refrigeratorItemExpiration;
+
+  @NonNull
+  public final TextView refrigeratorItemName;
+
+  @NonNull
+  public final TextView refrigeratorItemQuantity;
+
+  @NonNull
+  public final ImageButton refrigeratorSortButton;
+
+  @NonNull
+  public final Switch refrigeratorSwitch;
+
+  @NonNull
+  public final TextView refrigeratorTextView1;
+
+  @NonNull
+  public final TextView refrigeratorTextView2;
 
   @NonNull
   public final FloatingActionButton refrigeratorfab;
@@ -46,14 +82,30 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
   public final TextView textGallery;
 
   private FragmentRefrigeratorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton cameraSubFab, @NonNull FloatingActionButton directSubFab,
-      @NonNull FloatingActionButton gallerySubFab, @NonNull FloatingActionButton refrigeratorfab,
+      @NonNull FloatingActionButton cameraSubFab, @NonNull ConstraintLayout constraintLayout,
+      @NonNull FloatingActionButton directSubFab, @NonNull FloatingActionButton gallerySubFab,
+      @NonNull View refrigDivider1, @NonNull View refrigDivider2, @NonNull TableRow refrigItemTypes,
+      @NonNull TextView refrigeratorItemExpiration, @NonNull TextView refrigeratorItemName,
+      @NonNull TextView refrigeratorItemQuantity, @NonNull ImageButton refrigeratorSortButton,
+      @NonNull Switch refrigeratorSwitch, @NonNull TextView refrigeratorTextView1,
+      @NonNull TextView refrigeratorTextView2, @NonNull FloatingActionButton refrigeratorfab,
       @NonNull RecyclerView refrigeratorrecyclerview, @NonNull TextView textCamera,
       @NonNull TextView textDirect, @NonNull TextView textGallery) {
     this.rootView = rootView;
     this.cameraSubFab = cameraSubFab;
+    this.constraintLayout = constraintLayout;
     this.directSubFab = directSubFab;
     this.gallerySubFab = gallerySubFab;
+    this.refrigDivider1 = refrigDivider1;
+    this.refrigDivider2 = refrigDivider2;
+    this.refrigItemTypes = refrigItemTypes;
+    this.refrigeratorItemExpiration = refrigeratorItemExpiration;
+    this.refrigeratorItemName = refrigeratorItemName;
+    this.refrigeratorItemQuantity = refrigeratorItemQuantity;
+    this.refrigeratorSortButton = refrigeratorSortButton;
+    this.refrigeratorSwitch = refrigeratorSwitch;
+    this.refrigeratorTextView1 = refrigeratorTextView1;
+    this.refrigeratorTextView2 = refrigeratorTextView2;
     this.refrigeratorfab = refrigeratorfab;
     this.refrigeratorrecyclerview = refrigeratorrecyclerview;
     this.textCamera = textCamera;
@@ -94,6 +146,12 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.constraintLayout;
+      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout == null) {
+        break missingId;
+      }
+
       id = R.id.direct_sub_fab;
       FloatingActionButton directSubFab = ViewBindings.findChildViewById(rootView, id);
       if (directSubFab == null) {
@@ -103,6 +161,66 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
       id = R.id.gallery_sub_fab;
       FloatingActionButton gallerySubFab = ViewBindings.findChildViewById(rootView, id);
       if (gallerySubFab == null) {
+        break missingId;
+      }
+
+      id = R.id.refrig_divider1;
+      View refrigDivider1 = ViewBindings.findChildViewById(rootView, id);
+      if (refrigDivider1 == null) {
+        break missingId;
+      }
+
+      id = R.id.refrig_divider2;
+      View refrigDivider2 = ViewBindings.findChildViewById(rootView, id);
+      if (refrigDivider2 == null) {
+        break missingId;
+      }
+
+      id = R.id.refrig_item_types;
+      TableRow refrigItemTypes = ViewBindings.findChildViewById(rootView, id);
+      if (refrigItemTypes == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_item_expiration;
+      TextView refrigeratorItemExpiration = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorItemExpiration == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_item_name;
+      TextView refrigeratorItemName = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorItemName == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_item_quantity;
+      TextView refrigeratorItemQuantity = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorItemQuantity == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_sort_button;
+      ImageButton refrigeratorSortButton = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorSortButton == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_switch;
+      Switch refrigeratorSwitch = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorSwitch == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_textView1;
+      TextView refrigeratorTextView1 = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorTextView1 == null) {
+        break missingId;
+      }
+
+      id = R.id.refrigerator_textView2;
+      TextView refrigeratorTextView2 = ViewBindings.findChildViewById(rootView, id);
+      if (refrigeratorTextView2 == null) {
         break missingId;
       }
 
@@ -137,8 +255,11 @@ public final class FragmentRefrigeratorBinding implements ViewBinding {
       }
 
       return new FragmentRefrigeratorBinding((ConstraintLayout) rootView, cameraSubFab,
-          directSubFab, gallerySubFab, refrigeratorfab, refrigeratorrecyclerview, textCamera,
-          textDirect, textGallery);
+          constraintLayout, directSubFab, gallerySubFab, refrigDivider1, refrigDivider2,
+          refrigItemTypes, refrigeratorItemExpiration, refrigeratorItemName,
+          refrigeratorItemQuantity, refrigeratorSortButton, refrigeratorSwitch,
+          refrigeratorTextView1, refrigeratorTextView2, refrigeratorfab, refrigeratorrecyclerview,
+          textCamera, textDirect, textGallery);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
