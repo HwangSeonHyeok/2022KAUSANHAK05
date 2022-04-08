@@ -19,25 +19,28 @@
             <TextView
                 android:id="@+id/refrigerator_item_name"
                 android:layout_width="166dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:paddingLeft="20sp"
+                android:layout_marginTop="6dp"
                 android:text="이름"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/refrigerator_item_expiration"
                 android:layout_width="119dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
+                android:layout_marginTop="6dp"
                 android:text="유통기한"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/refrigerator_item_quantity"
                 android:layout_width="124dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
+                android:layout_marginTop="6dp"
                 android:text="개수"
                 android:textSize="18sp" />
 
