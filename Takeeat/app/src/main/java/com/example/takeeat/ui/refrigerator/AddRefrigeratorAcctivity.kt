@@ -10,6 +10,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.databinding.ActivityAddrefrigeratorBinding
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 class AddRefrigeratorActivity :AppCompatActivity() {
     lateinit var binding : ActivityAddrefrigeratorBinding
@@ -36,6 +39,22 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             //DB추가 여기다 붙여주세요
             //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
 
+            // viewmodel -> json 변환
+            try {
+                val jArray = JSONArray() //배열
+                for (i in 0 until viewmodel.getCount()) {
+                    val sObject = JSONObject() //배열 내에 들어갈 json
+                    sObject.put("itemname", viewmodel.liveData.value!![i].itemname)
+                    sObject.put("itemtag", viewmodel.liveData.value!![i].itemtag)
+                    sObject.put("itemexp", viewmodel.liveData.value!![i].itemexp)
+                    sObject.put("itemamount", viewmodel.liveData.value!![i].itemamount)
+                    sObject.put("itemunit", viewmodel.liveData.value!![i].itemunit)
+                    jArray.put(sObject)
+                }
+                Log.d("JSON Test", jArray.toString())
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
 
 
 
