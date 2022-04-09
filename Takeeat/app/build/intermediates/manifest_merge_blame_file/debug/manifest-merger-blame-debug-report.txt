@@ -6,205 +6,205 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
+8-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
+9-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:6:5-67
-11-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:6:22-64
+11-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:6:5-67
+11-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:7:5-79
-12-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:7:22-77
+12-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:7:5-79
+12-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:7:22-77
 13    <uses-permission android:name="android.permission.CAMERA" />
-13-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:8:5-64
-13-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:8:22-62
+13-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:8:5-64
+13-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:8:22-62
 14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-14-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:5-80
-14-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:22-78
+14-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:5-80
+14-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:22-78
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-15-->[com.amazonaws:aws-android-sdk-mobile-client:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\9bc9f96a5844b004727024950e9a90df\transformed\aws-android-sdk-mobile-client-2.8.5\AndroidManifest.xml:7:5-78
-15-->[com.amazonaws:aws-android-sdk-mobile-client:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\9bc9f96a5844b004727024950e9a90df\transformed\aws-android-sdk-mobile-client-2.8.5\AndroidManifest.xml:7:22-76
+15-->[com.amazonaws:aws-android-sdk-mobile-client:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\9bc9f96a5844b004727024950e9a90df\transformed\aws-android-sdk-mobile-client-2.8.5\AndroidManifest.xml:7:5-78
+15-->[com.amazonaws:aws-android-sdk-mobile-client:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\9bc9f96a5844b004727024950e9a90df\transformed\aws-android-sdk-mobile-client-2.8.5\AndroidManifest.xml:7:22-76
 16    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-16-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:6:5-75
-16-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:6:22-73
+16-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:6:5-75
+16-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:6:22-73
 17
 18    <application
-18-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-52:19
+18-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-52:19
 19        android:allowBackup="true"
-19-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:12:9-35
+19-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:12:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.7.0] C:\Users\soult\.gradle\caches\transforms-3\adacc4bbdca3c037c01e5031782c646c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+20-->[androidx.core:core:1.7.0] C:\Users\wohnton\.gradle\caches\transforms-3\adacc4bbdca3c037c01e5031782c646c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:extractNativeLibs="false"
 23        android:icon="@mipmap/ic_launcher"
-23-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:13:9-43
+23-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:13:9-43
 24        android:label="@string/app_name"
-24-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:14:9-41
+24-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:14:9-41
 25        android:requestLegacyExternalStorage="true"
-25-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:18:9-52
+25-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:18:9-52
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:15:9-54
+26-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:15:9-54
 27        android:supportsRtl="true"
-27-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:16:9-35
+27-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:16:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.Takeeat" >
-29-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:9-45
+29-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:17:9-45
 30        <activity android:name="com.example.takeeat.SignUpActivity" />
-30-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:9-61
-30-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:19-49
+30-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:9-61
+30-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:20:19-49
 31        <activity android:name="com.example.takeeat.OkActivity" />
-31-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:9-48
-31-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:19-45
+31-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:9-48
+31-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:21:19-45
 32        <activity android:name="com.example.takeeat.ForgotActivity" />
-32-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-52
-32-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:19-49
+32-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-52
+32-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:19-49
 33        <activity
-33-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:47
+33-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:47
 34            android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity"
-34-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-74
+34-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-74
 35            android:label="@string/app_name" />
-35-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-45
+35-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-45
 36        <activity
-36-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:9-29:47
+36-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:9-29:47
 37            android:name="com.example.takeeat.MainActivity"
-37-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:13-41
+37-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:13-41
 38            android:exported="true"
-38-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:13-36
+38-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:13-36
 39            android:label="@string/app_name" />
-39-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-45
+39-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-45
 40        <activity
-40-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:9-40:20
+40-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:9-40:20
 41            android:name="com.example.takeeat.AuthActivity"
-41-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:32:13-41
+41-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:32:13-41
 42            android:exported="true"
-42-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-36
+42-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-36
 43            android:noHistory="true" >
-43-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:13-37
+43-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:13-37
 44            <intent-filter>
-44-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-39:29
+44-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-39:29
 45                <action android:name="android.intent.action.MAIN" />
-45-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:17-69
-45-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:25-66
+45-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:17-69
+45-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:25-66
 46
 47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:17-77
-47-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:27-74
+47-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:17-77
+47-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:27-74
 48            </intent-filter>
 49        </activity>
 50
 51        <provider
-51-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:9-50:20
+51-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:9-50:20
 52            android:name="androidx.core.content.FileProvider"
-52-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:43:13-62
+52-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:43:13-62
 53            android:authorities="com.example.takeeat.provider"
-53-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:44:13-63
+53-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:44:13-63
 54            android:exported="false"
-54-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:45:13-37
+54-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:45:13-37
 55            android:grantUriPermissions="true" >
-55-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:13-47
+55-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:13-47
 56            <meta-data
-56-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-49:64
+56-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-49:64
 57                android:name="android.support.FILE_PROVIDER_PATHS"
-57-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:17-67
+57-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:17-67
 58                android:resource="@xml/file_paths" />
-58-->C:\Users\soult\Desktop\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:17-51
+58-->C:\Users\wohnton\Documents\prospect\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:17-51
 59        </provider>
 60
 61        <uses-library
-61-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+61-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
 62            android:name="androidx.window.extensions"
-62-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+62-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 63            android:required="false" />
-63-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+63-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
 64        <uses-library
-64-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+64-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
 65            android:name="androidx.window.sidecar"
-65-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+65-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
 66            android:required="false" />
-66-->[androidx.window:window:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+66-->[androidx.window:window:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
 67
 68        <activity
-68-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
+68-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
 69            android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
-69-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
+69-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
 70            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-70-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
+70-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
 71            android:label="@string/title_activity_force_change_password"
-71-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
+71-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
 72            android:screenOrientation="portrait" />
-72-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
+72-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
 73        <activity
-73-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
+73-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
 74            android:name="com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity"
-74-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
+74-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
 75            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-75-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
+75-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
 76            android:label="@string/title_activity_forgot_password"
-76-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
+76-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
 77            android:screenOrientation="portrait" />
-77-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
+77-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
 78        <activity
-78-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
+78-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
 79            android:name="com.amazonaws.mobile.auth.userpools.SignUpActivity"
-79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
+79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
 80            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
+80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
 81            android:label="@string/title_activity_sign_up"
-81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
+81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
 82            android:screenOrientation="portrait" />
-82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
+82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
 83        <activity
-83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
+83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
 84            android:name="com.amazonaws.mobile.auth.userpools.MFAActivity"
-84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
+84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
 85            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
+85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
 86            android:label="@string/title_activity_mfa"
-86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
+86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
 87            android:screenOrientation="portrait" />
-87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
+87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
 88        <activity
-88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
+88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
 89            android:name="com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity"
-89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
+89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
 90            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
+90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
 91            android:label="@string/title_activity_sign_up_confirm"
-91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
+91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
 92            android:screenOrientation="portrait" />
-92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
+92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
 93        <activity
-93-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
+93-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
 94            android:name="com.amazonaws.mobile.auth.ui.SignInActivity"
-94-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
+94-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
 95            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-95-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
+95-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
 96            android:label="@string/title_activity_sign_in"
-96-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
+96-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
 97            android:screenOrientation="portrait" />
-97-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\soult\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
+97-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\wohnton\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
 98
 99        <provider
-99-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+99-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
 100            android:name="androidx.startup.InitializationProvider"
-100-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+100-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
 101            android:authorities="com.example.takeeat.androidx-startup"
-101-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+101-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
 102            android:exported="false" >
-102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
 103            <meta-data
-103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
 104                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
 105                android:value="androidx.startup" />
-105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\soult\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wohnton\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
 106            <meta-data
-106-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\soult\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+106-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wohnton\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
 107                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-107-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\soult\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+107-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wohnton\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
 108                android:value="androidx.startup" />
-108-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\soult\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+108-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wohnton\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
 109        </provider>
 110    </application>
 111

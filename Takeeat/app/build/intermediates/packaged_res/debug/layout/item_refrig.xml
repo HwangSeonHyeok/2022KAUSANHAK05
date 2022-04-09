@@ -1,38 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="vertical">
 
-    <TableRow
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/refrigerator_item_name"
+                android:layout_width="166dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingLeft="20sp"
+                android:layout_marginTop="6dp"
+                android:text="이름"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/refrigerator_item_expiration"
+                android:layout_width="119dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="6dp"
+                android:text="유통기한"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/refrigerator_item_quantity"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="6dp"
+                android:text="개수"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+    </LinearLayout>
+
+    <View xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/refrig_item_divider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="1dp"
+        android:background="#32191818"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        <TextView
-            android:id="@+id/refrigerator_item_name"
-            android:layout_width="166dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="top"
-            android:text="이름"
-            android:textSize="18sp"
-            android:paddingLeft="20sp"/>
-
-        <TextView
-            android:id="@+id/refrigerator_item_expiration"
-            android:layout_width="119dp"
-            android:layout_height="41dp"
-            android:layout_gravity="top"
-            android:text="유통기한"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/refrigerator_item_quantity"
-            android:layout_width="124dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="top"
-            android:text="개수"
-            android:textSize="18sp" />
-
-    </TableRow>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
