@@ -32,6 +32,16 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             viewmodel.addData(RefItem(null, null, null, null, null))
             Log.d("Response", "inMain"+viewmodel.getCount().toString())
         }
+        binding.addrefApplyButton.setOnClickListener {
+            //DB추가 여기다 붙여주세요
+            //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
+
+
+
+
+
+            finish()
+        }
         val simplecallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
             override fun onMove(
                 recyclerView: RecyclerView,

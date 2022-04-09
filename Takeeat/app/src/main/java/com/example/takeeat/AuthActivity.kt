@@ -161,7 +161,7 @@ class AuthActivity : AppCompatActivity() {
             backPressedTime = tempTime
             toast =
                 Toast.makeText(applicationContext, "'뒤로'버튼 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT)
-//            toast.show()
+            toast!!.show()
         }
     }
 

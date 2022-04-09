@@ -21,7 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="vertical"
+<<<<<<< Updated upstream
         app:layout_constraintBottom_toTopOf="@id/addref_divider"
+=======
+        app:layout_constraintBottom_toTopOf="@id/addref_Divider"
+>>>>>>> Stashed changes
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addref_EditItemName">
@@ -71,7 +75,11 @@
     </LinearLayout>
 
     <View
+<<<<<<< Updated upstream
         android:id="@+id/addref_divider"
+=======
+        android:id="@+id/addref_Divider"
+>>>>>>> Stashed changes
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#32191818"

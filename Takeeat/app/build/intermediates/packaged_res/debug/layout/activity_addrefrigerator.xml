@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/addref_Apply"
+        app:layout_constraintBottom_toTopOf="@id/addref_ApplyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,19 +39,19 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0"
                 android:gravity="center_horizontal"
-                android:text="+ 추가하기"
+                android:text="+ 항목 추가하기"
                 android:textSize="24sp" />
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/addref_Apply"
+        android:id="@+id/addref_ApplyButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="0"
         android:gravity="center"
-        android:text="+ 추가하기"
+        android:text="추가하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

@@ -86,7 +86,7 @@ public final class ItemAddrefBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.addref_divider;
+      id = R.id.addref_Divider;
       View addrefDivider = ViewBindings.findChildViewById(rootView, id);
       if (addrefDivider == null) {
         break missingId;

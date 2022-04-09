@@ -53,7 +53,7 @@ class MenuFragment: Fragment() {
                         AWSMobileClient.getInstance().signOut()
                         val i = Intent(logoutbutton.context, AuthActivity::class.java)
                         startActivity(i)
-                        //finish()
+                        activity!!.finish()
                     }
 
                     override fun onError(e: Exception) {}

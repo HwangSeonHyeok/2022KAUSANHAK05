@@ -2518,6 +2518,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable circle
 drawable default_sign_in_logo
 drawable design_fab_background
 drawable design_ic_visibility
@@ -2526,6 +2527,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_add_24
 drawable ic_baseline_add_photo_alternate
+drawable ic_baseline_add_shopping_cart
+drawable ic_baseline_arrow_back
 drawable ic_baseline_camera_alt
 drawable ic_baseline_create
 drawable ic_baseline_delete_sweep
@@ -2536,6 +2539,7 @@ drawable ic_home_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_leftarrow_button
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
@@ -2662,14 +2666,15 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addShoppingList_button
 id add_addref_UnitSpinner
 id addref_AddButton
-id addref_Apply
+id addref_ApplyButton
+id addref_Divider
 id addref_EXPText
 id addref_EditItemName
 id addref_RecyclerView
 id addref_TagButton
-id addref_divider
 id alertTitle
 id aligned
 id all
@@ -3042,6 +3047,13 @@ id selected
 id selection_type
 id sharedValueSet
 id sharedValueUnset
+id shoppingListRecyclerView
+id shoppinglist_Divider
+id shoppinglist_EditItemName
+id shoppinglist_ItemName
+id shoppinglist_MinusButton
+id shoppinglist_PlusButton
+id shoppinglist_count
 id shortcut
 id showCustom
 id showHome
@@ -3273,6 +3285,7 @@ layout activity_forgot_password
 layout activity_main
 layout activity_mfa
 layout activity_ok
+layout activity_shoppinglist
 layout activity_sign_in
 layout activity_sign_up
 layout activity_sign_up_confirm
@@ -3301,6 +3314,7 @@ layout horizontal_or_sign_in_divider
 layout horizontal_sign_in_divider
 layout item_addref
 layout item_refrig
+layout item_shoppinglist
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3376,6 +3390,7 @@ menu bottom_nav_menu
 menu example_menu
 menu example_menu2
 menu search_menu
+menu shoppinglist_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation

@@ -7,12 +7,6 @@ import androidx.lifecycle.ViewModel
 class AddRefrigeratorViewModel : ViewModel()  {
     var liveData : MutableLiveData<ArrayList<RefItem>> = MutableLiveData<ArrayList<RefItem>>()
     var refItemData = ArrayList<RefItem>()
-
-
-
-    init{
-        //liveData.postValue(refItemData)
-    }
     fun addData(refItem: RefItem){
         refItemData.add(refItem)
         liveData.postValue(refItemData)

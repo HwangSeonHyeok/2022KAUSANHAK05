@@ -26,7 +26,7 @@ public final class ActivityAddrefrigeratorBinding implements ViewBinding {
   public final TextView addrefAddButton;
 
   @NonNull
-  public final Button addrefApply;
+  public final Button addrefApplyButton;
 
   @NonNull
   public final RecyclerView addrefRecyclerView;
@@ -35,11 +35,11 @@ public final class ActivityAddrefrigeratorBinding implements ViewBinding {
   public final LinearLayout linearLayout;
 
   private ActivityAddrefrigeratorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView addrefAddButton, @NonNull Button addrefApply,
+      @NonNull TextView addrefAddButton, @NonNull Button addrefApplyButton,
       @NonNull RecyclerView addrefRecyclerView, @NonNull LinearLayout linearLayout) {
     this.rootView = rootView;
     this.addrefAddButton = addrefAddButton;
-    this.addrefApply = addrefApply;
+    this.addrefApplyButton = addrefApplyButton;
     this.addrefRecyclerView = addrefRecyclerView;
     this.linearLayout = linearLayout;
   }
@@ -77,9 +77,9 @@ public final class ActivityAddrefrigeratorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.addref_Apply;
-      Button addrefApply = ViewBindings.findChildViewById(rootView, id);
-      if (addrefApply == null) {
+      id = R.id.addref_ApplyButton;
+      Button addrefApplyButton = ViewBindings.findChildViewById(rootView, id);
+      if (addrefApplyButton == null) {
         break missingId;
       }
 
@@ -96,7 +96,7 @@ public final class ActivityAddrefrigeratorBinding implements ViewBinding {
       }
 
       return new ActivityAddrefrigeratorBinding((ConstraintLayout) rootView, addrefAddButton,
-          addrefApply, addrefRecyclerView, linearLayout);
+          addrefApplyButton, addrefRecyclerView, linearLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
