@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
-ÊVøp
-=======
-ïW
->>>>>>> Stashed changes
+ãX

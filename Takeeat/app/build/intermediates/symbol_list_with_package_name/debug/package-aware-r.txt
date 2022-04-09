@@ -2845,6 +2845,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id info
@@ -3001,6 +3002,9 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id refItemDetail
+id refItemField
+id refItemRecipeField
 id refrig_divider1
 id refrig_divider2
 id refrig_item_divider
@@ -3285,6 +3289,7 @@ layout activity_forgot_password
 layout activity_main
 layout activity_mfa
 layout activity_ok
+layout activity_refitemdetail
 layout activity_shoppinglist
 layout activity_sign_in
 layout activity_sign_up

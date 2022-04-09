@@ -86,6 +86,7 @@ class RefrigeratorFragment : Fragment() {
         val root: View = binding.root
         
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
+        //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
         recyclerView.adapter = RefrigeratorAdapter(itemTestList)
 
         mainFab= binding.refrigeratorfab
@@ -425,20 +426,14 @@ class RefrigeratorFragment : Fragment() {
 
     }
 
-    class RefrigeratorItemModel(
-        var itemName: String,
-        var itemExpiration: Int,
-        var itemQuantity: Int,
-        var itemUnit: String
-        )
+    //여기가 item 리스트입니다 db가져오는 코드에서 for문으로 itemTestList.add(RefItem(이름, 태그(현제는 null), Date(년,월,일), 갯수, 단위))를 해주시면 추가되요
+    private val itemTestList = ArrayList<RefItem>().apply {
+        add(RefItem("우유", null,Date(2022,4,15),1,"L"))
+        add(RefItem("두유", null,Date(2022,4,18),1,"L"))
+        add(RefItem("마늘", null,Date(2022,4,13),1,"L"))
+        add(RefItem("우유2", null,Date(2022,4,16),1,"L"))
+        add(RefItem("우유3", null,Date(2022,4,17),1,"L"))
 
-    private val itemTestList = ArrayList<RefrigeratorItemModel>().apply {
-        add(RefrigeratorItemModel("우유",12,1,"L"))
-        add(RefrigeratorItemModel("두유",6,3,"개"))
-        add(RefrigeratorItemModel("마늘",3,8,"개"))
-        add(RefrigeratorItemModel("마늘2",3,8,"g"))
-        add(RefrigeratorItemModel("마늘3",3,8,"kg"))
-        add(RefrigeratorItemModel("마늘4",3,8,"mg"))
     }
 
 

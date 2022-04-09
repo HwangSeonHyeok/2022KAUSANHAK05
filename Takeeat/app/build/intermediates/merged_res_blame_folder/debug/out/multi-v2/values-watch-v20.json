@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< Updated upstream
-            "outputFile": "C:\\Users\\wohnton\\Documents\\prospect\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\wohnton\\.gradle\\caches\\transforms-3\\d2be0a07ac682004ffbddd9c163a1cf7\\transformed\\appcompat-1.4.1\\res\\values-watch-v20\\values-watch-v20.xml",
-=======
             "outputFile": "D:\\Programming\\GitHub\\2022KAUSANHAK05\\Takeeat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\SeonHyeok\\.gradle\\caches\\transforms-3\\d2be0a07ac682004ffbddd9c163a1cf7\\transformed\\appcompat-1.4.1\\res\\values-watch-v20\\values-watch-v20.xml",
->>>>>>> Stashed changes
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

@@ -4,15 +4,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.R
+import com.example.takeeat.ui.refrigerator.RefItem
 import com.example.takeeat.ui.refrigerator.RefrigeratorFragment
+import java.util.*
+import kotlin.time.Duration.Companion.milliseconds
 
 
-class RefrigeratorAdapter(private val itemTestList: List<RefrigeratorFragment.RefrigeratorItemModel>) : RecyclerView.Adapter<RefrigeratorAdapter.RowViewHolder>() {
+class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerView.Adapter<RefrigeratorAdapter.RowViewHolder>() {
 
     class RowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name)
         val txtItemExp: TextView = itemView.findViewById(R.id.refrigerator_item_expiration)
         val txtItemQuan: TextView = itemView.findViewById(R.id.refrigerator_item_quantity)
+        var calendar = Calendar.getInstance()
+        var year = calendar.get(Calendar.YEAR)
+        var month = calendar.get(Calendar.MONTH)
+        var date = calendar.get(Calendar.DAY_OF_MONTH)
 
     }
 
@@ -28,9 +35,12 @@ class RefrigeratorAdapter(private val itemTestList: List<RefrigeratorFragment.Re
             val items = itemTestList[rowPos]
 
             holder.apply {
-                txtItemName.text = items.itemName
-                txtItemExp.text = items.itemExpiration.toString()+"일"
-                txtItemQuan.text = items.itemQuantity.toString()+items.itemUnit
+                txtItemName.text = items.itemname
+
+                var diffSec = (items.itemexp!!.time.minus(Date(year, month+1, date).time))
+                var diffDate = diffSec/(24*60*60*1000)
+                txtItemExp.text = diffDate.toString()+"일"
+                txtItemQuan.text = items.itemamount.toString()+items.itemunit
 
         }
     }

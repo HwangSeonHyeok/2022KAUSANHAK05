@@ -52,6 +52,7 @@ id direct_sub_fab
 id editItemAmount
 id forgot_Password_button
 id gallery_sub_fab
+id imageView
 id linearLayout
 id login_id
 id login_id_text
@@ -74,6 +75,9 @@ id paw_code_name
 id paw_code_name_text
 id paw_signUpUsername
 id paw_signUpUsername_text
+id refItemDetail
+id refItemField
+id refItemRecipeField
 id refrig_divider1
 id refrig_divider2
 id refrig_item_divider
@@ -116,6 +120,7 @@ layout activity_auth
 layout activity_forgot
 layout activity_main
 layout activity_ok
+layout activity_refitemdetail
 layout activity_shoppinglist
 layout activity_signup
 layout fragment_menu
