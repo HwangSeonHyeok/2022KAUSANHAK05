@@ -18,3 +18,6 @@ local.properties
 .externalNativeBuild
 .cxx
 *.json
+*.bin
+Takeeat/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/+ezILAh_TnmCjWi4MAVl9SkEsNk=
+*.s
