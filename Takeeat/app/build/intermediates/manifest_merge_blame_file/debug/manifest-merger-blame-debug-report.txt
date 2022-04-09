@@ -30,7 +30,7 @@
 16-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:6:22-73
 17
 18    <application
-18-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-54:19
+18-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-56:19
 19        android:allowBackup="true"
 19-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:12:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -60,158 +60,164 @@
 32-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-52
 32-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:19-49
 33        <activity
-33-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:40
-34            android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity"
-34-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-74
-35            android:label="냉장고 품목 추가" />
-35-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-38
+33-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:37
+34            android:name="com.example.takeeat.ui.refrigerator.RefItemDetailActivity"
+34-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-72
+35            android:label="냉장고 품목" />
+35-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-35
 36        <activity
-36-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:9-27:37
-37            android:name="com.example.takeeat.ShoppingListActivity"
-37-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:13-49
-38            android:label="장보기 목록" />
-38-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:13-35
+36-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:9-26:40
+37            android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity"
+37-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:19-74
+38            android:label="냉장고 품목 추가" />
+38-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:13-38
 39        <activity
-39-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:9-31:47
-40            android:name="com.example.takeeat.MainActivity"
-40-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-41
-41            android:exported="true"
-41-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:30:13-36
-42            android:label="@string/app_name" />
-42-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:13-45
-43        <activity
-43-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:9-42:20
-44            android:name="com.example.takeeat.AuthActivity"
-44-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-41
-45            android:exported="true"
-45-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:13-36
-46            android:noHistory="true" >
-46-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-37
-47            <intent-filter>
-47-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:37:13-41:29
-48                <action android:name="android.intent.action.MAIN" />
-48-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:17-69
-48-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:25-66
-49
-50                <category android:name="android.intent.category.LAUNCHER" />
-50-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:17-77
-50-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:27-74
-51            </intent-filter>
-52        </activity>
-53
-54        <provider
-54-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:44:9-52:20
-55            android:name="androidx.core.content.FileProvider"
-55-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:45:13-62
-56            android:authorities="com.example.takeeat.provider"
-56-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:13-63
-57            android:exported="false"
-57-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-37
-58            android:grantUriPermissions="true" >
-58-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:13-47
-59            <meta-data
-59-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:13-51:64
-60                android:name="android.support.FILE_PROVIDER_PATHS"
-60-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:50:17-67
-61                android:resource="@xml/file_paths" />
-61-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:51:17-51
-62        </provider>
-63
-64        <uses-library
-64-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-65            android:name="androidx.window.extensions"
-65-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-66            android:required="false" />
-66-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+39-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:9-29:37
+40            android:name="com.example.takeeat.ShoppingListActivity"
+40-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:13-49
+41            android:label="장보기 목록" />
+41-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-35
+42        <activity
+42-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:30:9-33:47
+43            android:name="com.example.takeeat.MainActivity"
+43-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:13-41
+44            android:exported="true"
+44-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:32:13-36
+45            android:label="@string/app_name" />
+45-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:13-45
+46        <activity
+46-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:9-44:20
+47            android:name="com.example.takeeat.AuthActivity"
+47-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:13-41
+48            android:exported="true"
+48-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:13-36
+49            android:noHistory="true" >
+49-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:37:13-37
+50            <intent-filter>
+50-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:39:13-43:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:17-69
+51-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:17-77
+53-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:27-74
+54            </intent-filter>
+55        </activity>
+56
+57        <provider
+57-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:9-54:20
+58            android:name="androidx.core.content.FileProvider"
+58-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-62
+59            android:authorities="com.example.takeeat.provider"
+59-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:13-63
+60            android:exported="false"
+60-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:13-37
+61            android:grantUriPermissions="true" >
+61-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:50:13-47
+62            <meta-data
+62-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:51:13-53:64
+63                android:name="android.support.FILE_PROVIDER_PATHS"
+63-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:52:17-67
+64                android:resource="@xml/file_paths" />
+64-->D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:53:17-51
+65        </provider>
+66
 67        <uses-library
-67-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-68            android:name="androidx.window.sidecar"
-68-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+67-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+68            android:name="androidx.window.extensions"
+68-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 69            android:required="false" />
-69-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-70
-71        <activity
-71-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
-72            android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
-72-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
-73            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-73-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
-74            android:label="@string/title_activity_force_change_password"
-74-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
-75            android:screenOrientation="portrait" />
-75-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
-76        <activity
-76-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
-77            android:name="com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity"
-77-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
-78            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-78-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
-79            android:label="@string/title_activity_forgot_password"
-79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
-80            android:screenOrientation="portrait" />
-80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
-81        <activity
-81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
-82            android:name="com.amazonaws.mobile.auth.userpools.SignUpActivity"
-82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
-83            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
-84            android:label="@string/title_activity_sign_up"
-84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
-85            android:screenOrientation="portrait" />
-85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
-86        <activity
-86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
-87            android:name="com.amazonaws.mobile.auth.userpools.MFAActivity"
-87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
-88            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
-89            android:label="@string/title_activity_mfa"
-89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
-90            android:screenOrientation="portrait" />
-90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
-91        <activity
-91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
-92            android:name="com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity"
-92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
-93            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-93-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
-94            android:label="@string/title_activity_sign_up_confirm"
-94-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
-95            android:screenOrientation="portrait" />
-95-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
-96        <activity
-96-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
-97            android:name="com.amazonaws.mobile.auth.ui.SignInActivity"
-97-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
-98            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-98-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
-99            android:label="@string/title_activity_sign_in"
-99-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
-100            android:screenOrientation="portrait" />
-100-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
-101
-102        <provider
-102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-103            android:name="androidx.startup.InitializationProvider"
-103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
-104            android:authorities="com.example.takeeat.androidx-startup"
-104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
-105            android:exported="false" >
-105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
-106            <meta-data
-106-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-107                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-107-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
-108                android:value="androidx.startup" />
-108-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+69-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+70        <uses-library
+70-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+71            android:name="androidx.window.sidecar"
+71-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+72            android:required="false" />
+72-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+73
+74        <activity
+74-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
+75            android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
+75-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
+76            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+76-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
+77            android:label="@string/title_activity_force_change_password"
+77-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
+78            android:screenOrientation="portrait" />
+78-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
+79        <activity
+79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
+80            android:name="com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity"
+80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
+81            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
+82            android:label="@string/title_activity_forgot_password"
+82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
+83            android:screenOrientation="portrait" />
+83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
+84        <activity
+84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
+85            android:name="com.amazonaws.mobile.auth.userpools.SignUpActivity"
+85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
+86            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
+87            android:label="@string/title_activity_sign_up"
+87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
+88            android:screenOrientation="portrait" />
+88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
+89        <activity
+89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
+90            android:name="com.amazonaws.mobile.auth.userpools.MFAActivity"
+90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
+91            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
+92            android:label="@string/title_activity_mfa"
+92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
+93            android:screenOrientation="portrait" />
+93-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
+94        <activity
+94-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
+95            android:name="com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity"
+95-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
+96            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+96-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
+97            android:label="@string/title_activity_sign_up_confirm"
+97-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
+98            android:screenOrientation="portrait" />
+98-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
+99        <activity
+99-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
+100            android:name="com.amazonaws.mobile.auth.ui.SignInActivity"
+100-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
+101            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+101-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
+102            android:label="@string/title_activity_sign_in"
+102-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
+103            android:screenOrientation="portrait" />
+103-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
+104
+105        <provider
+105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+106            android:name="androidx.startup.InitializationProvider"
+106-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+107            android:authorities="com.example.takeeat.androidx-startup"
+107-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+108            android:exported="false" >
+108-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
 109            <meta-data
-109-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-110                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-110-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+109-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+110                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
 111                android:value="androidx.startup" />
-111-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-112        </provider>
-113    </application>
-114
-115</manifest>
+111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+112            <meta-data
+112-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+113                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+113-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+114                android:value="androidx.startup" />
+114-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+115        </provider>
+116    </application>
+117
+118</manifest>

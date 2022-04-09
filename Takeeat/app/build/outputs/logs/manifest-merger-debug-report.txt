@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
 MERGED from [androidx.databinding:databinding-adapters:7.1.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\5d910903585c7b3ec22936c3a7dc9be5\transformed\databinding-adapters-7.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-ktx:7.1.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0d94037c798f77704ceb67921857143f\transformed\databinding-ktx-7.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:7.1.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\8a900d0b214cd8513cc300e2fd544434\transformed\databinding-runtime-7.1.2\AndroidManifest.xml:17:1-24:12
@@ -71,20 +71,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\bf11d5f709f8b4982d65ae78eb7a0a6a\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\fa71066934ce7b959416ab07c2d56d3b\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0f8ea571e406922200e37343a83fc84e\transformed\aws-android-sdk-auth-core-2.8.5\AndroidManifest.xml:2:1-4:80
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
-INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-56:12
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:2:11-69
@@ -111,7 +111,7 @@ ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidMan
 	android:name
 		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-54:19
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:11:5-56:19
 MERGED from [androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:24:5-31:19
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\5423c65485a974611bfb437c61e9a2e1\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
@@ -162,60 +162,66 @@ activity#com.example.takeeat.ForgotActivity
 ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:9-52
 	android:name
 		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:22:19-49
+activity#com.example.takeeat.ui.refrigerator.RefItemDetailActivity
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:37
+	android:label
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-35
+	android:name
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-72
 activity#com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:9-24:40
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:9-26:40
 	android:label
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:24:13-38
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:13-38
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:23:19-74
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:19-74
 activity#com.example.takeeat.ShoppingListActivity
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:25:9-27:37
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:9-29:37
 	android:label
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:27:13-35
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-35
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:26:13-49
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:13-49
 activity#com.example.takeeat.MainActivity
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:28:9-31:47
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:30:9-33:47
 	android:label
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:13-45
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:13-45
 	android:exported
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:30:13-36
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:32:13-36
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:29:13-41
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:31:13-41
 activity#com.example.takeeat.AuthActivity
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:33:9-42:20
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:9-44:20
 	android:noHistory
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:35:13-37
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:37:13-37
 	android:exported
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:13-36
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:13-36
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:34:13-41
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:36:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:37:13-41:29
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:39:13-43:29
 action#android.intent.action.MAIN
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:17-69
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:38:25-66
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:17-77
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:17-77
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:40:27-74
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:42:27-74
 provider#androidx.core.content.FileProvider
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:44:9-52:20
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:9-54:20
 	android:grantUriPermissions
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:13-47
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:50:13-47
 	android:authorities
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:46:13-63
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:48:13-63
 	android:exported
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-37
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:45:13-62
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:47:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:49:13-51:64
+ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:51:13-53:64
 	android:resource
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:51:17-51
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:53:17-51
 	android:name
-		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:50:17-67
+		ADDED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml:52:17-67
 uses-sdk
 INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Programming\GitHub\2022KAUSANHAK05\Takeeat\app\src\main\AndroidManifest.xml

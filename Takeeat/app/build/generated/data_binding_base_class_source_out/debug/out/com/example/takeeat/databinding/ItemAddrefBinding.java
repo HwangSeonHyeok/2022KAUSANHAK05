@@ -26,9 +26,6 @@ public final class ItemAddrefBinding implements ViewBinding {
   public final Spinner addAddrefUnitSpinner;
 
   @NonNull
-  public final View addrefDivider;
-
-  @NonNull
   public final TextView addrefEXPText;
 
   @NonNull
@@ -40,17 +37,20 @@ public final class ItemAddrefBinding implements ViewBinding {
   @NonNull
   public final EditText editItemAmount;
 
+  @NonNull
+  public final View refDetailDivider;
+
   private ItemAddrefBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Spinner addAddrefUnitSpinner, @NonNull View addrefDivider,
-      @NonNull TextView addrefEXPText, @NonNull EditText addrefEditItemName,
-      @NonNull Button addrefTagButton, @NonNull EditText editItemAmount) {
+      @NonNull Spinner addAddrefUnitSpinner, @NonNull TextView addrefEXPText,
+      @NonNull EditText addrefEditItemName, @NonNull Button addrefTagButton,
+      @NonNull EditText editItemAmount, @NonNull View refDetailDivider) {
     this.rootView = rootView;
     this.addAddrefUnitSpinner = addAddrefUnitSpinner;
-    this.addrefDivider = addrefDivider;
     this.addrefEXPText = addrefEXPText;
     this.addrefEditItemName = addrefEditItemName;
     this.addrefTagButton = addrefTagButton;
     this.editItemAmount = editItemAmount;
+    this.refDetailDivider = refDetailDivider;
   }
 
   @Override
@@ -86,12 +86,6 @@ public final class ItemAddrefBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.addref_Divider;
-      View addrefDivider = ViewBindings.findChildViewById(rootView, id);
-      if (addrefDivider == null) {
-        break missingId;
-      }
-
       id = R.id.addref_EXPText;
       TextView addrefEXPText = ViewBindings.findChildViewById(rootView, id);
       if (addrefEXPText == null) {
@@ -116,8 +110,14 @@ public final class ItemAddrefBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemAddrefBinding((ConstraintLayout) rootView, addAddrefUnitSpinner, addrefDivider,
-          addrefEXPText, addrefEditItemName, addrefTagButton, editItemAmount);
+      id = R.id.refDetail_Divider;
+      View refDetailDivider = ViewBindings.findChildViewById(rootView, id);
+      if (refDetailDivider == null) {
+        break missingId;
+      }
+
+      return new ItemAddrefBinding((ConstraintLayout) rootView, addAddrefUnitSpinner, addrefEXPText,
+          addrefEditItemName, addrefTagButton, editItemAmount, refDetailDivider);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

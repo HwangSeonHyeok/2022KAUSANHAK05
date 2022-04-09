@@ -15,6 +15,8 @@ color white
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
 drawable circle
+drawable completeicon
+drawable edit
 drawable ic_baseline_add_24
 drawable ic_baseline_add_photo_alternate
 drawable ic_baseline_add_shopping_cart
@@ -23,6 +25,7 @@ drawable ic_baseline_camera_alt
 drawable ic_baseline_create
 drawable ic_baseline_delete_sweep
 drawable ic_baseline_menu
+drawable ic_baseline_warning
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -35,7 +38,6 @@ id addShoppingList_button
 id add_addref_UnitSpinner
 id addref_AddButton
 id addref_ApplyButton
-id addref_Divider
 id addref_EXPText
 id addref_EditItemName
 id addref_RecyclerView
@@ -52,7 +54,6 @@ id direct_sub_fab
 id editItemAmount
 id forgot_Password_button
 id gallery_sub_fab
-id imageView
 id linearLayout
 id login_id
 id login_id_text
@@ -75,9 +76,21 @@ id paw_code_name
 id paw_code_name_text
 id paw_signUpUsername
 id paw_signUpUsername_text
-id refItemDetail
-id refItemField
-id refItemRecipeField
+id refDetail
+id refDetailCompleteButton
+id refDetailEXP
+id refDetailEXPWarning
+id refDetailEditAmount
+id refDetailEditButton
+id refDetailItemAmount
+id refDetailItemField
+id refDetailItemIcon
+id refDetailItemname
+id refDetailNameEdit
+id refDetailRecipeField
+id refDetailTag
+id refDetailUnit
+id refDetail_Divider
 id refrig_divider1
 id refrig_divider2
 id refrig_item_divider

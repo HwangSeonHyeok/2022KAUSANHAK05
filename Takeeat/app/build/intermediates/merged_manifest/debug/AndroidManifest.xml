@@ -31,6 +31,9 @@
         <activity android:name="com.example.takeeat.OkActivity" />
         <activity android:name="com.example.takeeat.ForgotActivity" />
         <activity
+            android:name="com.example.takeeat.ui.refrigerator.RefItemDetailActivity"
+            android:label="냉장고 품목" />
+        <activity
             android:name="com.example.takeeat.ui.refrigerator.AddRefrigeratorActivity"
             android:label="냉장고 품목 추가" />
         <activity
