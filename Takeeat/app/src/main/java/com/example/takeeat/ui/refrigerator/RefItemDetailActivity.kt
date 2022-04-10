@@ -13,6 +13,7 @@ import java.util.*
 class RefItemDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRefitemdetailBinding
+    lateinit var refItem: RefItem
     var calendar = Calendar.getInstance()
     var year = calendar.get(Calendar.YEAR)
     var month = calendar.get(Calendar.MONTH)
@@ -23,17 +24,8 @@ class RefItemDetailActivity : AppCompatActivity() {
         binding = ActivityRefitemdetailBinding.inflate(layoutInflater)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        val intentExtra = intent.getSerializableExtra("Item_Data") as RefItem
-        binding.refDetailItemname.text = intentExtra.itemname
-        if(intentExtra.itemexp!=null) {
-            year = intentExtra.itemexp!!.year
-            month = intentExtra.itemexp!!.month
-            date = intentExtra.itemexp!!.date
-            binding.refDetailEXP.text = year.toString() + "." + month.toString() + "." + date.toString()
-        }
-        binding.refDetailItemAmount.text = intentExtra.itemamount.toString()
-        binding.refDetailUnit.text = intentExtra.itemunit.toString()
-
+        refItem = intent.getSerializableExtra("Item_Data") as RefItem
+        updateUI(refItem)
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         binding.refDetailEditButton.setOnClickListener {
             it.visibility = View.INVISIBLE
@@ -56,17 +48,19 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailEditButton.isClickable = true
             binding.refDetailItemname.visibility = View.VISIBLE
             binding.refDetailNameEdit.visibility = View.INVISIBLE
-            binding.refDetailItemname.setText(binding.refDetailNameEdit.text)
+            refItem.itemname = binding.refDetailEditAmount.text.toString()
             binding.refDetailEXP.isClickable = false
             binding.refDetailItemAmount.visibility = View.VISIBLE
-            binding.refDetailItemAmount.setText(binding.refDetailEditAmount.text)
             binding.refDetailEditAmount.visibility = View.INVISIBLE
+            refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
             imm.hideSoftInputFromWindow(binding.refDetailNameEdit.windowToken, 0)
             imm.hideSoftInputFromWindow(binding.refDetailEditAmount.windowToken, 0)
+            updateUI(refItem)
         }
         binding.refDetailEXP.setOnClickListener{
             val dateSelector = DatePickerDialog(this, {_, year, month, date ->
                 binding.refDetailEXP.setText(year.toString() + "." + (month + 1).toString() + "." + date.toString())
+                refItem.itemexp =Date(year,month,date)
             },year,month-1,date)
             dateSelector.show()
         }
@@ -75,6 +69,17 @@ class RefItemDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+    }
+    fun updateUI(itemData:RefItem){
+        binding.refDetailItemname.text = itemData.itemname
+        if(itemData.itemexp!=null) {
+            year = itemData.itemexp!!.year
+            month = itemData.itemexp!!.month
+            date = itemData.itemexp!!.date
+            binding.refDetailEXP.text = year.toString() + "." + month.toString() + "." + date.toString()
+        }
+        binding.refDetailItemAmount.text = itemData.itemamount.toString()
+        binding.refDetailUnit.text = itemData.itemunit.toString()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

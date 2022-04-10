@@ -2,21 +2,25 @@ package com.example.takeeat
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.ui.refrigerator.RefItem
 import com.example.takeeat.ui.refrigerator.RefrigeratorFragment
 import java.util.ArrayList
 
-class ShoppingListAdapter(var data: LiveData<ArrayList<RefItem>>) : RecyclerView.Adapter<ShoppingListAdapter.ViewHolder>() {
+class ShoppingListAdapter(var data: LiveData<ArrayList<ShoppingListItem>>) : RecyclerView.Adapter<ShoppingListAdapter.ViewHolder>() {
     class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_shoppinglist, parent,false)){
         val itemNameText: TextView
         val itemNameEdit : EditText
@@ -48,6 +52,7 @@ class ShoppingListAdapter(var data: LiveData<ArrayList<RefItem>>) : RecyclerView
             }
             override fun afterTextChanged(s: Editable) {
                 data.value!!.get(holder.position).itemname = s.toString()
+                Log.d("Response","afterTextChanged")
 
             }
         }
@@ -55,9 +60,10 @@ class ShoppingListAdapter(var data: LiveData<ArrayList<RefItem>>) : RecyclerView
             with(holder) {
                 if(data.value!!.get(position).itemname != null)
                     itemNameText.text = data.value!!.get(position).itemname
-                if(data.value!!.get(position).itemname != null)
+                if(data.value!!.get(position).itemamount != null)
                     itemCountText.text = data.value!!.get(position).itemamount.toString()+'개'
                 val clickListener : View.OnClickListener = View.OnClickListener {
+
                     when(it){
                         itemNameText ->{
                             itemNameText.visibility=View.INVISIBLE
@@ -66,19 +72,25 @@ class ShoppingListAdapter(var data: LiveData<ArrayList<RefItem>>) : RecyclerView
 
                         }
                         itemNameEdit ->{
+                            data.value!!.get(holder.position).itemname = itemNameEdit.text.toString()
                             itemNameText.visibility=View.VISIBLE
                             itemNameEdit.visibility=View.INVISIBLE
                             itemNameText.setText(itemNameEdit.text)
 
+                            Log.d("Response","enter!")
+
                         }
                         itemMinusButton->{
-                            if(data.value!!.get(position).itemamount != null&& data.value!!.get(position).itemamount!! >= 0)
-                                data.value!!.get(position).itemamount=data.value!!.get(position).itemamount!!.minus(1)
+                            if(data.value!!.get(position).itemamount != null&& data.value!!.get(position).itemamount!! > 0) {
+                                data.value!!.get(position).itemamount = data.value!!.get(position).itemamount!!.minus(1)
+                                itemCountText.text = data.value!!.get(position).itemamount.toString()+'개'
+                            }
                         }
                         itemPlusButton->{
-                            if(data.value!!.get(position).itemamount != null)
-                                data.value!!.get(position).itemamount=data.value!!.get(position).itemamount!!.plus(1)
-
+                            if(data.value!!.get(position).itemamount != null) {
+                                data.value!!.get(position).itemamount = data.value!!.get(position).itemamount!!.plus(1)
+                                itemCountText.text = data.value!!.get(position).itemamount.toString()+'개'
+                            }
                         }
                         itemView->{
                             itemNameText.visibility=View.VISIBLE

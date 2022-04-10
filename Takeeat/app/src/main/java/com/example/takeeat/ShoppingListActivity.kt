@@ -1,48 +1,44 @@
 package com.example.takeeat
 
-import android.app.SearchManager
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.*
 import com.example.takeeat.databinding.ActivityShoppinglistBinding
-import com.example.takeeat.ui.refrigerator.AddRefrigeratorAdapter
-import com.example.takeeat.ui.refrigerator.AddRefrigeratorViewModel
 import com.example.takeeat.ui.refrigerator.RefItem
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class ShoppingListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityShoppinglistBinding
 
     lateinit var viewmodel : ShoppingListViewModel
     lateinit var adapter : ShoppingListAdapter
-    var data = MutableLiveData<ArrayList<RefItem>>()
+    lateinit var db : AppDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityShoppinglistBinding.inflate(layoutInflater)
-        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         viewmodel = ViewModelProviders.of(this).get(ShoppingListViewModel::class.java)
+        db = Room.databaseBuilder(this,AppDatabase::class.java,"shoppinglistitem").allowMainThreadQueries().build()
+        for(dbitem in db.itemDao().getAll())
+            viewmodel.addData (dbitem)
         setContentView(binding.root)
-        val dataObserver: Observer<ArrayList<RefItem>> =
+        val dataObserver: Observer<ArrayList<ShoppingListItem>> =
             Observer {livedata ->
                 Log.d("Response","here?")
-                data.value = livedata
-                adapter = ShoppingListAdapter(data)
+                adapter = ShoppingListAdapter(viewmodel.liveData)
                 binding.shoppingListRecyclerView.adapter = adapter
+                for(item in livedata)
+                    db.itemDao().updateItem(item)
+
+
             }
         viewmodel.liveData.observe(this, dataObserver)
 
@@ -58,7 +54,9 @@ class ShoppingListActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 adapter.notifyItemRemoved(viewHolder.layoutPosition)
+                db.itemDao().delete(viewmodel.shoppingListItemData.get(viewHolder.layoutPosition))
                 viewmodel.deleteData(viewHolder.layoutPosition)
+
             }
         }
         val itemTouchHelper = ItemTouchHelper(simplecallback)
@@ -74,7 +72,9 @@ class ShoppingListActivity : AppCompatActivity() {
         menu.findItem(R.id.addShoppingList_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
             when(it.itemId) {
                 R.id.addShoppingList_button -> {
-                    viewmodel.addData(RefItem(null,null,null,1,null))
+                    val item = ShoppingListItem(0,null,1)
+                    viewmodel.addData(item)
+                    db.itemDao().insertItem(item)
                     true
                 }
                 else->{
@@ -88,6 +88,10 @@ class ShoppingListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {
             android.R.id.home -> {
+                if(viewmodel.liveData.value!=null) {
+                    for (item in viewmodel.liveData.value!!)
+                        db.itemDao().updateItem(item)
+                }
                 finish()
                 return true
             }
@@ -95,5 +99,43 @@ class ShoppingListActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(viewmodel.liveData.value!=null) {
+            Log.d("Response","update")
+            for (item in viewmodel.liveData.value!!)
+                db.itemDao().updateItem(item)
+        }
+    }
 
+
+
+
+}
+
+@Entity(tableName = "shoppinglistitem")
+public data class ShoppingListItem (
+    @PrimaryKey(autoGenerate = true) val id : Int,
+    @ColumnInfo var itemname : String?,
+    @ColumnInfo var itemamount: Int
+)
+@Dao
+interface  ItemDao{
+    @Query("SELECT * FROM shoppinglistitem")
+    fun getAll(): List<ShoppingListItem>
+    /*@Query("SELECT * FROM shoppinglistitem WHERE itemName")
+    fun findByItemName()*/
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertItem(vararg shoppinglistitem : ShoppingListItem)
+    @Delete
+    fun delete(shoppingListItem: ShoppingListItem)
+    @Query("DELETE FROM shoppinglistitem")
+    fun deleteAll()
+    @Update
+    fun updateItem(vararg shoppinglistitem : ShoppingListItem)
+
+}
+@Database(entities = [ShoppingListItem::class], version = 1)
+abstract class AppDatabase : RoomDatabase(){
+    abstract fun itemDao() : ItemDao
 }

@@ -71,6 +71,11 @@
             android:name="androidx.window.sidecar"
             android:required="false" />
 
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
         <activity
             android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"

@@ -5,20 +5,20 @@ import androidx.lifecycle.ViewModel
 import com.example.takeeat.ui.refrigerator.RefItem
 
 class ShoppingListViewModel : ViewModel() {
-    var liveData : MutableLiveData<ArrayList<RefItem>> = MutableLiveData<ArrayList<RefItem>>()
-    var refItemData = ArrayList<RefItem>()
-    fun addData(refItem: RefItem){
-        refItemData.add(refItem)
-        liveData.postValue(refItemData)
+    var liveData : MutableLiveData<ArrayList<ShoppingListItem>> = MutableLiveData<ArrayList<ShoppingListItem>>()
+    var shoppingListItemData = ArrayList<ShoppingListItem>()
+    fun addData(shoppingListItem: ShoppingListItem){
+        shoppingListItemData.add(shoppingListItem)
+        liveData.postValue(shoppingListItemData)
     }
     fun deleteData(at : Int){
-        refItemData.removeAt(at)
-        liveData.postValue(refItemData)
+        shoppingListItemData.removeAt(at)
+        liveData.postValue(shoppingListItemData)
     }
-    fun updateData(index:Int, refItem: RefItem){
-        refItemData.set(index,refItem)
+    fun updateData(index:Int, shoppingListItem: ShoppingListItem){
+        shoppingListItemData.set(index,shoppingListItem)
     }
     fun getCount():Int{
-        return refItemData.size
+        return shoppingListItemData.size
     }
 }

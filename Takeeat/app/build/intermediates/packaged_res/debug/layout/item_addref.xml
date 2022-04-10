@@ -55,7 +55,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="right"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="6" />
 
             <Spinner
                 android:id="@+id/add_addref_UnitSpinner"

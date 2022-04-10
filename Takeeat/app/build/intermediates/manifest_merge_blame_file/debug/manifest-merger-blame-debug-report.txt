@@ -136,88 +136,97 @@
 72            android:required="false" />
 72-->[androidx.window:window:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\57df4ce2d08a22f066cf859cac9a3e30\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
 73
-74        <activity
-74-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
-75            android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
-75-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
-76            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-76-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
-77            android:label="@string/title_activity_force_change_password"
-77-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
-78            android:screenOrientation="portrait" />
-78-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
+74        <service
+74-->[androidx.room:room-runtime:2.4.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\ea026cc092deeba5c0a77622813dd84b\transformed\room-runtime-2.4.2\AndroidManifest.xml:25:9-28:40
+75            android:name="androidx.room.MultiInstanceInvalidationService"
+75-->[androidx.room:room-runtime:2.4.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\ea026cc092deeba5c0a77622813dd84b\transformed\room-runtime-2.4.2\AndroidManifest.xml:26:13-74
+76            android:directBootAware="true"
+76-->[androidx.room:room-runtime:2.4.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\ea026cc092deeba5c0a77622813dd84b\transformed\room-runtime-2.4.2\AndroidManifest.xml:27:13-43
+77            android:exported="false" />
+77-->[androidx.room:room-runtime:2.4.2] C:\Users\SeonHyeok\.gradle\caches\transforms-3\ea026cc092deeba5c0a77622813dd84b\transformed\room-runtime-2.4.2\AndroidManifest.xml:28:13-37
+78
 79        <activity
-79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
-80            android:name="com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity"
-80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
+79-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:10-269
+80            android:name="com.amazonaws.mobile.auth.userpools.ForceChangePasswordActivity"
+80-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:152-230
 81            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
-82            android:label="@string/title_activity_forgot_password"
-82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
+81-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:20-90
+82            android:label="@string/title_activity_force_change_password"
+82-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:91-151
 83            android:screenOrientation="portrait" />
-83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
+83-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:9:231-267
 84        <activity
-84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
-85            android:name="com.amazonaws.mobile.auth.userpools.SignUpActivity"
-85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
+84-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:10-258
+85            android:name="com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity"
+85-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:146-219
 86            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
-87            android:label="@string/title_activity_sign_up"
-87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
+86-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:20-90
+87            android:label="@string/title_activity_forgot_password"
+87-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:91-145
 88            android:screenOrientation="portrait" />
-88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
+88-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:10:220-256
 89        <activity
-89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
-90            android:name="com.amazonaws.mobile.auth.userpools.MFAActivity"
-90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
+89-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:10-242
+90            android:name="com.amazonaws.mobile.auth.userpools.SignUpActivity"
+90-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:138-203
 91            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
-92            android:label="@string/title_activity_mfa"
-92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
+91-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:20-90
+92            android:label="@string/title_activity_sign_up"
+92-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:91-137
 93            android:screenOrientation="portrait" />
-93-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
+93-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:11:204-240
 94        <activity
-94-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
-95            android:name="com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity"
-95-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
+94-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:10-235
+95            android:name="com.amazonaws.mobile.auth.userpools.MFAActivity"
+95-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:134-196
 96            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-96-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
-97            android:label="@string/title_activity_sign_up_confirm"
-97-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
+96-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:20-90
+97            android:label="@string/title_activity_mfa"
+97-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:91-133
 98            android:screenOrientation="portrait" />
-98-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
+98-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:13:197-233
 99        <activity
-99-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
-100            android:name="com.amazonaws.mobile.auth.ui.SignInActivity"
-100-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
+99-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:10-257
+100            android:name="com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity"
+100-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:146-218
 101            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-101-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
-102            android:label="@string/title_activity_sign_in"
-102-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
+101-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:20-90
+102            android:label="@string/title_activity_sign_up_confirm"
+102-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:91-145
 103            android:screenOrientation="portrait" />
-103-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
-104
-105        <provider
-105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-106            android:name="androidx.startup.InitializationProvider"
-106-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
-107            android:authorities="com.example.takeeat.androidx-startup"
-107-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
-108            android:exported="false" >
-108-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
-109            <meta-data
-109-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-110                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
-111                android:value="androidx.startup" />
-111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
-112            <meta-data
-112-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-113                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-113-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-114                android:value="androidx.startup" />
-114-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-115        </provider>
-116    </application>
-117
-118</manifest>
+103-->[com.amazonaws:aws-android-sdk-auth-userpools:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\4310bf25615f70ea1e0b0f5f8b214565\transformed\aws-android-sdk-auth-userpools-2.8.5\AndroidManifest.xml:15:219-255
+104        <activity
+104-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:9-234
+105            android:name="com.amazonaws.mobile.auth.ui.SignInActivity"
+105-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:137-195
+106            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+106-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:19-89
+107            android:label="@string/title_activity_sign_in"
+107-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:90-136
+108            android:screenOrientation="portrait" />
+108-->[com.amazonaws:aws-android-sdk-auth-ui:2.8.5] C:\Users\SeonHyeok\.gradle\caches\transforms-3\baa9db92f83ad555d0b5697a79b1c065\transformed\aws-android-sdk-auth-ui-2.8.5\AndroidManifest.xml:8:196-232
+109
+110        <provider
+110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+111            android:name="androidx.startup.InitializationProvider"
+111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+112            android:authorities="com.example.takeeat.androidx-startup"
+112-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+113            android:exported="false" >
+113-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+114            <meta-data
+114-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+115                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+115-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+116                android:value="androidx.startup" />
+116-->[androidx.emoji2:emoji2:1.0.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+117            <meta-data
+117-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+118                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+119                android:value="androidx.startup" />
+119-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\SeonHyeok\.gradle\caches\transforms-3\c4217aea2ca3d9a23241dc893df048d3\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+120        </provider>
+121    </application>
+122
+123</manifest>
