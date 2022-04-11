@@ -26,9 +26,11 @@ class ShoppingListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShoppinglistBinding.inflate(layoutInflater)
         viewmodel = ViewModelProviders.of(this).get(ShoppingListViewModel::class.java)
-        db = Room.databaseBuilder(this,AppDatabase::class.java,"shoppinglistitem").allowMainThreadQueries().build()
-        for(dbitem in db.itemDao().getAll())
-            viewmodel.addData (dbitem)
+        db = Room.databaseBuilder(this,AppDatabase::class.java,"shoppinglist").allowMainThreadQueries().build()
+        if(viewmodel.getCount()==0) {
+            for (dbitem in db.itemDao().getAll())
+                viewmodel.addData(dbitem)
+        }
         setContentView(binding.root)
         val dataObserver: Observer<ArrayList<ShoppingListItem>> =
             Observer {livedata ->
@@ -72,9 +74,9 @@ class ShoppingListActivity : AppCompatActivity() {
         menu.findItem(R.id.addShoppingList_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
             when(it.itemId) {
                 R.id.addShoppingList_button -> {
-                    val item = ShoppingListItem(0,null,1)
-                    viewmodel.addData(item)
+                    val item = ShoppingListItem(System.currentTimeMillis(),null,1)
                     db.itemDao().insertItem(item)
+                    viewmodel.addData(item)
                     true
                 }
                 else->{
@@ -108,20 +110,32 @@ class ShoppingListActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        if(viewmodel.liveData.value!=null) {
+            for (item in viewmodel.liveData.value!!) {
+                db.itemDao().updateItem(item)
+                Log.d("Response","update"+item.toString())
+            }
+            Log.d("Response",db.itemDao().getAll().toString())
+        }
+
+    }
+
 
 
 
 }
 
-@Entity(tableName = "shoppinglistitem")
+@Entity(tableName = "shoppinglist")
 public data class ShoppingListItem (
-    @PrimaryKey(autoGenerate = true) val id : Int,
+    @PrimaryKey val id : Long,
     @ColumnInfo var itemname : String?,
     @ColumnInfo var itemamount: Int
 )
 @Dao
 interface  ItemDao{
-    @Query("SELECT * FROM shoppinglistitem")
+    @Query("SELECT * FROM shoppinglist")
     fun getAll(): List<ShoppingListItem>
     /*@Query("SELECT * FROM shoppinglistitem WHERE itemName")
     fun findByItemName()*/
@@ -129,7 +143,7 @@ interface  ItemDao{
     fun insertItem(vararg shoppinglistitem : ShoppingListItem)
     @Delete
     fun delete(shoppingListItem: ShoppingListItem)
-    @Query("DELETE FROM shoppinglistitem")
+    @Query("DELETE FROM shoppinglist")
     fun deleteAll()
     @Update
     fun updateItem(vararg shoppinglistitem : ShoppingListItem)

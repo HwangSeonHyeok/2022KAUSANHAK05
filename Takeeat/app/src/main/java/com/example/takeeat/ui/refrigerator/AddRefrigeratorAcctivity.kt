@@ -18,7 +18,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
     lateinit var binding : ActivityAddrefrigeratorBinding
     lateinit var viewmodel : AddRefrigeratorViewModel
     lateinit var adapter : AddRefrigeratorAdapter
-    //var data = MutableLiveData<ArrayList<RefItem>>()
+    var data = MutableLiveData<ArrayList<RefItem>>()
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityAddrefrigeratorBinding.inflate(layoutInflater)
@@ -27,13 +27,15 @@ class AddRefrigeratorActivity :AppCompatActivity() {
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val intentExtra = intent.getSerializableExtra("OCR_RESULT") as ArrayList<RefItem>
-        for(resultItem in intentExtra){
-            viewmodel.addData(resultItem)
+        if(viewmodel.getCount() == 0) {
+            for (resultItem in intentExtra) {
+                viewmodel.addData(resultItem)
+            }
         }
 
         binding.addrefAddButton.setOnClickListener {
             viewmodel.addData(RefItem(null, null, null, null, null))
-            Log.d("Response", "inMain"+viewmodel.getCount().toString())
+            Log.d("Response", "inMain"+viewmodel.liveData.value.toString())
         }
         binding.addrefApplyButton.setOnClickListener {
             //DB추가 여기다 붙여주세요
@@ -79,10 +81,10 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         itemTouchHelper.attachToRecyclerView(binding.addrefRecyclerView)
         val dataObserver: Observer<ArrayList<RefItem>> =
             Observer {livedata ->
-                //data.value = livedata
-                adapter = AddRefrigeratorAdapter(viewmodel.liveData)
+                data.value = livedata
+                adapter = AddRefrigeratorAdapter(data)
                 binding.addrefRecyclerView.adapter = adapter
-                Log.d("Response", "???????")
+                Log.d("Response", livedata.toString())
             }
         viewmodel.liveData.observe(this, dataObserver)
     }

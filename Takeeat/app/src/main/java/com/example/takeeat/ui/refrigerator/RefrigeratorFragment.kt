@@ -435,11 +435,6 @@ class RefrigeratorFragment : Fragment() {
         add(RefItem("우유3", null,Date(2022,4,17),1,"L"))
 
     }
-    fun a()
-    {
-        itemTestList.add(RefItem("이름","태그", Date(2022,4,17),3,"개"))
-    }
-
 
 
 }
