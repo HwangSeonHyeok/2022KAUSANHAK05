@@ -18,7 +18,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
     lateinit var binding : ActivityAddrefrigeratorBinding
     lateinit var viewmodel : AddRefrigeratorViewModel
     lateinit var adapter : AddRefrigeratorAdapter
-    var data = MutableLiveData<ArrayList<RefItem>>()
+    //var data = MutableLiveData<ArrayList<RefItem>>()
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityAddrefrigeratorBinding.inflate(layoutInflater)
@@ -79,8 +79,8 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         itemTouchHelper.attachToRecyclerView(binding.addrefRecyclerView)
         val dataObserver: Observer<ArrayList<RefItem>> =
             Observer {livedata ->
-                data.value = livedata
-                adapter = AddRefrigeratorAdapter(data)
+                //data.value = livedata
+                adapter = AddRefrigeratorAdapter(viewmodel.liveData)
                 binding.addrefRecyclerView.adapter = adapter
                 Log.d("Response", "???????")
             }

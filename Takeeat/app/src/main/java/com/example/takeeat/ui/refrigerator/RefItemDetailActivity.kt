@@ -48,7 +48,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailEditButton.isClickable = true
             binding.refDetailItemname.visibility = View.VISIBLE
             binding.refDetailNameEdit.visibility = View.INVISIBLE
-            refItem.itemname = binding.refDetailEditAmount.text.toString()
+            refItem.itemname = binding.refDetailNameEdit.text.toString()
             binding.refDetailEXP.isClickable = false
             binding.refDetailItemAmount.visibility = View.VISIBLE
             binding.refDetailEditAmount.visibility = View.INVISIBLE
