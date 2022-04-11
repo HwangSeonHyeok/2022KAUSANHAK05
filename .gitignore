@@ -2,7 +2,7 @@
 Takeeat/local.properties
 
 local.properties
-
+*.properties
 *.iml
 .gradle
 /local.properties
