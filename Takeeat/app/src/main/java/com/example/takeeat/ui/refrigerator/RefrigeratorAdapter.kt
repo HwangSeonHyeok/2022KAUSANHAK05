@@ -3,6 +3,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.R
@@ -20,6 +21,7 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
         val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name)
         val txtItemExp: TextView = itemView.findViewById(R.id.refrigerator_item_expiration)
         val txtItemQuan: TextView = itemView.findViewById(R.id.refrigerator_item_quantity)
+        val imgItemExpWarning: ImageView = itemView.findViewById(R.id.refrigerator_item_expiration_warning)
         var calendar = Calendar.getInstance()
         var year = calendar.get(Calendar.YEAR)
         var month = calendar.get(Calendar.MONTH)
@@ -54,6 +56,7 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
             if(items.itemexp!=null) {
                 var diffSec = (items.itemexp!!.time.minus(Date(year, month + 1, date).time))
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)
+                if(diffDate > 3) imgItemExpWarning.setVisibility(View.GONE)
                 txtItemExp.text = diffDate.toString() + "일"
             }
             txtItemQuan.text = items.itemamount.toString()+items.itemunit
