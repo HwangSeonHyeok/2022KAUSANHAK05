@@ -4,8 +4,7 @@ Takeeat/local.properties
 local.properties
 *.properties
 *.iml
-Takeeat/.gradle
-Takeeat/.idea
+.gradle
 /local.properties
 /.idea/caches
 /.idea/libraries
