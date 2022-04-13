@@ -18,6 +18,7 @@ import java.io.DataOutputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.net.URLEncoder
 
 class AddRefrigeratorActivity :AppCompatActivity() {
     lateinit var binding : ActivityAddrefrigeratorBinding
@@ -45,20 +46,35 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding.addrefApplyButton.setOnClickListener {
             //DB추가 여기다 붙여주세요
             //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
-            //val jArray = JSONArray()//배열
+            val jArray = JSONArray()//배열
             // viewmodel -> json 변환
             try {
 
                 for (i in 0 until viewmodel.getCount()) {
                     val sObject = JSONObject() //배열 내에 들어갈 json
-                    sObject.put("item_name", viewmodel.liveData.value!![i].itemname)
-                    //sObject.put("item_tag", viewmodel.liveData.value!![i].itemtag)
-                    sObject.put("item_exdate", viewmodel.liveData.value!![i].itemexp)
+                    val en_name = URLEncoder.encode(viewmodel.liveData.value!![i].itemname, "UTF-8")
+                    if(viewmodel.liveData.value!![i].itemtag!=null){
+                        val en_tag = URLEncoder.encode(viewmodel.liveData.value!![i].itemtag, "UTF-8")
+                        sObject.put("item_tag", en_tag)
+                    }
+                    val en_unit = URLEncoder.encode(viewmodel.liveData.value!![i].itemunit, "UTF-8")
+                    sObject.put("item_name", en_name)
+
+                    if(viewmodel.liveData.value!![i].itemtag==null) {
+                        sObject.put("item_tag", "NULL")
+                    }
+
+                    if(viewmodel.liveData.value!![i].itemexp==null){
+                        sObject.put("item_exdate", "NULL")
+                    }else{
+                        sObject.put("item_exdate", viewmodel.liveData.value!![i].itemexp)
+                    }
                     sObject.put("item_amount", viewmodel.liveData.value!![i].itemamount)
-                    sObject.put("item_unit", viewmodel.liveData.value!![i].itemunit)
+                    sObject.put("item_unit", en_unit)
+                    jArray.put(sObject)
                     input_ref_item(sObject)
                 }
-                //Log.d("Response", jArray.toString())
+                Log.d("Response", jArray.toString())
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
