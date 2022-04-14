@@ -72,6 +72,7 @@ class RefrigeratorFragment : Fragment() {
     var ocrApiGwUrl:String = BuildConfig.OCR_API_GW_URL
     var ocrSecretKey:String = BuildConfig.OCR_SECRETKEY
 
+    lateinit var itemTestList: ArrayList<RefItem>
 
 
     override fun onCreateView(
@@ -87,7 +88,24 @@ class RefrigeratorFragment : Fragment() {
         
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
-        recyclerView.adapter = RefrigeratorAdapter(itemTestList)
+
+
+        val handler = Handler()
+
+        Thread(Runnable{
+            itemTestList = get_ref_item()
+            handler.post() {
+                Log.d("Response : itemlist", itemTestList.toString())
+                recyclerView.adapter = RefrigeratorAdapter(itemTestList)
+
+                //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
+                //intent.putExtra("OCR_RESULT",ocrResult)
+                //startActivity(intent)
+            }
+
+
+
+        }).start()
 
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
@@ -427,13 +445,55 @@ class RefrigeratorFragment : Fragment() {
     }
 
     //여기가 item 리스트입니다 db가져오는 코드에서 for문으로 itemTestList.add(RefItem(이름, 태그(현제는 null), Date(년,월,일), 갯수, 단위))를 해주시면 추가되요
-    private val itemTestList = ArrayList<RefItem>().apply {
-        add(RefItem("우유", null,Date(2022,4,15),1,"L"))
-        add(RefItem("두유", null,Date(2022,4,18),1,"L"))
-        add(RefItem("마늘", null,Date(2022,4,13),1,"L"))
-        add(RefItem("우유2", null,Date(2022,4,16),1,"L"))
-        add(RefItem("우유3", null,Date(2022,4,17),1,"L"))
+    fun get_ref_item(): ArrayList<RefItem> {
+        val itemTestList = ArrayList<RefItem>()
 
+        // 네트워킹 예외처리를 위한 try ~ catch 문
+        try {
+            val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref")
+
+            // 서버와의 연결 생성
+            val urlConnection = url.openConnection() as HttpURLConnection
+            urlConnection.requestMethod = "GET"
+
+            if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
+                // 데이터 읽기
+                val streamReader = InputStreamReader(urlConnection.inputStream)
+                val buffered = BufferedReader(streamReader)
+
+                val content = StringBuilder()
+                while(true) {
+                    val line = buffered.readLine() ?: break
+                    content.append(line)
+                }
+
+                val data =content.toString()
+                val jsonArr = JSONArray(data)
+                Log.d("Response : jsonArr",jsonArr.toString())
+                Log.d("Response : jsonlength",jsonArr.length().toString())
+                val i = 0
+                for (i in 0 until jsonArr.length()) {
+                    val jsonObj = jsonArr.getJSONObject(i)
+                    val datestr = jsonObj.getString("item_exdate")
+                    val numm = datestr.split("-")
+                    Log.d("Response : jsonObj",jsonObj.toString())
+                    itemTestList.add(RefItem(jsonObj.getString("item_name"),
+                        jsonObj.getString("item_tag"),
+                        Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt()),
+                        jsonObj.getString("item_amount").toInt(),
+                        jsonObj.getString("item_unit")))
+                }
+
+                // 스트림과 커넥션 해제
+                buffered.close()
+                urlConnection.disconnect()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+
+        return itemTestList
     }
 
 

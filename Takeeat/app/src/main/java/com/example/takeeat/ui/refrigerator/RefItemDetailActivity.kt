@@ -124,6 +124,10 @@ class RefItemDetailActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.refitemdetail_deletebutton -> {
                     //여기다 db삭제 코드 만들어 주세요
+
+
+
+                    finish()
                     true
                 }
                 else->{

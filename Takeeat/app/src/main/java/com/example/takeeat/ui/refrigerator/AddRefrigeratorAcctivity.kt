@@ -46,10 +46,11 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding.addrefApplyButton.setOnClickListener {
             //DB추가 여기다 붙여주세요
             //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
+
             val jArray = JSONArray()//배열
             // viewmodel -> json 변환
+
             try {
-                Log.d("Response",viewmodel.liveData.value.toString())
 
                 for (i in 0 until viewmodel.getCount()) {
                     val sObject = JSONObject() //배열 내에 들어갈 json
@@ -68,7 +69,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                     if(viewmodel.liveData.value!![i].itemexp==null){
                         sObject.put("item_exdate", "NULL")
                     }else{
-                        sObject.put("item_exdate", viewmodel.liveData.value!![i].itemexp)
+                        sObject.put("item_exdate", viewmodel.liveData.value!![i].itemexp!!.year.toString() + "-" + (viewmodel.liveData.value!![i].itemexp!!.month+1).toString() + "-" +viewmodel.liveData.value!![i].itemexp!!.date.toString())
                     }
                     sObject.put("item_amount", viewmodel.liveData.value!![i].itemamount)
                     sObject.put("item_unit", en_unit)
@@ -80,7 +81,10 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                 e.printStackTrace()
             }
 
+
+
             finish()
+
         }
         val simplecallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
             override fun onMove(
