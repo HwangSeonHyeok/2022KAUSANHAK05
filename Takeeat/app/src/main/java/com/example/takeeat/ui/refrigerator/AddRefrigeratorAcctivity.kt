@@ -49,6 +49,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             val jArray = JSONArray()//배열
             // viewmodel -> json 변환
             try {
+                Log.d("Response",viewmodel.liveData.value.toString())
 
                 for (i in 0 until viewmodel.getCount()) {
                     val sObject = JSONObject() //배열 내에 들어갈 json

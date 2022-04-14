@@ -1,11 +1,15 @@
 package com.example.takeeat.ui.refrigerator
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.takeeat.R
+import com.example.takeeat.ShoppingListItem
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
 import java.util.*
 
@@ -36,6 +40,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailNameEdit.visibility = View.VISIBLE
             binding.refDetailNameEdit.setText(binding.refDetailItemname.text)
             binding.refDetailEXP.isClickable = true
+            binding.refDetailTag.isClickable = true
             binding.refDetailItemAmount.visibility = View.INVISIBLE
             binding.refDetailEditAmount.visibility = View.VISIBLE
             binding.refDetailEditAmount.setText(binding.refDetailItemAmount.text)
@@ -48,14 +53,16 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailEditButton.isClickable = true
             binding.refDetailItemname.visibility = View.VISIBLE
             binding.refDetailNameEdit.visibility = View.INVISIBLE
-            refItem.itemname = binding.refDetailNameEdit.text.toString()
+            //refItem.itemname = binding.refDetailNameEdit.text.toString()
             binding.refDetailEXP.isClickable = false
+            binding.refDetailTag.isClickable = false
             binding.refDetailItemAmount.visibility = View.VISIBLE
             binding.refDetailEditAmount.visibility = View.INVISIBLE
-            refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
+            //refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
             imm.hideSoftInputFromWindow(binding.refDetailNameEdit.windowToken, 0)
             imm.hideSoftInputFromWindow(binding.refDetailEditAmount.windowToken, 0)
             updateUI(refItem)
+            //여기다 DB업데이트 코드 넣어주세요 refItem값으로 업데이트 해주면됩니다
         }
         binding.refDetailEXP.setOnClickListener{
             val dateSelector = DatePickerDialog(this, {_, year, month, date ->
@@ -64,7 +71,22 @@ class RefItemDetailActivity : AppCompatActivity() {
             },year,month-1,date)
             dateSelector.show()
         }
-        binding.refDetailItemAmount
+        binding.refDetailTag.setOnClickListener{
+            val tags = resources.getStringArray(R.array.tagArray)
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setTitle("태그를 선택해주세요")
+            dialogBuilder.setItems(tags) {
+                    p0, p1 ->
+                binding.refDetailTag.text = tags[p1]
+                refItem.itemtag = tags[p1]
+
+            }
+            val alertDialog = dialogBuilder.create()
+            alertDialog.show()
+
+        }
+        binding.refDetailEXP.isClickable = false
+        binding.refDetailTag.isClickable = false
 
         setContentView(binding.root)
 
@@ -80,6 +102,7 @@ class RefItemDetailActivity : AppCompatActivity() {
         }
         binding.refDetailItemAmount.text = itemData.itemamount.toString()
         binding.refDetailUnit.text = itemData.itemunit.toString()
+        binding.refDetailTag.text = itemData.itemtag.toString()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -90,6 +113,25 @@ class RefItemDetailActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the options menu from XML
+        val inflater = menuInflater
+        inflater.inflate(R.menu.refitemdetail_menu, menu)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        menu.findItem(R.id.refitemdetail_deletebutton).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.refitemdetail_deletebutton -> {
+                    //여기다 db삭제 코드 만들어 주세요
+                    true
+                }
+                else->{
+                    false
+                }
+            }
+        })
+        return super.onCreateOptionsMenu(menu)
     }
 
 }

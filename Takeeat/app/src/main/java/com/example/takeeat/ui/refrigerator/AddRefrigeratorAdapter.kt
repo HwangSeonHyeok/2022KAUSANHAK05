@@ -1,6 +1,8 @@
 package com.example.takeeat.ui.refrigerator
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -12,6 +14,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.R
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerView.Adapter<AddRefrigeratorAdapter.ViewHolder>() {
@@ -26,6 +29,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
         var year = calendar.get(Calendar.YEAR)
         var month = calendar.get(Calendar.MONTH)
         var date = calendar.get(Calendar.DAY_OF_MONTH)
+
         init {
             itemNameEdit = itemView.findViewById(R.id.addref_EditItemName)
             itemTagButton = itemView.findViewById(R.id.addref_TagButton)
@@ -44,7 +48,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val context  = holder.itemAmountEdit.context
         val itemNameEditTextWatcher =object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
@@ -52,7 +56,8 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             }
             override fun afterTextChanged(s: Editable) {
-                data.value!!.get(holder.position).itemname = s.toString()
+                if(s.toString()!=null&&s.toString()!="")
+                    data.value!!.get(holder.position).itemname = s.toString()
 
             }
         }
@@ -63,7 +68,8 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             }
             override fun afterTextChanged(s: Editable) {
-                data.value!!.get(holder.position).itemamount = s.toString().toInt()
+                if(s.toString()!=null&&s.toString()!="")
+                    data.value!!.get(holder.position).itemamount = s.toString().toInt()
 
             }
         }
@@ -84,9 +90,22 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
                 }
                 if(item.itemamount!=null)
                     itemAmountEdit.setText(item.itemamount.toString())
-                val spinnerUnitItem = holder.itemUnitSpinner.context.getResources().getStringArray(R.array.unitArray)
+                holder.itemTagButton.setOnClickListener {
+                    val tags = context.resources.getStringArray(R.array.tagArray)
+                    val dialogBuilder = AlertDialog.Builder(context)
+                    dialogBuilder.setTitle("태그를 선택해주세요")
+                    dialogBuilder.setItems(tags) {
+                            p0, p1 ->
+                            itemTagButton.text = tags[p1]
+                            item.itemtag = tags[p1]
+
+                    }
+                    val alertDialog = dialogBuilder.create()
+                    alertDialog.show()
+                }
+                val spinnerUnitItem = context.getResources().getStringArray(R.array.unitArray)
                 val spinnerAdapter : ArrayAdapter<String> =
-                    ArrayAdapter(holder.itemUnitSpinner.context,android.R.layout.simple_spinner_dropdown_item,spinnerUnitItem)
+                    ArrayAdapter(context,android.R.layout.simple_spinner_dropdown_item,spinnerUnitItem)
                 holder.itemUnitSpinner.setAdapter(spinnerAdapter)
                 for(i:Int in 0 until spinnerUnitItem.size) {
                     if(item.itemunit == spinnerUnitItem[i])

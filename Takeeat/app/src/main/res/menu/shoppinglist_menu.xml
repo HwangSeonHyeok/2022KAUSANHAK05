@@ -8,7 +8,6 @@
         android:icon="@drawable/ic_baseline_add_shopping_cart"
         android:title="addShoppingList_button"
         app:showAsAction="ifRoom"
-
         />
 
 </menu>
