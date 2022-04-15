@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.databinding.ActivityAddrefrigeratorBinding
 import org.json.JSONArray
 import org.json.JSONException
@@ -19,6 +20,8 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
+
+
 
 class AddRefrigeratorActivity :AppCompatActivity() {
     lateinit var binding : ActivityAddrefrigeratorBinding
@@ -73,6 +76,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                     }
                     sObject.put("item_amount", viewmodel.liveData.value!![i].itemamount)
                     sObject.put("item_unit", en_unit)
+                    sObject.put("user_id", AWSMobileClient.getInstance().username)
                     jArray.put(sObject)
                     input_ref_item(sObject)
                 }
@@ -123,8 +127,11 @@ class AddRefrigeratorActivity :AppCompatActivity() {
 
     fun input_ref_item(job : JSONObject){
         Thread(Runnable{
+
+
             //handler.post{
             //try {
+            AWSMobileClient.getInstance()
 
             val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref")
             var conn: HttpURLConnection =url.openConnection() as HttpURLConnection

@@ -32,6 +32,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.BuildConfig
 import com.example.takeeat.R
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
@@ -450,7 +451,7 @@ class RefrigeratorFragment : Fragment() {
 
         // 네트워킹 예외처리를 위한 try ~ catch 문
         try {
-            val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref")
+            val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref" + "/" + AWSMobileClient.getInstance().username)
 
             // 서버와의 연결 생성
             val urlConnection = url.openConnection() as HttpURLConnection
