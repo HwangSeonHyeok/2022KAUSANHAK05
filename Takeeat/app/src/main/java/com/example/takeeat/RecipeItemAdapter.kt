@@ -1,14 +1,19 @@
 package com.example.takeeat
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.example.takeeat.ui.refrigerator.AddRefrigeratorAdapter
-import org.w3c.dom.Text
+import com.bumptech.glide.Glide
+import java.io.IOException
+import java.net.MalformedURLException
+import java.net.URL
 import java.util.*
+
 
 class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<RecipeItemAdapter.ViewHolder>() {
     class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent,false)),View.OnClickListener{
@@ -54,8 +59,9 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
 
         holder.apply {
             recipeName.text = data[position].recipeName
+            Glide.with(holder.recipeDifficulty.context).load(data[position].imgURL).into(recipeImage)
             //recipeImage
-            //recipeIngredient= data[position].recipeIngredients[0]
+            recipeIngredient.text= data[position].recipeIngredients
             recipeIntroduce.text = data[position].recipeIntroduce
             recipeRate.text = data[position].recipeRating.toString()
             recipeTime.text = data[position].recipeTime.toString()+"분"
@@ -63,10 +69,8 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             recipeWriter.text = data[position].recipeWriter
         }
 
-
-
-
     }
+
 
 
 }

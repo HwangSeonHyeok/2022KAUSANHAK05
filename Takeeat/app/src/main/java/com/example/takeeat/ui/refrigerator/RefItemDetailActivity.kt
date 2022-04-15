@@ -11,6 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.R
+import com.example.takeeat.RecipeItem
+import com.example.takeeat.RecipeItemAdapter
 import com.example.takeeat.ShoppingListItem
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
 import org.json.JSONObject
@@ -21,12 +23,15 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class RefItemDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRefitemdetailBinding
     lateinit var refItem: RefItem
+    lateinit var adapter : RecipeItemAdapter
+    var recipeArray:ArrayList<RecipeItem> = ArrayList<RecipeItem>()
     var calendar = Calendar.getInstance()
     var year = calendar.get(Calendar.YEAR)
     var month = calendar.get(Calendar.MONTH)
@@ -112,6 +117,16 @@ class RefItemDetailActivity : AppCompatActivity() {
         }
         binding.refDetailEXP.isClickable = false
         binding.refDetailTag.isClickable = false
+        recipeArray.add(RecipeItem("1","집에서도 쉽게 찰떡과 조청으로 만든 꿀떡 만드는법","찹쌀, 천일염",
+        "찹쌀과 조청으로 집에서도 쉽고 빠르게드실 수 있는 찹쌀 꿀떡을 만들어봤습니다그럼 저희 영상을 봐주시고 채널을 들려주셔서 감사합니다",
+        4.2,120,"중급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2022/02/17/1f40ef46386de280a5d80601d0d39ae01.jpg")
+        ))
+        recipeArray.add(RecipeItem("2","단짠단짠의 대패덮밥","찹쌀, 천일염",
+            "뜨끈한 밥에 대패삼겹살 한점!집밥백선생 강추레시피! 간단하고 빠르게 만드는 별미메뉴!입맛없을때 만들먹으면 밥두공기도 거뜬해요.",
+            4.6,30,"초급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2017/10/22/3211f299a02729bc2d05649ceec734771.jpg")
+        ))
+        adapter = RecipeItemAdapter(recipeArray)
+        binding.refDetailRecipeField.adapter = adapter
 
         setContentView(binding.root)
 
