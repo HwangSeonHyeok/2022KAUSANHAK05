@@ -1,11 +1,7 @@
 package com.example.takeeat
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import android.text.TextWatcher
 import android.view.Menu
-import android.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -13,13 +9,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.takeeat.databinding.ActivityMainBinding
-import com.amazonaws.mobile.client.AWSMobileClient;
-import com.amazonaws.mobile.client.Callback;
-import com.amazonaws.mobile.client.UserStateDetails;
 import android.content.Intent
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.example.takeeat.ui.refrigerator.RefrigeratorViewModel
 
 //testmerge
 class MainActivity : AppCompatActivity() {
@@ -53,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the options menu from XML
         val inflater = menuInflater
-        inflater.inflate(R.menu.search_menu, menu)
+        inflater.inflate(R.menu.appbar_menu, menu)
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
 
             when(it.itemId) {
@@ -66,20 +60,19 @@ class MainActivity : AppCompatActivity() {
                     true
 
                 }
+                R.id.app_bar_search ->{
+                    true
+
+                }
                 else->{
                     false
                 }
             }
         })
 
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        (menu.findItem(R.id.app_bar_search).actionView as SearchView).apply {
-            // Assumes current activity is the searchable activity
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            setIconifiedByDefault(false) // Do not iconify the widget; expand it by default
-        }
         return super.onCreateOptionsMenu(menu)
     }
+
     // 뒤로가기 2번 눌러야 종료
     private val FINISH_INTERVAL_TIME: Long = 2500
     private var backPressedTime: Long = 0
@@ -102,4 +95,7 @@ class MainActivity : AppCompatActivity() {
             toast!!.show()
         }
     }
+
+
 }
+

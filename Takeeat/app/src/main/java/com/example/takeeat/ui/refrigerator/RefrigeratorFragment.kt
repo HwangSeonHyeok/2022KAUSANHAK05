@@ -4,6 +4,7 @@ import RefrigeratorAdapter
 import android.Manifest
 import android.app.Activity
 import android.app.Application
+import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -22,19 +23,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import android.view.MenuItem
+import android.widget.*
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.BuildConfig
 import com.example.takeeat.R
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
+import com.example.takeeat.ui.recipe.RecipeViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONObject
@@ -62,6 +66,11 @@ class RefrigeratorFragment : Fragment() {
     lateinit var galleryText:TextView
     lateinit var cameraText:TextView
     lateinit var currentPhotoPath: String
+    lateinit var refrigeratorSearch: SearchView
+    lateinit var refrigeratorSwitch: Switch
+    lateinit var refrigeratorSwitchLabel1: TextView
+    lateinit var refrigeratorSwitchLabel2: TextView
+    lateinit var refrigeratorSortButton: ImageButton
 
     var isFabOpen = false
     val CAMERA = arrayOf(Manifest.permission.CAMERA)
@@ -79,15 +88,21 @@ class RefrigeratorFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val refrigeratorViewModel =
-            ViewModelProvider(this).get(RefrigeratorViewModel::class.java)
 
         _binding = FragmentRefrigeratorBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        
+
+        //DB에서 itemTestList에 추가 시 fragment를 재시작해야 적용될 것 같습니다
+        val filteredTestList = itemTestList.clone() as MutableList<RefItem>
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
-        recyclerView.adapter = RefrigeratorAdapter(itemTestList)
+        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+        refrigeratorSearch = binding.refrigeratorSearch
+        refrigeratorSwitch = binding.refrigeratorSwitch
+        refrigeratorSwitchLabel1 = binding.refrigeratorTextView1
+        refrigeratorSwitchLabel2 = binding.refrigeratorTextView2
+        refrigeratorSortButton = binding.refrigeratorSortButton
+
 
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
@@ -158,6 +173,60 @@ class RefrigeratorFragment : Fragment() {
             callImage(CAMERA_CODE)
         })
 
+        fun filterList(newText:String){
+            filteredTestList.clear()
+            if(newText != "") {
+                for(x in itemTestList){
+                    if(x.itemname!!.contains(newText)) filteredTestList.add(x)
+                }
+            }
+            else {
+                for(x in itemTestList) filteredTestList.add(x)
+            }
+            var x = 0
+
+            if(!filteredTestList.isNullOrEmpty()) recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+        }
+
+
+        val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        refrigeratorSearch.apply {
+            //Assumes current activity is the searchable activity
+
+            //setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            setIconifiedByDefault(true) // Do not iconify the widget; expand it by default
+            queryHint = "품목 이름을 입력하세요"
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    filterList(newText)
+                    return false
+                }
+
+            })
+            setOnSearchClickListener(object: View.OnClickListener {
+                override fun onClick(v: View?) {
+                    refrigeratorSwitch.visibility = View.GONE
+                    refrigeratorSwitchLabel1.visibility = View.GONE
+                    refrigeratorSwitchLabel2.visibility = View.GONE
+                    refrigeratorSortButton.visibility = View.GONE
+                }
+            })
+
+            setOnCloseListener(object: SearchView.OnCloseListener {
+                override fun onClose(): Boolean {
+                    refrigeratorSwitch.visibility = View.VISIBLE
+                    refrigeratorSwitchLabel1.visibility = View.VISIBLE
+                    refrigeratorSwitchLabel2.visibility = View.VISIBLE
+                    refrigeratorSortButton.visibility = View.VISIBLE
+                    return false
+                }
+            })
+
+        }
 
         return root
     }
@@ -165,6 +234,8 @@ class RefrigeratorFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 
     fun callImage(taskCode:Int){
         if (checkPermission(CAMERA+STORAGE, CAMERA_CODE)) {
@@ -426,6 +497,8 @@ class RefrigeratorFragment : Fragment() {
 
     }
 
+
+
     //여기가 item 리스트입니다 db가져오는 코드에서 for문으로 itemTestList.add(RefItem(이름, 태그(현제는 null), Date(년,월,일), 갯수, 단위))를 해주시면 추가되요
     private val itemTestList = ArrayList<RefItem>().apply {
         add(RefItem("우유", null,Date(2022,4,15),1,"L"))
@@ -435,6 +508,7 @@ class RefrigeratorFragment : Fragment() {
         add(RefItem("우유3", null,Date(2022,4,17),1,"L"))
 
     }
+
 
 
 }
