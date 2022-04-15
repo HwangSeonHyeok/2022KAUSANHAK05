@@ -3,14 +3,23 @@ package com.example.takeeat.ui.refrigerator
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.R
 import com.example.takeeat.ShoppingListItem
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.DataOutputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 import java.util.*
 
 
@@ -62,7 +71,23 @@ class RefItemDetailActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(binding.refDetailNameEdit.windowToken, 0)
             imm.hideSoftInputFromWindow(binding.refDetailEditAmount.windowToken, 0)
             updateUI(refItem)
+
             //여기다 DB업데이트 코드 넣어주세요 refItem값으로 업데이트 해주면됩니다
+            val sObject = JSONObject() //배열 내에 들어갈 json
+            sObject.put("user_id", AWSMobileClient.getInstance().username)
+            sObject.put("item_id", refItem.itemid.toString())
+            sObject.put("update_name", URLEncoder.encode(binding.refDetailNameEdit.text.toString(), "UTF-8"))
+            sObject.put("update_amount", binding.refDetailEditAmount.text.toString())
+            sObject.put("update_exdate", binding.refDetailEXP.text.toString().replace(".", "-"))
+            sObject.put("update_tag", URLEncoder.encode(binding.refDetailTag.text.toString(), "UTF-8"))
+            sObject.put("update_unit", URLEncoder.encode(refItem.itemunit.toString(), "UTF-8"))
+
+
+            //Log.d("Response sObjects sObject sObject sObject : ",sObject.toString())
+
+
+            update_ref_item(sObject)
+
         }
         binding.refDetailEXP.setOnClickListener{
             val dateSelector = DatePickerDialog(this, {_, year, month, date ->
@@ -124,6 +149,15 @@ class RefItemDetailActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.refitemdetail_deletebutton -> {
                     //여기다 db삭제 코드 만들어 주세요
+                    val sObject = JSONObject() //배열 내에 들어갈 json
+                    sObject.put("user_id", AWSMobileClient.getInstance().username)
+                    sObject.put("item_id", refItem.itemid.toString())
+
+
+
+                    //Log.d("Response sObjects sObject sObject sObject : ",sObject.toString())
+
+                    delete_ref_item(sObject)
 
 
 
@@ -136,6 +170,190 @@ class RefItemDetailActivity : AppCompatActivity() {
             }
         })
         return super.onCreateOptionsMenu(menu)
+    }
+
+    fun update_ref_item(job : JSONObject){
+        Thread(Runnable{
+            //handler.post{
+            //try {
+            AWSMobileClient.getInstance()
+
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/update")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("POST")
+            //conn.setRequestProperty("Cache-Control", "no-cache");
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+            //conn.connect()
+
+
+            var requestBody = job.toString()
+
+
+            Log.d("Response1 = ",requestBody)
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+            var responseCode = conn.getResponseCode()
+            Log.d("Response : responseCode",responseCode.toString())
+            val br: BufferedReader
+            if (responseCode == 200) {
+                br = BufferedReader(InputStreamReader(conn.getInputStream()))
+
+                //var re = br.readLine()
+                //Log.d("Response : br.readLine(1) = ",re)
+                //var re1 = br.readLine()
+                //Log.d("Response : br.readLine(2) = ",re1)
+                //var re2 = br.readLine()
+                //Log.d("Response : br.readLine(3) = ",re2)
+                //var re3 = br.readLine()
+                //Log.d("Response : br.readLine() = ",re3)
+                //var re4 = br.readLine()
+                //Log.d("Response : br.readLine() = ",re4)
+
+                //var ree = JSONObject(re)
+                //Log.d("Response : JSONObject(br.readLine()) = ",ree.toString())
+                //var reee = ree.toString()
+                //Log.d("Response : resultJson = ",reee)
+                Log.d("Response","Success Success Success Success Success Success")
+            } else {
+                br = BufferedReader(InputStreamReader(conn.getErrorStream()))
+                Log.d("Response","fail")
+            }
+
+            /*
+            var re = br.readLine()
+            var ree = JSONObject(re)
+            var reee = ree.toString()
+            Log.d("Response : resultJson = ",reee)
+             */
+
+            //var resultJson= JSONObject(br.readLine())
+            //var rrr = br.readLine()
+            //Log.d("Response : resultJson = ",resultJson.toString())
+
+            /*
+            var response  = ArrayList<RefItem>()
+            val result = resultJson.get("result")
+            val age = resultJson.get("age");
+            val job = resultJson.get("job");
+            */
+            //Log.i("Response", "DATA response = " + response)
+
+            //conn.disconnect()
+            /*
+            } catch (e:Exception) {
+                Toast.makeText(getApplicationContext(),"데이터 전송 준비 과정 중 오류 발생",Toast.LENGTH_SHORT).show();
+                Log.i("Response", "DATA FAil")
+                return aff;
+            }
+            */
+
+            //}
+
+
+
+
+        }).start()
+    }
+
+    fun delete_ref_item(job : JSONObject){
+        Thread(Runnable{
+            //handler.post{
+            //try {
+            AWSMobileClient.getInstance()
+
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/delete")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("POST")
+            //conn.setRequestProperty("Cache-Control", "no-cache");
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+            //conn.connect()
+
+
+            var requestBody = job.toString()
+
+
+            Log.d("Response1 = ",requestBody)
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+            var responseCode = conn.getResponseCode()
+            Log.d("Response : responseCode",responseCode.toString())
+            val br: BufferedReader
+            if (responseCode == 200) {
+                br = BufferedReader(InputStreamReader(conn.getInputStream()))
+
+                //var re = br.readLine()
+                //Log.d("Response : br.readLine(1) = ",re)
+                //var re1 = br.readLine()
+                //Log.d("Response : br.readLine(2) = ",re1)
+                //var re2 = br.readLine()
+                //Log.d("Response : br.readLine(3) = ",re2)
+                //var re3 = br.readLine()
+                //Log.d("Response : br.readLine() = ",re3)
+                //var re4 = br.readLine()
+                //Log.d("Response : br.readLine() = ",re4)
+
+                //var ree = JSONObject(re)
+                //Log.d("Response : JSONObject(br.readLine()) = ",ree.toString())
+                //var reee = ree.toString()
+                //Log.d("Response : resultJson = ",reee)
+                Log.d("Response","Success Success Success Success Success Success")
+            } else {
+                br = BufferedReader(InputStreamReader(conn.getErrorStream()))
+                Log.d("Response","fail")
+            }
+
+            /*
+            var re = br.readLine()
+            var ree = JSONObject(re)
+            var reee = ree.toString()
+            Log.d("Response : resultJson = ",reee)
+             */
+
+            //var resultJson= JSONObject(br.readLine())
+            //var rrr = br.readLine()
+            //Log.d("Response : resultJson = ",resultJson.toString())
+
+            /*
+            var response  = ArrayList<RefItem>()
+            val result = resultJson.get("result")
+            val age = resultJson.get("age");
+            val job = resultJson.get("job");
+            */
+            //Log.i("Response", "DATA response = " + response)
+
+            //conn.disconnect()
+            /*
+            } catch (e:Exception) {
+                Toast.makeText(getApplicationContext(),"데이터 전송 준비 과정 중 오류 발생",Toast.LENGTH_SHORT).show();
+                Log.i("Response", "DATA FAil")
+                return aff;
+            }
+            */
+
+            //}
+
+
+
+
+        }).start()
     }
 
 }

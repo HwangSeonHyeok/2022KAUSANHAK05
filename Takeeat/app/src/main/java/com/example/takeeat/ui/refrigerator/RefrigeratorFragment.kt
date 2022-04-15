@@ -165,7 +165,7 @@ class RefrigeratorFragment : Fragment() {
         directFab.setOnClickListener (View.OnClickListener {
             val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
             var nonOcr = ArrayList<RefItem>()
-            nonOcr.add(RefItem(null,null,null,null,null))
+            nonOcr.add(RefItem(null,null,null,null,null, null))
             intent.putExtra("OCR_RESULT",nonOcr)
             startActivity(intent)
         })
@@ -432,7 +432,7 @@ class RefrigeratorFragment : Fragment() {
                 resultJson = resultField.getJSONObject(i)
                 val itemName = resultJson.getJSONObject("name").getJSONObject("formatted").getString("value")
                 val itemAmount = resultJson.getJSONObject("count").getJSONObject("formatted").getInt("value")
-                response.add(RefItem(itemName,null,null,itemAmount,null))
+                response.add(RefItem(itemName,null,null,itemAmount,null, null))
             }
             br.close()
             Log.d("Response",response.toString())
@@ -482,7 +482,8 @@ class RefrigeratorFragment : Fragment() {
                         jsonObj.getString("item_tag"),
                         Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt()),
                         jsonObj.getString("item_amount").toInt(),
-                        jsonObj.getString("item_unit")))
+                        jsonObj.getString("item_unit"),
+                        jsonObj.getString("item_id")))
                 }
 
                 // 스트림과 커넥션 해제

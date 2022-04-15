@@ -43,7 +43,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         }
 
         binding.addrefAddButton.setOnClickListener {
-            viewmodel.addData(RefItem(null, null, null, null, null))
+            viewmodel.addData(RefItem(null, null, null, null, null, null))
             Log.d("Response", "inMain"+viewmodel.liveData.value.toString())
         }
         binding.addrefApplyButton.setOnClickListener {
