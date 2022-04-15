@@ -9,5 +9,6 @@ data class RefItem(
     var itemtag : String?,
     var itemexp : Date?,
     var itemamount : Int?,
-    var itemunit : String?
+    var itemunit : String?,
+    val itemid : String?
 ) : Serializable

@@ -51,8 +51,13 @@ class ShoppingListAdapter(var data: LiveData<ArrayList<ShoppingListItem>>) : Rec
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             }
             override fun afterTextChanged(s: Editable) {
-                data.value!!.get(holder.absoluteAdapterPosition).itemname = s.toString()
-                Log.d("Response","afterTextChanged"+data.value!!.get(holder.absoluteAdapterPosition).itemname.toString())
+                if(s.toString()!=null) {
+                    data.value!!.get(holder.absoluteAdapterPosition).itemname = s.toString()
+                    Log.d(
+                        "Response",
+                        "afterTextChanged" + data.value!!.get(holder.absoluteAdapterPosition).itemname.toString()
+                    )
+                }
 
             }
         }

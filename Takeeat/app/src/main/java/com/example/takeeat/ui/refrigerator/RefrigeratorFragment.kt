@@ -4,7 +4,6 @@ import RefrigeratorAdapter
 import android.Manifest
 import android.app.Activity
 import android.app.Application
-import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -23,22 +22,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import android.view.MenuItem
-import android.widget.*
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.BuildConfig
 import com.example.takeeat.R
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
-import com.example.takeeat.ui.recipe.RecipeViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONObject
@@ -66,11 +63,6 @@ class RefrigeratorFragment : Fragment() {
     lateinit var galleryText:TextView
     lateinit var cameraText:TextView
     lateinit var currentPhotoPath: String
-    lateinit var refrigeratorSearch: SearchView
-    lateinit var refrigeratorSwitch: Switch
-    lateinit var refrigeratorSwitchLabel1: TextView
-    lateinit var refrigeratorSwitchLabel2: TextView
-    lateinit var refrigeratorSortButton: ImageButton
 
     var isFabOpen = false
     val CAMERA = arrayOf(Manifest.permission.CAMERA)
@@ -81,6 +73,7 @@ class RefrigeratorFragment : Fragment() {
     var ocrApiGwUrl:String = BuildConfig.OCR_API_GW_URL
     var ocrSecretKey:String = BuildConfig.OCR_SECRETKEY
 
+    lateinit var itemTestList: ArrayList<RefItem>
 
 
     override fun onCreateView(
@@ -88,21 +81,32 @@ class RefrigeratorFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val refrigeratorViewModel =
+            ViewModelProvider(this).get(RefrigeratorViewModel::class.java)
 
         _binding = FragmentRefrigeratorBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        //DB에서 itemTestList에 추가 시 fragment를 재시작해야 적용될 것 같습니다
-        val filteredTestList = itemTestList.clone() as MutableList<RefItem>
+        
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
-        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
-        refrigeratorSearch = binding.refrigeratorSearch
-        refrigeratorSwitch = binding.refrigeratorSwitch
-        refrigeratorSwitchLabel1 = binding.refrigeratorTextView1
-        refrigeratorSwitchLabel2 = binding.refrigeratorTextView2
-        refrigeratorSortButton = binding.refrigeratorSortButton
 
+
+        val handler = Handler()
+
+        Thread(Runnable{
+            itemTestList = get_ref_item()
+            handler.post() {
+                Log.d("Response : itemlist", itemTestList.toString())
+                recyclerView.adapter = RefrigeratorAdapter(itemTestList)
+
+                //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
+                //intent.putExtra("OCR_RESULT",ocrResult)
+                //startActivity(intent)
+            }
+
+
+
+        }).start()
 
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
@@ -161,7 +165,7 @@ class RefrigeratorFragment : Fragment() {
         directFab.setOnClickListener (View.OnClickListener {
             val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
             var nonOcr = ArrayList<RefItem>()
-            nonOcr.add(RefItem(null,null,null,null,null))
+            nonOcr.add(RefItem(null,null,null,null,null, null))
             intent.putExtra("OCR_RESULT",nonOcr)
             startActivity(intent)
         })
@@ -173,60 +177,6 @@ class RefrigeratorFragment : Fragment() {
             callImage(CAMERA_CODE)
         })
 
-        fun filterList(newText:String){
-            filteredTestList.clear()
-            if(newText != "") {
-                for(x in itemTestList){
-                    if(x.itemname!!.contains(newText)) filteredTestList.add(x)
-                }
-            }
-            else {
-                for(x in itemTestList) filteredTestList.add(x)
-            }
-            var x = 0
-
-            if(!filteredTestList.isNullOrEmpty()) recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
-        }
-
-
-        val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        refrigeratorSearch.apply {
-            //Assumes current activity is the searchable activity
-
-            //setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            setIconifiedByDefault(true) // Do not iconify the widget; expand it by default
-            queryHint = "품목 이름을 입력하세요"
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    return false
-                }
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    filterList(newText)
-                    return false
-                }
-
-            })
-            setOnSearchClickListener(object: View.OnClickListener {
-                override fun onClick(v: View?) {
-                    refrigeratorSwitch.visibility = View.GONE
-                    refrigeratorSwitchLabel1.visibility = View.GONE
-                    refrigeratorSwitchLabel2.visibility = View.GONE
-                    refrigeratorSortButton.visibility = View.GONE
-                }
-            })
-
-            setOnCloseListener(object: SearchView.OnCloseListener {
-                override fun onClose(): Boolean {
-                    refrigeratorSwitch.visibility = View.VISIBLE
-                    refrigeratorSwitchLabel1.visibility = View.VISIBLE
-                    refrigeratorSwitchLabel2.visibility = View.VISIBLE
-                    refrigeratorSortButton.visibility = View.VISIBLE
-                    return false
-                }
-            })
-
-        }
 
         return root
     }
@@ -234,8 +184,6 @@ class RefrigeratorFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 
     fun callImage(taskCode:Int){
         if (checkPermission(CAMERA+STORAGE, CAMERA_CODE)) {
@@ -484,7 +432,7 @@ class RefrigeratorFragment : Fragment() {
                 resultJson = resultField.getJSONObject(i)
                 val itemName = resultJson.getJSONObject("name").getJSONObject("formatted").getString("value")
                 val itemAmount = resultJson.getJSONObject("count").getJSONObject("formatted").getInt("value")
-                response.add(RefItem(itemName,null,null,itemAmount,null))
+                response.add(RefItem(itemName,null,null,itemAmount,null, null))
             }
             br.close()
             Log.d("Response",response.toString())
@@ -497,18 +445,58 @@ class RefrigeratorFragment : Fragment() {
 
     }
 
-
-
     //여기가 item 리스트입니다 db가져오는 코드에서 for문으로 itemTestList.add(RefItem(이름, 태그(현제는 null), Date(년,월,일), 갯수, 단위))를 해주시면 추가되요
-    private val itemTestList = ArrayList<RefItem>().apply {
-        add(RefItem("우유", null,Date(2022,4,15),1,"L"))
-        add(RefItem("두유", null,Date(2022,4,18),1,"L"))
-        add(RefItem("마늘", null,Date(2022,4,13),1,"L"))
-        add(RefItem("우유2", null,Date(2022,4,16),1,"L"))
-        add(RefItem("우유3", null,Date(2022,4,17),1,"L"))
+    fun get_ref_item(): ArrayList<RefItem> {
+        val itemTestList = ArrayList<RefItem>()
 
+        // 네트워킹 예외처리를 위한 try ~ catch 문
+        try {
+            val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref" + "/" + AWSMobileClient.getInstance().username)
+
+            // 서버와의 연결 생성
+            val urlConnection = url.openConnection() as HttpURLConnection
+            urlConnection.requestMethod = "GET"
+
+            if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
+                // 데이터 읽기
+                val streamReader = InputStreamReader(urlConnection.inputStream)
+                val buffered = BufferedReader(streamReader)
+
+                val content = StringBuilder()
+                while(true) {
+                    val line = buffered.readLine() ?: break
+                    content.append(line)
+                }
+
+                val data =content.toString()
+                val jsonArr = JSONArray(data)
+                Log.d("Response : jsonArr",jsonArr.toString())
+                Log.d("Response : jsonlength",jsonArr.length().toString())
+                val i = 0
+                for (i in 0 until jsonArr.length()) {
+                    val jsonObj = jsonArr.getJSONObject(i)
+                    val datestr = jsonObj.getString("item_exdate")
+                    val numm = datestr.split("-")
+                    Log.d("Response : jsonObj",jsonObj.toString())
+                    itemTestList.add(RefItem(jsonObj.getString("item_name"),
+                        jsonObj.getString("item_tag"),
+                        Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt()),
+                        jsonObj.getString("item_amount").toInt(),
+                        jsonObj.getString("item_unit"),
+                        jsonObj.getString("item_id")))
+                }
+
+                // 스트림과 커넥션 해제
+                buffered.close()
+                urlConnection.disconnect()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+
+        return itemTestList
     }
-
 
 
 }

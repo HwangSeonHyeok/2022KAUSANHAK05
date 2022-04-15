@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="380dp"
+    android:layout_gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/recipe_item_Image"
+        android:layout_width="300dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_image" />
+
+    <TextView
+        android:id="@+id/recipe_item_recipename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="요리명"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/recipe_item_Image"
+        app:layout_constraintTop_toBottomOf="@id/recipe_item_Image" />
+
+    <TextView
+        android:id="@+id/recipe_item_recipeIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="재료"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/recipe_item_recipename"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_recipename" />
+
+    <TextView
+        android:id="@+id/recipe_item_recipeintroduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="소개"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/recipe_item_recipeIngredients"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_recipeIngredients" />
+
+    <ImageView
+        android:id="@+id/recipe_item_starimage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recipe_item_rating"
+        app:layout_constraintEnd_toStartOf="@+id/recipe_item_rating"
+        app:layout_constraintTop_toTopOf="@+id/recipe_item_rating"
+        app:srcCompat="@drawable/ic_baseline_star_rate" />
+
+    <TextView
+        android:id="@+id/recipe_item_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="평점"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/recipe_item_Image"
+        app:layout_constraintTop_toBottomOf="@id/recipe_item_Image" />
+
+    <ImageView
+        android:id="@+id/recipe_item_timeimage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recipe_item_time"
+        app:layout_constraintEnd_toStartOf="@+id/recipe_item_time"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_rating"
+        app:srcCompat="@drawable/ic_baseline_access_time" />
+
+    <TextView
+        android:id="@+id/recipe_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="시간"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_item_rating"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_rating" />
+
+    <TextView
+        android:id="@+id/recipe_item_difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="난이도"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_item_time"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_time" />
+
+    <TextView
+        android:id="@+id/recipe_item_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="작성자"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_item_difficulty"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_item_difficulty" />
+</androidx.constraintlayout.widget.ConstraintLayout>

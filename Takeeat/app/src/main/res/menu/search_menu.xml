@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="검색"
+        app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always|collapseActionView"
 
         />
