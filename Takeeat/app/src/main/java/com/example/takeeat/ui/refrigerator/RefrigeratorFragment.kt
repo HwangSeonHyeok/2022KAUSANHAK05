@@ -79,7 +79,7 @@ class RefrigeratorFragment : Fragment() {
     var ocrSecretKey:String = BuildConfig.OCR_SECRETKEY
 
     lateinit var itemTestList: ArrayList<RefItem>
-
+    var filteredTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
     private val fetchList = ArrayList<RefItem>().apply {
         add(RefItem("로딩중...", null,Date(2022,4,15),1,"L", null))
     }
@@ -98,28 +98,10 @@ class RefrigeratorFragment : Fragment() {
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
 
-        var filteredTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
 
 
-        val handler = Handler()
+        //getDB(recyclerView)
 
-        Thread(Runnable{
-            fetchList.clear()
-            itemTestList = get_ref_item()
-            for(x in itemTestList) fetchList.add(x)
-            handler.post() {
-                Log.d("Response : itemlist", itemTestList.toString())
-                filteredTestList = fetchList.clone() as MutableList<RefItem>
-                recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
-
-                //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
-                //intent.putExtra("OCR_RESULT",ocrResult)
-                //startActivity(intent)
-            }
-
-
-
-        }).start()
 
         //filteredTestList = itemTestList.clone() as MutableList<RefItem>
         //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
@@ -255,6 +237,11 @@ class RefrigeratorFragment : Fragment() {
         }
 
         return root
+    }
+
+    override fun onStart(){
+        super.onStart()
+        getDB(binding.refrigeratorrecyclerview)
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -572,6 +559,28 @@ class RefrigeratorFragment : Fragment() {
 
 
         return itemTestList
+    }
+    fun getDB(recyclerView:RecyclerView){
+        val handler = Handler()
+
+        Thread(Runnable{
+            fetchList.clear()
+            itemTestList = get_ref_item()
+            for(x in itemTestList) fetchList.add(x)
+            handler.post() {
+                Log.d("Response : itemlist", itemTestList.toString())
+                filteredTestList = fetchList.clone() as MutableList<RefItem>
+                recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+
+                //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
+                //intent.putExtra("OCR_RESULT",ocrResult)
+                //startActivity(intent)
+            }
+
+
+
+        }).start()
+
     }
 
 

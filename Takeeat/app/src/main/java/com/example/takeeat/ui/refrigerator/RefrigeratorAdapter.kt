@@ -54,7 +54,7 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
         holder.apply {
             txtItemName.text = items.itemname
             if(items.itemexp!=null) {
-                var diffSec = (items.itemexp!!.time.minus(Date(year, month + 1, date).time))
+                var diffSec = (items.itemexp!!.time.minus(Date(year, month, date).time))
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)
                 if(diffDate > 3) imgItemExpWarning.setVisibility(View.GONE)
                 txtItemExp.text = diffDate.toString() + "일"

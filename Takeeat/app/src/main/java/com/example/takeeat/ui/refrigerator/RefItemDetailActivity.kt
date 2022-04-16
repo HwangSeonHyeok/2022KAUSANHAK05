@@ -36,6 +36,9 @@ class RefItemDetailActivity : AppCompatActivity() {
     var year = calendar.get(Calendar.YEAR)
     var month = calendar.get(Calendar.MONTH)
     var date = calendar.get(Calendar.DAY_OF_MONTH)
+    var todayyear = calendar.get(Calendar.YEAR)
+    var todaymonth = calendar.get(Calendar.MONTH)
+    var todaydate = calendar.get(Calendar.DAY_OF_MONTH)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -67,12 +70,12 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailEditButton.isClickable = true
             binding.refDetailItemname.visibility = View.VISIBLE
             binding.refDetailNameEdit.visibility = View.INVISIBLE
-            //refItem.itemname = binding.refDetailNameEdit.text.toString()
+            refItem.itemname = binding.refDetailNameEdit.text.toString()
             binding.refDetailEXP.isClickable = false
             binding.refDetailTag.isClickable = false
             binding.refDetailItemAmount.visibility = View.VISIBLE
             binding.refDetailEditAmount.visibility = View.INVISIBLE
-            //refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
+            refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
             imm.hideSoftInputFromWindow(binding.refDetailNameEdit.windowToken, 0)
             imm.hideSoftInputFromWindow(binding.refDetailEditAmount.windowToken, 0)
             updateUI(refItem)
@@ -98,7 +101,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             val dateSelector = DatePickerDialog(this, {_, year, month, date ->
                 binding.refDetailEXP.setText(year.toString() + "." + (month + 1).toString() + "." + date.toString())
                 refItem.itemexp =Date(year,month,date)
-            },year,month-1,date)
+            },year,month,date)
             dateSelector.show()
         }
         binding.refDetailTag.setOnClickListener{
@@ -138,7 +141,15 @@ class RefItemDetailActivity : AppCompatActivity() {
             year = itemData.itemexp!!.year
             month = itemData.itemexp!!.month
             date = itemData.itemexp!!.date
-            binding.refDetailEXP.text = year.toString() + "." + month.toString() + "." + date.toString()
+            binding.refDetailEXP.text = year.toString() + "." + (month+1).toString() + "." + date.toString()
+            var diffSec = (itemData.itemexp!!.time.minus(Date(todayyear, todaymonth, todaydate).time))
+            var diffDate = diffSec / (24 * 60 * 60 * 1000)
+            if(diffDate < 3) {
+                binding.refDetailEXPWarning.setVisibility(View.VISIBLE)
+            }
+            else {
+                binding.refDetailEXPWarning.setVisibility(View.INVISIBLE)
+            }
         }
         binding.refDetailItemAmount.text = itemData.itemamount.toString()
         binding.refDetailUnit.text = itemData.itemunit.toString()
