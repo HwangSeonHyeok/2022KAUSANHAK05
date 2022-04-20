@@ -7,26 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".OkActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/forgotback">
 
     <TextView
         android:id="@+id/ok_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="비밀번호를 잊어버리셨나요?\n
-        인증 메일이 가입했던 이메일 주소로 전송됩니다!\n
+        android:text="
+        인증 메일이 가입했던 이메일 주소로 전송됩니다\n
         인증 코드 입력 후 비밀번호를 재설정 해주세요!"
+        android:layout_marginTop="230dp"
         android:textSize="16dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#ffffff"/>
 
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         >
 
         <TextView
@@ -34,13 +37,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이메일 주소"
+            android:textColor="#ffffff"
             android:textSize="16dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/paw_signUpUsername"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
+            android:backgroundTint="#ffffff"
             android:ems="10"
             android:inputType="text" />
 
@@ -53,32 +58,37 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="인증 코드 발송" />
+        android:text="인증 코드 발송"
+        android:textColor="#ffffff"
+        android:backgroundTint ="@color/buttonc"
+        android:elevation="40dp"/>
 
 
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         >
 
         <TextView
             android:id="@+id/paw_code_name_text"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="30dp"
             android:text="인증 코드"
             android:textSize="16dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/paw_code_name"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text"
+            android:backgroundTint="#ffffff"/>
 
 
 
@@ -88,25 +98,27 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         >
 
         <TextView
             android:id="@+id/new_paw_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="비밀번호 재설정"
+            android:text="새 비밀번호"
             android:textSize="16dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/new_paw_name"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text"
+            android:backgroundTint="#ffffff"/>
 
 
 
@@ -120,7 +132,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="확인" />
+        android:text="확인"
+        android:textColor="#ffffff"
+        android:backgroundTint ="@color/buttonc"
+        android:elevation="40dp"/>
 
 
 </LinearLayout>
