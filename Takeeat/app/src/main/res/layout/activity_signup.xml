@@ -7,15 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/signinback">
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="200dp">
         <TextView
             android:id="@+id/signUpName_text"
             android:layout_width="90dp"
@@ -24,16 +25,18 @@
             android:textSize="20sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="7dp"
-            tools:layout_editor_absoluteY="318dp" />
+            tools:layout_editor_absoluteY="318dp"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/signUpName"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:ems="10"
             android:inputType="text"
             tools:layout_editor_absoluteX="213dp"
-            tools:layout_editor_absoluteY="310dp" />
+            tools:layout_editor_absoluteY="310dp"
+            android:backgroundTint ="#ffffff"/>
 
 
     </LinearLayout>
@@ -41,7 +44,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         >
@@ -52,13 +55,15 @@
             android:layout_height="30dp"
             android:text="이메일"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/signUpUsername"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:ems="10" />
+            android:ems="10"
+            android:backgroundTint ="#ffffff"/>
 
 
     </LinearLayout>
@@ -67,7 +72,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
         android:layout_marginTop="20dp">
 
@@ -77,14 +82,16 @@
             android:layout_height="30dp"
             android:text="비밀번호"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffffff"/>
 
         <EditText
             android:id="@+id/signUpPassword"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:backgroundTint ="#ffffff"/>
 
 
     </LinearLayout>
@@ -95,8 +102,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="회원가입" />
+        android:layout_marginTop="50dp"
+        android:text="회원가입"
+        android:textColor="#ffffff"
+        android:backgroundTint ="@color/buttonc"/>
 
 
 </LinearLayout>
