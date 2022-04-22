@@ -76,7 +76,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             recipeIngredient.text= content.toString()
             recipeIntroduce.text = data[position].recipeIntroduce
             recipeRate.text = data[position].recipeRating.toString()
-            recipeTime.text = data[position].recipeTime.toString()+"분"
+            recipeTime.text = data[position].recipeTime
             recipeDifficulty.text = data[position].recipeDifficulty
             recipeWriter.text = data[position].recipeWriter
         }
