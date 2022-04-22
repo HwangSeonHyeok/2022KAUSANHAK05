@@ -19,14 +19,15 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.invalidateOptionsMenu
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
@@ -37,7 +38,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.BuildConfig
+import com.example.takeeat.MainActivity
 import com.example.takeeat.R
+import com.example.takeeat.ShoppingListActivity
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
@@ -211,17 +214,20 @@ class RefrigeratorFragment : Fragment() {
 
 
         fun filterList(newText:String){
-            filteredTestList.clear()
+            val newTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
             if(newText != "") {
                 for(x in fetchList){
-                    if(x.itemname!!.contains(newText)) filteredTestList.add(x)
+                    if(x.itemname!!.contains(newText)) newTestList.add(x)
                 }
             }
             else {
-                for(x in fetchList) filteredTestList.add(x)
+                for(x in fetchList) newTestList.add(x)
             }
 
-            if(!filteredTestList.isNullOrEmpty()) {
+            if(!newTestList.isNullOrEmpty()) {
+                filteredTestList.clear()
+                for(x in newTestList) filteredTestList.add(x)
+
                 if(recyclerView.layoutManager == linearLayoutManager){
                     recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
                 }
@@ -240,7 +246,8 @@ class RefrigeratorFragment : Fragment() {
             setIconifiedByDefault(true) // Do not iconify the widget; expand it by default
             queryHint = "품목 이름을 입력하세요"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    filterList(query)
                     return false
                 }
 
@@ -273,6 +280,8 @@ class RefrigeratorFragment : Fragment() {
 
         }
 
+        setHasOptionsMenu(true)
+
 
         return root
     }
@@ -280,11 +289,19 @@ class RefrigeratorFragment : Fragment() {
 
     override fun onStart(){
         super.onStart()
+        refrigeratorSearch.setQuery("", false)
+        refrigeratorSearch.isIconified = true
         getDB(binding.refrigeratorrecyclerview)
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        val searchbutton = menu.findItem(R.id.app_bar_search)
+        searchbutton.isVisible = false
+        return super.onCreateOptionsMenu(menu,inflater)
     }
 
     fun callImage(taskCode:Int){
