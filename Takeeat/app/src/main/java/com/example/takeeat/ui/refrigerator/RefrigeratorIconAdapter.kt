@@ -15,13 +15,12 @@ import java.util.*
 import kotlin.time.Duration.Companion.milliseconds
 
 
-class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerView.Adapter<RefrigeratorAdapter.RowViewHolder>() {
+class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : RecyclerView.Adapter<RefrigeratorIconAdapter.IconViewHolder>() {
 
-    inner class RowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
-        val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name)
-        val txtItemExp: TextView = itemView.findViewById(R.id.refrigerator_item_expiration)
-        val txtItemQuan: TextView = itemView.findViewById(R.id.refrigerator_item_quantity)
-        val imgItemExpWarning: ImageView = itemView.findViewById(R.id.refrigerator_item_expiration_warning)
+    inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
+        val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name_icon)
+        val imgItem: ImageView = itemView.findViewById(R.id.refrigerator_item_image_icon)
+        val imgItemExpWarning: ImageView = itemView.findViewById(R.id.refrigerator_item_expiration_warning_icon)
         var calendar = Calendar.getInstance()
         var year = calendar.get(Calendar.YEAR)
         var month = calendar.get(Calendar.MONTH)
@@ -40,14 +39,13 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_refrig, parent, false)
-        val rowViewHolder = RowViewHolder(itemView)
-        //rowViewHolder.onClick()
-        return rowViewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_refrig_icon, parent, false)
+        val iconViewHolder = IconViewHolder(itemView)
+        return iconViewHolder
     }
 
-    override fun onBindViewHolder(holder: RowViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
         val rowPos = holder.absoluteAdapterPosition
         val items = itemTestList[rowPos]
 
@@ -57,14 +55,9 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
                 var diffSec = (items.itemexp!!.time.minus(Date(year, month, date).time))
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)
                 if(diffDate > 3) imgItemExpWarning.setVisibility(View.GONE)
-                txtItemExp.text = diffDate.toString() + "일"
             }
-            txtItemQuan.text = items.itemamount.toString()+items.itemunit
-
         }
     }
-
-
 
     override fun getItemCount(): Int {
         return itemTestList.size
