@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.amazonaws:aws-android-sdk-auth-userpools:2.8.5@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4310bf25615f70ea1e0b0f5f8b214565/transformed/aws-android-sdk-auth-userpools-2.8.5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4310bf25615f70ea1e0b0f5f8b214565/transformed/aws-android-sdk-auth-userpools-2.8.5/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4310bf25615f70ea1e0b0f5f8b214565/transformed/aws-android-sdk-auth-userpools-2.8.5/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ff7b2a2b2600f1271f66439949cafc00/transformed/aws-android-sdk-auth-userpools-2.8.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ff7b2a2b2600f1271f66439949cafc00/transformed/aws-android-sdk-auth-userpools-2.8.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ff7b2a2b2600f1271f66439949cafc00/transformed/aws-android-sdk-auth-userpools-2.8.5/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-auth-userpools/2.8.5/5c7e7ff0f3aa4588181ce9746e9148c623bc3ed1/aws-android-sdk-auth-userpools-2.8.5-javadoc.jar!/" />
