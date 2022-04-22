@@ -52,7 +52,13 @@ class RefrigeratorAdapter(private val itemTestList: List<RefItem>) : RecyclerVie
         val items = itemTestList[rowPos]
 
         holder.apply {
-            txtItemName.text = items.itemname
+            if(items.itemname?.length!! > 8) {
+                txtItemName.text = items.itemname?.substring(0, items.itemname!!.length.coerceAtMost(8)) + "…"
+            }
+            else
+            {
+                txtItemName.text = items.itemname
+            }
             if(items.itemexp!=null) {
                 var diffSec = (items.itemexp!!.time.minus(Date(year, month, date).time))
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)

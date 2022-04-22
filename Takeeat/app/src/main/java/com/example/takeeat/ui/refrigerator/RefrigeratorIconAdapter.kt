@@ -50,7 +50,13 @@ class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : Recycle
         val items = itemTestList[rowPos]
 
         holder.apply {
-            txtItemName.text = items.itemname
+            if(items.itemname?.length!! > 5) {
+                txtItemName.text = items.itemname?.substring(0, items.itemname!!.length.coerceAtMost(4)) + "…"
+            }
+            else
+            {
+                txtItemName.text = items.itemname
+            }
             if(items.itemexp!=null) {
                 var diffSec = (items.itemexp!!.time.minus(Date(year, month, date).time))
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)

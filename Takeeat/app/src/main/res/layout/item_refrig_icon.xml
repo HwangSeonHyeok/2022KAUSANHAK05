@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="6dp"
         app:cardCornerRadius="1dp"
         app:cardElevation="5dp">
 
@@ -49,7 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="재료"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_marginBottom="15dp"/>
 
 
         </LinearLayout>
