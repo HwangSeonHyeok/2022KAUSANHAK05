@@ -17,6 +17,7 @@ import com.example.takeeat.RecipeItem
 import com.example.takeeat.RecipeItemAdapter
 import com.example.takeeat.ShoppingListItem
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
@@ -122,14 +123,39 @@ class RefItemDetailActivity : AppCompatActivity() {
         }
         binding.refDetailEXP.isClickable = false
         binding.refDetailTag.isClickable = false
-        recipeArray.add(RecipeItem("1","집에서도 쉽게 찰떡과 조청으로 만든 꿀떡 만드는법","찹쌀, 천일염",
-        "찹쌀과 조청으로 집에서도 쉽고 빠르게드실 수 있는 찹쌀 꿀떡을 만들어봤습니다그럼 저희 영상을 봐주시고 채널을 들려주셔서 감사합니다",
-        4.2,120,"중급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2022/02/17/1f40ef46386de280a5d80601d0d39ae01.jpg")
+
+        Thread(Runnable{
+
+            val rObject = JSONObject()
+
+            rObject.put("item_tag", URLEncoder.encode(refItem.itemname.toString(), "UTF-8"))
+
+            val recipe_list = get_recipe_item(rObject)
+
+            Log.d("Response : recipelist ------------------- = ",recipe_list.toString())
+
+
+            for(x in recipe_list) {
+                recipeArray.add(RecipeItem(
+                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeIntroduce, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL)
+                )
+            }
+
+        }).start()
+
+
+        val JA = JSONArray("[{\"ingre_name\":\"계란\",\"ingre_num\":1,\"ingre_count\":\"5\",\"ingre_unit\":\"개\"},{\"ingre_name\":\"육수팩\",\"ingre_num\":2,\"ingre_count\":\"1\",\"ingre_unit\":\"개\"},{\"ingre_name\":\"소금\",\"ingre_num\":3,\"ingre_count\":\"\",\"ingre_unit\":\"약간\"}]")
+
+        recipeArray.add(RecipeItem("1","집에서도 쉽게 찰떡과 조청으로 만든 꿀떡 만드는법",JA,
+            "찹쌀과 조청으로 집에서도 쉽고 빠르게드실 수 있는 찹쌀 꿀떡을 만들어봤습니다그럼 저희 영상을 봐주시고 채널을 들려주셔서 감사합니다",
+            4.2,"120","중급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2022/02/17/1f40ef46386de280a5d80601d0d39ae01.jpg")
         ))
-        recipeArray.add(RecipeItem("2","단짠단짠의 대패덮밥","찹쌀, 천일염",
+        recipeArray.add(RecipeItem("2","단짠단짠의 대패덮밥",JA,
             "뜨끈한 밥에 대패삼겹살 한점!집밥백선생 강추레시피! 간단하고 빠르게 만드는 별미메뉴!입맛없을때 만들먹으면 밥두공기도 거뜬해요.",
-            4.6,30,"초급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2017/10/22/3211f299a02729bc2d05649ceec734771.jpg")
+            4.6,"30","초급",null, URL("https://recipe1.ezmember.co.kr/cache/recipe/2017/10/22/3211f299a02729bc2d05649ceec734771.jpg")
         ))
+
+
         adapter = RecipeItemAdapter(recipeArray)
         binding.refDetailRecipeField.adapter = adapter
 
@@ -385,6 +411,82 @@ class RefItemDetailActivity : AppCompatActivity() {
 
 
         }).start()
+    }
+
+    fun get_recipe_item(job : JSONObject) : ArrayList<RecipeItem>{
+        //Thread(Runnable{
+        //handler.post{
+        //try {
+        AWSMobileClient.getInstance()
+        val recipeTestList = ArrayList<RecipeItem>()
+
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/item_get_recipe")
+        var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+        conn.setUseCaches(false)
+        conn.setRequestMethod("POST")
+        //conn.setRequestProperty("Cache-Control", "no-cache");
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setRequestProperty("Connection","keep-alive")
+        //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
+        conn.setRequestProperty("Accept", "application/json")
+        conn.setDoOutput(true)
+        conn.setDoInput(true)
+        //conn.connect()
+
+
+        var requestBody = job.toString()
+
+
+        Log.d("Response1 = ",requestBody)
+        val wr = DataOutputStream(conn.getOutputStream())
+        wr.writeBytes(requestBody)
+        wr.flush()
+        wr.close()
+
+        val streamReader = InputStreamReader(conn.inputStream)
+        val buffered = BufferedReader(streamReader)
+
+        val content = StringBuilder()
+        while(true) {
+            val line = buffered.readLine() ?: break
+            content.append(line)
+        }
+
+        val data =content.toString()
+        val jsonArr = JSONArray(data)
+        Log.d("Response : jsonArr",jsonArr.toString())
+        Log.d("Response : jsonlength",jsonArr.length().toString())
+        val i = 0
+        for (i in 0 until jsonArr.length()) {
+            val jsonObj = jsonArr.getJSONObject(i)
+            Log.d("Response : jsonObj",jsonObj.toString())
+            recipeTestList.add(
+                RecipeItem(
+                    jsonObj.getString("id"),
+                    jsonObj.getString("name"),
+                    JSONArray(jsonObj.getString("ingre")),
+                    //jsonObj.getString("ingre"),
+                    jsonObj.getString("summary"),
+                    5.0,
+                    jsonObj.getString("cooktime"),
+                    jsonObj.getString("difficulty"),
+                    "만개의 레시피",
+                    URL(jsonObj.getString("img")),
+                ))
+            Log.d("Response : ingre______",JSONArray(jsonObj.getString("ingre")).toString())
+        }
+
+        // 스트림과 커넥션 해제
+        buffered.close()
+        conn.disconnect()
+
+
+
+
+
+
+        //}).start()
+        return recipeTestList
     }
 
 }

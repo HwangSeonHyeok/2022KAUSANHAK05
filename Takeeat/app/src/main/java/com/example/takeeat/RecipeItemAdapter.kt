@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.IOException
 import java.net.MalformedURLException
 import java.net.URL
@@ -58,10 +60,20 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.apply {
+            val JJ : JSONArray = data[position].recipeIngredients
+            val content = StringBuilder()
+
+            for (i in 0 until JJ.length()){
+                val element : JSONObject = JJ.optJSONObject(i)
+                content.append(element.optString("ingre_name").toString() + " ")
+            }
+
+
             recipeName.text = data[position].recipeName
             Glide.with(holder.recipeDifficulty.context).load(data[position].imgURL).into(recipeImage)
             //recipeImage
-            recipeIngredient.text= data[position].recipeIngredients
+            //recipeIngredient.text= data[position].recipeIngredients
+            recipeIngredient.text= content.toString()
             recipeIntroduce.text = data[position].recipeIntroduce
             recipeRate.text = data[position].recipeRating.toString()
             recipeTime.text = data[position].recipeTime.toString()+"분"
