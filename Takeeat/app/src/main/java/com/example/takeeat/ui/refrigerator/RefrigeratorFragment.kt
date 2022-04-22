@@ -1,6 +1,7 @@
 package com.example.takeeat.ui.refrigerator
 
 import RefrigeratorAdapter
+import RefrigeratorIconAdapter
 import android.Manifest
 import android.app.Activity
 import android.app.Application
@@ -24,12 +25,14 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
@@ -68,6 +71,8 @@ class RefrigeratorFragment : Fragment() {
     lateinit var refrigeratorSwitchLabel1: TextView
     lateinit var refrigeratorSwitchLabel2: TextView
     lateinit var refrigeratorSortButton: ImageButton
+    lateinit var refrigeratorItemTypes: ConstraintLayout
+    lateinit var refrigeratorDevider: View
 
     var isFabOpen = false
     val CAMERA = arrayOf(Manifest.permission.CAMERA)
@@ -84,6 +89,10 @@ class RefrigeratorFragment : Fragment() {
         add(RefItem("로딩중...", null,Date(2022,4,15),1,"L", null))
     }
 
+    val linearLayoutManager = LinearLayoutManager(context)
+    val gridLayoutManager = GridLayoutManager(context,4)
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -98,6 +107,7 @@ class RefrigeratorFragment : Fragment() {
         val recyclerView: RecyclerView = binding.refrigeratorrecyclerview
         //혹시 다른 리스트로 만들어서 붙이실꺼면 타입만 ArrayList<RefItem>에 맞게 아래 어댑터에 붙이시면 됩니다
 
+        recyclerView.layoutManager = linearLayoutManager
 
 
         //getDB(recyclerView)
@@ -111,6 +121,8 @@ class RefrigeratorFragment : Fragment() {
         refrigeratorSwitchLabel1 = binding.refrigeratorTextView1
         refrigeratorSwitchLabel2 = binding.refrigeratorTextView2
         refrigeratorSortButton = binding.refrigeratorSortButton
+        refrigeratorItemTypes = binding.refrigItemTypes
+        refrigeratorDevider = binding.refrigDivider1
 
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
@@ -124,6 +136,7 @@ class RefrigeratorFragment : Fragment() {
         val rotateForward = AnimationUtils.loadAnimation(context, R.anim.rotate_forward)
         val rotateBackward = AnimationUtils.loadAnimation(context, R.anim.rotate_backward)
 
+        refrigeratorSwitch.isChecked = false
 
         mainFab.setOnClickListener (View.OnClickListener {
             if(isFabOpen){
@@ -181,6 +194,22 @@ class RefrigeratorFragment : Fragment() {
             callImage(CAMERA_CODE)
         })
 
+        refrigeratorSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                recyclerView.layoutManager = gridLayoutManager
+                recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                refrigeratorItemTypes.visibility = View.GONE
+                refrigeratorDevider.visibility = View.GONE
+
+            } else {
+                recyclerView.layoutManager = linearLayoutManager
+                recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                refrigeratorItemTypes.visibility = View.VISIBLE
+                refrigeratorDevider.visibility = View.VISIBLE
+            }
+        }
+
+
         fun filterList(newText:String){
             filteredTestList.clear()
             if(newText != "") {
@@ -191,9 +220,15 @@ class RefrigeratorFragment : Fragment() {
             else {
                 for(x in fetchList) filteredTestList.add(x)
             }
-            var x = 0
 
-            if(!filteredTestList.isNullOrEmpty()) recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+            if(!filteredTestList.isNullOrEmpty()) {
+                if(recyclerView.layoutManager == linearLayoutManager){
+                    recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                }
+                else if(recyclerView.layoutManager == gridLayoutManager){
+                    recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                }
+            }
         }
 
 
@@ -234,10 +269,14 @@ class RefrigeratorFragment : Fragment() {
                 }
             })
 
+            //setOn
+
         }
+
 
         return root
     }
+
 
     override fun onStart(){
         super.onStart()
@@ -570,7 +609,13 @@ class RefrigeratorFragment : Fragment() {
             handler.post() {
                 Log.d("Response : itemlist", itemTestList.toString())
                 filteredTestList = fetchList.clone() as MutableList<RefItem>
-                recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                if(recyclerView.layoutManager == gridLayoutManager){
+                    recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                }
+                else {
+                    recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                }
 
                 //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
                 //intent.putExtra("OCR_RESULT",ocrResult)
