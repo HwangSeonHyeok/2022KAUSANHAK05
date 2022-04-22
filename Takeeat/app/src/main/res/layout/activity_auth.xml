@@ -33,11 +33,11 @@
         <EditText
             android:id="@+id/login_id"
             android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
+            android:layout_height="40dp"
             android:layout_marginTop="100dp"
-            android:backgroundTint ="#ffffff"/>
+            android:backgroundTint="#ffffff"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
 
     </LinearLayout>
@@ -62,10 +62,10 @@
         <EditText
             android:id="@+id/login_paw"
             android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#ffffff"
             android:ems="10"
-            android:inputType="textPassword"
-            android:backgroundTint ="#ffffff"/>
+            android:inputType="textPassword" />
 
 
     </LinearLayout>

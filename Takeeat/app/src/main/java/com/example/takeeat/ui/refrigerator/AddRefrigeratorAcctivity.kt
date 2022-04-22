@@ -1,6 +1,7 @@
 package com.example.takeeat.ui.refrigerator
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -86,9 +87,6 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             }
 
 
-
-            finish()
-
         }
         val simplecallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
             override fun onMove(
@@ -126,6 +124,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
     }
 
     fun input_ref_item(job : JSONObject){
+        val handler = Handler()
         Thread(Runnable{
 
 
@@ -222,6 +221,10 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             */
 
             //}
+
+            handler.post{
+                finish()
+            }
 
 
 

@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backblue">#5195d4</color>
     <color name="buttonc">#6a9dcc</color>
+    <color name="takeeatmain">#3498DB</color>
+    <color name="lightblue">#ACCADE</color>
+    <color name="listbackground">#E9F2F9</color>
 </resources>

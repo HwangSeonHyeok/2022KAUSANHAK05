@@ -2,15 +2,13 @@ package com.example.takeeat
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.KeyListener
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat.getSystemService
@@ -24,9 +22,9 @@ class ShoppingListAdapter(var data: LiveData<ArrayList<ShoppingListItem>>) : Rec
     class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_shoppinglist, parent,false)){
         val itemNameText: TextView
         val itemNameEdit : EditText
-        val itemMinusButton: AppCompatButton
+        val itemMinusButton: ImageView
         val itemCountText : TextView
-        val itemPlusButton : AppCompatButton
+        val itemPlusButton : ImageView
         init{
             itemNameText = itemView.findViewById(R.id.shoppinglist_ItemName)
             itemNameEdit = itemView.findViewById(R.id.shoppinglist_EditItemName)

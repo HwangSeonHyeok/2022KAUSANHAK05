@@ -3,11 +3,13 @@ package com.example.takeeat.ui.refrigerator
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.R
@@ -185,9 +187,6 @@ class RefItemDetailActivity : AppCompatActivity() {
 
                     delete_ref_item(sObject)
 
-
-
-                    finish()
                     true
                 }
                 else->{
@@ -291,6 +290,7 @@ class RefItemDetailActivity : AppCompatActivity() {
     }
 
     fun delete_ref_item(job : JSONObject){
+        val handler = Handler()
         Thread(Runnable{
             //handler.post{
             //try {
@@ -375,6 +375,11 @@ class RefItemDetailActivity : AppCompatActivity() {
             */
 
             //}
+
+            handler.post{
+                Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_LONG).show()
+                finish()
+            }
 
 
 
