@@ -79,6 +79,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailItemAmount.visibility = View.VISIBLE
             binding.refDetailEditAmount.visibility = View.INVISIBLE
             refItem.itemamount = binding.refDetailEditAmount.text.toString().toInt()
+            refItem.itemtag = binding.refDetailTag.text.toString()
             imm.hideSoftInputFromWindow(binding.refDetailNameEdit.windowToken, 0)
             imm.hideSoftInputFromWindow(binding.refDetailEditAmount.windowToken, 0)
             updateUI(refItem)
@@ -87,10 +88,10 @@ class RefItemDetailActivity : AppCompatActivity() {
             val sObject = JSONObject() //배열 내에 들어갈 json
             sObject.put("user_id", AWSMobileClient.getInstance().username)
             sObject.put("item_id", refItem.itemid.toString())
-            sObject.put("update_name", URLEncoder.encode(binding.refDetailNameEdit.text.toString(), "UTF-8"))
-            sObject.put("update_amount", binding.refDetailEditAmount.text.toString())
+            sObject.put("update_name", URLEncoder.encode(refItem.itemname.toString(), "UTF-8"))
+            sObject.put("update_amount", refItem.itemamount.toString())
             sObject.put("update_exdate", binding.refDetailEXP.text.toString().replace(".", "-"))
-            sObject.put("update_tag", URLEncoder.encode(binding.refDetailTag.text.toString(), "UTF-8"))
+            sObject.put("update_tag", URLEncoder.encode(refItem.itemtag, "UTF-8"))
             sObject.put("update_unit", URLEncoder.encode(refItem.itemunit.toString(), "UTF-8"))
 
 
@@ -114,7 +115,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             dialogBuilder.setItems(tags) {
                     p0, p1 ->
                 binding.refDetailTag.text = tags[p1]
-                refItem.itemtag = tags[p1]
+                //refItem.itemtag = tags[p1]
 
             }
             val alertDialog = dialogBuilder.create()
@@ -123,36 +124,6 @@ class RefItemDetailActivity : AppCompatActivity() {
         }
         binding.refDetailEXP.isClickable = false
         binding.refDetailTag.isClickable = false
-        val handler = Handler()
-
-        Thread(Runnable{
-
-            val rObject = JSONObject()
-
-            rObject.put("item_tag", URLEncoder.encode(refItem.itemname.toString(), "UTF-8"))
-
-            val recipe_list = get_recipe_item(rObject)
-
-            Log.d("Response : recipelist ------------------- = ",recipe_list.toString())
-
-
-            for(x in recipe_list) {
-                recipeArray.add(RecipeItem(
-                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeIntroduce, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL)
-                )
-            }
-            handler.post{
-                if(recipeArray.size==0) {
-                    binding.refDetailItemNoRecipeText.visibility = View.VISIBLE
-
-                }
-                else{
-                    adapter = RecipeItemAdapter(recipeArray)
-                    binding.refDetailRecipeField.adapter = adapter
-                }
-            }
-
-        }).start()
 
 
         /*val JA = JSONArray("[{\"ingre_name\":\"계란\",\"ingre_num\":1,\"ingre_count\":\"5\",\"ingre_unit\":\"개\"},{\"ingre_name\":\"육수팩\",\"ingre_num\":2,\"ingre_count\":\"1\",\"ingre_unit\":\"개\"},{\"ingre_name\":\"소금\",\"ingre_num\":3,\"ingre_count\":\"\",\"ingre_unit\":\"약간\"}]")
@@ -192,6 +163,8 @@ class RefItemDetailActivity : AppCompatActivity() {
         binding.refDetailItemAmount.text = itemData.itemamount.toString()
         binding.refDetailUnit.text = itemData.itemunit.toString()
         binding.refDetailTag.text = itemData.itemtag.toString()
+        recipeArray.clear()
+        updateRecipeItem()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -497,6 +470,40 @@ class RefItemDetailActivity : AppCompatActivity() {
 
         //}).start()
         return recipeTestList
+    }
+
+    fun updateRecipeItem(){
+        val handler = Handler()
+
+        Thread(Runnable{
+
+            val rObject = JSONObject()
+
+            rObject.put("item_tag", URLEncoder.encode(refItem.itemtag.toString(), "UTF-8"))
+
+            val recipe_list = get_recipe_item(rObject)
+
+            Log.d("Response : recipelist ------------------- = ",recipe_list.toString())
+
+
+            for(x in recipe_list) {
+                recipeArray.add(RecipeItem(
+                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeIntroduce, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL)
+                )
+            }
+            handler.post{
+                if(recipeArray.size==0) {
+                    binding.refDetailItemNoRecipeText.visibility = View.VISIBLE
+
+                }
+                else{
+                    adapter = RecipeItemAdapter(recipeArray)
+                    binding.refDetailRecipeField.adapter = adapter
+                }
+            }
+
+        }).start()
+
     }
 
 }

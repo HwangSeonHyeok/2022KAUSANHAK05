@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="tagArray">
+        <item> 기타 </item>
         <item> 가래떡 </item>
         <item> 가리비 </item>
         <item> 가쓰오부시 </item>
@@ -152,6 +153,7 @@
         <item> 요거트 </item>
         <item> 우유 </item>
         <item> 육수 </item>
+        <item> 음료 </item>
         <item> 인삼 </item>
         <item> 자두 </item>
         <item> 자몽 </item>
