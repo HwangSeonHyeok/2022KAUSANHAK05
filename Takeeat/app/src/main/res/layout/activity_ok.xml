@@ -7,93 +7,124 @@
     android:layout_height="match_parent"
     tools:context=".OkActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="@drawable/emailauth">
 
-    <TextView
-        android:id="@+id/ok_text"
+    <ImageView
+        android:src="@drawable/circle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="마지막 단계입니다!\n
-        인증 메일이 아래의 이메일 주소로 전송되었습니다!\n
-        24시간 이내로 인증을 완료해주세요!"
-        android:textSize="16dp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"/>
 
     <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        >
+        android:layout_weight="2"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp">
 
-        <TextView
-            android:id="@+id/signUpUsername2_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이메일 주소"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/ok_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="인증 메일이 전송됐습니다.\n인증 코드를 입력해주세요"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/signUpUsername2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:text="이메일" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
 
+            <TextView
+                android:id="@+id/signUpUsername2_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="이메일 주소"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center" />
 
+            <TextView
+                android:id="@+id/signUpUsername2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="이메일"
+                android:backgroundTint ="#ffffff"
+                android:gravity="center_vertical"
+                android:layout_marginRight="25dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/code_name_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인증 코드"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/code_name"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:backgroundTint ="#ffffff"
+                android:gravity="center_vertical"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8">
+
+            <Button
+                android:id="@+id/Re_Ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="재전송"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:backgroundTint ="@color/buttonc"
+                android:elevation="40dp"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/Ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:backgroundTint ="@color/buttonc"
+                android:elevation="40dp"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        >
-
-        <TextView
-            android:id="@+id/code_name_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="인증 코드"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/code_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text" />
-        <Button
-            android:id="@+id/Re_Ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="재전송" />
-
-
-
-    </LinearLayout>
-
-
-
-    <Button
-        android:id="@+id/Ok_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="확인" />
-
 
 </LinearLayout>

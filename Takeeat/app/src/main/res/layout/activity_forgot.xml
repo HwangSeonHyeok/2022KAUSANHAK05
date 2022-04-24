@@ -7,135 +7,154 @@
     android:layout_height="match_parent"
     tools:context=".OkActivity"
     android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/forgotback">
 
-    <TextView
-        android:id="@+id/ok_text"
+    <ImageView
+        android:src="@drawable/circle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="
-        인증 메일이 가입했던 이메일 주소로 전송됩니다\n
-        인증 코드 입력 후 비밀번호를 재설정 해주세요!"
-        android:layout_marginTop="230dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="#ffffff"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"/>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp">
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/ok_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="
+                가입했던 메일 주소를 입력하고 전송을 눌러주세요\n
+                인증 코드 입력 후 재설정할 비밀번호 입력!"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/paw_signUpUsername_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이메일 주소"
-            android:textColor="#ffffff"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/paw_signUpUsername_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="이메일 주소"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"/>
 
-        <EditText
-            android:id="@+id/paw_signUpUsername"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:backgroundTint="#ffffff"
-            android:ems="10"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/paw_signUpUsername"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:ems="10"
+                android:inputType="text"
+                android:gravity="center_vertical"
+                android:layout_marginRight="25dp"/>
 
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button
+                android:id="@+id/code_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="인증 코드 전송"
+                android:textColor="#ffffff"
+                android:backgroundTint ="@color/buttonc"
+                android:elevation="40dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp">
+                <TextView
+                    android:id="@+id/paw_code_name_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="인증 코드"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/paw_code_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:backgroundTint="#ffffff"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/new_paw_name_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="새 비밀번호"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/new_paw_name"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:backgroundTint="#ffffff"
+                android:layout_marginRight="25dp"
+                android:gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button
+                android:id="@+id/new_paw_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="확인"
+                android:textColor="#ffffff"
+                android:backgroundTint ="@color/buttonc"
+                android:elevation="40dp"/>
+        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/code_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="인증 코드 발송"
-        android:textColor="#ffffff"
-        android:backgroundTint ="@color/buttonc"
-        android:elevation="40dp"/>
-
-
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        >
-
-        <TextView
-            android:id="@+id/paw_code_name_text"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:text="인증 코드"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
-
-        <EditText
-            android:id="@+id/paw_code_name"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="text"
-            android:backgroundTint="#ffffff"/>
-
-
-
-
-    </LinearLayout>
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        >
-
-        <TextView
-            android:id="@+id/new_paw_name_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="새 비밀번호"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
-
-        <EditText
-            android:id="@+id/new_paw_name"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="text"
-            android:backgroundTint="#ffffff"/>
-
-
-
-    </LinearLayout>
-
-
-
-    <Button
-        android:id="@+id/new_paw_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="확인"
-        android:textColor="#ffffff"
-        android:backgroundTint ="@color/buttonc"
-        android:elevation="40dp"/>
-
 
 </LinearLayout>
