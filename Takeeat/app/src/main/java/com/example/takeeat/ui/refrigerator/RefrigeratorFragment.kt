@@ -589,20 +589,29 @@ class RefrigeratorFragment : Fragment() {
 
                 val data =content.toString()
                 val jsonArr = JSONArray(data)
-                Log.d("Response : jsonArr",jsonArr.toString())
-                Log.d("Response : jsonlength",jsonArr.length().toString())
                 val i = 0
                 for (i in 0 until jsonArr.length()) {
                     val jsonObj = jsonArr.getJSONObject(i)
-                    val datestr = jsonObj.getString("item_exdate")
-                    val numm = datestr.split("-")
-                    Log.d("Response : jsonObj",jsonObj.toString())
-                    itemTestList.add(RefItem(jsonObj.getString("item_name"),
-                        jsonObj.getString("item_tag"),
-                        Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt()),
+                    val datestr: String = jsonObj.getString("item_exdate")
+                    var date: Date? = null
+                    if(datestr != "NULL"){
+                        val numm = datestr.split("-")
+                        date = Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt())
+                    }
+                    if(jsonObj.getString("item_tag")=="NULL"){
+                        var tag : String? = null
+                    }else{
+                        var tag : String? = jsonObj.getString("item_tag")
+                    }
+                    itemTestList.add(RefItem(
+                        jsonObj.getString("item_name"),
+                        tag,
+                        date,
                         jsonObj.getString("item_amount").toInt(),
                         jsonObj.getString("item_unit"),
                         jsonObj.getString("item_id")))
+                    Log.d("Response : jsonObj",jsonObj.toString())
+
                 }
 
                 // 스트림과 커넥션 해제
