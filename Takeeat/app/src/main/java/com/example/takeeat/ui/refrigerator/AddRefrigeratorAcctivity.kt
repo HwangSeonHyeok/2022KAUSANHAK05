@@ -59,7 +59,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
 
                 for (i in 0 until viewmodel.getCount()) {
                     val sObject = JSONObject() //배열 내에 들어갈 json
-                    val en_name = URLEncoder.encode(viewmodel.liveData.value!![i].itemname, "UTF-8")
+                    val en_name = URLEncoder.encode(viewmodel.liveData.value!![i].itemname, "UTF-8").replace("+", " ")
                     if(viewmodel.liveData.value!![i].itemtag!=null){
                         val en_tag = URLEncoder.encode(viewmodel.liveData.value!![i].itemtag, "UTF-8")
                         sObject.put("item_tag", en_tag)
