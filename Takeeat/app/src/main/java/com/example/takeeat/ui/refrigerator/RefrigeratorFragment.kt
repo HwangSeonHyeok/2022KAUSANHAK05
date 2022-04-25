@@ -89,7 +89,7 @@ class RefrigeratorFragment : Fragment() {
     lateinit var itemTestList: ArrayList<RefItem>
     var filteredTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
     private val fetchList = ArrayList<RefItem>().apply {
-        add(RefItem("로딩중...", null,Date(2022,4,15),1,"L", null))
+        add(RefItem("로딩중...", null,Date(2022,3,25),0,"개", null))
     }
 
     val linearLayoutManager = LinearLayoutManager(context)
@@ -594,14 +594,15 @@ class RefrigeratorFragment : Fragment() {
                     val jsonObj = jsonArr.getJSONObject(i)
                     val datestr: String = jsonObj.getString("item_exdate")
                     var date: Date? = null
+                    var tag : String? = null
                     if(datestr != "NULL"){
                         val numm = datestr.split("-")
                         date = Date(numm[0].toInt(),numm[1].toInt()-1,numm[2].toInt())
                     }
                     if(jsonObj.getString("item_tag")=="NULL"){
-                        var tag : String? = null
+                        tag = "기타"
                     }else{
-                        var tag : String? = jsonObj.getString("item_tag")
+                        tag  = jsonObj.getString("item_tag")
                     }
                     itemTestList.add(RefItem(
                         jsonObj.getString("item_name"),

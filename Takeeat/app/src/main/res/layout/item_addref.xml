@@ -34,16 +34,17 @@
 
             <Button
                 android:id="@+id/addref_TagButton"
-                android:layout_width="110dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="#C1BDBD"
-                android:text="Tag" />
+                android:text="Tag"
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/addref_EXPText"
-                android:layout_width="150dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"

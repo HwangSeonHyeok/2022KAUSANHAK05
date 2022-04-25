@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="126dp"
-                android:text="유통기한"
+                android:text="-"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,8 +48,9 @@
                 android:id="@+id/refrigerator_item_expiration_warning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toStartOf="@id/refrigerator_item_expiration"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_warning" />

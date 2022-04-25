@@ -59,13 +59,13 @@
 
             <EditText
                 android:id="@+id/paw_signUpUsername"
-                android:layout_width="250dp"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
                 android:backgroundTint="#ffffff"
                 android:ems="10"
-                android:inputType="text"
                 android:gravity="center_vertical"
-                android:layout_marginRight="25dp"/>
+                android:inputType="text" />
 
 
         </LinearLayout>
@@ -104,15 +104,15 @@
                     android:layout_marginLeft="15dp"
                     android:gravity="center"/>
 
-                <EditText
-                    android:id="@+id/paw_code_name"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:backgroundTint="#ffffff"
-                    android:layout_marginRight="25dp"
-                    android:gravity="center"/>
+            <EditText
+                android:id="@+id/paw_code_name"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="#ffffff"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,13 +132,13 @@
 
             <EditText
                 android:id="@+id/new_paw_name"
-                android:layout_width="250dp"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:backgroundTint="#ffffff"
                 android:layout_marginRight="25dp"
-                android:gravity="center" />
+                android:backgroundTint="#ffffff"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="text" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

@@ -145,6 +145,7 @@ class RefItemDetailActivity : AppCompatActivity() {
 
     }
     fun updateUI(itemData:RefItem){
+        Log.d("ResponsenUI",itemData.toString())
         binding.refDetailItemname.text = itemData.itemname
         if(itemData.itemexp!=null) {
             year = itemData.itemexp!!.year
@@ -153,7 +154,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             binding.refDetailEXP.text = year.toString() + "." + (month+1).toString() + "." + date.toString()
             var diffSec = (itemData.itemexp!!.time.minus(Date(todayyear, todaymonth, todaydate).time))
             var diffDate = diffSec / (24 * 60 * 60 * 1000)
-            if(diffDate < 3) {
+            if(diffDate <= 3) {
                 binding.refDetailEXPWarning.setVisibility(View.VISIBLE)
             }
             else {

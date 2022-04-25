@@ -58,13 +58,13 @@
 
             <EditText
                 android:id="@+id/signUpName"
-                android:layout_width="250dp"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="#ffffff"
                 android:ems="10"
-                android:inputType="text"
-                android:backgroundTint ="#ffffff"
                 android:gravity="center_vertical"
-                android:layout_marginRight="25dp"/>
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,12 +85,12 @@
 
             <EditText
                 android:id="@+id/signUpUsername"
-                android:layout_width="250dp"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="#ffffff"
                 android:ems="10"
-                android:backgroundTint ="#ffffff"
-                android:gravity="center_vertical"
-                android:layout_marginRight="25dp"/>
+                android:gravity="center_vertical" />
         </LinearLayout>
 
 
@@ -112,13 +112,13 @@
 
             <EditText
                 android:id="@+id/signUpPassword"
-                android:layout_width="250dp"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="#ffffff"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:backgroundTint ="#ffffff"
                 android:gravity="center_vertical"
-                android:layout_marginRight="25dp"/>
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
