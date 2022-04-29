@@ -438,7 +438,7 @@ class RefItemDetailActivity : AppCompatActivity() {
 
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        Log.d("Response : jsonArr",jsonArr.toString())
+        Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
         Log.d("Response : jsonlength",jsonArr.length().toString())
         val i = 0
         for (i in 0 until jsonArr.length()) {

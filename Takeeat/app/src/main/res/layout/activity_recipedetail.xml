@@ -150,7 +150,6 @@
                 android:layout_height="wrap_content"
                 android:text="재료"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="*"
                 app:layout_constraintStart_toStartOf="@+id/recipedetail_RecipeSummary"
                 app:layout_constraintTop_toTopOf="@id/recipedetail_AmountRow" />
 
