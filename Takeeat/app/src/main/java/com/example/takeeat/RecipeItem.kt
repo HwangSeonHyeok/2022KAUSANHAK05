@@ -12,5 +12,4 @@ data class RecipeItem (
     val recipeTime : String,
     val recipeDifficulty:String,
     val recipeWriter:String?,
-    val imgURL : URL?
-        )
+    val imgURL : URL?)
