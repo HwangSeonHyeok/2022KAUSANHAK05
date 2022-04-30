@@ -4,9 +4,11 @@ import RefrigeratorAdapter
 import RefrigeratorIconAdapter
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Application
 import android.app.SearchManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -43,6 +45,7 @@ import com.example.takeeat.R
 import com.example.takeeat.ShoppingListActivity
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.selects.select
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.*
@@ -126,6 +129,7 @@ class RefrigeratorFragment : Fragment() {
         refrigeratorSortButton = binding.refrigeratorSortButton
         refrigeratorItemTypes = binding.refrigItemTypes
         refrigeratorDevider = binding.refrigDivider1
+
 
         mainFab= binding.refrigeratorfab
         directFab = binding.directSubFab
@@ -212,6 +216,37 @@ class RefrigeratorFragment : Fragment() {
             }
         }
 
+        refrigeratorSortButton.setOnClickListener(View.OnClickListener{
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("분류 기준을 선택해주세요")
+            val sortTypes: Array<String> = listOf("이름 (오름순)","이름 (내림순)","유통기한 (오름순)","유통기한 (내림순)","개수 (오름순)","개수 (내림순)").toTypedArray()
+            builder.setItems(sortTypes, DialogInterface.OnClickListener{dialog, index ->
+                val newTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
+                for(x in fetchList) newTestList.add(x)
+                when(index)
+                {
+                    0 -> newTestList.sortBy { it.itemname }
+                    1 -> newTestList.sortByDescending { it.itemname }
+                    2 -> newTestList.sortBy { it.itemexp }
+                    3 -> newTestList.sortByDescending { it.itemexp }
+                    4 -> newTestList.sortBy { it.itemamount }
+                    5 -> newTestList.sortByDescending { it.itemamount }
+                }
+                if(!newTestList.isNullOrEmpty()) {
+                    filteredTestList.clear()
+                    for(x in newTestList) filteredTestList.add(x)
+
+                    if(recyclerView.layoutManager == linearLayoutManager){
+                        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                    }
+                    else if(recyclerView.layoutManager == gridLayoutManager){
+                        recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                    }
+                }
+            })
+            val alertDialog = builder.create()
+            alertDialog.show()
+        })
 
         fun filterList(newText:String){
             val newTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
