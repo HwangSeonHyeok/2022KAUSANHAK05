@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <VideoView
-                android:id="@+id/recipedetail_VideoView"
-                android:layout_width="380dp"
-                android:layout_height="235dp"
+            <ImageView
+                android:id="@+id/recipedetail_MainImage"
+                android:layout_width="350dp"
+                android:layout_height="216dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -30,26 +30,26 @@
 
             <TextView
                 android:id="@+id/recipedetail_RecipeName"
-                android:layout_width="330dp"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="레시피이름"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/recipedetail_VideoView"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_VideoView" />
+                app:layout_constraintStart_toStartOf="@+id/recipedetail_MainImage"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_MainImage" />
 
             <ImageView
                 android:id="@+id/recipedetail_RecipeBookmark"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="@id/recipedetail_VideoView"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_MainImage"
                 app:layout_constraintTop_toTopOf="@id/recipedetail_RecipeName"
                 app:srcCompat="@drawable/ic_baseline_bookmark_border_24" />
 
             <View
                 android:id="@+id/recipedetail_divider1"
-                android:layout_width="360dp"
+                android:layout_width="330dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
                 android:background="#32191818"
@@ -68,21 +68,80 @@
 
             <ImageView
                 android:id="@+id/recipedetail_WriterBookmark"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 app:layout_constraintStart_toEndOf="@id/recipedetail_RecipeWriter"
                 app:layout_constraintTop_toTopOf="@id/recipedetail_RecipeWriter"
                 app:srcCompat="@drawable/ic_baseline_bookmark_border_24" />
 
+            <TextView
+                android:id="@+id/recipedetail_RecipeSummary"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:lineSpacingExtra="5dp"
+                android:text="레시피 설명"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_RecipeWriter"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_RecipeWriter" />
+            <View
+                android:id="@+id/recipedetail_divider2"
+                android:layout_width="330dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#32191818"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_RecipeSummary" />
+
             <ImageView
-                android:id="@+id/recipedetail_StarImage"
+                android:id="@+id/recipedetail_DifficultyIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_MainImage"
+                app:layout_constraintTop_toTopOf="@id/recipedetail_divider2"
+                app:srcCompat="@drawable/ic_baseline_restaurant_menu_24" />
+
+            <TextView
+                android:id="@+id/recipedetail_DifficultyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/recipedetail_Rating"
-                app:layout_constraintEnd_toStartOf="@id/recipedetail_Rating"
-                app:layout_constraintTop_toTopOf="@id/recipedetail_Rating"
+                android:text="난이도"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_DifficultyIcon"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_DifficultyIcon"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_DifficultyIcon" />
+
+            <ImageView
+                android:id="@+id/recipedetail_TimeIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="@id/recipedetail_DifficultyIcon"
+                app:layout_constraintEnd_toStartOf="@id/recipedetail_StarIcon"
+                app:layout_constraintStart_toEndOf="@id/recipedetail_DifficultyText"
+                app:layout_constraintTop_toTopOf="@id/recipedetail_DifficultyIcon"
+                app:srcCompat="@drawable/ic_baseline_access_time" />
+
+            <TextView
+                android:id="@+id/recipedetail_TimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="분"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_TimeIcon"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_TimeIcon"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_TimeIcon" />
+
+            <ImageView
+                android:id="@+id/recipedetail_StarIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintBottom_toBottomOf="@id/recipedetail_DifficultyIcon"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_MainImage"
+                app:layout_constraintTop_toTopOf="@id/recipedetail_DifficultyIcon"
                 app:srcCompat="@drawable/ic_baseline_star_rate" />
 
             <TextView
@@ -90,28 +149,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0.0"
-                app:layout_constraintEnd_toEndOf="@id/recipedetail_RecipeBookmark"
-                app:layout_constraintTop_toTopOf="@id/recipedetail_RecipeWriter" />
-
-            <TextView
-                android:id="@+id/recipedetail_RecipeSummary"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="레시피 설명"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/recipedetail_RecipeWriter"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_RecipeWriter" />
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_StarIcon"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_StarIcon"
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_StarIcon" />
 
             <View
-                android:id="@+id/recipedetail_divider2"
-                android:layout_width="360dp"
+                android:id="@+id/recipedetail_divider3"
+                android:layout_width="330dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
                 android:background="#32191818"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_RecipeSummary" />
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_DifficultyText" />
 
             <TextView
                 android:id="@+id/recipedetail_Amount"
@@ -121,7 +171,7 @@
                 android:layout_marginEnd="5dp"
                 android:text="1인분"
                 app:layout_constraintEnd_toStartOf="@+id/recipedetail_PlusButton"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider2" />
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider3" />
 
             <ImageView
                 android:id="@+id/recipedetail_MinusButton"
@@ -140,7 +190,7 @@
                 android:layout_height="22dp"
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@id/recipedetail_Amount"
-                app:layout_constraintEnd_toEndOf="@id/recipedetail_Rating"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_MainImage"
                 app:layout_constraintTop_toTopOf="@id/recipedetail_Amount"
                 app:srcCompat="@drawable/rightarrowbutton" />
 
@@ -159,8 +209,8 @@
                 android:layout_height="wrap_content"
                 android:text="개수"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/recipedetail_MyRefRow"
-                app:layout_constraintStart_toEndOf="@id/recipedetail_IngRow"
+                app:layout_constraintEnd_toEndOf="@id/recipedetail_MyRefRow"
+                app:layout_constraintStart_toStartOf="@id/recipedetail_IngRow"
                 app:layout_constraintTop_toTopOf="@id/recipedetail_MyRefRow" />
 
             <TextView
@@ -174,8 +224,8 @@
                 app:layout_constraintTop_toBottomOf="@id/recipedetail_Amount" />
 
             <View
-                android:id="@+id/recipedetail_divider3"
-                android:layout_width="360dp"
+                android:id="@+id/recipedetail_divider4"
+                android:layout_width="330dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
                 android:background="#32191818"
@@ -185,16 +235,18 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recipedetail_IngreRecyclerView"
-                android:layout_width="380dp"
-                android:layout_height="match_parent"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider3"
-                tools:listitem="@layout/item_recipeingre"/>
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider4"
+                tools:listitem="@layout/item_recipeingre" />
 
             <View
-                android:id="@+id/recipedetail_divider4"
+                android:id="@+id/recipedetail_divider5"
                 android:layout_width="360dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
@@ -205,12 +257,13 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/recipedetail_recipeStepViewPager"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider4" />
+                app:layout_constraintTop_toBottomOf="@id/recipedetail_divider5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

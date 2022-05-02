@@ -12,10 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.amazonaws.mobile.client.AWSMobileClient
-import com.example.takeeat.R
-import com.example.takeeat.RecipeItem
-import com.example.takeeat.RecipeItemAdapter
-import com.example.takeeat.ShoppingListItem
+import com.example.takeeat.*
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
 import org.json.JSONArray
 import org.json.JSONObject
@@ -438,17 +435,26 @@ class RefItemDetailActivity : AppCompatActivity() {
 
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
-        Log.d("Response : jsonlength",jsonArr.length().toString())
+        //Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
+        //Log.d("Response : jsonlength",jsonArr.length().toString())
         val i = 0
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
+            val recipeStep = ArrayList<RecipeProcess>()
+            val recipeIngre = ArrayList<IngredientsInfo>()
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("recipe").length()){
+                recipeStep.add(RecipeProcess(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("txt"),URL(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("img"))))
+            }
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre").length()){
+                recipeIngre.add(IngredientsInfo(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_name"),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_unit")))
+            }
+            Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
             Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(
                 RecipeItem(
                     jsonObj.getString("id"),
                     jsonObj.getString("name"),
-                    JSONArray(jsonObj.getString("ingre")),
+                    recipeIngre,
                     //jsonObj.getString("ingre"),
                     jsonObj.getString("summary"),
                     5.0,
@@ -456,6 +462,8 @@ class RefItemDetailActivity : AppCompatActivity() {
                     jsonObj.getString("difficulty"),
                     "만개의 레시피",
                     URL(jsonObj.getString("img")),
+                    recipeStep
+
                 ))
             Log.d("Response : ingre______",JSONArray(jsonObj.getString("ingre")).toString())
         }
@@ -489,7 +497,7 @@ class RefItemDetailActivity : AppCompatActivity() {
 
             for(x in recipe_list) {
                 recipeArray.add(RecipeItem(
-                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeIntroduce, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL)
+                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeSummary, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL,x.recipeStep)
                 )
             }
             handler.post{

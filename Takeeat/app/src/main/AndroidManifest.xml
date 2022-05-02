@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".ui.recipe.RecipeDetailActivity" />
         <activity android:name=".OkActivity" />
         <activity android:name=".ForgotActivity" />
         <activity

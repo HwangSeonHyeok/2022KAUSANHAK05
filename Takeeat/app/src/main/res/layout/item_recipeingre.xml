@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="380dp"
+    android:layout_width="match_parent"
     android:layout_height="40dp">
 
     <TextView
@@ -20,9 +20,10 @@
         android:layout_height="wrap_content"
         android:text="갯수"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/itemrecipeingre_refAmount"
-        app:layout_constraintStart_toEndOf="@+id/itemrecipeingre_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/itemrecipeingre_refAmount"
@@ -44,11 +45,11 @@
         app:srcCompat="@drawable/ic_baseline_add_shopping_cart" />
 
     <View
-        android:id="@+id/recipedetail_divider4"
+        android:id="@+id/recipedetail_divider5"
         android:layout_width="360dp"
         android:layout_height="1dp"
         android:background="#32191818"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

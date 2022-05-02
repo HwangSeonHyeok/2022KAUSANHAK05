@@ -1,24 +1,19 @@
 package com.example.takeeat
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.os.AsyncTask
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.IOException
-import java.net.MalformedURLException
-import java.net.URL
+import com.example.takeeat.ui.recipe.RecipeDetailActivity
+
 import java.util.*
 
 
 class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<RecipeItemAdapter.ViewHolder>() {
-    class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent,false)),View.OnClickListener{
+    inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent,false)),View.OnClickListener{
         val recipeName: TextView
         val recipeImage : ImageView
         val recipeIngredient: TextView
@@ -28,7 +23,11 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         val recipeDifficulty : TextView
         val recipeWriter: TextView
 
-        override fun onClick(p0: View?) {
+        override fun onClick(view: View?) {
+            val intent = Intent(view!!.context, RecipeDetailActivity::class.java)
+            val recipeData = data[this.absoluteAdapterPosition]
+            intent.putExtra("Recipe_Data",recipeData)
+            view.context.startActivity(intent)
         }
 
         init {
@@ -60,12 +59,16 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.apply {
-            val JJ : JSONArray = data[position].recipeIngredients
+            /*val JJ : JSONArray = data[position].recipeIngredients
             val content = StringBuilder()
 
             for (i in 0 until JJ.length()){
                 val element : JSONObject = JJ.optJSONObject(i)
                 content.append(element.optString("ingre_name").toString() + " ")
+            }*/
+            var ingredientContent:String =""
+            for(i in data[position].recipeIngredients){
+                ingredientContent += i.ingreName + " "
             }
 
 
@@ -73,8 +76,8 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             Glide.with(holder.recipeDifficulty.context).load(data[position].imgURL).into(recipeImage)
             //recipeImage
             //recipeIngredient.text= data[position].recipeIngredients
-            recipeIngredient.text= content.toString()
-            recipeIntroduce.text = data[position].recipeIntroduce
+            recipeIngredient.text= ingredientContent.toString()
+            recipeIntroduce.text = data[position].recipeSummary
             recipeRate.text = data[position].recipeRating.toString()
             recipeTime.text = data[position].recipeTime
             recipeDifficulty.text = data[position].recipeDifficulty
