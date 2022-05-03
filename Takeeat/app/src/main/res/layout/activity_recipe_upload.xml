@@ -182,14 +182,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
+                <!--<EditText
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="재료명"
                     android:ems="10"
-                    android:id="@+id/Recipe_material_title"/>
+                    android:id="@+id/Recipe_material_title"/> -->
+
+                <Button
+                    android:id="@+id/addref_TagButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#C1BDBD"
+                    android:text="Tag"
+                    android:textSize="11sp" />
 
                 <EditText
                     android:layout_weight="1"
