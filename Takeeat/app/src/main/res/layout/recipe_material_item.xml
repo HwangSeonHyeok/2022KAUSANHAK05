@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/Material_Item_Swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:hint="재료명"
+                android:ems="10"
+                android:id="@+id/Material_Item_title"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:hint="재료분량"
+                android:ems="10"
+                android:id="@+id/Material_Item_amount"
+                android:layout_weight="1"/>
+            <Button
+                android:text="삭제"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Material_Item_delete"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </com.daimajia.swipe.SwipeLayout>
+
+</LinearLayout>
