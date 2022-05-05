@@ -72,12 +72,12 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        /*val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         (menu.findItem(R.id.app_bar_search).actionView as SearchView).apply {
             // Assumes current activity is the searchable activity
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             setIconifiedByDefault(false) // Do not iconify the widget; expand it by default
-        }
+        }*/
         return super.onCreateOptionsMenu(menu)
     }
     // 뒤로가기 2번 눌러야 종료

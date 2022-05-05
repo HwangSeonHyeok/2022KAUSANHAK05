@@ -4,15 +4,27 @@
     >
 
     <item
-        android:id="@+id/app_bar_search"
+        android:id="@+id/app_bar_search_refrigerator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="검색"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always|collapseActionView"
+        app:showAsAction="always|withText"
 
         />
+
+    <item
+        android:id="@+id/app_bar_search_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:text="Button"
+        android:title="notifications_button"
+        app:showAsAction="always"
+
+        />
+
     <item
         android:id="@+id/notification_button"
         android:layout_width="match_parent"
@@ -20,7 +32,7 @@
         android:icon="@drawable/ic_baseline_notifications_24"
         android:text="Button"
         android:title="notifications_button"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
 
         />
 
@@ -31,7 +43,7 @@
         android:icon="@drawable/ic_baseline_add_shopping_cart"
         android:text="Button"
         android:title="cart_button"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         />
 
 </menu>
