@@ -72,7 +72,7 @@ class RefrigeratorFragment : Fragment() {
     lateinit var galleryText:TextView
     lateinit var cameraText:TextView
     lateinit var currentPhotoPath: String
-    lateinit var refrigeratorSearch: SearchView
+    //lateinit var refrigeratorSearch: SearchView
     lateinit var refrigeratorSwitch: Switch
     lateinit var refrigeratorSwitchLabel1: TextView
     lateinit var refrigeratorSwitchLabel2: TextView
@@ -122,7 +122,7 @@ class RefrigeratorFragment : Fragment() {
         //filteredTestList = itemTestList.clone() as MutableList<RefItem>
         //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
 
-        refrigeratorSearch = binding.refrigeratorSearch
+        //refrigeratorSearch = binding.refrigeratorSearch
         refrigeratorSwitch = binding.refrigeratorSwitch
         refrigeratorSwitchLabel1 = binding.refrigeratorTextView1
         refrigeratorSwitchLabel2 = binding.refrigeratorTextView2
@@ -248,37 +248,87 @@ class RefrigeratorFragment : Fragment() {
             alertDialog.show()
         })
 
-        fun filterList(newText:String){
-            val newTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
-            if(newText != "") {
-                for(x in fetchList){
-                    if(x.itemname!!.contains(newText)) newTestList.add(x)
-                }
-            }
-            else {
-                for(x in fetchList) newTestList.add(x)
-            }
+        setHasOptionsMenu(true)
 
-            if(!newTestList.isNullOrEmpty()) {
-                filteredTestList.clear()
-                for(x in newTestList) filteredTestList.add(x)
 
-                if(recyclerView.layoutManager == linearLayoutManager){
-                    recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+        return root
+    }
+
+
+    override fun onStart(){
+        super.onStart()
+        //refrigeratorSearch.setQuery("", false)
+        //refrigeratorSearch.isIconified = true
+        getDB(binding.refrigeratorrecyclerview)
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.removeItem(R.id.app_bar_search_refrigerator)
+        menu.removeItem(R.id.app_bar_search_recipe)
+        menu.removeItem(R.id.cart_button)
+        menu.removeItem(R.id.notification_button)
+        inflater.inflate(R.menu.search_menu, menu)
+
+        val searchButtonRecipe = menu.findItem(R.id.app_bar_search_recipe)
+        val refrigeratorSearch = menu.findItem(R.id.app_bar_search_refrigerator)
+        searchButtonRecipe.isVisible = false
+
+
+        menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
+            when(it.itemId) {
+                R.id.cart_button -> {
+                    val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
+                    startActivity(shoppingintent)
+                    true
                 }
-                else if(recyclerView.layoutManager == gridLayoutManager){
-                    recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                R.id.notification_button ->{
+                    true
+
+                }
+                else->{
+                    false
                 }
             }
-        }
+        })
 
 
         val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        refrigeratorSearch.apply {
+        (refrigeratorSearch.actionView as SearchView).apply {
             //Assumes current activity is the searchable activity
+            setQuery("", false)
+            isIconified = true
 
-            //setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            setIconifiedByDefault(true) // Do not iconify the widget; expand it by default
+            fun filterList(newText:String){
+                val newTestList: MutableList<RefItem> = listOf<RefItem>().toMutableList()
+                val recyclerView = binding.refrigeratorrecyclerview
+                if(newText != "") {
+                    for(x in fetchList){
+                        if(x.itemname!!.contains(newText)) newTestList.add(x)
+                    }
+                }
+                else {
+                    for(x in fetchList) newTestList.add(x)
+                }
+
+                if(!newTestList.isNullOrEmpty()) {
+                    filteredTestList.clear()
+                    for(x in newTestList) filteredTestList.add(x)
+
+                    if(recyclerView.layoutManager == linearLayoutManager){
+                        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                    }
+                    else if(recyclerView.layoutManager == gridLayoutManager){
+                        recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                    }
+                }
+            }
+
+            setIconifiedByDefault(true)
             queryHint = "품목 이름을 입력하세요"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
@@ -292,50 +342,9 @@ class RefrigeratorFragment : Fragment() {
                 }
 
             })
-            setOnSearchClickListener(object: View.OnClickListener {
-                override fun onClick(v: View?) {
-                    refrigeratorSwitch.visibility = View.GONE
-                    refrigeratorSwitchLabel1.visibility = View.GONE
-                    refrigeratorSwitchLabel2.visibility = View.GONE
-                    refrigeratorSortButton.visibility = View.GONE
-                }
-            })
-
-            setOnCloseListener(object: SearchView.OnCloseListener {
-                override fun onClose(): Boolean {
-                    refrigeratorSwitch.visibility = View.VISIBLE
-                    refrigeratorSwitchLabel1.visibility = View.VISIBLE
-                    refrigeratorSwitchLabel2.visibility = View.VISIBLE
-                    refrigeratorSortButton.visibility = View.VISIBLE
-                    return false
-                }
-            })
-
-            //setOn
-
         }
 
-        setHasOptionsMenu(true)
 
-
-        return root
-    }
-
-
-    override fun onStart(){
-        super.onStart()
-        refrigeratorSearch.setQuery("", false)
-        refrigeratorSearch.isIconified = true
-        getDB(binding.refrigeratorrecyclerview)
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        val searchbutton = menu.findItem(R.id.app_bar_search)
-        searchbutton.isVisible = false
         return super.onCreateOptionsMenu(menu,inflater)
     }
 
