@@ -92,7 +92,5 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
     }
     fun setRecipeIngre(ingrelist:ArrayList<IngredientsInfo>){
         ingreList = ingrelist
-
-
     }
 }
