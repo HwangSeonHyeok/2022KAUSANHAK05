@@ -16,6 +16,8 @@ import kotlin.collections.ArrayList
 
 class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerView.Adapter<RecipeDetailIngreAdapter.ViewHolder>() {
     lateinit var db : AppDatabase
+    lateinit var inMyRef : ArrayList<Int?>
+
     inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipeingre, parent, false)) {
         val ingreName: TextView
         val ingreCount: TextView
@@ -30,7 +32,9 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
             ingreInMyRef = itemView.findViewById(R.id.itemrecipeingre_refAmount)
             addShoppingListButton = itemView.findViewById(R.id.itemrecipeingre_addCart)
         }
+
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent)
@@ -44,7 +48,7 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
                     ingreCount.text = item.ingreCount.toString() + item.ingreUnit
                 else
                     ingreCount.text = item.ingreUnit
-                ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그, ingreUnit이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
+                ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
                 addShoppingListButton.setOnClickListener {
                     var dbitem : ShoppingListItem? =null
                     var toastvalue : String = item.ingreName
@@ -71,4 +75,5 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
     override fun getItemCount(): Int {
         return data.size
     }
+
 }

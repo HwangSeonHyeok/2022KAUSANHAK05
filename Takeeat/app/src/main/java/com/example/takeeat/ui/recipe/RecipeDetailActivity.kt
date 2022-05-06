@@ -7,6 +7,7 @@ import android.widget.MediaController
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.takeeat.R
 import com.example.takeeat.RecipeItem
 import com.example.takeeat.databinding.ActivityRecipedetailBinding
 
@@ -16,7 +17,9 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var recipeItem : RecipeItem
     private lateinit var ingreAdapter : RecipeDetailIngreAdapter
     private lateinit var recipeStepAdapter : RecipeStepAdapter
-    var amount : Int  = 1;
+    lateinit var inMyRefIngre : ArrayList<Int?>
+    var writerbookmarked = false
+    var recipebookmarked = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,9 +30,12 @@ class RecipeDetailActivity : AppCompatActivity() {
         binding.recipedetailRecipeWriter.text = recipeItem.recipeWriter
         binding.recipedetailRecipeSummary.text = recipeItem.recipeSummary
         ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
+        //ingreAdapter.inMyRef = inMyRefIngre
         binding.recipedetailIngreRecyclerView.adapter = ingreAdapter
         binding.recipedetailDifficultyText.text = recipeItem.recipeDifficulty
         binding.recipedetailTimeText.text = recipeItem.recipeTime
+        //binding.recipedetailAmount.text
+        //binding.recipedetailRating.text = recipeItem.recipeRating.toString()
         val recipeViewPager = binding.recipedetailRecipeStepViewPager
         if(recipeItem.recipeStep!=null) {
             recipeStepAdapter = RecipeStepAdapter(recipeItem.recipeStep!!)
@@ -38,21 +44,28 @@ class RecipeDetailActivity : AppCompatActivity() {
         }
 
         binding.recipedetailRecipeBookmark.setOnClickListener {
-            //이거 누르면 레시피 구독
+            //이거 누르면 레시피 구독 아래 코드를 태스크 핸들러에 넣으면 될듯 합니다
+            if(recipebookmarked) {
+                binding.recipedetailRecipeBookmark.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
+                Toast.makeText(this,"북마크에서 삭제되었습니다",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                binding.recipedetailRecipeBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)
+                Toast.makeText(this,"북마크에 추가되었습니다",Toast.LENGTH_SHORT).show()
+            }
+            recipebookmarked = !recipebookmarked
         }
         binding.recipedetailWriterBookmark.setOnClickListener{
-            //이거 누a르면 작성자 구독
-        }
-
-        binding.recipedetailMinusButton.setOnClickListener {
-            if(amount > 1){
-                amount--;
+            //이거 누르면 작성자 구독 아래 코드를 태스크 핸들러에 넣으면 될듯 합니다
+            if(writerbookmarked) {
+                binding.recipedetailWriterBookmark.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
+                Toast.makeText(this,"북마크에서 삭제되었습니다",Toast.LENGTH_SHORT).show()
             }
-        }
-        binding.recipedetailPlusButton.setOnClickListener {
-            if(amount < 20){
-                amount++;
+            else{
+                binding.recipedetailWriterBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)
+                Toast.makeText(this,"북마크에 추가되었습니다",Toast.LENGTH_SHORT).show()
             }
+            writerbookmarked = !writerbookmarked
         }
 
 

@@ -65,7 +65,7 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
             }
             holder.commitButton.visibility = View.VISIBLE
             holder.commitButton.setOnClickListener {
-                //여기 별점 db반영코드
+                //여기 별점 db반영코드  holder.ratingBar.rating
 
 
                 val dialogBuilder = AlertDialog.Builder(holder.commitButton.context)
