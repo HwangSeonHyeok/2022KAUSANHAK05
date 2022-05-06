@@ -29,7 +29,7 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:text="업로드하기"
+            android:text="업로드"
             android:textColor="@android:color/white"
             android:clickable="true"
             android:padding="4dp"
@@ -52,7 +52,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="레시피 제목"
+                android:text="레시피명"
                 android:textSize="15dp"
                 android:background="#ACCADE"
                 android:padding="6dp"
@@ -64,11 +64,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:inputType="textPersonName"
-                android:hint="예) 파인애플 피자"
+                android:hint="예) 쫀득한 갈비찜"
                 android:ems="10"
                 android:id="@+id/Recipe_title"/>
             <TextView
-                android:text="요리 대표 사진"
+                android:text="레시피 썸네일"
                 android:textSize="18dp"
                 android:background="#ACCADE"
                 android:padding="6dp"
@@ -85,7 +85,7 @@
                 app:srcCompat="@drawable/ic_baseline_camera"
                 android:id="@+id/recipe_upload_image1"/>
             <TextView
-                android:text="요리내용"
+                android:text="요리요약"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 android:background="#ACCADE"
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:hint="요리 내용을 원하는대로 적어주세요."
+                android:hint="요리에 대한 설명을 작성해주세요."
                 android:ems="10"
                 android:id="@+id/Recipe_text"/>
 
@@ -257,7 +257,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Recipe_order_add_button"/>
 
-            <TextView
+            <!--<TextView
                 android:text="태그 선택"
                 android:textSize="18dp"
                 android:background="#ACCADE"
@@ -272,7 +272,7 @@
                 android:inputType="textMultiLine"
                 android:hint="예) 고기, 닭고기, 고추창, 깻잎..."
                 android:ems="10"
-                android:id="@+id/Recipe_Tip"/>
+                android:id="@+id/Recipe_Tip"/> -->
 
 
         </LinearLayout>
