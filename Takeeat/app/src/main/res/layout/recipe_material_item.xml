@@ -33,6 +33,14 @@
                 android:ems="10"
                 android:id="@+id/Material_Item_amount"
                 android:layout_weight="1"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:hint="재료단위"
+                android:ems="10"
+                android:id="@+id/Material_Item_unit"
+                android:layout_weight="1"/>
             <Button
                 android:text="삭제"
                 android:layout_width="match_parent"

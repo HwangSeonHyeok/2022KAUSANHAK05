@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 app:srcCompat="@drawable/ic_baseline_camera"
-                android:id="@+id/recipe_upload_image1"/>
+                android:id="@+id/recipe_thumbdnail"/>
             <TextView
                 android:text="요리요약"
                 android:textStyle="bold"
@@ -98,7 +98,7 @@
                 android:inputType="textMultiLine"
                 android:hint="요리에 대한 설명을 작성해주세요."
                 android:ems="10"
-                android:id="@+id/Recipe_text"/>
+                android:id="@+id/recipe_summary"/>
 
             <!--            <Spinner
                     android:layout_width="match_parent"
@@ -122,12 +122,12 @@
                     android:text="식사 인원"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_text1"
+                    android:id="@+id/servings"
                     android:layout_weight="1"/>
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_spinner1"
+                    android:id="@+id/servings_spinner"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -140,12 +140,12 @@
                     android:text="요리 시간"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_text2"
+                    android:id="@+id/cooktime"
                     android:layout_weight="1"/>
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_spinner2"
+                    android:id="@+id/cooktime_spinner"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -158,12 +158,12 @@
                     android:text="요리 난이도"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_text3"
+                    android:id="@+id/cookdifficulty"
                     android:layout_weight="1"/>
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Category_spinner3"
+                    android:id="@+id/cookdifficulty_spinner"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -208,12 +208,12 @@
                     android:inputType="textPersonName"
                     android:hint="분량"
                     android:ems="10"
-                    android:id="@+id/Recipe_material_unit"/>
+                    android:id="@+id/recipeamount"/>
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Material_spinner"
+                    android:id="@+id/recipeunit_spinner"
                     android:layout_weight="1"/>
                 <Button
                     android:background="@drawable/button_round"
@@ -244,7 +244,7 @@
                 android:layout_height="wrap_content" android:id="@+id/textView11"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/Recipe_order_recycler"
+                android:id="@+id/recipeorder_recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/recipe_order_item">
