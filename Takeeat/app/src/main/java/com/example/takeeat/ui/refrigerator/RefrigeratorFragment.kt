@@ -279,21 +279,9 @@ class RefrigeratorFragment : Fragment() {
 
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
-
-            when(it.itemId) {
-                R.id.cart_button -> {
-                    val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
-                    startActivity(shoppingintent)
-                    true
-                }
-                R.id.notification_button ->{
-                    true
-
-                }
-                else->{
-                    false
-                }
-            }
+            val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
+            startActivity(shoppingintent)
+            true
         })
 
 
