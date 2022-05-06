@@ -16,6 +16,7 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var recipeItem : RecipeItem
     private lateinit var ingreAdapter : RecipeDetailIngreAdapter
     private lateinit var recipeStepAdapter : RecipeStepAdapter
+    var amount : Int  = 1;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,6 +33,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         val recipeViewPager = binding.recipedetailRecipeStepViewPager
         if(recipeItem.recipeStep!=null) {
             recipeStepAdapter = RecipeStepAdapter(recipeItem.recipeStep!!)
+            recipeStepAdapter.setRecipeIngre(recipeItem.recipeIngredients)
             recipeViewPager.adapter = recipeStepAdapter
         }
 
@@ -39,7 +41,18 @@ class RecipeDetailActivity : AppCompatActivity() {
             //이거 누르면 레시피 구독
         }
         binding.recipedetailWriterBookmark.setOnClickListener{
-            //이거 누르면 작성자 구독
+            //이거 누a르면 작성자 구독
+        }
+
+        binding.recipedetailMinusButton.setOnClickListener {
+            if(amount > 1){
+                amount--;
+            }
+        }
+        binding.recipedetailPlusButton.setOnClickListener {
+            if(amount < 20){
+                amount++;
+            }
         }
 
 
