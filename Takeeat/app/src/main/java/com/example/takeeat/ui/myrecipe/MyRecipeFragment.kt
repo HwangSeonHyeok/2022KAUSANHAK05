@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.takeeat.R
@@ -43,6 +44,7 @@ class MyRecipeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.removeItem(R.id.app_bar_search_refrigerator)
         menu.removeItem(R.id.app_bar_search_recipe)
+        menu.removeItem(R.id.app_bar_search_myrecipe)
         menu.removeItem(R.id.cart_button)
         menu.removeItem(R.id.notification_button)
         inflater.inflate(R.menu.search_menu, menu)
@@ -72,6 +74,7 @@ class MyRecipeFragment : Fragment() {
 
         return super.onCreateOptionsMenu(menu,inflater)
     }
+
 
     private fun initViewPager() {
         binding.myrecipeContentVp.adapter = MyRecipeVPAdapter(this)

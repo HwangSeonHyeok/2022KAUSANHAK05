@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="tagArray">
+    <string-array name="RefrigeratorItemTagArray">
         <item> 기타 </item>
         <item> 가래떡 </item>
         <item> 가리비 </item>
@@ -202,5 +202,30 @@
         <item> 호박 </item>
         <item> 홍합 </item>
         <item> 후추 </item>
+    </string-array>
+    <string-array name="CategoryTagArray">
+        <item>밥/죽/떡</item>
+        <item>면/만두</item>
+        <item>국/탕</item>
+        <item>찌개</item>
+        <item>메인반찬</item>
+        <item>김치/젓갈/장류</item>
+        <item>양념/소스/잼</item>
+        <item>차/음료/술</item>
+        <item>디저트</item>
+        <item>퓨전</item>
+        <item>기타</item>
+        <item>밑반찬</item>
+        <item>샐러드</item>
+        <item>양식</item>
+        <item>빵</item>
+        <item>과자</item>
+    </string-array>
+    <string-array name="DifficultyArray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 </resources>

@@ -42,29 +42,28 @@ class RecipeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.removeItem(R.id.app_bar_search_refrigerator)
         menu.removeItem(R.id.app_bar_search_recipe)
+        menu.removeItem(R.id.app_bar_search_myrecipe)
         menu.removeItem(R.id.cart_button)
         menu.removeItem(R.id.notification_button)
         inflater.inflate(R.menu.search_menu, menu)
 
-        val searchButton = menu.findItem(R.id.app_bar_search_refrigerator)
-        searchButton.isVisible = false
+        val searchButtonRefigerator = menu.findItem(R.id.app_bar_search_refrigerator)
+        val searchButtonMyrecipe = menu.findItem(R.id.app_bar_search_myrecipe)
+        searchButtonRefigerator.isVisible = false
+        searchButtonMyrecipe.isVisible = false
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
 
-            when(it.itemId) {
-                R.id.cart_button -> {
-                    val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
-                    startActivity(shoppingintent)
-                    true
-                }
-                R.id.notification_button ->{
-                    true
+            val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
+            startActivity(shoppingintent)
+            true
+        })
 
-                }
-                else->{
-                    false
-                }
-            }
+        menu.findItem(R.id.app_bar_search_recipe).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
+            val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
+            startActivity(searchintent)
+            true
         })
 
         return super.onCreateOptionsMenu(menu,inflater)

@@ -23,10 +23,18 @@ class CreatedFragment :Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCreatedBinding.inflate(inflater, container, false)
-      /*  binding.recipeUploadButton.setOnClickListener{
-            val intent= Intent (this@CreatedFragment.requireContext(), RecipeUploadActivity::class.java)
+        binding.recipeUploadButton.setOnClickListener{
+            val intent= Intent (this@CreatedFragment.requireContext(), RecipeUpload::class.java)
             startActivity(intent)
-        }*/
+        }
+
+       /* val uploadbutton= view?.findViewById<Button>(R.id.recipe_upload_button)
+        uploadbutton?.setOnClickListener(({
+            val intent= Intent(context, RecipeUpload::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }))
+*/
 
 
         return binding.root
@@ -35,3 +43,4 @@ class CreatedFragment :Fragment() {
 
 
 }
+

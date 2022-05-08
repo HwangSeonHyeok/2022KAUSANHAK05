@@ -237,10 +237,12 @@ class RefrigeratorFragment : Fragment() {
                     for(x in newTestList) filteredTestList.add(x)
 
                     if(recyclerView.layoutManager == linearLayoutManager){
-                        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                        //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                        recyclerView.swapAdapter(RefrigeratorAdapter(filteredTestList),true)
                     }
                     else if(recyclerView.layoutManager == gridLayoutManager){
-                        recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                        //recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                        recyclerView.swapAdapter(RefrigeratorIconAdapter(filteredTestList),true)
                     }
                 }
             })
@@ -269,31 +271,21 @@ class RefrigeratorFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.removeItem(R.id.app_bar_search_refrigerator)
         menu.removeItem(R.id.app_bar_search_recipe)
+        menu.removeItem(R.id.app_bar_search_myrecipe)
         menu.removeItem(R.id.cart_button)
         menu.removeItem(R.id.notification_button)
         inflater.inflate(R.menu.search_menu, menu)
 
         val searchButtonRecipe = menu.findItem(R.id.app_bar_search_recipe)
+        val searchButtonMyrecipe = menu.findItem(R.id.app_bar_search_myrecipe)
         val refrigeratorSearch = menu.findItem(R.id.app_bar_search_refrigerator)
         searchButtonRecipe.isVisible = false
-
+        searchButtonMyrecipe.isVisible = false
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
-
-            when(it.itemId) {
-                R.id.cart_button -> {
-                    val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
-                    startActivity(shoppingintent)
-                    true
-                }
-                R.id.notification_button ->{
-                    true
-
-                }
-                else->{
-                    false
-                }
-            }
+            val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
+            startActivity(shoppingintent)
+            true
         })
 
 
