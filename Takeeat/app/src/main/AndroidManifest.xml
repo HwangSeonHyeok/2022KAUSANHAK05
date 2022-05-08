@@ -30,6 +30,7 @@
         <activity android:name=".ui.recipe.SubtractRefActivity" />
         <activity android:name=".OkActivity" />
         <activity android:name=".ForgotActivity" />
+        <activity android:name=".ui.myrecipe.RecipeUpload" />
         <activity
             android:name=".ui.recipe.RecipeSearchActivity"
             android:label="레시피 검색"/>
