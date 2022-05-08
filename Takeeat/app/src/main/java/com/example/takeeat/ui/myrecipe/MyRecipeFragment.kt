@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.takeeat.R
@@ -72,6 +73,7 @@ class MyRecipeFragment : Fragment() {
 
         return super.onCreateOptionsMenu(menu,inflater)
     }
+
 
     private fun initViewPager() {
         binding.myrecipeContentVp.adapter = MyRecipeVPAdapter(this)

@@ -30,6 +30,7 @@
         <activity android:name=".ui.recipe.SubtractRefActivity" />
         <activity android:name=".OkActivity" />
         <activity android:name=".ForgotActivity" />
+        <activity android:name=".ui.myrecipe.RecipeUpload" />
         <activity
             android:name=".ui.refrigerator.RefItemDetailActivity"
             android:label="냉장고 품목" />
