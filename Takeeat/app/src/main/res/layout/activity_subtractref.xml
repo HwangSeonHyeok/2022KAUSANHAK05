@@ -28,7 +28,6 @@
                 android:layout_weight="0"
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:stackFromEnd="true"
                 tools:listitem="@layout/item_subtractref"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>

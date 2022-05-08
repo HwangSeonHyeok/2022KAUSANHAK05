@@ -16,9 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Takeeat">
         <activity
+            android:name=".ui.recipe.RecipeSearchResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".IntroActivity"
-            android:theme = "@style/Theme.AppCompat.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,8 +49,7 @@
         <activity
             android:name=".AuthActivity"
             android:exported="true"
-            android:noHistory="true"/>
-
+            android:noHistory="true" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

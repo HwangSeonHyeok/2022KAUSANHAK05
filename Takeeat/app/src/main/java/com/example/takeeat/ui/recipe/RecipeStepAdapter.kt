@@ -72,7 +72,13 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
                 dialogBuilder.setMessage("요리에 사용한 재료를 냉장고에 반영하시겠습니까?")
                 dialogBuilder.setPositiveButton("예",DialogInterface.OnClickListener { dialogInterface, i ->
                     val intent = Intent(holder.commitButton.context, SubtractRefActivity::class.java)
-                    intent.putExtra("Ingre_Data",ingreList)
+                    val ingreListToSubtract : ArrayList<IngredientsInfo> = ArrayList<IngredientsInfo>()
+                    for(ingre in ingreList){
+                        if(ingre.ingreCount != null){
+                            ingreListToSubtract.add(ingre)
+                        }
+                    }
+                    intent.putExtra("Ingre_Data",ingreListToSubtract)
                     holder.commitButton.context.startActivity(intent)
                 })
                 dialogBuilder.setNegativeButton("아니오",DialogInterface.OnClickListener { dialogInterface, i ->
