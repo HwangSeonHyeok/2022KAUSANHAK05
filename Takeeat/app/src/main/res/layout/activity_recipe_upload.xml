@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".RecipeUpload">
+    tools:context=".ui.myrecipe.RecipeUpload">
 
     <LinearLayout
         android:background="#6A9DCC"
