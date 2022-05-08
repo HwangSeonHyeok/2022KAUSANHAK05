@@ -168,31 +168,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="10dp"
                 android:text="1인분"
-                app:layout_constraintEnd_toStartOf="@+id/recipedetail_PlusButton"
+                app:layout_constraintEnd_toEndOf="@+id/recipedetail_MyRefRow"
                 app:layout_constraintTop_toBottomOf="@id/recipedetail_divider3" />
-
-            <ImageView
-                android:id="@+id/recipedetail_MinusButton"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginEnd="5dp"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="@id/recipedetail_Amount"
-                app:layout_constraintEnd_toStartOf="@+id/recipedetail_Amount"
-                app:layout_constraintTop_toTopOf="@id/recipedetail_Amount"
-                app:srcCompat="@drawable/leftarrowbutton" />
-
-            <ImageView
-                android:id="@+id/recipedetail_PlusButton"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="@id/recipedetail_Amount"
-                app:layout_constraintEnd_toEndOf="@id/recipedetail_MainImage"
-                app:layout_constraintTop_toTopOf="@id/recipedetail_Amount"
-                app:srcCompat="@drawable/rightarrowbutton" />
 
             <TextView
                 android:id="@+id/recipedetail_IngRow"
@@ -220,7 +199,7 @@
                 android:layout_marginTop="6dp"
                 android:text="내 냉장고"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/recipedetail_PlusButton"
+                app:layout_constraintEnd_toEndOf="@+id/recipedetail_MainImage"
                 app:layout_constraintTop_toBottomOf="@id/recipedetail_Amount" />
 
             <View

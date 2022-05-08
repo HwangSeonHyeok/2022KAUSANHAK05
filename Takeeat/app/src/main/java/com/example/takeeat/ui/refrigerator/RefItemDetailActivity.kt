@@ -162,6 +162,7 @@ class RefItemDetailActivity : AppCompatActivity() {
         binding.refDetailUnit.text = itemData.itemunit.toString()
         binding.refDetailTag.text = itemData.itemtag.toString()
         recipeArray.clear()
+
         updateRecipeItem()
     }
 

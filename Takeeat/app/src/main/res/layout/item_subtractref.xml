@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="125dp">
+
+    <TextView
+        android:id="@+id/subrefitem_ingreName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="재료이름"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/subrefitem_refSpinner"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/subrefitem_refSpinner"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subrefitem_ingreName" />
+
+    <TextView
+        android:id="@+id/subrefitem_textMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@id/subrefitem_refSeekBar"
+        app:layout_constraintEnd_toStartOf="@id/subrefitem_refSeekBar"
+        app:layout_constraintTop_toTopOf="@id/subrefitem_refSeekBar" />
+
+    <SeekBar
+        android:id="@+id/subrefitem_refSeekBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subrefitem_refSpinner" />
+
+    <TextView
+        android:id="@+id/subrefItem_textMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="100개"
+        app:layout_constraintBottom_toBottomOf="@id/subrefitem_refSeekBar"
+        app:layout_constraintStart_toEndOf="@id/subrefitem_refSeekBar"
+        app:layout_constraintTop_toTopOf="@id/subrefitem_refSeekBar" />
+
+    <TextView
+        android:id="@+id/subrefitem_seekBarText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/subrefitem_refSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/subrefitem_textMin"
+        app:layout_constraintTop_toBottomOf="@id/subrefitem_refSeekBar" />
+
+    <View
+        android:id="@+id/subrefItem_Divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#32191818"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
