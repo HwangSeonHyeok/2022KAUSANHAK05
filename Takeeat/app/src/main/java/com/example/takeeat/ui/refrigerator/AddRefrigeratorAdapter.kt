@@ -91,7 +91,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
                 if(item.itemamount!=null)
                     itemAmountEdit.setText(item.itemamount.toString())
                 holder.itemTagButton.setOnClickListener {
-                    val tags = context.resources.getStringArray(R.array.tagArray)
+                    val tags = context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
                     val dialogBuilder = AlertDialog.Builder(context)
                     dialogBuilder.setTitle("태그를 선택해주세요")
                     dialogBuilder.setItems(tags) {

@@ -68,14 +68,17 @@ class MenuFragment: Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.removeItem(R.id.app_bar_search_refrigerator)
         menu.removeItem(R.id.app_bar_search_recipe)
+        menu.removeItem(R.id.app_bar_search_myrecipe)
         menu.removeItem(R.id.cart_button)
         menu.removeItem(R.id.notification_button)
         inflater.inflate(R.menu.search_menu, menu)
 
         val searchButtonRefrigerator = menu.findItem(R.id.app_bar_search_refrigerator)
         val searchButtonRecipe = menu.findItem(R.id.app_bar_search_recipe)
+        val searchButtonMyrecipe = menu.findItem(R.id.app_bar_search_myrecipe)
         searchButtonRefrigerator.isVisible = false
         searchButtonRecipe.isVisible = false
+        searchButtonMyrecipe.isVisible = false
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
 

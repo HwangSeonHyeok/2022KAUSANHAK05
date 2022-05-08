@@ -106,7 +106,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             dateSelector.show()
         }
         binding.refDetailTag.setOnClickListener{
-            val tags = resources.getStringArray(R.array.tagArray)
+            val tags = resources.getStringArray(R.array.RefrigeratorItemTagArray)
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("태그를 선택해주세요")
             dialogBuilder.setItems(tags) {
