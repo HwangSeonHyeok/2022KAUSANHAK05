@@ -3,18 +3,27 @@ package com.example.takeeat.ui.recipe
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.bumptech.glide.Glide
 import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.RecipeProcess
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.DataOutputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<RecipeStepAdapter.PagerViewHolder>() {
     val recipeData = data
+    public var recipeID : String = "1"
     lateinit var ingreList : ArrayList<IngredientsInfo>
     class PagerViewHolder(parent : ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipestep, parent, false)){
         val stepText : TextView
@@ -67,6 +76,8 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
             holder.commitButton.setOnClickListener {
                 //여기 별점 db반영코드  holder.ratingBar.rating
 
+                post_recipe_rating(holder.ratingBar.rating)
+
 
                 val dialogBuilder = AlertDialog.Builder(holder.commitButton.context)
                 dialogBuilder.setMessage("요리에 사용한 재료를 냉장고에 반영하시겠습니까?")
@@ -98,5 +109,50 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
     }
     fun setRecipeIngre(ingrelist:ArrayList<IngredientsInfo>){
         ingreList = ingrelist
+    }
+
+    fun post_recipe_rating(rate:Float){
+        Thread(Runnable{
+
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/rating_post")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("POST")
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+
+
+            var job = JSONObject()
+            job.put("user_id", AWSMobileClient.getInstance().username)
+            job.put("recipe_id", recipeID)
+            job.put("rating", rate)
+
+
+            var requestBody = job.toString()
+            Log.d("Response : requestBody = ",requestBody)
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+            var responseCode = conn.getResponseCode()
+            Log.d("Response : responseCode",responseCode.toString())
+            val br: BufferedReader
+            if (responseCode == 200) {
+                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
+                Log.d("Response","Success")
+            } else {
+                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
+                Log.d("Response","fail")
+            }
+
+            var resultJson= JSONObject(br.readLine())
+            Log.d("Response : resultJson = ",resultJson.toString())
+
+
+        }).start()
     }
 }
