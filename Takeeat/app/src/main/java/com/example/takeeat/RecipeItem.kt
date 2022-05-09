@@ -14,7 +14,10 @@ data class RecipeItem (
     val recipeDifficulty:String,
     val recipeWriter:String?,
     val imgURL:URL?,
-    val recipeStep : ArrayList<RecipeProcess>?) : Serializable
+    val recipeStep : ArrayList<RecipeProcess>?,
+    val recipeIngredientsSearch: ArrayList<String>,
+    val recipeServing: String
+) : Serializable
 data class RecipeProcess(
     val recipeExplanation:String,
     val imgURL:URL?

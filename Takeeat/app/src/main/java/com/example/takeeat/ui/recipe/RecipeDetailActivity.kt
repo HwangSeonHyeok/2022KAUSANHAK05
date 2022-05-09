@@ -43,8 +43,9 @@ class RecipeDetailActivity : AppCompatActivity() {
         binding.recipedetailIngreRecyclerView.adapter = ingreAdapter
         binding.recipedetailDifficultyText.text = recipeItem.recipeDifficulty
         binding.recipedetailTimeText.text = recipeItem.recipeTime
-        //binding.recipedetailAmount.text
-        //binding.recipedetailRating.text = recipeItem.recipeRating.toString()
+        binding.recipedetailAmount.text = recipeItem.recipeServing + "인분"
+        //binding.recipedetailAmount =
+        binding.recipedetailRating.text = String.format("%.1f", recipeItem.recipeRating)
         val recipeViewPager = binding.recipedetailRecipeStepViewPager
         if(recipeItem.recipeStep!=null) {
             recipeStepAdapter = RecipeStepAdapter(recipeItem.recipeStep!!)

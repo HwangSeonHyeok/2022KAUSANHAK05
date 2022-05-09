@@ -415,14 +415,11 @@ class RefItemDetailActivity : AppCompatActivity() {
         var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
         conn.setUseCaches(false)
         conn.setRequestMethod("POST")
-        //conn.setRequestProperty("Cache-Control", "no-cache");
         conn.setRequestProperty("Content-Type", "application/json")
         conn.setRequestProperty("Connection","keep-alive")
-        //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
         conn.setRequestProperty("Accept", "application/json")
         conn.setDoOutput(true)
         conn.setDoInput(true)
-        //conn.connect()
 
 
         var requestBody = job.toString()
@@ -442,7 +439,6 @@ class RefItemDetailActivity : AppCompatActivity() {
             val line = buffered.readLine() ?: break
             content.append(line)
         }
-
         val data =content.toString()
         val jsonArr = JSONArray(data)
         //Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
@@ -452,12 +448,54 @@ class RefItemDetailActivity : AppCompatActivity() {
             val jsonObj = jsonArr.getJSONObject(i)
             val recipeStep = ArrayList<RecipeProcess>()
             val recipeIngre = ArrayList<IngredientsInfo>()
+            val reciperecipeIngredientsTag = ArrayList<String>()
+
+            Log.d("Response : recipe", "들어옴")
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").length()){
+                recipeStep.add(RecipeProcess(
+                    jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").getJSONObject(j).getString("txt"),
+                    URL(jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").getJSONObject(j).getString("img"))))
+            }
+            Log.d("Response : recipe", "나감")
+
+            //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
+
+            Log.d("Response : ingre", "들어옴")
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("ingre").length()){
+                IngredientsInfo(
+                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_name"),
+                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
+                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_unit"))
+            }
+            Log.d("Response : ingre", "나감")
+
+            Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
+
+            /*
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre_search").length()){
+                reciperecipeIngredientsTag.add(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).toString())
+            }
+
+             */
+
+
+            /*
             for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("recipe").length()){
                 recipeStep.add(RecipeProcess(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("txt"),URL(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("img"))))
             }
             for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre").length()){
                 recipeIngre.add(IngredientsInfo(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_name"),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_unit")))
             }
+
+             */
+
+
+
+
+            /*
+
+
+             */
             Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
             Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(
@@ -465,17 +503,17 @@ class RefItemDetailActivity : AppCompatActivity() {
                     jsonObj.getString("id"),
                     jsonObj.getString("name"),
                     recipeIngre,
-                    //jsonObj.getString("ingre"),
                     jsonObj.getString("summary"),
-                    5.0,
-                    jsonObj.getString("cooktime"),
-                    jsonObj.getString("difficulty"),
-                    "만개의 레시피",
+                    jsonObj.getDouble("rate_sum")/jsonObj.getDouble("rate_num"),
+                    jsonObj.getString("time"),
+                    jsonObj.getString("difficult"),
+                    jsonObj.getString("author"),
                     URL(jsonObj.getString("img")),
-                    recipeStep
-
+                    recipeStep,
+                    reciperecipeIngredientsTag,
+                    jsonObj.getString("serving")
                 ))
-            Log.d("Response : ingre______",JSONArray(jsonObj.getString("ingre")).toString())
+            //Log.d("Response : ingre______",JSONArray(jsonObj.getString("ingre")).toString())
         }
 
         // 스트림과 커넥션 해제
@@ -507,7 +545,7 @@ class RefItemDetailActivity : AppCompatActivity() {
 
             for(x in recipe_list) {
                 recipeArray.add(RecipeItem(
-                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeSummary, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL,x.recipeStep)
+                    x.recipeId, x.recipeName, x.recipeIngredients, x.recipeSummary, x.recipeRating, x.recipeTime, x.recipeDifficulty, x.recipeWriter, x.imgURL,x.recipeStep, x.recipeIngredientsSearch, x.recipeServing)
                 )
             }
             handler.post{
