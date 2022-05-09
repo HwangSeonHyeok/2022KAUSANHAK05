@@ -12,6 +12,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.*
 import com.example.takeeat.databinding.ActivityRefitemdetailBinding
@@ -55,6 +57,7 @@ class RefItemDetailActivity : AppCompatActivity() {
             intent.putExtra("Search_Result",recipeArray)
             startActivity(intent)
         }
+
         //
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         binding.refDetailEditButton.setOnClickListener {
@@ -461,13 +464,13 @@ class RefItemDetailActivity : AppCompatActivity() {
             //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
 
             Log.d("Response : ingre", "들어옴")
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("ingre").length()){
-                IngredientsInfo(
+            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length()){
+                recipeIngre.add(IngredientsInfo(
                     jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_name"),
                     jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
-                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_unit"))
+                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_unit")))
             }
-            Log.d("Response : ingre", "나감")
+            Log.d("Response : ingre", recipeIngre.toString())
 
             Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
 
@@ -557,6 +560,22 @@ class RefItemDetailActivity : AppCompatActivity() {
                     adapter = RecipeItemAdapter(recipeArray)
                     binding.refDetailRecipeField.adapter = adapter
                 }
+                binding.refDetailRecipeField.addOnScrollListener(
+                    object: RecyclerView.OnScrollListener(){
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                            super.onScrolled(recyclerView, dx, dy)
+                            Log.d("Response", "here")
+                            val lastViwibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+                            val itemTotalCount = recyclerView.adapter!!.itemCount -1
+                            if(lastViwibleItemPosition == itemTotalCount&&(recyclerView.adapter as RecipeItemAdapter).visibleItemCount<(recyclerView.adapter as RecipeItemAdapter).data.size){
+
+                                (recyclerView.adapter as RecipeItemAdapter).addVisibleItemCount()
+
+                                recyclerView.adapter!!.notifyItemInserted(recyclerView.adapter!!.itemCount -1)
+                            }
+                        }
+                    }
+                )
             }
 
         }).start()

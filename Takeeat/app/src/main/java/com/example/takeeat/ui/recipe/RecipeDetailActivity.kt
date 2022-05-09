@@ -55,6 +55,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         }
 
         bookmark_bool()
+        Log.d("Response","제료"+recipeItem.recipeIngredients.toString())
 
         binding.recipedetailRecipeBookmark.setOnClickListener {
             //이거 누르면 레시피 구독 아래 코드를 태스크 핸들러에 넣으면 될듯 합니다
@@ -186,6 +187,7 @@ class RecipeDetailActivity : AppCompatActivity() {
 
 
     fun bookmark_bool() {
+        val handler = Handler()
 
         Thread(Runnable {
 
@@ -239,6 +241,15 @@ class RecipeDetailActivity : AppCompatActivity() {
                 }
             }
             Log.d("Response : resultJson = ", content.toString())
+            handler.post{
+                if(writerbookmarked == true){
+                    binding.recipedetailWriterBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)
+                }
+                if(recipebookmarked == true){
+                    binding.recipedetailRecipeBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)
+
+                }
+            }
 
         }).start()
 

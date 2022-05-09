@@ -8,12 +8,15 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.takeeat.ui.recipe.RecipeDetailActivity
+import java.lang.Math.round
 
 import java.util.*
 
 
 class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<RecipeItemAdapter.ViewHolder>() {
+    var visibleItemCount = 5
     inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent,false)),View.OnClickListener{
+
         val recipeName: TextView
         val recipeImage : ImageView
         val recipeIngredient: TextView
@@ -52,7 +55,8 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
 
 
     override fun getItemCount(): Int {
-        return data.size
+        if(data.size<5) return data.size
+        else return visibleItemCount
 
     }
 
@@ -78,12 +82,20 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             //recipeIngredient.text= data[position].recipeIngredients
             recipeIngredient.text= ingredientContent.toString()
             recipeIntroduce.text = data[position].recipeSummary
-            recipeRate.text = data[position].recipeRating.toString()
+            recipeRate.text = (round(data[position].recipeRating*10)/10f).toString()
             recipeTime.text = data[position].recipeTime
             recipeDifficulty.text = data[position].recipeDifficulty
             recipeWriter.text = data[position].recipeWriter
         }
 
+    }
+    fun addVisibleItemCount(){
+        if(visibleItemCount<data.size) visibleItemCount+=5
+        if(visibleItemCount>data.size) visibleItemCount = data.size
+    }
+
+    fun resetVisibleItemCount(){
+        visibleItemCount = 5
     }
 
 

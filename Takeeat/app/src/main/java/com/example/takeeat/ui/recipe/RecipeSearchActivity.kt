@@ -58,7 +58,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             //Assumes current activity is the searchable activity
             setQuery("", false)
             isIconified = true
-
+            /*
             fun filterList(newText:String){
                 val newIngreList: MutableList<String> = listOf<String>().toMutableList()
                 val newCategoryList: MutableList<String> = listOf<String>().toMutableList()
@@ -89,18 +89,18 @@ class RecipeSearchActivity : AppCompatActivity() {
                     //categoryRecyclerView.adapter = RecipeSearchCategoryAdapter(filteredCategoryList)
                     categoryRecyclerView.adapter?.notifyDataSetChanged()
                 }
-            }
+            }*/
 
             setIconifiedByDefault(true)
             queryHint = "검색어를 입력하세요"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    filterList(query)
+                    //filterList(query)
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    filterList(newText)
+                    //filterList(newText)
                     return false
                 }
 
