@@ -27,9 +27,8 @@ import kotlin.collections.ArrayList
 
 class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerView.Adapter<RecipeDetailIngreAdapter.ViewHolder>() {
     lateinit var db : AppDatabase
-    lateinit var inMyRef : ArrayList<Int?>
-    public var recipeID = "1"
-    public var recipeMyRefIngreList : ArrayList<RefItem>? = null
+    var inMyRef : ArrayList<RefItem> = ArrayList<RefItem>()
+    //public var recipeMyRefIngreList : ArrayList<RefItem>? = null
     var check : Int = 0
 
     inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipeingre, parent, false)) {
@@ -62,10 +61,10 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
                 else
                     ingreCount.text = item.ingreUnit
                 ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
-                if(recipeMyRefIngreList!=null){
-                    for (i in 0 until recipeMyRefIngreList!!.size) {
-                        if(ingreName.text.contains(recipeMyRefIngreList!!.get(i).itemtag!!)){
-                            ingreInMyRef.text = recipeMyRefIngreList!!.get(i).itemamount.toString() + recipeMyRefIngreList!!.get(i).itemunit
+                if(inMyRef!=null){
+                    for (i in 0 until inMyRef!!.size) {
+                        if(ingreName.text.contains(inMyRef!!.get(i).itemtag!!)){
+                            ingreInMyRef.text = inMyRef!!.get(i).itemamount.toString() + inMyRef!!.get(i).itemunit
                             //inMyRef!!.add(recipeMyRefIngreList!!.get(i).itemid!!.toInt())
                             check = 1
                         }
@@ -102,6 +101,7 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
     override fun getItemCount(): Int {
         return data.size
     }
+
 
     /*
     fun get_ingre_myref(){
