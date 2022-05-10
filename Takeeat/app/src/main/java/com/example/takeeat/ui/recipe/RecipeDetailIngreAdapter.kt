@@ -75,11 +75,11 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
                             ingreInMyRef.text =
                                 inMyRef!!.get(i).itemamount.toString() + inMyRef!!.get(i).itemunit
 
-                            if (recipeMyRefIngreList != null) {
-                                for (i in 0 until recipeMyRefIngreList!!.size) {
-                                    if (ingreName.text.contains(recipeMyRefIngreList!!.get(i).itemtag!!)) {
+                            if (inMyRef != null) {
+                                for (i in 0 until inMyRef!!.size) {
+                                    if (ingreName.text.contains(inMyRef!!.get(i).itemtag!!)) {
                                         ingreInMyRef.text =
-                                            recipeMyRefIngreList!!.get(i).itemamount.toString() + recipeMyRefIngreList!!.get(i).itemunit
+                                            inMyRef!!.get(i).itemamount.toString() + inMyRef!!.get(i).itemunit
                                         //inMyRef!!.add(recipeMyRefIngreList!!.get(i).itemid!!.toInt())
                                         check = 1
                                     }
