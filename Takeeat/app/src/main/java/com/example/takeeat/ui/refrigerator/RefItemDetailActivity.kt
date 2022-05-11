@@ -473,13 +473,17 @@ class RefItemDetailActivity : AppCompatActivity() {
             Log.d("Response : ingre", recipeIngre.toString())
 
             Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
+            //Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(1).toString())
 
-            /*
+
             for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre_search").length()){
-                reciperecipeIngredientsTag.add(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).toString())
+                reciperecipeIngredientsTag.add(jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(j).toString())
             }
 
-             */
+
+
+
+
 
 
             /*
@@ -516,7 +520,8 @@ class RefItemDetailActivity : AppCompatActivity() {
                     reciperecipeIngredientsTag,
                     jsonObj.getString("serving")
                 ))
-            //Log.d("Response : ingre______",JSONArray(jsonObj.getString("ingre")).toString())
+            Log.d("Response : ingreeee",recipeIngre.toString())
+            Log.d("Response : ingreeee",reciperecipeIngredientsTag.toString())
         }
 
         // 스트림과 커넥션 해제

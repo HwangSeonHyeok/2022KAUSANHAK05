@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.takeeat.R
 import com.example.takeeat.RecipeItem
 import com.example.takeeat.databinding.ActivityRecipedetailBinding
+import com.example.takeeat.ui.refrigerator.RefItem
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -19,6 +20,8 @@ import java.io.DataOutputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RecipeDetailActivity : AppCompatActivity() {
 
@@ -26,20 +29,34 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var recipeItem : RecipeItem
     private lateinit var ingreAdapter : RecipeDetailIngreAdapter
     private lateinit var recipeStepAdapter : RecipeStepAdapter
-    lateinit var inMyRefIngre : ArrayList<Int?>
+    //lateinit var inMyRefIngre : ArrayList<RefItem>
     var writerbookmarked = false
     var recipebookmarked = false
+    var inMyRefItem = ArrayList<RefItem>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityRecipedetailBinding.inflate(layoutInflater)
         recipeItem = intent.getSerializableExtra("Recipe_Data") as RecipeItem
+        inMyRefItem = intent.getSerializableExtra("InMyRef") as ArrayList<RefItem>
+        ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
+        Log.d("Responsee : detailac inmyRef : ",inMyRefItem.toString())
+        ingreAdapter.inMyRef = inMyRefItem
+        ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
+        //ingreAdapter.recipeID = recipeItem.recipeId
+        binding = ActivityRecipedetailBinding.inflate(layoutInflater)
+
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
         binding.recipedetailRecipeName.text = recipeItem.recipeName
         binding.recipedetailRecipeWriter.text = recipeItem.recipeWriter
         binding.recipedetailRecipeSummary.text = recipeItem.recipeSummary
-        ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
+
+
+
+        //ingreAdapter.recipeMyIngreList = get_ingre_myref()
+
+        //Log.d("Responsee = ", getIngreMyref.toString())
         //ingreAdapter.inMyRef = inMyRefIngre
+
         binding.recipedetailIngreRecyclerView.adapter = ingreAdapter
         binding.recipedetailDifficultyText.text = recipeItem.recipeDifficulty
         binding.recipedetailTimeText.text = recipeItem.recipeTime
@@ -95,6 +112,9 @@ class RecipeDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
     }
+
+
+
     fun bookmark_on(bookmarkId: String) {
         val handler = Handler()
         Thread(Runnable {
