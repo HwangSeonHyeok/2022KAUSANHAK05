@@ -21,6 +21,7 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
+import java.util.stream.Collectors
 import kotlin.collections.ArrayList
 
 class RecipeDetailActivity : AppCompatActivity() {
@@ -33,16 +34,22 @@ class RecipeDetailActivity : AppCompatActivity() {
     var writerbookmarked = false
     var recipebookmarked = false
     var inMyRefItem = ArrayList<RefItem>()
+    var tagList = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         recipeItem = intent.getSerializableExtra("Recipe_Data") as RecipeItem
         inMyRefItem = intent.getSerializableExtra("InMyRef") as ArrayList<RefItem>
+        if(inMyRefItem.size!=0){
+            for (i in 0 until inMyRefItem.size) {
+                tagList.add(inMyRefItem.get(i).itemtag!!)
+            }
+            tagList = tagList.stream().distinct().collect(Collectors.toList()) as ArrayList<String>
+        }
         ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
-        Log.d("Responsee : detailac inmyRef : ",inMyRefItem.toString())
         ingreAdapter.inMyRef = inMyRefItem
-        ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
-        //ingreAdapter.recipeID = recipeItem.recipeId
+        Log.d("Responsee : detailac taglist : ",tagList.toString())
+        ingreAdapter.refTag = tagList
         binding = ActivityRecipedetailBinding.inflate(layoutInflater)
 
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
