@@ -11,6 +11,7 @@ import com.example.takeeat.AppDatabase
 import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.ShoppingListItem
+import java.lang.Math.round
 
 import kotlin.collections.ArrayList
 
@@ -45,7 +46,7 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
             with(holder) {
                 ingreName.text = item.ingreName
                 if(item.ingreCount!=null)
-                    ingreCount.text = item.ingreCount.toString() + item.ingreUnit
+                    ingreCount.text = (round(item.ingreCount * 10) /10f).toString()
                 else
                     ingreCount.text = item.ingreUnit
                 ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장

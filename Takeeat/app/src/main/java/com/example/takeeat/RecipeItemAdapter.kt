@@ -14,7 +14,9 @@ import java.util.*
 
 
 class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<RecipeItemAdapter.ViewHolder>() {
+
     var visibleItemCount = 5
+
     inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipe, parent,false)),View.OnClickListener{
 
         val recipeName: TextView
@@ -96,6 +98,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
 
     fun resetVisibleItemCount(){
         visibleItemCount = 5
+
     }
 
 

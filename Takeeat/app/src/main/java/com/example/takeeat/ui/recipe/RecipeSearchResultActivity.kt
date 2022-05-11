@@ -53,7 +53,10 @@ class RecipeSearchResultActivity : AppCompatActivity() {
                         recyclerView.adapter!!.notifyItemInserted(recyclerView.adapter!!.itemCount -1)
                     }
                 }
+
+
             }
+
         )
 
 
