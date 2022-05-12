@@ -20,6 +20,7 @@ class RecipeSearchActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRecipesearchBinding
     private lateinit var filteredIngreList: MutableList<String>
     private lateinit var filteredCategoryList: MutableList<String>
+    private lateinit var recipeSearch : MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +54,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toString())
             Log.d("Response","selected category:" + categoryAdapter.selectedItem.toString())
             Log.d("Response","selected difficulty:" + difficultyAdapter.selectedItem.toString())
+            val searchText = (recipeSearch as SearchView).query
             //아래 ArrayList에 검색결과를 넣어 주세요
             val recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
         }
@@ -62,7 +64,7 @@ class RecipeSearchActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.recipe_search_menu,menu)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        val recipeSearch = menu.findItem(R.id.recipe_search)
+        recipeSearch = menu.findItem(R.id.recipe_search)
 
         val recipeIngreList: Array<String> = resources.getStringArray(R.array.RefrigeratorItemTagArray)
         val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
