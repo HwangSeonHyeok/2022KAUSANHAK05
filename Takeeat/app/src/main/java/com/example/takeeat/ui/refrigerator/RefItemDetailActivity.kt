@@ -454,30 +454,31 @@ class RefItemDetailActivity : AppCompatActivity() {
             val reciperecipeIngredientsTag = ArrayList<String>()
 
             Log.d("Response : recipe", "들어옴")
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").length()){
+            val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
+            for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(RecipeProcess(
-                    jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").getJSONObject(j).getString("txt"),
-                    URL(jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item").getJSONObject(j).getString("img"))))
+                    recipeItemArray.getJSONObject(j).getString("txt"),
+                    URL(recipeItemArray.getJSONObject(j).getString("img"))))
             }
             Log.d("Response : recipe", "나감")
 
             //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
-
+            val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
             Log.d("Response : ingre", "들어옴")
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length()){
+            for(j in 0 until ingreArray.length()){
                 recipeIngre.add(IngredientsInfo(
-                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_name"),
-                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
-                    jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").getJSONObject(j).getString("ingre_unit")))
+                    ingreArray.getJSONObject(j).getString("ingre_name"),
+                    ingreArray.getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
+                    ingreArray.getJSONObject(j).getString("ingre_unit")))
             }
             Log.d("Response : ingre", recipeIngre.toString())
 
             Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
             //Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(1).toString())
 
-
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre_search").length()){
-                reciperecipeIngredientsTag.add(jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(j).toString())
+            val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
+            for(j in 0 until ingreSearchArray.length()){
+                reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
             }
 
 

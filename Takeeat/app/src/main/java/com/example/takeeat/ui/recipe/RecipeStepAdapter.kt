@@ -14,16 +14,20 @@ import com.bumptech.glide.Glide
 import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.RecipeProcess
+import com.example.takeeat.ui.refrigerator.RefItem
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<RecipeStepAdapter.PagerViewHolder>() {
     val recipeData = data
     public var recipeID : String = "1"
+    var inMyRef = ArrayList<RefItem>()
     lateinit var ingreList : ArrayList<IngredientsInfo>
     class PagerViewHolder(parent : ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipestep, parent, false)){
         val stepText : TextView
@@ -89,8 +93,18 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
                             ingreListToSubtract.add(ingre)
                         }
                     }
-                    intent.putExtra("Ingre_Data",ingreListToSubtract)
-                    holder.commitButton.context.startActivity(intent)
+                    if(inMyRef.size==0) {
+                        inMyRef.add(RefItem("진간장", "간장", Date(2022, 5, 11), 5, "L", "14"))
+                        inMyRef.add(RefItem("간장", "간장", Date(2022, 5, 16), 8, "개", "16"))
+                        inMyRef.add(RefItem("양파", "양파", Date(2022, 6, 16), 8, "개", "15"))
+                        inMyRef.add(RefItem("고추장", "고추장", Date(2022, 8, 16), 2, "kg", "17"))
+                    }
+                    if(inMyRef.size!=0) {
+                        intent.putExtra("inMyRef", inMyRef)
+                        intent.putExtra("Ingre_Data", ingreListToSubtract)
+                        holder.commitButton.context.startActivity(intent)
+                    }
+                    else Toast.makeText(holder.commitButton.context, "냉장고에 일치하는 품목이 없습니다.", Toast.LENGTH_SHORT).show();
                 })
                 dialogBuilder.setNegativeButton("아니오",DialogInterface.OnClickListener { dialogInterface, i ->
                     Toast.makeText(holder.commitButton.context, "취소되었습니다", Toast.LENGTH_SHORT).show();

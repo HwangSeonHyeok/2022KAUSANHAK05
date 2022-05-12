@@ -2,6 +2,7 @@ package com.example.takeeat.ui.recipe
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.takeeat.R
 import com.example.takeeat.ShoppingListActivity
 import com.example.takeeat.databinding.FragmentRecipeBinding
+import com.example.takeeat.ui.refrigerator.RefItem
 
 class RecipeFragment : Fragment() {
 
@@ -60,9 +62,23 @@ class RecipeFragment : Fragment() {
         })
 
         menu.findItem(R.id.app_bar_search_recipe).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
-
-            val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
-            startActivity(searchintent)
+            //여기에 냉장고 품목 목록 가져오기
+            val refItemArray  = ArrayList<RefItem>()
+            val refItemTagArray = ArrayList<String>()
+            val handler = Handler()
+            //Thread{
+            //여기 냉장고 가져오는 코드
+            //handler.post {
+                for(item in refItemArray){
+                    if(item.itemtag!=null) {
+                        refItemTagArray.add(item.itemtag!!)
+                    }
+                }
+                val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
+                searchintent.putExtra("ref_Item_Array",refItemArray)
+                startActivity(searchintent)
+            //  }
+            //}
             true
         })
 

@@ -90,6 +90,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
                 }
                 if(item.itemamount!=null)
                     itemAmountEdit.setText(item.itemamount.toString())
+                if(item.itemtag!=null)holder.itemTagButton.text=item.itemtag
                 holder.itemTagButton.setOnClickListener {
                     val tags = context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
                     val dialogBuilder = AlertDialog.Builder(context)

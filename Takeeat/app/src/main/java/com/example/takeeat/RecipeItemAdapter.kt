@@ -45,6 +45,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             Thread(Runnable {
                 inMyRef = get_ingre_myref(data[this.absoluteAdapterPosition].recipeId)
                 handler.post {
+                    Log.d("Response", "inMyRef:"+inMyRef.toString())
                     val intent = Intent(view!!.context, RecipeDetailActivity::class.java)
                     val recipeData = data[this.absoluteAdapterPosition]
                     recipeData.recipeId
@@ -158,7 +159,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         }
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        val i = 0
+        Log.d("Response","get_ingre_myRef"+jsonArr.toString())
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val datestr: String = jsonObj.getString("item_exdate")
@@ -187,8 +188,6 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         }
         buffered.close()
         conn.disconnect()
-
-        Log.d("Responsee : list1 : ",recipeMyIngreList.toString())
 
 
         return recipeMyIngreList

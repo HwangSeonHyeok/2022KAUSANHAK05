@@ -32,6 +32,7 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
     var inMyRef : ArrayList<RefItem> = ArrayList<RefItem>()
     var refTag : ArrayList<String> = ArrayList<String>()
     var sameItem : RefItem = RefItem(null,null,null,null,null,null)
+    var check = 0
 
 
     inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recipeingre, parent, false)) {
@@ -56,37 +57,10 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("Responsee : ingreAdapter inmyRef : ",inMyRef.toString())
+        Log.d("Responsee : ingreAdapter inmyRef : ", inMyRef.toString())
         data.get(position).let { item ->
             with(holder) {
                 ingreName.text = item.ingreName
-
-                if(item.ingreCount!=null)
-                    ingreCount.text = (round(item.ingreCount * 10) /10f).toString()
-                else
-                    ingreCount.text = item.ingreUnit
-                ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
-                if(inMyRef.size!=0) {
-                    for(i in 0 until refTag.size){
-                        if (ingreName.text.contains(refTag.get(i))){
-                            for (i in 0 until inMyRef.size) {
-                                if(inMyRef.get(i).itemtag==refTag.get(i) && sameItem.itemname==null ){
-                                    sameItem= inMyRef.get(i)
-                                }else if(inMyRef.get(i).itemtag==refTag.get(i)){
-                                    if(sameItem.itemamount!!<inMyRef.get(i).itemamount!!){
-                                        sameItem = inMyRef.get(i)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if(sameItem.itemname==null){
-                        ingreInMyRef.text = "0개"
-                    }else{
-                        ingreInMyRef.text = sameItem.itemamount.toString() + sameItem.itemunit
-                    }
-
-                }
                 addShoppingListButton.setOnClickListener {
                     var dbitem: ShoppingListItem? = null
                     var toastvalue: String = item.ingreName
@@ -116,8 +90,70 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
                         Toast.LENGTH_SHORT
                     ).show();
                 }
+
+                if (item.ingreCount != null)
+                    ingreCount.text =
+                        (round(item.ingreCount * 10) / 10f).toString() + item.ingreUnit.toString()
+                else
+                    ingreCount.text = item.ingreUnit
+                ingreInMyRef.text =
+                    "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
+                if (inMyRef.size != 0) {
+                    for (i in 0 until refTag.size) {
+                        if (ingreName.text.contains(refTag.get(i))) {
+                            for (i in 0 until inMyRef.size) {
+                                if (inMyRef.get(i).itemtag == refTag.get(i) && sameItem.itemname == null) {
+                                    sameItem = inMyRef.get(i)
+                                } else if (inMyRef.get(i).itemtag == refTag.get(i)) {
+                                    if (sameItem.itemamount!! < inMyRef.get(i).itemamount!!) {
+                                        sameItem = inMyRef.get(i)
+                                    }
+                                }
+                            }
+                            if (inMyRef != null) {
+                                for (i in 0 until inMyRef!!.size) {
+                                    if (ingreName.text.contains(inMyRef!!.get(i).itemtag!!)) {
+                                        ingreInMyRef.text =
+                                            inMyRef!!.get(i).itemamount.toString() + inMyRef!!.get(
+                                                i
+                                            ).itemunit
+
+                                        if (inMyRef != null) {
+                                            for (i in 0 until inMyRef!!.size) {
+                                                if (ingreName.text.contains(inMyRef!!.get(i).itemtag!!)) {
+                                                    ingreInMyRef.text =
+                                                        inMyRef!!.get(i).itemamount.toString() + inMyRef!!.get(
+                                                            i
+                                                        ).itemunit
+                                                    //inMyRef!!.add(recipeMyRefIngreList!!.get(i).itemid!!.toInt())
+                                                    check = 1
+                                                }
+
+                                            }
+                                        }
+                                        if (check != 1) {
+                                            //inMyRef!!.add(0)
+                                        }
+                                        check = 0
+
+                                    }
+                                }
+                                if (sameItem.itemname == null) {
+                                    ingreInMyRef.text = "0개"
+                                } else {
+                                    ingreInMyRef.text =
+                                        sameItem.itemamount.toString() + sameItem.itemunit
+                                }
+
+                            }
+
+                        }
+
+                        sameItem = RefItem(null, null, null, null, null, null)
+                    }
+                }
+
             }
-            sameItem = RefItem(null,null,null,null,null,null)
         }
     }
 

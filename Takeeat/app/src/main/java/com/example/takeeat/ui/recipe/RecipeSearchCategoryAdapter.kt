@@ -14,7 +14,7 @@ import com.example.takeeat.R
 
 class RecipeSearchCategoryAdapter(private val itemTestList: MutableList<String>) : RecyclerView.Adapter<RecipeSearchCategoryAdapter.IconViewHolder>() {
     private var selectedPos = RecyclerView.NO_POSITION
-    private var selectedItem: String = "null"
+    public var selectedItem: String? = null
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.recipe_search_item_name_icon)
         val imgItem: ImageView = itemView.findViewById(R.id.recipe_search_item_image_icon)
@@ -25,7 +25,7 @@ class RecipeSearchCategoryAdapter(private val itemTestList: MutableList<String>)
                 selectedItem = itemTestList[this.absoluteAdapterPosition]
             }
             else{
-                selectedItem = "null"
+                selectedItem = null
             }
             notifyItemChanged(selectedPos)
         }

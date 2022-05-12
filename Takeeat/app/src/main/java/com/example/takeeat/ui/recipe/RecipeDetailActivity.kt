@@ -107,15 +107,6 @@ class RecipeDetailActivity : AppCompatActivity() {
             }
             writerbookmarked = !writerbookmarked
         }
-
-
-        /*binding.recipedetailVideoView.setMediaController(MediaController(this))
-        binding.recipedetailVideoView.setVideoURI(Uri.parse(""))
-        binding.recipedetailVideoView.requestFocus()
-        binding.recipedetailVideoView.setOnPreparedListener {
-            Toast.makeText(applicationContext, "준비 완료", Toast.LENGTH_SHORT).show()
-            binding.recipedetailVideoView.start()
-        }*/
         setContentView(binding.root)
 
     }

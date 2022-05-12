@@ -12,6 +12,7 @@ import com.example.takeeat.R
 
 class RecipeSearchDifficultyAdapter(private val itemTestList: Array<String>) : RecyclerView.Adapter<RecipeSearchDifficultyAdapter.IconViewHolder>() {
     private var selectedPos = RecyclerView.NO_POSITION
+    public var selectedItem: String? = null
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.recipe_search_item_name_icon)
         val imgItem: ImageView = itemView.findViewById(R.id.recipe_search_item_image_icon)
@@ -19,9 +20,11 @@ class RecipeSearchDifficultyAdapter(private val itemTestList: Array<String>) : R
             notifyItemChanged(selectedPos)
             if(selectedPos != layoutPosition){
                 selectedPos = layoutPosition
+                selectedItem = itemTestList[this.absoluteAdapterPosition]
             }
             else {
                 selectedPos = RecyclerView.NO_POSITION
+                selectedItem = null
             }
             notifyItemChanged(selectedPos)
         }
