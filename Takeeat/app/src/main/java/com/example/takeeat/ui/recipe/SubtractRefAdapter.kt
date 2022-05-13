@@ -63,7 +63,7 @@ class SubtractRefAdapter (var data: LiveData<ArrayList<SubtractRefItem>>):  Recy
                     ) {
                         val selectedItem = item.itemInMyRef[p2]
                         refSeekBar.max = selectedItem.itemamount!!
-                        textMax.text = selectedItem.itemamount!!.toString()
+                        textMax.text = selectedItem.itemamount!!.toString() + selectedItem.itemunit
                         item.currentProgress=0
                         refSeekBar.progress = item.currentProgress
                         seekBarText.text = 0.toString()

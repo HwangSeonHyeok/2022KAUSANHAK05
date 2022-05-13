@@ -76,7 +76,9 @@ class RecipeDetailActivity : AppCompatActivity() {
             recipeStepAdapter = RecipeStepAdapter(recipeItem.recipeStep!!)
             recipeStepAdapter.setRecipeIngre(recipeItem.recipeIngredients)
             recipeStepAdapter.recipeID = recipeItem.recipeId
+            recipeStepAdapter.inMyRef=inMyRefItem
             recipeViewPager.adapter = recipeStepAdapter
+
         }
 
         bookmark_bool()

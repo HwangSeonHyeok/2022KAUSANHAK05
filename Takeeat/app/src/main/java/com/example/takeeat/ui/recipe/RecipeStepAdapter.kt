@@ -93,12 +93,7 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
                             ingreListToSubtract.add(ingre)
                         }
                     }
-                    if(inMyRef.size==0) {
-                        inMyRef.add(RefItem("진간장", "간장", Date(2022, 5, 11), 5, "L", "14"))
-                        inMyRef.add(RefItem("간장", "간장", Date(2022, 5, 16), 8, "개", "16"))
-                        inMyRef.add(RefItem("양파", "양파", Date(2022, 6, 16), 8, "개", "15"))
-                        inMyRef.add(RefItem("고추장", "고추장", Date(2022, 8, 16), 2, "kg", "17"))
-                    }
+
                     if(inMyRef.size!=0) {
                         intent.putExtra("inMyRef", inMyRef)
                         intent.putExtra("Ingre_Data", ingreListToSubtract)
