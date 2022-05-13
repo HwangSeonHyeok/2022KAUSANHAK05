@@ -50,6 +50,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         ingreAdapter.inMyRef = inMyRefItem
         Log.d("Responsee : detailac taglist : ",tagList.toString())
         ingreAdapter.refTag = tagList
+
         binding = ActivityRecipedetailBinding.inflate(layoutInflater)
 
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
