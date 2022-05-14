@@ -26,7 +26,8 @@ class RecipeSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecipesearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val recipeIngreList: Array<String> = resources.getStringArray(R.array.RefrigeratorItemTagArray)
+        //val recipeIngreList: Array<String> = resources.getStringArray(R.array.RefrigeratorItemTagArray)
+        val recipeIngreList: ArrayList<String> = intent.getSerializableExtra("ref_Item_Array") as ArrayList<String>
         val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
         val difficultyList: Array<String> = resources.getStringArray(R.array.DifficultyArray)
         //아래 recipe R.array.RefrigeratorItemTagArray대신에
@@ -51,10 +52,10 @@ class RecipeSearchActivity : AppCompatActivity() {
 
         binding.recipeSearchApplyButton.setOnClickListener {
 
-            Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toString())
+            Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toList())
             Log.d("Response","selected category:" + categoryAdapter.selectedItem.toString())
             Log.d("Response","selected difficulty:" + difficultyAdapter.selectedItem.toString())
-            val searchText = (recipeSearch as SearchView).query
+            //val searchText = (recipeSearch as SearchView).query
             //아래 ArrayList에 검색결과를 넣어 주세요
             val recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
         }
@@ -66,7 +67,7 @@ class RecipeSearchActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         recipeSearch = menu.findItem(R.id.recipe_search)
 
-        val recipeIngreList: Array<String> = resources.getStringArray(R.array.RefrigeratorItemTagArray)
+        val recipeIngreList: ArrayList<String> = intent.getSerializableExtra("ref_Item_Array") as ArrayList<String>
         val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
 
 
@@ -75,7 +76,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             //Assumes current activity is the searchable activity
             setQuery("", false)
             isIconified = true
-            /*
+
             fun filterList(newText:String){
                 val newIngreList: MutableList<String> = listOf<String>().toMutableList()
                 val newCategoryList: MutableList<String> = listOf<String>().toMutableList()
@@ -106,18 +107,18 @@ class RecipeSearchActivity : AppCompatActivity() {
                     //categoryRecyclerView.adapter = RecipeSearchCategoryAdapter(filteredCategoryList)
                     categoryRecyclerView.adapter?.notifyDataSetChanged()
                 }
-            }*/
+            }
 
             setIconifiedByDefault(true)
             queryHint = "검색어를 입력하세요"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    //filterList(query)
+                    filterList(query)
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    //filterList(newText)
+                    filterList(newText)
                     return false
                 }
 
