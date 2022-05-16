@@ -67,7 +67,7 @@ class SubtractRefAdapter (var data: LiveData<ArrayList<SubtractRefItem>>):  Recy
                         item.currentProgress=0
                         refSeekBar.progress = item.currentProgress
                         seekBarText.text = 0.toString()
-                        item.selectedItemID = selectedItem.itemid.toString()
+                        item.selectedItem = selectedItem
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {

@@ -52,6 +52,8 @@ class RecipeDetailActivity : AppCompatActivity() {
         ingreAdapter.refTag = tagList
 
         binding = ActivityRecipedetailBinding.inflate(layoutInflater)
+        val actionBar = supportActionBar
+        actionBar!!.setTitle(recipeItem.recipeName)
 
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
         binding.recipedetailRecipeName.text = recipeItem.recipeName

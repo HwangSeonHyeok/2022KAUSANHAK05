@@ -48,7 +48,7 @@ class SubtractRefActivity : AppCompatActivity() {
                             ingre.ingreName + " " + ingre.ingreCount + ingre.ingreUnit,
                             refItemSameTag,
                             refItemSameTag[0].itemamount!!,
-                            refItemSameTag[0].itemid.toString()
+                            refItemSameTag[0]
                         )
                         viewModel.addData(subRefItem)
                     }

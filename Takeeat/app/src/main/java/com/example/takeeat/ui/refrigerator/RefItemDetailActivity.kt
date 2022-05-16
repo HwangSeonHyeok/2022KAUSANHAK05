@@ -95,7 +95,7 @@ class RefItemDetailActivity : AppCompatActivity() {
 
             //여기다 DB업데이트 코드 넣어주세요 refItem값으로 업데이트 해주면됩니다
             val sObject = JSONObject() //배열 내에 들어갈 json
-            sObject.put("user_id", AWSMobileClient.getInstance().username)
+            sObject.put("id", AWSMobileClient.getInstance().username+refItem.itemid.toString())
             sObject.put("item_id", refItem.itemid.toString())
             sObject.put("update_name", URLEncoder.encode(refItem.itemname.toString(), "UTF-8"))
             sObject.put("update_amount", refItem.itemamount.toString())
@@ -198,7 +198,7 @@ class RefItemDetailActivity : AppCompatActivity() {
                 R.id.refitemdetail_deletebutton -> {
                     //여기다 db삭제 코드 만들어 주세요
                     val sObject = JSONObject() //배열 내에 들어갈 json
-                    //sObject.put("user_id", AWSMobileClient.getInstance().username)
+                    sObject.put("id", AWSMobileClient.getInstance().username+refItem.itemid.toString())
                     sObject.put("item_id", refItem.itemid.toString())
 
 

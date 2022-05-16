@@ -82,14 +82,15 @@ class RecipeFragment : Fragment() {
                 refItemArray=get_ref_item()
                 Log.d("Responsee : refItem : ",refItemArray.toString())
                 handler.post {
-                for(item in refItemArray){
-                    if(item.itemtag!=null) {
-                        refItemTagArray.add(item.itemtag!!)
+                    for(item in refItemArray){
+                        if(item.itemtag!=null) {
+                            refItemTagArray.add(item.itemtag!!)
+                        }
                     }
-                }
-                val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
-                searchintent.putExtra("ref_Item_Array",refItemArray)
-                startActivity(searchintent)
+                    val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
+                    refItemTagArray.distinct()
+                    searchintent.putExtra("ref_Item_Array",refItemTagArray)
+                    startActivity(searchintent)
               }
             }).start()
             true

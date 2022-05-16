@@ -6,5 +6,5 @@ data class SubtractRefItem(
     val itemName : String,
     val itemInMyRef : ArrayList<RefItem>,
     var currentProgress : Int,
-    var selectedItemID : String
+    var selectedItem : RefItem
     )
