@@ -198,7 +198,7 @@ class RefItemDetailActivity : AppCompatActivity() {
                 R.id.refitemdetail_deletebutton -> {
                     //여기다 db삭제 코드 만들어 주세요
                     val sObject = JSONObject() //배열 내에 들어갈 json
-                    sObject.put("user_id", AWSMobileClient.getInstance().username)
+                    //sObject.put("user_id", AWSMobileClient.getInstance().username)
                     sObject.put("item_id", refItem.itemid.toString())
 
 
