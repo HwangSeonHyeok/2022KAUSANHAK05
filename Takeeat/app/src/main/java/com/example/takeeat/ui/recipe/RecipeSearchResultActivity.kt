@@ -32,7 +32,7 @@ class RecipeSearchResultActivity : AppCompatActivity() {
                     binding.recipeSearchResultRecipeRecyclerView.scrollToPosition(0)
                 }
                 R.id.recipeSearchResult_sortRatingButton -> {
-                    recipeArray.sortBy { it.recipeRating }
+                    recipeArray.sortByDescending { it.recipeRating }
                     (binding.recipeSearchResultRecipeRecyclerView.adapter as RecipeItemAdapter).resetVisibleItemCount()
                     binding.recipeSearchResultRecipeRecyclerView.scrollToPosition(0)
                 }

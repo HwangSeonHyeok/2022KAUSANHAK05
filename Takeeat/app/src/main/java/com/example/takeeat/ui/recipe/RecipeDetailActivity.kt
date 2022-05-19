@@ -41,10 +41,10 @@ class RecipeDetailActivity : AppCompatActivity() {
         recipeItem = intent.getSerializableExtra("Recipe_Data") as RecipeItem
         inMyRefItem = intent.getSerializableExtra("InMyRef") as ArrayList<RefItem>
         if(inMyRefItem.size!=0){
-            for (i in 0 until inMyRefItem.size) {
-                tagList.add(inMyRefItem.get(i).itemtag!!)
+            for (i in inMyRefItem) {
+                if(!tagList.contains(i.itemtag))
+                    tagList.add(i.itemtag!!)
             }
-            tagList = tagList.stream().distinct().collect(Collectors.toList()) as ArrayList<String>
         }
         ingreAdapter = RecipeDetailIngreAdapter(recipeItem.recipeIngredients)
         ingreAdapter.inMyRef = inMyRefItem
@@ -53,7 +53,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         binding = ActivityRecipedetailBinding.inflate(layoutInflater)
         val actionBar = supportActionBar
-        actionBar!!.setTitle(recipeItem.recipeName)
+        //actionBar!!.setTitle(recipeItem.recipeName)
+        actionBar!!.hide()
 
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
         binding.recipedetailRecipeName.text = recipeItem.recipeName

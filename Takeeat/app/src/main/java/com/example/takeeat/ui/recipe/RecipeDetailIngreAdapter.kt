@@ -66,14 +66,15 @@ class RecipeDetailIngreAdapter(var data: ArrayList<IngredientsInfo>):  RecyclerV
                     ingreCount.text = item.ingreUnit
                 ingreInMyRef.text = "0개" // user냉장고 안에 ingreName 태그이 일치하는 품목이 있는지 확인하고 그 수의 합을 여기 저장
                 if(inMyRef.size!=0) {
-                    for(i in 0 until refTag.size){
-                        if (ingreName.text.contains(refTag.get(i))){
-                            for (i in 0 until inMyRef.size) {
-                                if(inMyRef.get(i).itemtag==refTag.get(i) && sameItem.itemname==null ){
-                                    sameItem= inMyRef.get(i)
-                                }else if(inMyRef.get(i).itemtag==refTag.get(i)){
-                                    if(sameItem.itemamount!!<inMyRef.get(i).itemamount!!){
-                                        sameItem = inMyRef.get(i)
+                    for(i in refTag){
+                        if (ingreName.text.contains(i)){
+                            for (itemInRef in inMyRef) {
+                                Log.d("Response",inMyRef.toString()+refTag.toString())
+                                if(itemInRef.itemtag==i && sameItem.itemname==null ){
+                                    sameItem= itemInRef
+                                }else if(itemInRef.itemtag == i){
+                                    if(sameItem.itemamount!!<itemInRef.itemamount!!){
+                                        sameItem = itemInRef
                                     }
                                 }
                             }

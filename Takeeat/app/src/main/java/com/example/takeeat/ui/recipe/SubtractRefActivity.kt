@@ -79,7 +79,9 @@ class SubtractRefActivity : AppCompatActivity() {
 
         binding.subrefApplyButton.setOnClickListener {
             for (item in viewModel.liveData.value!!) {
+                Log.d("Response","Progress"+item.currentProgress.toString()+"am"+item.selectedItem.itemamount.toString())
                 if(item.currentProgress==item.selectedItem.itemamount){
+                    Log.d("Reponse","here?")
                     //delete
                     val sObject = JSONObject() //배열 내에 들어갈 json
                     sObject.put("id", AWSMobileClient.getInstance().username+item.selectedItem.itemid)
@@ -95,7 +97,7 @@ class SubtractRefActivity : AppCompatActivity() {
                     sObject.put("item_id", item.selectedItem.itemid)
                     sObject.put("update_name", URLEncoder.encode(item.selectedItem.itemname, "UTF-8"))
                     sObject.put("update_amount", item.selectedItem.itemamount!!-item.currentProgress)
-                    sObject.put("update_exdate", item.selectedItem.itemexp)//binding.refDetailEXP.text.toString().replace(".", "-"))
+                    sObject.put("update_exdate", item.selectedItem.itemexp!!.year.toString() + "-" + (item.selectedItem.itemexp!!.month+1).toString() + "-" + item.selectedItem.itemexp!!.date.toString())//binding.refDetailEXP.text.toString().replace(".", "-"))
                     sObject.put("update_tag", URLEncoder.encode(item.selectedItem.itemtag, "UTF-8"))
                     sObject.put("update_unit", URLEncoder.encode(item.selectedItem.itemunit, "UTF-8"))
 

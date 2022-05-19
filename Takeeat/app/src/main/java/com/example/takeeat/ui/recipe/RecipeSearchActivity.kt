@@ -21,6 +21,7 @@ class RecipeSearchActivity : AppCompatActivity() {
     private lateinit var filteredIngreList: MutableList<String>
     private lateinit var filteredCategoryList: MutableList<String>
     private lateinit var recipeSearch : MenuItem
+    lateinit var searchText : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +56,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toList())
             Log.d("Response","selected category:" + categoryAdapter.selectedItem.toString())
             Log.d("Response","selected difficulty:" + difficultyAdapter.selectedItem.toString())
+            //+searchText까지
             //val searchText = (recipeSearch as SearchView).query
             //아래 ArrayList에 검색결과를 넣어 주세요
             val recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
@@ -77,7 +79,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             setQuery("", false)
             isIconified = true
 
-            fun filterList(newText:String){
+            /*fun filterList(newText:String){
                 val newIngreList: MutableList<String> = listOf<String>().toMutableList()
                 val newCategoryList: MutableList<String> = listOf<String>().toMutableList()
                 val ingreRecyclerView: RecyclerView = binding.recipeSearchIngreRecyclerview
@@ -107,18 +109,19 @@ class RecipeSearchActivity : AppCompatActivity() {
                     //categoryRecyclerView.adapter = RecipeSearchCategoryAdapter(filteredCategoryList)
                     categoryRecyclerView.adapter?.notifyDataSetChanged()
                 }
-            }
+            }*/
 
             setIconifiedByDefault(true)
             queryHint = "검색어를 입력하세요"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    filterList(query)
+                    //filterList(query)
                     return false
                 }
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    filterList(newText)
+                    //filterList(newText)
+                    searchText=newText
                     return false
                 }
 
