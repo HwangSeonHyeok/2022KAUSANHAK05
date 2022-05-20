@@ -11,6 +11,7 @@ import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobile.client.Callback
 import com.amazonaws.mobile.client.UserStateDetails
 import com.example.takeeat.AuthActivity
+import com.example.takeeat.NotificationActivity
 import com.example.takeeat.R
 import com.example.takeeat.ShoppingListActivity
 import com.example.takeeat.databinding.FragmentMenuBinding
@@ -82,20 +83,16 @@ class MenuFragment: Fragment() {
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
 
-            when(it.itemId) {
-                R.id.cart_button -> {
-                    val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
-                    startActivity(shoppingintent)
-                    true
-                }
-                R.id.notification_button ->{
-                    true
+            val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
+            startActivity(shoppingintent)
+            true
+        })
 
-                }
-                else->{
-                    false
-                }
-            }
+        menu.findItem(R.id.notification_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
+            val notificationintent: Intent = Intent(context, NotificationActivity::class.java)
+            startActivity(notificationintent)
+            true
         })
 
         return super.onCreateOptionsMenu(menu,inflater)
