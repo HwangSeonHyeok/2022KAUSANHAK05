@@ -10,10 +10,20 @@ import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.amazonaws.mobile.client.AWSMobileClient
+import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.RecipeItem
+import com.example.takeeat.RecipeProcess
 import com.example.takeeat.databinding.ActivityRecipesearchBinding
 import com.example.takeeat.ui.refrigerator.RefItem
+import org.json.JSONArray
+import java.io.BufferedReader
+import java.io.DataOutputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 
 class RecipeSearchActivity : AppCompatActivity() {
 
@@ -21,7 +31,9 @@ class RecipeSearchActivity : AppCompatActivity() {
     private lateinit var filteredIngreList: MutableList<String>
     private lateinit var filteredCategoryList: MutableList<String>
     private lateinit var recipeSearch : MenuItem
-    lateinit var searchText : String
+    var searchText : String? = null
+    //lateinit
+    var ResultList : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,13 +65,55 @@ class RecipeSearchActivity : AppCompatActivity() {
 
         binding.recipeSearchApplyButton.setOnClickListener {
 
-            Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toList())
-            Log.d("Response","selected category:" + categoryAdapter.selectedItem.toString())
-            Log.d("Response","selected difficulty:" + difficultyAdapter.selectedItem.toString())
-            //+searchText까지
-            //val searchText = (recipeSearch as SearchView).query
-            //아래 ArrayList에 검색결과를 넣어 주세요
-            val recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
+            //Log.d("Response","selected ingre:" + ingreAdapter.selectedItems.toList())
+            //Log.d("Response","selected category:" + categoryAdapter.selectedItem.toString())
+            //Log.d("Response","selected difficulty:" + difficultyAdapter.selectedItem.toString())
+
+            var ingreList = ArrayList<String>()
+            var name : String// = job.get("name").toString()
+            var ingre_search = "" //= job.get("ingre_search")
+            var difficult : String // = job.get("difficult").toString()
+            var category : String//  = job.get("category").toString()
+
+            for(item in ingreAdapter.selectedItems){
+                ingreList.add(URLEncoder.encode(item, "UTF-8"))
+                ingre_search = ingre_search + "\"" + URLEncoder.encode(item, "UTF-8") + "\","
+            }
+
+            if(ingre_search!=""){
+                ingre_search = ingre_search.substring(0, ingre_search.length-1)
+            }
+
+            if(searchText==null){
+                name = "NULL"
+            }else{
+                name = URLEncoder.encode(searchText, "UTF-8")
+            }
+
+            if(difficultyAdapter.selectedItem.toString()=="null"){
+                difficult = "NULL"
+            }else{
+                difficult = URLEncoder.encode(difficultyAdapter.selectedItem.toString(), "UTF-8")
+            }
+
+            if(categoryAdapter.selectedItem.toString()=="null"){
+                category = "NULL"
+            }else{
+                category = URLEncoder.encode(categoryAdapter.selectedItem.toString(), "UTF-8")
+            }
+
+            var requeststr = "{\"name\":\"" + name + "\",\"ingre_search\":[" + ingre_search + "],\"difficult\":\"" + difficult + "\",\"category\":\"" + category + "\"}"
+
+
+            //Log.d("Response","str:" + requeststr)
+
+
+            var recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
+
+            Thread(Runnable{
+                recipeSearchResult = search_recipe_item(requeststr)
+                Log.d("Response List : ", recipeSearchResult.toString())
+            }).start()
         }
     }
 
@@ -138,6 +192,105 @@ class RecipeSearchActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun search_recipe_item(str : String) : ArrayList<RecipeItem>{
+        //Thread(Runnable{
+        //handler.post{
+        //try {
+        AWSMobileClient.getInstance()
+        val recipeTestList = ArrayList<RecipeItem>()
+
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/search")
+        var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+        conn.setUseCaches(false)
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setRequestProperty("Connection","keep-alive")
+        conn.setRequestProperty("Accept", "application/json")
+        conn.setDoOutput(true)
+        conn.setDoInput(true)
+
+        var requestBody = str
+
+
+        //Log.d("Responsee reqB = ",requestBody)
+        val wr = DataOutputStream(conn.getOutputStream())
+        wr.writeBytes(requestBody)
+        wr.flush()
+        wr.close()
+
+        val streamReader = InputStreamReader(conn.inputStream)
+        val buffered = BufferedReader(streamReader)
+
+        val content = StringBuilder()
+        while(true) {
+            val line = buffered.readLine() ?: break
+            content.append(line)
+        }
+        val data =content.toString()
+        //Log.d("Responsee data = ",data)
+        val jsonArr = JSONArray(data)
+        val i = 0
+        for (i in 0 until jsonArr.length()) {
+            val jsonObj = jsonArr.getJSONObject(i)
+            val recipeStep = ArrayList<RecipeProcess>()
+            val recipeIngre = ArrayList<IngredientsInfo>()
+            val reciperecipeIngredientsTag = ArrayList<String>()
+
+            val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
+            for(j in 0 until recipeItemArray.length()){
+                recipeStep.add(
+                    RecipeProcess(
+                        recipeItemArray.getJSONObject(j).getString("txt"),
+                        URL(recipeItemArray.getJSONObject(j).getString("img"))
+                    )
+                )
+            }
+
+            val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
+            for(j in 0 until ingreArray.length()){
+                recipeIngre.add(
+                    IngredientsInfo(
+                        ingreArray.getJSONObject(j).getString("ingre_name"),
+                        ingreArray.getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
+                        ingreArray.getJSONObject(j).getString("ingre_unit"))
+                )
+            }
+
+            val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
+            for(j in 0 until ingreSearchArray.length()){
+                reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
+            }
+
+            recipeTestList.add(
+                RecipeItem(
+                    jsonObj.getString("id"),
+                    jsonObj.getString("name"),
+                    recipeIngre,
+                    jsonObj.getString("summary"),
+                    jsonObj.getDouble("rate_sum")/jsonObj.getDouble("rate_num"),
+                    jsonObj.getString("time"),
+                    jsonObj.getString("difficult"),
+                    jsonObj.getString("author"),
+                    URL(jsonObj.getString("img")),
+                    recipeStep,
+                    reciperecipeIngredientsTag,
+                    jsonObj.getString("serving")
+                ))
+        }
+
+        // 스트림과 커넥션 해제
+        buffered.close()
+        conn.disconnect()
+
+        //Log.d("Responsee : recipeTestList ",recipeTestList.toString())
+        //ResultList = recipeTestList
+
+
+        //
+        //}).start()
+        return recipeTestList
     }
 
 }
