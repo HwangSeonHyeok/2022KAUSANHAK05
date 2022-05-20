@@ -39,10 +39,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
-import com.example.takeeat.BuildConfig
-import com.example.takeeat.MainActivity
-import com.example.takeeat.R
-import com.example.takeeat.ShoppingListActivity
+import com.example.takeeat.*
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.selects.select
@@ -283,11 +280,18 @@ class RefrigeratorFragment : Fragment() {
         searchButtonMyrecipe.isVisible = false
 
         menu.findItem(R.id.cart_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
             val shoppingintent: Intent = Intent(context, ShoppingListActivity::class.java)
             startActivity(shoppingintent)
             true
         })
 
+        menu.findItem(R.id.notification_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
+            val notificationintent: Intent = Intent(context, NotificationActivity::class.java)
+            startActivity(notificationintent)
+            true
+        })
 
         val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
         (refrigeratorSearch.actionView as SearchView).apply {

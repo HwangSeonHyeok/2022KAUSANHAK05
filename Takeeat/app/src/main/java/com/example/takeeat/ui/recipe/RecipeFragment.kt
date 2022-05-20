@@ -117,6 +117,13 @@ class RecipeFragment : Fragment() {
             true
         })
 
+        menu.findItem(R.id.notification_button).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+
+            val notificationintent: Intent = Intent(context, NotificationActivity::class.java)
+            startActivity(notificationintent)
+            true
+        })
+
         menu.findItem(R.id.app_bar_search_recipe).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
             //여기에 냉장고 품목 목록 가져오기
             var refItemArray : ArrayList<RefItem>
