@@ -4,6 +4,56 @@
     <string name="title_refrigerator">냉장고</string>
     <string name="title_myrecipe">마이레시피</string>
     <string name="title_menu">메뉴</string>
+    <string name="integer_format">%d</string>
     <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_order_description">조리 방법 입력 후 사진\n아이콘을 눌러서 사진 추가</string>
+    <string-array name="categorySpinnerItems">
+        <item>카테고리</item>
+        <item>밥/죽/떡</item>
+        <item>면/만두</item>
+        <item>국/탕</item>
+        <item>찌개</item>
+        <item>메인반찬</item>
+        <item>김치/젓갈/장류</item>
+        <item>양념/소스/잼</item>
+        <item>차/음료/술</item>
+        <item>퓨전</item>
+        <item>기타</item>
+        <item>샐러드</item>
+        <item>양식</item>
+        <item>빵</item>
+        <item>과자</item>
+        <item>밑반찬</item>
+        <item>밑반찬</item>
+    </string-array>
+
+    <string-array name="servingSpinnerItems">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="cookTimeSpinnerItems">
+        <item>시간</item>
+        <item>5분 이내</item>
+        <item>10분 이내</item>
+        <item>20분 이내</item>
+        <item>30분 이내</item>
+        <item>60분 이내</item>
+        <item>90분 이내</item>
+    </string-array>
+
+    <string-array name="difficultySpinnerItems">
+        <item>난이도</item>
+        <item>아무나</item>
+        <item>초급</item>
+        <item>중급</item>
+        <item>고급</item>
+    </string-array>
 </resources>
