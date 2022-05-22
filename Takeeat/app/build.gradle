@@ -20,6 +20,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "OCR_API_GW_URL", properties['ocrApiGwUrl']
         buildConfigField "String", "OCR_SECRETKEY", properties['ocrSecretKey']
+        buildConfigField "String", "ACCESS_KEY", properties['acessKey']
+        buildConfigField "String", "SECRET_KEY", properties['secretKey']
     }
 
     buildTypes {

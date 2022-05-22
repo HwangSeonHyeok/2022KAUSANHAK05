@@ -10,13 +10,17 @@ import com.amazonaws.mobileconnectors.s3.transferutility.*
 import com.amazonaws.regions.Region
 import com.amazonaws.regions.Regions
 import com.amazonaws.services.s3.AmazonS3Client
+import com.example.takeeat.BuildConfig
 import java.io.File
 
 object S3UploadUtils {
     fun getS3ImageURL(uri: Uri, filePath: String?,  context: Context): String {
 
+        var AccessKey:String = BuildConfig.ACCESS_KEY
+        var SecretKey:String = BuildConfig.SECRET_KEY
         val file = File(filePath ?: uri.toFilePath(context.contentResolver))
-        val awsCredentials = BasicAWSCredentials("", "")
+
+        val awsCredentials = BasicAWSCredentials(AccessKey, SecretKey)
         val s3Client = AmazonS3Client(awsCredentials, Region.getRegion(Regions.AP_NORTHEAST_2))
 
 
