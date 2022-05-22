@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -22,7 +23,6 @@ import java.lang.Thread.sleep
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-
 
 
 class AddRefrigeratorActivity :AppCompatActivity() {
@@ -47,6 +47,8 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding.addrefAddButton.setOnClickListener {
             viewmodel.addData(RefItem(null, null, null, null, null, null))
             Log.d("Response", "inMain"+viewmodel.liveData.value.toString())
+            adapter.notifyItemInserted(viewmodel.getCount())
+            scrolldown()
         }
         binding.addrefApplyButton.setOnClickListener {
             //DB추가 여기다 붙여주세요
@@ -232,6 +234,11 @@ class AddRefrigeratorActivity :AppCompatActivity() {
 
 
         }).start()
+    }
+
+    fun scrolldown(){
+        val scroll  = binding.addrefScrollView
+        scroll.post { scroll.fullScroll(ScrollView.FOCUS_DOWN) }
     }
 
 }

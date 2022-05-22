@@ -1,5 +1,6 @@
 package com.example.takeeat.ui.recipe
 
+import android.content.res.TypedArray
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.example.takeeat.R
 class RecipeSearchCategoryAdapter(private val itemTestList: MutableList<String>) : RecyclerView.Adapter<RecipeSearchCategoryAdapter.IconViewHolder>() {
     private var selectedPos = RecyclerView.NO_POSITION
     public var selectedItem: String? = null
+    lateinit var categoryIconArray : TypedArray
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.recipe_search_item_name_icon)
         val imgItem: ImageView = itemView.findViewById(R.id.recipe_search_item_image_icon)
@@ -31,6 +33,7 @@ class RecipeSearchCategoryAdapter(private val itemTestList: MutableList<String>)
         }
         init{
             itemView.setOnClickListener {onClick(itemView)}
+            categoryIconArray = itemView.context.resources.obtainTypedArray(R.array.CategoryIconArray)
         }
     }
 
@@ -45,6 +48,7 @@ class RecipeSearchCategoryAdapter(private val itemTestList: MutableList<String>)
 
         holder.apply {
             txtItemName.setSelected(selectedItem == items)
+            imgItem.setImageDrawable(categoryIconArray.getDrawable(absoluteAdapterPosition))
             if(items.length!! > 5) {
                 txtItemName.text = items.substring(0, items.length.coerceAtMost(4)) + "…"
             }

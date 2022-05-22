@@ -2,11 +2,14 @@ package com.example.takeeat.ui.recipe
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,46 +77,57 @@ class RecipeSearchActivity : AppCompatActivity() {
             var ingre_search = "" //= job.get("ingre_search")
             var difficult : String // = job.get("difficult").toString()
             var category : String//  = job.get("category").toString()
-
-            for(item in ingreAdapter.selectedItems){
-                ingreList.add(URLEncoder.encode(item, "UTF-8"))
-                ingre_search = ingre_search + "\"" + URLEncoder.encode(item, "UTF-8") + "\","
+            if(searchText==null && categoryAdapter.selectedItem==null &&ingreAdapter.selectedItems.size==0){
+                Toast.makeText(this,"검색어나 제료, 카테고리를 선택해주세요" ,Toast.LENGTH_SHORT).show()
             }
+            else {
+                for (item in ingreAdapter.selectedItems) {
+                    ingreList.add(URLEncoder.encode(item, "UTF-8"))
+                    ingre_search = ingre_search + "\"" + URLEncoder.encode(item, "UTF-8") + "\","
+                }
 
-            if(ingre_search!=""){
-                ingre_search = ingre_search.substring(0, ingre_search.length-1)
+                if (ingre_search != "") {
+                    ingre_search = ingre_search.substring(0, ingre_search.length - 1)
+                }
+
+                if (searchText == null) {
+                    name = "NULL"
+                } else {
+                    name = URLEncoder.encode(searchText, "UTF-8")
+                }
+
+                if (difficultyAdapter.selectedItem.toString() == "null") {
+                    difficult = "NULL"
+                } else {
+                    difficult =
+                        URLEncoder.encode(difficultyAdapter.selectedItem.toString(), "UTF-8")
+                }
+
+                if (categoryAdapter.selectedItem.toString() == "null") {
+                    category = "NULL"
+                } else {
+                    category = URLEncoder.encode(categoryAdapter.selectedItem.toString(), "UTF-8")
+                }
+
+                var requeststr =
+                    "{\"name\":\"" + name + "\",\"ingre_search\":[" + ingre_search + "],\"difficult\":\"" + difficult + "\",\"category\":\"" + category + "\"}"
+
+
+                //Log.d("Response","str:" + requeststr)
+
+
+                var recipeSearchResult: ArrayList<RecipeItem> = ArrayList<RecipeItem>()
+                val handler = Handler()
+                Thread(Runnable {
+                    recipeSearchResult = search_recipe_item(requeststr)
+                    Log.d("Response List : ", recipeSearchResult.toString())
+                    handler.post {
+                        val intent = Intent(this, RecipeSearchResultActivity::class.java)
+                        intent.putExtra("Search_Result", recipeSearchResult)
+                        startActivity(intent)
+                    }
+                }).start()
             }
-
-            if(searchText==null){
-                name = "NULL"
-            }else{
-                name = URLEncoder.encode(searchText, "UTF-8")
-            }
-
-            if(difficultyAdapter.selectedItem.toString()=="null"){
-                difficult = "NULL"
-            }else{
-                difficult = URLEncoder.encode(difficultyAdapter.selectedItem.toString(), "UTF-8")
-            }
-
-            if(categoryAdapter.selectedItem.toString()=="null"){
-                category = "NULL"
-            }else{
-                category = URLEncoder.encode(categoryAdapter.selectedItem.toString(), "UTF-8")
-            }
-
-            var requeststr = "{\"name\":\"" + name + "\",\"ingre_search\":[" + ingre_search + "],\"difficult\":\"" + difficult + "\",\"category\":\"" + category + "\"}"
-
-
-            //Log.d("Response","str:" + requeststr)
-
-
-            var recipeSearchResult : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
-
-            Thread(Runnable{
-                recipeSearchResult = search_recipe_item(requeststr)
-                Log.d("Response List : ", recipeSearchResult.toString())
-            }).start()
         }
     }
 
@@ -239,6 +253,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             val reciperecipeIngredientsTag = ArrayList<String>()
 
             val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
+            Log.d("Response",recipeItemArray.toString())
             for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(
                     RecipeProcess(

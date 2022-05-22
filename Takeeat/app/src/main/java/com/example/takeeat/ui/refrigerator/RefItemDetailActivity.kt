@@ -47,18 +47,11 @@ class RefItemDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityRefitemdetailBinding.inflate(layoutInflater)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         refItem = intent.getSerializableExtra("Item_Data") as RefItem
         updateUI(refItem)
-        //이건 UI테스트용 나중에 꼭 지우기
-        binding.refDetailItemIcon.setOnClickListener {
-            val intent = Intent(this, RecipeSearchResultActivity::class.java)
-            intent.putExtra("Search_Result",recipeArray)
-            startActivity(intent)
-        }
 
-        //
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         binding.refDetailEditButton.setOnClickListener {
             it.visibility = View.INVISIBLE

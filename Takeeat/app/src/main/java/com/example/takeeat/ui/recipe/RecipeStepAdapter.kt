@@ -24,8 +24,7 @@ import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<RecipeStepAdapter.PagerViewHolder>() {
-    val recipeData = data
+class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapter<RecipeStepAdapter.PagerViewHolder>() {
     public var recipeID : String = "1"
     var inMyRef = ArrayList<RefItem>()
     lateinit var ingreList : ArrayList<IngredientsInfo>
@@ -53,8 +52,8 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
     }
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        if(position<recipeData.size) {
-            recipeData.get(position).let { item ->
+        if(position<data.size) {
+            data.get(position).let { item ->
                 with(holder) {
                     stepText.text =
                         "Step " + (this.absoluteAdapterPosition + 1).toString() + "/" + (itemCount-1).toString()
@@ -114,7 +113,7 @@ class RecipeStepAdapter(data: ArrayList<RecipeProcess>): RecyclerView.Adapter<Re
     }
 
     override fun getItemCount(): Int {
-        return recipeData.size+1
+        return data.size+1
     }
     fun setRecipeIngre(ingrelist:ArrayList<IngredientsInfo>){
         ingreList = ingrelist

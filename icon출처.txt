@@ -3,3 +3,19 @@ completeicon.png - <a href="https://www.flaticon.com/kr/free-icons/" title="표 
 <a href="https://www.flaticon.com/kr/free-icons/" title="냉장고 아이콘">냉장고 아이콘  제작자: Vichanon Chaimsuk - Flaticon</a>
 left, rightarrowbutton <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by deemakdaksina - Flaticon</a>
 spoon and fork <a href="https://www.flaticon.com/free-icons/spoon-and-fork" title="spoon and fork icons">Spoon and fork icons created by IconBaandar - Flaticon</a>
+noodles <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: Freepik - Flaticon</a>
+rice bowl <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: Freepik - Flaticon</a>
+cookingpot <a href="https://www.flaticon.com/kr/free-icons/" title="조리 아이콘">조리 아이콘  제작자: Freepik - Flaticon</a>
+soup <a href="https://www.flaticon.com/kr/free-icons/-" title="음식과 식당 아이콘">음식과 식당 아이콘  제작자: Freepik - Flaticon</a>
+salad <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: Freepik - Flaticon</a>
+kimchi <a href="https://www.flaticon.com/kr/free-icons/" title="김치 아이콘">김치 아이콘  제작자: Flat Icons - Flaticon</a>
+main dish <a href="https://www.flaticon.com/free-icons/plate" title="plate icons">Plate icons created by monkik - Flaticon</a>
+seasoning <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: monkik - Flaticon</a>
+beverage <a href="https://www.flaticon.com/kr/free-icons/" title="음주 아이콘">음주 아이콘  제작자: Freepik - Flaticon</a>
+dessert <a href="https://www.flaticon.com/kr/free-icons/" title="디저트 아이콘">디저트 아이콘  제작자: Febrian Hidayat - Flaticon</a>
+fusion <a href="https://www.flaticon.com/kr/free-icons/" title="요리 아이콘">요리 아이콘  제작자: Flat Icons - Flaticon</a>
+sidedish  <a href="https://www.flaticon.com/kr/free-icons/" title="음식 아이콘">음식 아이콘  제작자: Freepik - Flaticon</a>
+westerndish <a href="https://www.flaticon.com/kr/free-icons/" title="스테이크 아이콘">스테이크 아이콘  제작자: Pause08 - Flaticon</a>
+bread <a href="https://www.flaticon.com/kr/free-icons/" title="빵 아이콘">빵 아이콘  제작자: Freepik - Flaticon</a>
+cookie <a href="https://www.flaticon.com/kr/free-icons/" title="쿠키 아이콘">쿠키 아이콘  제작자: Smashicons - Flaticon</a>
+etc <a href="https://www.flaticon.com/free-icons/fork" title="fork icons">Fork icons created by Freepik - Flaticon</a>

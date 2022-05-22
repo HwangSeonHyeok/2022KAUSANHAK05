@@ -3,6 +3,8 @@ package com.example.takeeat.ui.recipe
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,27 +23,33 @@ class RecipeSearchResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecipeSearchResultBinding.inflate(layoutInflater)
         recipeArray = intent.getSerializableExtra("Search_Result") as ArrayList<RecipeItem>
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val resultRecyclerView = binding.recipeSearchResultRecipeRecyclerView
+        if(recipeArray.size == 0){
+            resultRecyclerView.visibility = View.INVISIBLE
+            binding.recipeSearchResultNoResultText.visibility = View.VISIBLE
+        }
         recipeArray.sortByDescending {it.recipeId}
         recipeItemAdapter = RecipeItemAdapter(recipeArray)
-        binding.recipeSearchResultRecipeRecyclerView.adapter = recipeItemAdapter
+        resultRecyclerView.adapter = recipeItemAdapter
         binding.recipeSearchResultSortRadioGroup.setOnCheckedChangeListener { radioGroup, i ->
             when(i){
                 R.id.recipeSearchResult_sortLatelyButton -> {
                     recipeArray.sortByDescending {it.recipeId}
-                    (binding.recipeSearchResultRecipeRecyclerView.adapter as RecipeItemAdapter).resetVisibleItemCount()
-                    binding.recipeSearchResultRecipeRecyclerView.scrollToPosition(0)
+                    (resultRecyclerView.adapter as RecipeItemAdapter).resetVisibleItemCount()
+                    resultRecyclerView.scrollToPosition(0)
                 }
                 R.id.recipeSearchResult_sortRatingButton -> {
                     recipeArray.sortByDescending { it.recipeRating }
-                    (binding.recipeSearchResultRecipeRecyclerView.adapter as RecipeItemAdapter).resetVisibleItemCount()
-                    binding.recipeSearchResultRecipeRecyclerView.scrollToPosition(0)
+                    (resultRecyclerView.adapter as RecipeItemAdapter).resetVisibleItemCount()
+                    resultRecyclerView.scrollToPosition(0)
                 }
             }
             Log.d("Response",recipeArray.toString())
 
-            binding.recipeSearchResultRecipeRecyclerView.adapter!!.notifyDataSetChanged()
+            resultRecyclerView.adapter!!.notifyDataSetChanged()
         }
-        binding.recipeSearchResultRecipeRecyclerView.addOnScrollListener(
+        resultRecyclerView.addOnScrollListener(
             object: RecyclerView.OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
@@ -61,5 +69,15 @@ class RecipeSearchResultActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -5,15 +5,16 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.*
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.*
 import com.example.takeeat.databinding.FragmentRecipeBinding
 import com.example.takeeat.ui.refrigerator.RefItem
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayoutMediator
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -23,7 +24,6 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
 import java.util.*
-import kotlin.collections.ArrayList
 
 class RecipeFragment : Fragment() {
 
@@ -34,6 +34,8 @@ class RecipeFragment : Fragment() {
     private val binding get() = _binding!!
     //lateinit var viewModel :RecipeRecommendViewModel
     lateinit var adapter: RecipeRecommendBlockAdapter
+    lateinit var refItemArray : ArrayList<RefItem>
+    val refItemTagArray = ArrayList<String>()
     val recommendData = ArrayList<RecipeBlock>() //여기 모델값이 들어가야함
 
     override fun onCreateView(
@@ -42,17 +44,78 @@ class RecipeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRecipeBinding.inflate(inflater, container, false)
-        //viewModel = ViewModelProvider(this).get(RecipeRecommendViewModel::class.java)//여기 모델값이 들어가야함
         val recommendRecyclerView: RecyclerView = binding.recipefragmentMainRecommendView
-        //여기부터 표시한곳까진 나중에 지우기 테스트용
+        val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
+        val categoryPager : ViewPager2 = binding.recipefragmentViewPager
+        val categoryTabLayout : TabLayout = binding.recipefragmentTabLayout
         val rObject = JSONObject()
         val handler = Handler()
 
 
-        rObject.put("item_tag", URLEncoder.encode("고추장", "UTF-8"))
+        rObject.put("item_tag", URLEncoder.encode("감자", "UTF-8"))
         Thread {
-            val recipe_list: ArrayList<RecipeItem> = get_recipe_item(rObject)
+            refItemArray=get_ref_item()
+            val recipe_list: ArrayList<RecipeItem> = get_recipe_item(rObject)//테스트용 코드 나중에 추천코드로 변경
+
             handler.post{
+
+                for(item in refItemArray){
+                    if(item.itemtag!=null) {
+                        if(!refItemTagArray.contains(item.itemtag))
+                            refItemTagArray.add(item.itemtag!!)
+                    }
+                }
+
+                val categoryAdapter = CategoryPagerAdapter(refItemTagArray,recipeCategoryList)
+                categoryPager.adapter = categoryAdapter
+                categoryTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+                    override fun onTabSelected(tab: TabLayout.Tab) {
+                        val position = tab.position
+                        val refPage = (categoryPager.adapter as CategoryPagerAdapter).refPage
+                        if (position == 0&&categoryPager.currentItem>=refPage) {
+                            categoryPager.setCurrentItem(0)
+                        } else if (position == 1) {
+                            categoryPager.setCurrentItem(refPage)
+                        }
+                    }
+
+                    override fun onTabUnselected(tab: TabLayout.Tab) {}
+                    override fun onTabReselected(tab: TabLayout.Tab) {}
+                })
+                categoryPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+                    override fun onPageScrolled(
+                        position: Int,
+                        positionOffset: Float,
+                        positionOffsetPixels: Int
+                    ) {
+                        super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+
+                    }
+
+                    override fun onPageSelected(position: Int) {
+                        super.onPageSelected(position)
+                        val refPage = (categoryPager.adapter as CategoryPagerAdapter).refPage
+                        if(position == refPage) {
+                            categoryTabLayout.selectTab(categoryTabLayout.getTabAt(1)!!)
+                            Log.d("ResponsePageChange","1"+"position"+position.toString())
+                        }
+                        else if (position==refPage-1){
+                            categoryTabLayout.selectTab(categoryTabLayout.getTabAt(0)!!)
+                            Log.d("ResponsePageChange", "0" + "position" + position.toString())
+                        }
+
+                    }
+
+                    override fun onPageScrollStateChanged(state: Int) {
+                        super.onPageScrollStateChanged(state)
+
+
+                    }
+                })
+
+
+
+            //테스트용
                 val blockName = "추천테스트용"
                 val recipeArray = ArrayList<RecipeItem>()
                 val recipeArray2 = ArrayList<RecipeItem>()
@@ -71,12 +134,12 @@ class RecipeFragment : Fragment() {
                     }
 
                 }
-                //recipeArray.clear()
                 adapter = RecipeRecommendBlockAdapter(recommendData)
                 recommendRecyclerView.adapter = adapter
                 for(i in recommendData) {
                     Log.d("Response", "why" + i.recommendList.toString())
                 }
+            //테스토용 여기까지
 
 
             }
@@ -125,33 +188,10 @@ class RecipeFragment : Fragment() {
         })
 
         menu.findItem(R.id.app_bar_search_recipe).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
-            //여기에 냉장고 품목 목록 가져오기
-            var refItemArray : ArrayList<RefItem>
-            val handler = Handler()
-            Thread(Runnable{
-            //여기 냉장고 가져오는 코드
-                refItemArray=get_ref_item()
-                Log.d("Responsee : refItem : ",refItemArray.toString())
-                handler.post {
-                    val refItemTagArray = ArrayList<String>()
-                    for(item in refItemArray){
-                        if(item.itemtag!=null) {
-                            if(!refItemTagArray.contains(item.itemtag))
-                                refItemTagArray.add(item.itemtag!!)
-                        }
-                    }
-                    //val
-                    //for(tag in refItemTagArray)
-
-
-                    val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
-
-
-                    Log.d("Response",refItemTagArray.toString())
-                    searchintent.putExtra("ref_Item_Array",refItemTagArray)
-                    startActivity(searchintent)
-              }
-            }).start()
+            val searchintent: Intent = Intent(context, RecipeSearchActivity::class.java)
+            Log.d("Response",refItemTagArray.toString())
+            searchintent.putExtra("ref_Item_Array",refItemTagArray)
+            startActivity(searchintent)
             true
         })
 
@@ -303,29 +343,6 @@ class RecipeFragment : Fragment() {
                 reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
             }
 
-
-
-
-
-
-
-            /*
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("recipe").length()){
-                recipeStep.add(RecipeProcess(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("txt"),URL(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("img"))))
-            }
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre").length()){
-                recipeIngre.add(IngredientsInfo(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_name"),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_unit")))
-            }
-
-             */
-
-
-
-
-            /*
-
-
-             */
             Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
             Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(

@@ -52,6 +52,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recipeSearchResult_sortRadioGroup"
-        tools:listitem="@layout/item_recipe" />
+        tools:listitem="@layout/item_recipe" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/recipeSearchResult_noResultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색된 레시피가 없습니다."
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="CategoryIconArray">
+        <item>@drawable/icon_rice</item>
+        <item>@drawable/icon_noodle</item>
+        <item>@drawable/icon_soup</item>
+        <item>@drawable/icon_cookingpot</item>
+        <item>@drawable/icon_maindish</item>
+        <item>@drawable/icon_kimchi</item>
+        <item>@drawable/icon_seasoning</item>
+        <item>@drawable/icon_beverage</item>
+        <item>@drawable/icon_dessert</item>
+        <item>@drawable/icon_fusion</item>
+        <item>@drawable/icon_etc</item>
+        <item>@drawable/icon_sidedish</item>
+        <item>@drawable/icon_salad</item>
+        <item>@drawable/icon_westerndish</item>
+        <item>@drawable/icon_bread</item>
+        <item>@drawable/icon_cookie</item>
+    </array>
+
+</resources>

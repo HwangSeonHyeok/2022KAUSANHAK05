@@ -17,6 +17,7 @@
         android:theme="@style/Theme.Takeeat">
         <activity
             android:name=".ui.recipe.RecipeSearchResultActivity"
+            android:label="검색결과"
             android:exported="false" />
         <activity
             android:name=".IntroActivity"
