@@ -24,7 +24,7 @@ class CreatedFragment :Fragment() {
     ): View {
         binding = FragmentCreatedBinding.inflate(inflater, container, false)
         binding.recipeUploadButton.setOnClickListener{
-            val intent= Intent (this@CreatedFragment.requireContext(), RecipeUpload::class.java)
+            val intent= Intent (this@CreatedFragment.requireContext(), RecipeUploadActivity::class.java)
             startActivity(intent)
         }
 
