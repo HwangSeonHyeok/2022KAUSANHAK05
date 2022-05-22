@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.result.ActivityResult
@@ -12,13 +13,21 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.databinding.ActivityRecipeUploadBinding
 import com.example.takeeat.launchWhenStarted
 import com.example.takeeat.ui.myrecipe.S3UploadUtils.getS3ImageURL
 import com.example.takeeat.ui.myrecipe.adapter.AddedMaterialAdapter
 import com.example.takeeat.ui.myrecipe.adapter.RecipeOrderListAdapter
 import com.example.takeeat.ui.myrecipe.data.Recipe
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.DataOutputStream
 import java.io.File
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 
 
 class RecipeUploadActivity: AppCompatActivity() {
@@ -189,6 +198,72 @@ class RecipeUploadActivity: AppCompatActivity() {
                     cookingOrderList
                 )
 
+                val name = URLEncoder.encode(uploadData.name, "UTF-8")
+                val img = URLEncoder.encode(uploadData.img, "UTF-8")
+                val summary = URLEncoder.encode(uploadData.summary, "UTF-8")
+                val serving = URLEncoder.encode(uploadData.serving, "UTF-8")
+                val time = URLEncoder.encode(uploadData.cooktime, "UTF-8")
+                val category = URLEncoder.encode(uploadData.category, "UTF-8")
+                val difficult = URLEncoder.encode(uploadData.difficulty, "UTF-8")
+                val ingre = uploadData.ingre
+                var ingretxt = ""
+                val recipedata = uploadData.recipe
+                var recipetxt = ""
+                val author = AWSMobileClient.getInstance().username
+
+                var ingresearchtxt = ""
+                var ingrearr : ArrayList<String> = ArrayList<String>()
+
+
+                for (item in ingre) {
+                    ingretxt = ingretxt +
+                            "{\"ingre_name\":\"" + URLEncoder.encode(item.ingre_name, "UTF-8") + "\",\"ingre_count\":\"" + item.ingre_count + "\",\"ingre_unit\":\"" + URLEncoder.encode(item.ingre_unit, "UTF-8") + "\"},"
+                    if(!ingrearr.contains(URLEncoder.encode(item.ingre_name, "UTF-8"))){
+                        ingrearr.add(URLEncoder.encode(item.ingre_name, "UTF-8"))
+                    }
+                }
+
+                if (ingretxt != "") {
+                    ingretxt = ingretxt.substring(0, ingretxt.length - 1)
+                }
+
+                for (item in recipedata) {
+                    recipetxt = recipetxt +
+                            "{\"txt\":\"" + URLEncoder.encode(item.txt, "UTF-8") + "\",\"img\":\"" + item.img + "\"},"
+                }
+
+                if (recipetxt != "") {
+                    recipetxt = recipetxt.substring(0, recipetxt.length - 1)
+                }
+
+                for (item in ingrearr) {
+                    ingresearchtxt = ingresearchtxt + "\"" + item + "\","
+                }
+
+                if (ingresearchtxt != "") {
+                    ingresearchtxt = ingresearchtxt.substring(0, ingresearchtxt.length - 1)
+                }
+
+
+                var requeststr =
+                    "{\"name\":\"" + name + "\"," +
+                    "\"img\" : \"" + img + "\"," +
+                    "\"summary\" : \"" + summary + "\"," +
+                    "\"serving\" : \"" + serving + "\"," +
+                    "\"time\" : \"" + time + "\"," +
+                    "\"category\" : \"" + category + "\"," +
+                    "\"difficult\" : \"" + difficult + "\"," +
+                    "\"ingre\" : { \"ingre_item\":[" + ingretxt + "]}," +
+                    "\"recipe\" : { \"recipe_item\":[" + recipetxt + "]}," +
+                    "\"author\" : \"" + author + "\"," +
+                    "\"rate_num\" : 0 ," +
+                    "\"rate_sum\" : 0 ," +
+                    "\"ingre_search\" : [" + ingresearchtxt + "]}"
+
+                post_recipe(requeststr)
+
+
+
                 // 서버에 업로드 할 데이터 모아서 로그로 찍기
                 Log.e("uploadData", "${uploadData}")
             }
@@ -199,5 +274,84 @@ class RecipeUploadActivity: AppCompatActivity() {
         private const val PERMISSION_CAMERA = android.Manifest.permission.CAMERA
         private const val PERMISSION_WRITE_EXTERNAL_STORAGE = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         private val TAKE_PICTURE_PERMISSIONS = arrayOf(PERMISSION_CAMERA, PERMISSION_WRITE_EXTERNAL_STORAGE)
+    }
+
+    fun post_recipe(str : String){
+        val handler = Handler()
+        Thread(Runnable{
+
+
+            //handler.post{
+            //try {
+            //AWSMobileClient.getInstance()
+
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("POST")
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+            //conn.connect()
+
+
+
+            var requestBody = str
+
+
+            Log.d("Response : requestBody = ",requestBody)
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+            var responseCode = conn.getResponseCode()
+            //Log.d("Response : responseCode",responseCode.toString())
+            val br: BufferedReader
+            if (responseCode == 200) {
+                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
+                //Log.d("Response","Success")
+            } else {
+                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
+                //Log.d("Response","fail")
+            }
+
+            /*
+            var re = br.readLine()
+            var ree = JSONObject(re)
+            var reee = ree.toString()
+            Log.d("Response : resultJson = ",reee)
+             */
+
+            //var resultJson= JSONObject(br.readLine())
+            //var rrr = br.readLine()
+            //Log.d("Response : resultJson = ",resultJson.toString())
+
+            /*
+            var response  = ArrayList<RefItem>()
+            val result = resultJson.get("result")
+            val age = resultJson.get("age");
+            val job = resultJson.get("job");
+            */
+            //Log.i("Response", "DATA response = " + response)
+
+            //conn.disconnect()
+            /*
+            } catch (e:Exception) {
+                Toast.makeText(getApplicationContext(),"데이터 전송 준비 과정 중 오류 발생",Toast.LENGTH_SHORT).show();
+                Log.i("Response", "DATA FAil")
+                return aff;
+            }
+            */
+
+            //}
+
+
+
+
+
+        }).start()
     }
 }

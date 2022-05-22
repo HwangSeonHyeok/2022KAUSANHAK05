@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.RecipeItem
@@ -212,7 +211,6 @@ class RecipeSearchActivity : AppCompatActivity() {
         //Thread(Runnable{
         //handler.post{
         //try {
-        AWSMobileClient.getInstance()
         val recipeTestList = ArrayList<RecipeItem>()
 
         val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/search")
