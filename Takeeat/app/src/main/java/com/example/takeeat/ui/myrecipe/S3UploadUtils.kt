@@ -16,7 +16,7 @@ object S3UploadUtils {
     fun getS3ImageURL(uri: Uri, filePath: String?,  context: Context): String {
 
         val file = File(filePath ?: uri.toFilePath(context.contentResolver))
-        val awsCredentials = BasicAWSCredentials("AKIA4IVO4EUJE6YLTO3Q", "ZCXrud8/ISASgX0LT30vAPFD0Xx4fwGTEhuDrrmo")
+        val awsCredentials = BasicAWSCredentials("", "")
         val s3Client = AmazonS3Client(awsCredentials, Region.getRegion(Regions.AP_NORTHEAST_2))
 
 
