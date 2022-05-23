@@ -1,5 +1,6 @@
 package com.example.takeeat.ui.recipe
 
+import android.content.res.TypedArray
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,8 @@ import com.example.takeeat.R
 
 class RecipeSearchIngreAdapter(private val itemTestList: MutableList<String>) : RecyclerView.Adapter<RecipeSearchIngreAdapter.IconViewHolder>() {
     private var selectedPos = RecyclerView.NO_POSITION
+    lateinit var categoryIconArray : TypedArray
+    lateinit var ingreTagArray: Array<String>
     //private var selectedItem: String = "null"
     public var selectedItems = mutableListOf<String>()
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
@@ -30,6 +33,9 @@ class RecipeSearchIngreAdapter(private val itemTestList: MutableList<String>) : 
             notifyItemChanged(selectedPos)
         }
         init{
+            categoryIconArray =
+                itemView.context.resources.obtainTypedArray(R.array.IngreIconArray)
+            ingreTagArray =itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
             itemView.setOnClickListener {onClick(itemView)}
         }
     }
@@ -57,6 +63,7 @@ class RecipeSearchIngreAdapter(private val itemTestList: MutableList<String>) : 
                 txtItemName.setTextColor(Color.parseColor("#FFFFFF"))
             }
             else txtItemName.setTextColor(Color.parseColor("#000000"))
+            imgItem.setImageDrawable(categoryIconArray.getDrawable(ingreTagArray.indexOf(items)))
         }
     }
 

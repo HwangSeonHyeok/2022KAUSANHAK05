@@ -19,3 +19,37 @@ westerndish <a href="https://www.flaticon.com/kr/free-icons/" title="스테이�
 bread <a href="https://www.flaticon.com/kr/free-icons/" title="빵 아이콘">빵 아이콘  제작자: Freepik - Flaticon</a>
 cookie <a href="https://www.flaticon.com/kr/free-icons/" title="쿠키 아이콘">쿠키 아이콘  제작자: Smashicons - Flaticon</a>
 etc <a href="https://www.flaticon.com/free-icons/fork" title="fork icons">Fork icons created by Freepik - Flaticon</a>
+
+jangdok https://notefolio.net/koomk/84593
+ricecake <a href="https://www.flaticon.com/kr/free-icons/" title="떡 아이콘">떡 아이콘  제작자: Freepik - Flaticon</a>
+vegetable <a href="https://www.flaticon.com/kr/free-icons/" title="야채 아이콘">야채 아이콘  제작자: surang - Flaticon</a>
+soysauce <a href="https://www.flaticon.com/kr/free-icons/" title="간장 아이콘">간장 아이콘  제작자: mangsaabguru - Flaticon</a>
+sauce <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: Freepik - Flaticon</a>
+nuts <a href="https://www.flaticon.com/kr/free-icons/" title="견과류 아이콘">견과류 아이콘  제작자: photo3idea_studio - Flaticon</a>
+egg <a href="https://www.flaticon.com/kr/free-icons/" title="계란 아이콘">계란 아이콘  제작자: Freepik - Flaticon</a>
+cinnamon <a href="https://www.flaticon.com/kr/free-icons/" title="시나몬 아이콘">시나몬 아이콘  제작자: Freepik - Flaticon</a>
+seafood <a href="https://www.flaticon.com/kr/free-icons/" title="해물 아이콘">해물 아이콘  제작자: surang - Flaticon</a>
+pepper <a href="https://www.flaticon.com/kr/free-icons/-" title="고추 고추 아이콘">고추 고추 아이콘  제작자: Freepik - Flaticon</a>
+fruits <a href="https://www.flaticon.com/kr/free-icons/" title="과일 아이콘">과일 아이콘  제작자: Freepik - Flaticon</a>
+honey <a href="https://www.flaticon.com/kr/free-icons/" title="꿀 아이콘">꿀 아이콘  제작자: monkik - Flaticon</a>
+mandoo <a href="https://www.flaticon.com/kr/free-icons/" title="증기 아이콘">증기 아이콘  제작자: ultimatearm - Flaticon</a>
+powder <a href="https://www.flaticon.com/kr/free-icons/" title="쌀 아이콘">쌀 아이콘  제작자: Freepik - Flaticon</a>
+jam <a href="https://www.flaticon.com/kr/free-icons/" title="잼 아이콘">잼 아이콘  제작자: Freepik - Flaticon</a>
+seaweed <a href="https://www.flaticon.com/free-icons/seaweed" title="seaweed icons">Seaweed icons created by Freepik - Flaticon</a>
+meat <a href="https://www.flaticon.com/kr/free-icons/" title="고기 아이콘">고기 아이콘  제작자: Freepik - Flaticon</a>
+pasta <a href="https://www.flaticon.com/free-icons/pasta" title="pasta icons">Pasta icons created by Smashicons - Flaticon</a>
+tofu <a href="https://www.flaticon.com/kr/free-icons/" title="두부 아이콘">두부 아이콘  제작자: Freepik - Flaticon</a>
+milk <a href="https://www.flaticon.com/kr/free-icons/" title=" 아이콘"> 아이콘  제작자: Smashicons - Flaticon</a>
+oil <a href="https://www.flaticon.com/kr/free-icons/" title="지중해 아이콘">지중해 아이콘  제작자: small.smiles - Flaticon</a>
+mushroom <a href="https://www.flaticon.com/kr/free-icons/" title="버섯 아이콘">버섯 아이콘  제작자: monkik - Flaticon</a>
+salt <a href="https://www.flaticon.com/kr/free-icons/" title="기미 아이콘">기미 아이콘  제작자: Freepik - Flaticon</a>
+sausage <a href="https://www.flaticon.com/kr/free-icons/" title="소시지 아이콘">소시지 아이콘  제작자: iconixar - Flaticon</a>
+ice <a href="https://www.flaticon.com/kr/free-icons/" title="빙 아이콘">빙 아이콘  제작자: Freepik - Flaticon</a>
+corn <a href="https://www.flaticon.com/kr/free-icons/" title="옥수수 아이콘">옥수수 아이콘  제작자: Nikita Golubev - Flaticon</a>
+chocolate <a href="https://www.flaticon.com/kr/free-icons/" title="초콜릿 아이콘">초콜릿 아이콘  제작자: monkik - Flaticon</a>
+curry <a href="https://www.flaticon.com/kr/free-icons/" title="카레 아이콘">카레 아이콘  제작자: Freepik - Flaticon</a>
+drink <a href="https://www.flaticon.com/kr/free-icons/" title="음주 아이콘">음주 아이콘  제작자: monkik - Flaticon</a>
+
+
+
+

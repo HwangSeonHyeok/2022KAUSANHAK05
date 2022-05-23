@@ -27,6 +27,7 @@ import java.net.URLEncoder
 class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : RecyclerView.Adapter<RecipeCategoryAdapter.IconViewHolder>() {
     //mode 0은 냉장고, mode 1은 카테고리
     lateinit var categoryIconArray : TypedArray
+    lateinit var ingreTagArray: Array<String>
     var page:Int = 0
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.recipe_search_item_name_icon)
@@ -58,7 +59,13 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
         }
         init{
             itemView.setOnClickListener {onClick(itemView)}
-            if(mode == 1)
+            if(mode == 0) {
+                categoryIconArray =
+                    itemView.context.resources.obtainTypedArray(R.array.IngreIconArray)
+                ingreTagArray =itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
+
+            }
+            else if(mode == 1)
                 categoryIconArray = itemView.context.resources.obtainTypedArray(R.array.CategoryIconArray)
         }
     }
@@ -73,7 +80,9 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
         data.get(position).let { item ->
             with(holder) {
                 txtItemName.text = item
-                if(mode == 1)
+                if(mode==0)
+                    imgItem.setImageDrawable(categoryIconArray.getDrawable(ingreTagArray.indexOf(item)))
+                else if(mode == 1)
                     imgItem.setImageDrawable(categoryIconArray.getDrawable(absoluteAdapterPosition+page*8))
 
             }

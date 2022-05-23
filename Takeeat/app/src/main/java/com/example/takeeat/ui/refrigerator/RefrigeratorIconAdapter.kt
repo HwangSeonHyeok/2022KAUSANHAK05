@@ -1,4 +1,5 @@
 import android.content.Intent
+import android.content.res.TypedArray
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ import kotlin.time.Duration.Companion.milliseconds
 
 class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : RecyclerView.Adapter<RefrigeratorIconAdapter.IconViewHolder>() {
 
+    lateinit var categoryIconArray : TypedArray
+    lateinit var ingreTagArray: Array<String>
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name_icon)
         val imgItem: ImageView = itemView.findViewById(R.id.refrigerator_item_image_icon)
@@ -33,6 +36,10 @@ class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : Recycle
             view.context.startActivity(intent)
         }
         init{
+            categoryIconArray =
+                itemView.context.resources.obtainTypedArray(R.array.IngreIconArray)
+            ingreTagArray =itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
+
             itemView.setOnClickListener {onClick(itemView)}
         }
 
@@ -62,6 +69,8 @@ class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : Recycle
                 var diffDate = diffSec / (24 * 60 * 60 * 1000)
                 if(diffDate > 3) imgItemExpWarning.setVisibility(View.GONE)
             }
+            if(items.itemtag!=null)
+                imgItem.setImageDrawable(categoryIconArray.getDrawable(ingreTagArray.indexOf(items.itemtag)))
         }
     }
 

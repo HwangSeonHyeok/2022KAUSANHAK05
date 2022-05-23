@@ -3,6 +3,7 @@ package com.example.takeeat.ui.refrigerator
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.res.TypedArray
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -33,6 +34,8 @@ import kotlin.collections.ArrayList
 class RefItemDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRefitemdetailBinding
+    lateinit var categoryIconArray : TypedArray
+    lateinit var ingreTagArray: Array<String>
     lateinit var refItem: RefItem
     lateinit var adapter : RecipeItemAdapter
     var recipeArray:ArrayList<RecipeItem> = ArrayList<RecipeItem>()
@@ -48,6 +51,8 @@ class RefItemDetailActivity : AppCompatActivity() {
 
         binding = ActivityRefitemdetailBinding.inflate(layoutInflater)
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        categoryIconArray = resources.obtainTypedArray(R.array.IngreIconArray)
+        ingreTagArray = resources.getStringArray(R.array.RefrigeratorItemTagArray)
 
         refItem = intent.getSerializableExtra("Item_Data") as RefItem
         updateUI(refItem)
@@ -148,6 +153,8 @@ class RefItemDetailActivity : AppCompatActivity() {
     }
     fun updateUI(itemData:RefItem){
         Log.d("ResponsenUI",itemData.toString())
+        if(itemData.itemtag != null)
+            binding.refDetailItemIcon.setImageDrawable(categoryIconArray.getDrawable(ingreTagArray.indexOf(itemData.itemtag)))
         binding.refDetailItemname.text = itemData.itemname
         if(itemData.itemexp!=null) {
             year = itemData.itemexp!!.year
