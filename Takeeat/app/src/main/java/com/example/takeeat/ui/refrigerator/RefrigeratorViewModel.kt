@@ -7,12 +7,24 @@ import androidx.lifecycle.ViewModel
 
 class RefrigeratorViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Refrigerator Fragment"
+    //var liveData : MutableLiveData<ArrayList<RefDBItem>> = MutableLiveData<ArrayList<RefDBItem>>()
+    /*var refItemData = ArrayList<RefDBItem>()
+    fun addData(notificationItem: RefDBItem){
+        refItemData.add(notificationItem)
+        //liveData.postValue(refItemData)
     }
-    val text: LiveData<String> = _text
-    private val _isOpened = MutableLiveData<Boolean>().apply {
-        value = false
+    fun deleteData(at : Int){
+        refItemData.removeAt(at)
+        //liveData.postValue(refItemData)
     }
-
+    fun deleteAll(){
+        refItemData.clear()
+        //liveData.postValue(refItemData)
+    }
+    fun updateData(index:Int, notificationItem: RefDBItem){
+        refItemData.set(index,notificationItem)
+    }
+    fun getCount():Int{
+        return refItemData.size
+    }*/
 }

@@ -38,10 +38,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.*
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.example.takeeat.*
+import com.example.takeeat.R
 import com.example.takeeat.databinding.FragmentRefrigeratorBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.select
 import org.json.JSONArray
 import org.json.JSONObject
@@ -76,6 +83,9 @@ class RefrigeratorFragment : Fragment() {
     lateinit var refrigeratorSortButton: ImageButton
     lateinit var refrigeratorItemTypes: ConstraintLayout
     lateinit var refrigeratorDevider: View
+    lateinit var refDB: RefItemAppDatabase
+    //lateinit var testbutton: Button
+
 
     var isFabOpen = false
     val CAMERA = arrayOf(Manifest.permission.CAMERA)
@@ -114,6 +124,7 @@ class RefrigeratorFragment : Fragment() {
 
 
         //getDB(recyclerView)
+        refDB = context?.let { RefItemAppDatabase.getDatabase(it) }!!
 
 
         //filteredTestList = itemTestList.clone() as MutableList<RefItem>
@@ -126,6 +137,7 @@ class RefrigeratorFragment : Fragment() {
         refrigeratorSortButton = binding.refrigeratorSortButton
         refrigeratorItemTypes = binding.refrigItemTypes
         refrigeratorDevider = binding.refrigDivider1
+        //testbutton = binding.testbutton
 
 
         mainFab= binding.refrigeratorfab
@@ -246,6 +258,10 @@ class RefrigeratorFragment : Fragment() {
             val alertDialog = builder.create()
             alertDialog.show()
         })
+
+
+
+
 
         setHasOptionsMenu(true)
 
@@ -669,25 +685,38 @@ class RefrigeratorFragment : Fragment() {
     fun getDB(recyclerView:RecyclerView){
         val handler = Handler()
 
+
         Thread(Runnable{
-            fetchList.clear()
-            itemTestList = get_ref_item()
-            for(x in itemTestList) fetchList.add(x)
-            handler.post() {
-                Log.d("Response : itemlist", itemTestList.toString())
-                filteredTestList = fetchList.clone() as MutableList<RefItem>
-                //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
-                if(recyclerView.layoutManager == gridLayoutManager){
-                    recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
-                }
-                else {
-                    recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+            GlobalScope.launch(Dispatchers.IO) {
+                fetchList.clear()
+                itemTestList = get_ref_item()
+                refDB.clearAllTables()
+                var i = 0
+                for (x in itemTestList) {
+                    fetchList.add(x)
+                    refDB.refdbDao().insertItem(RefDBItem(i, x.itemname, x.itemexp?.time))
+                    i++
                 }
 
-                //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
-                //intent.putExtra("OCR_RESULT",ocrResult)
-                //startActivity(intent)
+                handler.post() {
+                    Log.d("Response : itemlist", itemTestList.toString())
+
+                    //Log.d("refDB", refDB.refdbDao().getAll().toString())
+
+                    filteredTestList = fetchList.clone() as MutableList<RefItem>
+                    //recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                    if (recyclerView.layoutManager == gridLayoutManager) {
+                        recyclerView.adapter = RefrigeratorIconAdapter(filteredTestList)
+                    } else {
+                        recyclerView.adapter = RefrigeratorAdapter(filteredTestList)
+                    }
+
+                    //val intent = Intent(getActivity(), AddRefrigeratorActivity::class.java)
+                    //intent.putExtra("OCR_RESULT",ocrResult)
+                    //startActivity(intent)
+                }
             }
+
 
 
 
@@ -697,3 +726,52 @@ class RefrigeratorFragment : Fragment() {
 
 
 }
+
+@Entity(tableName = "refDBlist")
+public data class RefDBItem (
+    @PrimaryKey val itemid : Int,
+    @ColumnInfo var itemname: String?,
+    @ColumnInfo var itemexp: Long?
+)
+@Dao
+interface  RefDBDao{
+    @Query("SELECT * FROM refDBlist")
+    fun getAll(): List<RefDBItem>
+    /*@Query("SELECT * FROM notificationitem WHERE itemName")
+    fun findByItemName()*/
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertItem(vararg RefDBItem: RefDBItem)
+    @Delete
+    fun delete(RefDBItem: RefDBItem)
+    @Query("DELETE FROM refDBlist")
+    fun deleteAll()
+    @Update
+    fun updateItem(vararg RefDBItem: RefDBItem)
+
+}
+@Database(entities = [RefDBItem::class], version = 1)
+abstract class RefItemAppDatabase : RoomDatabase(){
+    abstract fun refdbDao() : RefDBDao
+
+    companion object{
+        @Volatile
+        private var INSTANCE: RefItemAppDatabase? = null
+
+        fun getDatabase(context: Context) : RefItemAppDatabase {
+            val tempInstance = INSTANCE
+            if(tempInstance != null) return tempInstance
+            synchronized(this){
+                val instance = Room.databaseBuilder(context.applicationContext,RefItemAppDatabase::class.java,"refDB").build()
+                INSTANCE = instance
+                return instance
+            }
+        }
+    }
+}
+
+/*private val MIGRATION_5_6 = object : Migration(5, 6) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        // empty migration.
+    }
+}*/
+
