@@ -2,6 +2,7 @@ package com.example.takeeat.ui.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.TextView
@@ -15,8 +16,12 @@ import com.example.takeeat.NotificationActivity
 import com.example.takeeat.R
 import com.example.takeeat.ShoppingListActivity
 import com.example.takeeat.databinding.FragmentMenuBinding
+import com.example.takeeat.ui.refrigerator.RefItemAppDatabase
+import com.example.takeeat.ui.refrigerator.RefItemAppDatabase_Impl
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MenuFragment: Fragment() {
@@ -61,6 +66,17 @@ class MenuFragment: Fragment() {
                 })
 
         }
+
+        var refDB = context?.let { RefItemAppDatabase.getDatabase(it) }
+
+        binding.testbutton.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                if (refDB != null) {
+                    Log.d("refDB", refDB.refdbDao().getAll().toString())
+                }
+            }
+        }
+
         setHasOptionsMenu(true)
 
         return root

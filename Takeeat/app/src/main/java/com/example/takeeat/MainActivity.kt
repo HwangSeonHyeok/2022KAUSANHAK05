@@ -1,6 +1,6 @@
 package com.example.takeeat
 
-import android.app.SearchManager
+import android.app.*
 import android.content.Context
 import android.os.Bundle
 import android.text.TextWatcher
@@ -17,9 +17,16 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 import android.content.Intent
+import android.os.Build
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.ZoneId
+import java.time.ZoneOffset
+import java.time.temporal.ChronoUnit
 
 //testmerge
 class MainActivity : AppCompatActivity() {
@@ -34,7 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        //val searchView: SearchView =
+        startAlarm(this)
+        createNotificationChannel(this)
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -80,6 +88,68 @@ class MainActivity : AppCompatActivity() {
         }*/
         return super.onCreateOptionsMenu(menu)
     }
+
+
+    companion object {
+        fun startAlarm(context: Context){
+            val intent = Intent(context, AlarmReceiver::class.java)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+            val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+            // 알림 시간 설정
+            // 보통 설정시간후 3분이내에 울립니다
+            val alarmTime = LocalTime.of(20, 15)
+            var now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
+            val nowTime = now.toLocalTime()
+            // if same time, schedule for next day as well
+            // if today's time had passed, schedule for next day
+            if (nowTime == alarmTime || nowTime.isAfter(alarmTime)) {
+                now = now.plusDays(1)
+            }
+            now = now.withHour(alarmTime.hour).withMinute(alarmTime.minute) // .withSecond(alarmTime.second).withNano(alarmTime.nano)
+
+            // alarm use UTC/GMT time
+            val utc = now.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime()
+            val startMillis = utc.atZone(ZoneOffset.UTC)!!.toInstant()!!.toEpochMilli()
+
+            Log.d("Alarm will trigger in: ", "${(startMillis-System.currentTimeMillis())/1000}s")
+
+            // AlarmManagerCompat.setExact(alarm, AlarmManager.RTC_WAKEUP, startMillis, pendingIntent!!)
+            if (Build.VERSION.SDK_INT >= 19) {
+                // alarm.setExact(AlarmManager.RTC_WAKEUP, startMillis, pendingIntent)
+
+                // effort to save battery, allow deviation of 15 minutes
+                val windowMillis = 15L * 60L * 1_000L
+                alarm.setWindow(AlarmManager.RTC_WAKEUP, startMillis, windowMillis, pendingIntent)
+            }
+            else {
+                alarm.set(AlarmManager.RTC_WAKEUP, startMillis, pendingIntent)
+            }
+        }
+
+        fun createNotificationChannel(context: Context) {
+            // Create the NotificationChannel, but only on API 26+ because
+            // the NotificationChannel class is new and not in the support library
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val name = "꺼내먹어요"
+                val descriptionText = "꺼내먹어요"
+                val importance = NotificationManager.IMPORTANCE_DEFAULT
+                val channel = NotificationChannel("꺼내먹어요", name, importance).apply {
+                    description = descriptionText
+                }
+                // Register the channel with the system
+                val notificationManager: NotificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
+            }
+        }
+
+
+    }
+
+
+
+
     // 뒤로가기 2번 눌러야 종료
     private val FINISH_INTERVAL_TIME: Long = 2500
     private var backPressedTime: Long = 0
