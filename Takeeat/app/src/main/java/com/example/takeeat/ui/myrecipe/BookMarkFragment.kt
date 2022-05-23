@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.takeeat.RecipeItemAdapter
 import com.example.takeeat.databinding.FragmentMyrecipeBinding
 import com.example.takeeat.databinding.FragmentbookmarkBinding
 
@@ -23,5 +24,15 @@ class BookMarkFragment :Fragment() {
         binding = FragmentbookmarkBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchBookmarkList()
+    }
+
+    private fun fetchBookmarkList() {
+        // 서버통신 후 recyclerview data 더미데이터 대신 집어넣기
+        binding.recyclerviewBookmarkList.adapter = RecipeItemAdapter(CreatedFragment.dummyRecipeList)
     }
 }

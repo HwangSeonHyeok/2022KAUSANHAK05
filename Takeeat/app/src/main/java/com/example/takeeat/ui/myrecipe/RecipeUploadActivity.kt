@@ -79,7 +79,7 @@ class RecipeUploadActivity: AppCompatActivity() {
             }
             viewModel.addedMaterialList.launchWhenStarted(this@RecipeUploadActivity) {
 
-               (adapter as AddedMaterialAdapter).submitList(it)
+                (adapter as AddedMaterialAdapter).submitList(it)
             }
         }
     }
@@ -247,18 +247,18 @@ class RecipeUploadActivity: AppCompatActivity() {
 
                 var requeststr =
                     "{\"name\":\"" + name + "\"," +
-                    "\"img\" : \"" + img + "\"," +
-                    "\"summary\" : \"" + summary + "\"," +
-                    "\"serving\" : \"" + serving + "\"," +
-                    "\"time\" : \"" + time + "\"," +
-                    "\"category\" : \"" + category + "\"," +
-                    "\"difficult\" : \"" + difficult + "\"," +
-                    "\"ingre\" : { \"ingre_item\":[" + ingretxt + "]}," +
-                    "\"recipe\" : { \"recipe_item\":[" + recipetxt + "]}," +
-                    "\"author\" : \"" + author + "\"," +
-                    "\"rate_num\" : 0 ," +
-                    "\"rate_sum\" : 0 ," +
-                    "\"ingre_search\" : [" + ingresearchtxt + "]}"
+                            "\"img\" : \"" + img + "\"," +
+                            "\"summary\" : \"" + summary + "\"," +
+                            "\"serving\" : \"" + serving + "\"," +
+                            "\"time\" : \"" + time + "\"," +
+                            "\"category\" : \"" + category + "\"," +
+                            "\"difficult\" : \"" + difficult + "\"," +
+                            "\"ingre\" : { \"ingre_item\":[" + ingretxt + "]}," +
+                            "\"recipe\" : { \"recipe_item\":[" + recipetxt + "]}," +
+                            "\"author\" : \"" + author + "\"," +
+                            "\"rate_num\" : 0 ," +
+                            "\"rate_sum\" : 0 ," +
+                            "\"ingre_search\" : [" + ingresearchtxt + "]}"
 
                 post_recipe(requeststr)
 
@@ -312,6 +312,7 @@ class RecipeUploadActivity: AppCompatActivity() {
             val br: BufferedReader
             if (responseCode == 200) {
                 br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
+                finish()
                 //Log.d("Response","Success")
             } else {
                 br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
