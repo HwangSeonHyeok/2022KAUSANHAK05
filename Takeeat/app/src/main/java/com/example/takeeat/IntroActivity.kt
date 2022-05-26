@@ -23,7 +23,7 @@ class IntroActivity : AppCompatActivity() {
         val actionBar = actionBar
         val handler = Handler()
         Thread {
-            connectURL()
+            connectURLGet()
             handler.post{
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
@@ -42,7 +42,7 @@ class IntroActivity : AppCompatActivity() {
         finish();
     }
 
-    fun connectURL() {
+    fun connectURLPost() {
         val itemTestList = ArrayList<RefItem>()
 
         // 네트워킹 예외처리를 위한 try ~ catch 문
@@ -65,6 +65,31 @@ class IntroActivity : AppCompatActivity() {
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
+
+            if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
+                Log.d("ResponseConnect","success")
+                // 데이터 읽기
+                // 스트림과 커넥션 해제
+                urlConnection.disconnect()
+            }
+            else{
+                Log.d("ResponseConnect",urlConnection.responseCode.toString())
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Log.d("ResponseConnect","fail")
+        }
+    }
+
+    fun connectURLGet() {
+        val itemTestList = ArrayList<RefItem>()
+
+        // 네트워킹 예외처리를 위한 try ~ catch 문
+        try {
+            val url:URL = URL("http://52.78.228.196/recom/")
+            // 서버와의 연결 생성
+            val urlConnection = url.openConnection() as HttpURLConnection
+            urlConnection.requestMethod = "Get"
 
             if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
                 Log.d("ResponseConnect","success")
