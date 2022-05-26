@@ -89,7 +89,7 @@ class IntroActivity : AppCompatActivity() {
             val url:URL = URL("http://52.78.228.196/recom/")
             // 서버와의 연결 생성
             val urlConnection = url.openConnection() as HttpURLConnection
-            urlConnection.requestMethod = "Get"
+            urlConnection.requestMethod = "GET"
 
             if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
                 Log.d("ResponseConnect","success")
@@ -98,7 +98,7 @@ class IntroActivity : AppCompatActivity() {
                 urlConnection.disconnect()
             }
             else{
-                Log.d("ResponseConnect",urlConnection.responseCode.toString())
+                Log.d("ResponseConnect",urlConnection.responseMessage.toString())
             }
         } catch (e: Exception) {
             e.printStackTrace()
