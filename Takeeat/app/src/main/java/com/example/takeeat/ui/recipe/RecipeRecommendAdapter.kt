@@ -1,6 +1,10 @@
 package com.example.takeeat.ui.recipe
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.bumptech.glide.Glide
@@ -37,6 +42,7 @@ class RecipeRecommendAdapter (var data: ArrayList<RecipeItem>):  RecyclerView.Ad
         override fun onClick(view: View?) {
             val handler = Handler()
             var inMyRef : java.util.ArrayList<RefItem>
+            progressON(view!!.context)
             Thread(Runnable {
                 inMyRef = get_ingre_myref(data[this.absoluteAdapterPosition].recipeId)
                 handler.post {
@@ -46,6 +52,7 @@ class RecipeRecommendAdapter (var data: ArrayList<RecipeItem>):  RecyclerView.Ad
                     recipeData.recipeId
                     intent.putExtra("InMyRef", inMyRef)
                     intent.putExtra("Recipe_Data", recipeData)
+                    progressOFF()
                     view.context.startActivity(intent)
                 }
             }).start()
@@ -148,6 +155,29 @@ class RecipeRecommendAdapter (var data: ArrayList<RecipeItem>):  RecyclerView.Ad
 
 
 
+    }
+    lateinit var progressDialog : AppCompatDialog
+    fun progressON(context: Context){
+        if(context == null){
+            return
+        }
+        progressDialog = AppCompatDialog(context)
+        progressDialog.setCancelable(false)
+        progressDialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setContentView(R.layout.dialog_loading);
+        progressDialog.show();
+        val loadingFrame : ImageView? = progressDialog.findViewById(R.id.loadingImage)
+        if(loadingFrame != null) {
+            val frameAnimation = loadingFrame.background as AnimationDrawable
+            loadingFrame.post(Runnable { frameAnimation.start()})
+
+        }
+
+    }
+    fun progressOFF(){
+        if(progressDialog != null && progressDialog.isShowing){
+            progressDialog.dismiss()
+        }
     }
 
 }

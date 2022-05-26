@@ -1,17 +1,24 @@
 package com.example.takeeat.ui.refrigerator
 
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.amazonaws.mobile.client.AWSMobileClient
+import com.example.takeeat.R
 import com.example.takeeat.databinding.ActivityAddrefrigeratorBinding
 import org.json.JSONArray
 import org.json.JSONException
@@ -53,7 +60,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
         binding.addrefApplyButton.setOnClickListener {
             //DB추가 여기다 붙여주세요
             //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
-
+            progressON(this)
             val jArray = JSONArray()//배열
             // viewmodel -> json 변환
 
@@ -227,6 +234,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
 
             handler.post{
                 sleep(500)
+                progressOFF()
                 finish()
             }
 
@@ -239,6 +247,29 @@ class AddRefrigeratorActivity :AppCompatActivity() {
     fun scrolldown(){
         val scroll  = binding.addrefScrollView
         scroll.post { scroll.fullScroll(ScrollView.FOCUS_DOWN) }
+    }
+    lateinit var progressDialog : AppCompatDialog
+    fun progressON(context: Context){
+        if(context == null){
+            return
+        }
+        progressDialog = AppCompatDialog(context)
+        progressDialog.setCancelable(false)
+        progressDialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setContentView(R.layout.dialog_loading);
+        progressDialog.show();
+        val loadingFrame : ImageView? = progressDialog.findViewById(R.id.loadingImage)
+        if(loadingFrame != null) {
+            val frameAnimation = loadingFrame.background as AnimationDrawable
+            loadingFrame.post(Runnable { frameAnimation.start()})
+
+        }
+
+    }
+    fun progressOFF(){
+        if(progressDialog != null && progressDialog.isShowing){
+            progressDialog.dismiss()
+        }
     }
 
 }

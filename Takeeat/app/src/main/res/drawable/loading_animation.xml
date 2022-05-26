@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/icon_rice" android:duration="200"/>
+    <item android:drawable="@drawable/icon_noodle" android:duration="200"/>
+    <item android:drawable="@drawable/icon_soup" android:duration="200"/>
+    <item android:drawable="@drawable/icon_cookingpot" android:duration="200"/>
+    <item android:drawable="@drawable/icon_sidedish" android:duration="200"/>
+    <item android:drawable="@drawable/icon_dessert" android:duration="200"/>
+    <item android:drawable="@drawable/icon_beverage" android:duration="200"/>
+    <item android:drawable="@drawable/icon_westerndish" android:duration="200"/>
+
+</animation-list>

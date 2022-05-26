@@ -17,11 +17,16 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDialog
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId
@@ -93,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         fun startAlarm(context: Context){
             val intent = Intent(context, AlarmReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE)
             val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
             // 알림 시간 설정
@@ -170,6 +175,28 @@ class MainActivity : AppCompatActivity() {
             toast =
                 Toast.makeText(applicationContext, "'뒤로'버튼 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT)
             toast!!.show()
+        }
+    }
+    lateinit var progressDialog : AppCompatDialog
+    fun progressON(){
+        if(this == null){
+            return
+        }
+        progressDialog = AppCompatDialog(this)
+        progressDialog.setCancelable(false)
+        progressDialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setContentView(R.layout.dialog_loading);
+        progressDialog.show();
+        val loadingFrame : ImageView? = progressDialog.findViewById(R.id.loadingImage)
+        if(loadingFrame != null) {
+            val frameAnimation = loadingFrame.background as AnimationDrawable
+            loadingFrame.post(Runnable { frameAnimation.start()})
+
+        }
+    }
+    fun progressOFF(){
+        if(progressDialog != null && progressDialog.isShowing){
+            progressDialog.dismiss()
         }
     }
 }

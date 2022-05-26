@@ -1,10 +1,17 @@
 package com.example.takeeat.ui.recipe
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -14,7 +21,6 @@ import com.example.takeeat.databinding.FragmentRecipeBinding
 import com.example.takeeat.ui.refrigerator.RefItem
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.google.android.material.tabs.TabLayoutMediator
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -35,6 +41,7 @@ class RecipeFragment : Fragment() {
     //lateinit var viewModel :RecipeRecommendViewModel
     lateinit var adapter: RecipeRecommendBlockAdapter
     lateinit var refItemArray : ArrayList<RefItem>
+
     val refItemTagArray = ArrayList<String>()
     val recommendData = ArrayList<RecipeBlock>() //여기 모델값이 들어가야함
 
@@ -53,6 +60,7 @@ class RecipeFragment : Fragment() {
 
 
         rObject.put("item_tag", URLEncoder.encode("감자", "UTF-8"))
+        (context as MainActivity).progressON()
         Thread {
             refItemArray=get_ref_item()
             val recipe_list: ArrayList<RecipeItem> = get_recipe_item(rObject)//테스트용 코드 나중에 추천코드로 변경
@@ -140,6 +148,7 @@ class RecipeFragment : Fragment() {
                     Log.d("Response", "why" + i.recommendList.toString())
                 }
             //테스토용 여기까지
+                (context as MainActivity).progressOFF()
 
 
             }
@@ -376,4 +385,5 @@ class RecipeFragment : Fragment() {
         //}).start()
         return recipeTestList
     }
+
 }
