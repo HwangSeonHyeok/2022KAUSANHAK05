@@ -20,6 +20,7 @@ import java.io.DataOutputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.net.URLEncoder
 import java.util.*
 import java.util.stream.Collectors
 import kotlin.collections.ArrayList
@@ -138,7 +139,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
             var job = JSONObject()
             job.put("user_id", AWSMobileClient.getInstance().username)
-            job.put("bookmark_id", bookmarkId)
+            //job.put("bookmark_id", bookmarkId)
+            job.put("bookmark_id", URLEncoder.encode(bookmarkId, "UTF-8"))
             job.put("bookmark", "true")
 
 
@@ -185,7 +187,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
             var job = JSONObject()
             job.put("user_id", AWSMobileClient.getInstance().username)
-            job.put("bookmark_id", bookmarkId)
+            //job.put("bookmark_id", bookmarkId)
+            job.put("bookmark_id", URLEncoder.encode(bookmarkId, "UTF-8"))
 
 
             var requestBody = job.toString()

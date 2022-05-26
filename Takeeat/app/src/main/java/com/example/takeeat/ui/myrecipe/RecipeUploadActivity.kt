@@ -199,7 +199,7 @@ class RecipeUploadActivity: AppCompatActivity() {
                 )
 
                 val name = URLEncoder.encode(uploadData.name, "UTF-8")
-                val img = URLEncoder.encode(uploadData.img, "UTF-8")
+                val img = uploadData.img
                 val summary = URLEncoder.encode(uploadData.summary, "UTF-8")
                 val serving = URLEncoder.encode(uploadData.serving, "UTF-8")
                 val time = URLEncoder.encode(uploadData.cooktime, "UTF-8")

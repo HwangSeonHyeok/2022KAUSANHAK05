@@ -647,6 +647,7 @@ class RefrigeratorFragment : Fragment() {
                 val jsonArr = JSONArray(data)
                 val i = 0
                 for (i in 0 until jsonArr.length()) {
+
                     val jsonObj = jsonArr.getJSONObject(i)
                     val datestr: String = jsonObj.getString("item_exdate")
                     var date: Date? = null
@@ -660,13 +661,17 @@ class RefrigeratorFragment : Fragment() {
                     }else{
                         tag  = jsonObj.getString("item_tag")
                     }
+
+
                     itemTestList.add(RefItem(
                         jsonObj.getString("item_name"),
                         tag,
                         date,
                         jsonObj.getString("item_amount").toInt(),
                         jsonObj.getString("item_unit"),
-                        jsonObj.getString("item_id")))
+                        jsonObj.getString("item_id")
+                    ))
+
                     Log.d("Response : jsonObj",jsonObj.toString())
 
                 }
