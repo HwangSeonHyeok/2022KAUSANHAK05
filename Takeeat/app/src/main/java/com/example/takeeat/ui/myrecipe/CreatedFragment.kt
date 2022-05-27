@@ -2,6 +2,7 @@ package com.example.takeeat.ui.myrecipe
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ import java.net.URL
 
 class CreatedFragment :Fragment() {
     private lateinit var binding: FragmentCreatedBinding
+    var myRecipe : ArrayList<RecipeItem> = ArrayList<RecipeItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,14 +53,15 @@ class CreatedFragment :Fragment() {
     private fun setRecipeListRecyclerView() {
         // RecipeItemAdapter에 현재 테스트데이터
         // 이 주석친 부분에서 서버 통신을 하시고 더미데이터 자리에 데이터 삽입
-        Thread(Runnable{
-            //binding.recyclerviewRecipeList.adapter = RecipeItemAdapter(dummyRecipeList)
-            binding.recyclerviewRecipeList.adapter = RecipeItemAdapter(get_Myrecipe())
-        }).start()
+        get_Myrecipe()
+
+        binding.recyclerviewRecipeList.adapter = RecipeItemAdapter(myRecipe)
 
     }
 
-    fun get_Myrecipe() : ArrayList<RecipeItem>{
+    fun get_Myrecipe(){
+        val handler = Handler()
+        Thread(Runnable{
 
         val recipeTestList = ArrayList<RecipeItem>()
 
@@ -142,7 +145,12 @@ class CreatedFragment :Fragment() {
         buffered.close()
         conn.disconnect()
 
-        return recipeTestList
+        myRecipe = recipeTestList
+        handler.post{
+            binding.recyclerviewRecipeList.adapter = RecipeItemAdapter(recipeTestList)
+        }
+
+        }).start()
     }
 
 

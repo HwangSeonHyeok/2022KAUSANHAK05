@@ -624,16 +624,13 @@ class RefrigeratorFragment : Fragment() {
     fun get_ref_item(): ArrayList<RefItem> {
         val itemTestList = ArrayList<RefItem>()
 
-        // 네트워킹 예외처리를 위한 try ~ catch 문
         try {
             val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref" + "/" + AWSMobileClient.getInstance().username)
 
-            // 서버와의 연결 생성
             val urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.requestMethod = "GET"
 
             if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
-                // 데이터 읽기
                 val streamReader = InputStreamReader(urlConnection.inputStream)
                 val buffered = BufferedReader(streamReader)
 
@@ -662,7 +659,6 @@ class RefrigeratorFragment : Fragment() {
                         tag  = jsonObj.getString("item_tag")
                     }
 
-
                     itemTestList.add(RefItem(
                         jsonObj.getString("item_name"),
                         tag,
@@ -672,11 +668,8 @@ class RefrigeratorFragment : Fragment() {
                         jsonObj.getString("item_id")
                     ))
 
-                    Log.d("Response : jsonObj",jsonObj.toString())
-
                 }
 
-                // 스트림과 커넥션 해제
                 buffered.close()
                 urlConnection.disconnect()
             }

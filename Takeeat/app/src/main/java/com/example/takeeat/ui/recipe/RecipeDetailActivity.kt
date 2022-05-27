@@ -178,7 +178,6 @@ class RecipeDetailActivity : AppCompatActivity() {
 
             var job = JSONObject()
             job.put("user_id", AWSMobileClient.getInstance().username)
-            //job.put("bookmark_id", bookmarkId)
             job.put("bookmark_id", URLEncoder.encode(bookmarkId, "UTF-8"))
 
 

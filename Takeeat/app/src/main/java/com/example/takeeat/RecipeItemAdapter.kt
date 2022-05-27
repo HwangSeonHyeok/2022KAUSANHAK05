@@ -51,7 +51,6 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             Thread(Runnable {
                 inMyRef = get_ingre_myref(data[this.absoluteAdapterPosition].recipeId)
                 handler.post {
-                    Log.d("Response", "inMyRef:"+inMyRef.toString())
                     val intent = Intent(view!!.context, RecipeDetailActivity::class.java)
                     val recipeData = data[this.absoluteAdapterPosition]
                     recipeData.recipeId
@@ -150,9 +149,6 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         job.put("recipe_id", recipeId)
         var requestBody = job.toString()
 
-
-
-        Log.d("Response1 = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -169,20 +165,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             content.append(line)
         }
         val data =content.toString()
-        Log.d("Response11 data= ",data)
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
-        Log.d("Response11 = ","111")
         val jsonArr = JSONArray(data)
-        Log.d("Response","get_ingre_myRef"+jsonArr.toString())
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val datestr: String = jsonObj.getString("item_exdate")
@@ -206,8 +189,6 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
                     jsonObj.getString("item_unit"),
                     jsonObj.getString("item_id"))
             )
-            Log.d("Response : jsonObj",jsonObj.toString())
-
         }
 
 

@@ -287,10 +287,6 @@ class RefItemDetailActivity : AppCompatActivity() {
     }
 
     fun get_recipe_item(job : JSONObject) : ArrayList<RecipeItem>{
-        //Thread(Runnable{
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
         val recipeTestList = ArrayList<RecipeItem>()
 
         val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/item_get_recipe")
@@ -306,8 +302,6 @@ class RefItemDetailActivity : AppCompatActivity() {
 
         var requestBody = job.toString()
 
-
-        Log.d("Response1 = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -323,68 +317,33 @@ class RefItemDetailActivity : AppCompatActivity() {
         }
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        //Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
-        //Log.d("Response : jsonlength",jsonArr.length().toString())
-        val i = 0
+
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val recipeStep = ArrayList<RecipeProcess>()
             val recipeIngre = ArrayList<IngredientsInfo>()
             val reciperecipeIngredientsTag = ArrayList<String>()
 
-            Log.d("Response : recipe", "들어옴")
             val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
             for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(RecipeProcess(
                     recipeItemArray.getJSONObject(j).getString("txt"),
                     URL(recipeItemArray.getJSONObject(j).getString("img"))))
             }
-            Log.d("Response : recipe", "나감")
 
-            //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
             val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
-            Log.d("Response : ingre", "들어옴")
             for(j in 0 until ingreArray.length()){
                 recipeIngre.add(IngredientsInfo(
                     ingreArray.getJSONObject(j).getString("ingre_name"),
                     ingreArray.getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
                     ingreArray.getJSONObject(j).getString("ingre_unit")))
             }
-            Log.d("Response : ingre", recipeIngre.toString())
-
-            Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
-            //Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(1).toString())
 
             val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
             for(j in 0 until ingreSearchArray.length()){
                 reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
             }
 
-
-
-
-
-
-
-            /*
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("recipe").length()){
-                recipeStep.add(RecipeProcess(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("txt"),URL(jsonArr.getJSONObject(i).getJSONArray("recipe").getJSONObject(j).getString("img"))))
-            }
-            for(j in 0 until jsonArr.getJSONObject(i).getJSONArray("ingre").length()){
-                recipeIngre.add(IngredientsInfo(jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_name"),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_count").toDoubleOrNull(),jsonArr.getJSONObject(i).getJSONArray("ingre").getJSONObject(j).getString("ingre_unit")))
-            }
-
-             */
-
-
-
-
-            /*
-
-
-             */
-            Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
-            Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(
                 RecipeItem(
                     jsonObj.getString("id"),
@@ -400,20 +359,11 @@ class RefItemDetailActivity : AppCompatActivity() {
                     reciperecipeIngredientsTag,
                     jsonObj.getString("serving")
                 ))
-            Log.d("Response : ingreeee",recipeIngre.toString())
-            Log.d("Response : ingreeee",reciperecipeIngredientsTag.toString())
         }
 
-        // 스트림과 커넥션 해제
         buffered.close()
         conn.disconnect()
 
-
-
-
-
-
-        //}).start()
         return recipeTestList
     }
 
@@ -427,8 +377,6 @@ class RefItemDetailActivity : AppCompatActivity() {
             rObject.put("item_tag", URLEncoder.encode(refItem.itemtag.toString(), "UTF-8"))
 
             val recipe_list = get_recipe_item(rObject)
-
-            Log.d("Response : recipelist ------------------- = ",recipe_list.toString())
 
 
             for(x in recipe_list) {
