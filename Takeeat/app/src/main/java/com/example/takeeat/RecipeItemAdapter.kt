@@ -134,7 +134,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
 
         val recipeMyIngreList = ArrayList<RefItem>()
 
-        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test//recipe/isingreinmyref")
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/isingreinmyref")
         var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
         conn.setUseCaches(false)
         conn.setRequestMethod("POST")
@@ -144,10 +144,12 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         conn.setDoOutput(true)
         conn.setDoInput(true)
 
+
         var job = JSONObject()
         job.put("user_id", AWSMobileClient.getInstance().username)
         job.put("recipe_id", recipeId)
         var requestBody = job.toString()
+
 
 
         Log.d("Response1 = ",requestBody)
@@ -156,8 +158,10 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         wr.flush()
         wr.close()
 
+
         val streamReader = InputStreamReader(conn.inputStream)
         val buffered = BufferedReader(streamReader)
+
 
         val content = StringBuilder()
         while(true) {
@@ -165,6 +169,18 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             content.append(line)
         }
         val data =content.toString()
+        Log.d("Response11 data= ",data)
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
+        Log.d("Response11 = ","111")
         val jsonArr = JSONArray(data)
         Log.d("Response","get_ingre_myRef"+jsonArr.toString())
         for (i in 0 until jsonArr.length()) {
@@ -193,6 +209,8 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
             Log.d("Response : jsonObj",jsonObj.toString())
 
         }
+
+
         buffered.close()
         conn.disconnect()
 

@@ -31,7 +31,6 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var recipeItem : RecipeItem
     private lateinit var ingreAdapter : RecipeDetailIngreAdapter
     private lateinit var recipeStepAdapter : RecipeStepAdapter
-    //lateinit var inMyRefIngre : ArrayList<RefItem>
     var writerbookmarked = false
     var recipebookmarked = false
     var inMyRefItem = ArrayList<RefItem>()
@@ -54,7 +53,6 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         binding = ActivityRecipedetailBinding.inflate(layoutInflater)
         val actionBar = supportActionBar
-        //actionBar!!.setTitle(recipeItem.recipeName)
         actionBar!!.hide()
 
         Glide.with(this).load(recipeItem.imgURL).into(binding.recipedetailMainImage)
@@ -62,18 +60,10 @@ class RecipeDetailActivity : AppCompatActivity() {
         binding.recipedetailRecipeWriter.text = recipeItem.recipeWriter
         binding.recipedetailRecipeSummary.text = recipeItem.recipeSummary
 
-
-
-        //ingreAdapter.recipeMyIngreList = get_ingre_myref()
-
-        //Log.d("Responsee = ", getIngreMyref.toString())
-        //ingreAdapter.inMyRef = inMyRefIngre
-
         binding.recipedetailIngreRecyclerView.adapter = ingreAdapter
         binding.recipedetailDifficultyText.text = recipeItem.recipeDifficulty
         binding.recipedetailTimeText.text = recipeItem.recipeTime
         binding.recipedetailAmount.text = recipeItem.recipeServing + "인분"
-        //binding.recipedetailAmount =
         binding.recipedetailRating.text = String.format("%.1f", recipeItem.recipeRating)
         val recipeViewPager = binding.recipedetailRecipeStepViewPager
         if(recipeItem.recipeStep!=null) {
@@ -101,6 +91,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             }
             recipebookmarked = !recipebookmarked
         }
+
         binding.recipedetailWriterBookmark.setOnClickListener{
             //이거 누르면 작성자 구독 아래 코드를 태스크 핸들러에 넣으면 될듯 합니다
             if (writerbookmarked) {
@@ -238,36 +229,29 @@ class RecipeDetailActivity : AppCompatActivity() {
             wr.flush()
             wr.close()
 
-            var responseCode = conn.getResponseCode()
-            Log.d("Response : responseCode", responseCode.toString())
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
-                Log.d("Response", "Success")
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
-                Log.d("Response", "fail")
-            }
 
+            val streamReader = InputStreamReader(conn.inputStream)
+            val buffered = BufferedReader(streamReader)
             val content = StringBuilder()
-            val brstr = br.readLine().toString()
-            content.append(brstr)
-
-
-
+            while(true) {
+                val line = buffered.readLine() ?: break
+                content.append(line)
+            }
             val data =content.toString()
             val jsonArr = JSONArray(data)
-            val i = 0
+
             for (i in 0 until jsonArr.length()) {
                 val jsonObj = jsonArr.getJSONObject(i)
                 val bmi = jsonObj.getString("bookmark_id").toString()
-                if(bmi == recipeItem.recipeWriter){
+
+                if(bmi == recipeItem.recipeWriter!!){
                     writerbookmarked = true
-                }else if(bmi == recipeItem.recipeId){
+                }
+                if(bmi == recipeItem.recipeId){
                     recipebookmarked = true
                 }
             }
-            Log.d("Response : resultJson = ", content.toString())
+
             handler.post{
                 if(writerbookmarked == true){
                     binding.recipedetailWriterBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)

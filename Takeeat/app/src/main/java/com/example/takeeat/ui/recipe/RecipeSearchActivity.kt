@@ -121,11 +121,12 @@ class RecipeSearchActivity : AppCompatActivity() {
 
 
                 var recipeSearchResult: ArrayList<RecipeItem> = ArrayList<RecipeItem>()
+
                 val handler = Handler()
                 progressON(this)
                 Thread(Runnable {
                     recipeSearchResult = search_recipe_item(requeststr)
-                    Log.d("Response List : ", recipeSearchResult.toString())
+                    Log.d("ResponseList : ", recipeSearchResult.toString())
                     handler.post {
                         val intent = Intent(this, RecipeSearchResultActivity::class.java)
                         intent.putExtra("Search_Result", recipeSearchResult)
@@ -232,8 +233,6 @@ class RecipeSearchActivity : AppCompatActivity() {
 
         var requestBody = str
 
-
-        //Log.d("Responsee reqB = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -248,9 +247,7 @@ class RecipeSearchActivity : AppCompatActivity() {
             content.append(line)
         }
         val data =content.toString()
-        //Log.d("Responsee data = ",data)
         val jsonArr = JSONArray(data)
-        val i = 0
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val recipeStep = ArrayList<RecipeProcess>()
@@ -300,16 +297,9 @@ class RecipeSearchActivity : AppCompatActivity() {
                 ))
         }
 
-        // 스트림과 커넥션 해제
         buffered.close()
         conn.disconnect()
 
-        //Log.d("Responsee : recipeTestList ",recipeTestList.toString())
-        //ResultList = recipeTestList
-
-
-        //
-        //}).start()
         return recipeTestList
     }
 
