@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:textColor="@color/black"
-    android:textSize="10sp"
+    android:textSize="15sp"
     android:textStyle="normal"
     tools:text="별점순"
     tools:ignore="SmallSp">
