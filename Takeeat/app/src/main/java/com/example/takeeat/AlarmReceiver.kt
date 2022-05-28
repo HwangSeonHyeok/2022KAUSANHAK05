@@ -67,9 +67,7 @@ class AlarmReceiver : BroadcastReceiver() {
                             Log.d("alarm notification:",e.toString())
                         }
                         x.itemname?.let {
-                            NotificationItem(x.itemid.toLong(),
-                                it
-                            )
+                            x.itemid?.let { it1 -> NotificationItem(it1, it) }
                         }?.let { notifdb.notifDao().insertItem(it) }
                     }
                 }

@@ -698,11 +698,9 @@ class RefrigeratorFragment : Fragment() {
                 fetchList.clear()
                 itemTestList = get_ref_item()
                 refDB.clearAllTables()
-                var i = 0
                 for (x in itemTestList) {
                     fetchList.add(x)
-                    refDB.refdbDao().insertItem(RefDBItem(i, x.itemname, x.itemexp?.time))
-                    i++
+                    refDB.refdbDao().insertItem(RefDBItem(x.itemid?.toLong(), x.itemname, x.itemexp?.time))
                 }
 
                 handler.post() {
@@ -736,7 +734,7 @@ class RefrigeratorFragment : Fragment() {
 
 @Entity(tableName = "refDBlist")
 public data class RefDBItem (
-    @PrimaryKey val itemid : Int,
+    @PrimaryKey val itemid : Long?,
     @ColumnInfo var itemname: String?,
     @ColumnInfo var itemexp: Long?
 )

@@ -154,4 +154,56 @@
         <item>초급</item>
         <item>중급</item>
     </string-array>
+    <string-array name="IconSourceArray">
+        <item>편집 아이콘: Pixel perfect - Flaticon</item>
+        <item>표 아이콘: Freepik - Flaticon</item>
+        <item>냉장고: Vichanon Chaimsuk - Flaticon</item>
+        <item>화살표: deemakdaksina - Flaticon</item>
+        <item>숫가락, 포크: IconBaandar - Flaticon</item>
+        <item>국수: Freepik - Flaticon</item>
+        <item>밥그릇: Freepik - Flaticon</item>
+        <item>조리 아이콘: Freepik - Flaticon</item>
+        <item>음식과 식당: Freepik - Flaticon</item>
+        <item>샐러드: Freepik - Flaticon</item>
+        <item>김치: Flat Icons - Flaticon</item>
+        <item>접시: monkik - Flaticon</item>
+        <item>양념: monkik - Flaticon</item>
+        <item>음료: Freepik - Flaticon</item>
+        <item>디저트: Febrian Hidayat - Flaticon</item>
+        <item>요리: Flat Icons - Flaticon</item>
+        <item>음식: Freepik - Flaticon</item>
+        <item>스테이크: Pause08 - Flaticon</item>
+        <item>빵: Freepik - Flaticon</item>
+        <item>쿠키: Smashicons - Flaticon</item>
+        <item>포크: Freepik - Flaticon</item>
+        <item>장독: https://notefolio.net/koomk/84593</item>
+        <item>떡: Freepik - Flaticon</item>
+        <item>야채: surang - Flaticon</item>
+        <item>간장: mangsaabguru - Flaticon</item>
+        <item>소스: Freepik - Flaticon</item>
+        <item>견과류: photo3idea_studio - Flaticon</item>
+        <item>계란: Freepik - Flaticon</item>
+        <item>시나몬: Freepik - Flaticon</item>
+        <item>해물: surang - Flaticon</item>
+        <item>고추: Freepik - Flaticon</item>
+        <item>과일: Freepik - Flaticon</item>
+        <item>꿀: monkik - Flaticon</item>
+        <item>증기: ultimatearm - Flaticon</item>
+        <item>쌀: Freepik - Flaticon</item>
+        <item>잼: Freepik - Flaticon</item>
+        <item>해조류: Freepik - Flaticon</item>
+        <item>고기: Freepik - Flaticon</item>
+        <item>파스타: Smashicons - Flaticon</item>
+        <item>우유: Smashicons - Flaticon</item>
+        <item>두부: Freepik - Flaticon</item>
+        <item>지중해: small.smiles - Flaticon</item>
+        <item>버섯: monkik - Flaticon</item>
+        <item>기미: Freepik - Flaticon</item>
+        <item>소시지: iconixar - Flaticon</item>
+        <item>얼음: iconixar - Flaticon</item>
+        <item>옥수수: Nikita Golubev - Flaticon</item>
+        <item>초콜릿: monkik - Flaticon</item>
+        <item>카레: Freepik - Flaticon</item>
+        <item>음주: monkik - Flaticon</item>
+    </string-array>
 </resources>
