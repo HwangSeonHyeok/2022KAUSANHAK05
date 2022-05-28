@@ -49,6 +49,7 @@ corn <a href="https://www.flaticon.com/kr/free-icons/" title="옥수수 아이�
 chocolate <a href="https://www.flaticon.com/kr/free-icons/" title="초콜릿 아이콘">초콜릿 아이콘  제작자: monkik - Flaticon</a>
 curry <a href="https://www.flaticon.com/kr/free-icons/" title="카레 아이콘">카레 아이콘  제작자: Freepik - Flaticon</a>
 drink <a href="https://www.flaticon.com/kr/free-icons/" title="음주 아이콘">음주 아이콘  제작자: monkik - Flaticon</a>
+instantramen <a href="https://www.flaticon.com/kr/free-icons/-" title="인스턴트 국수 아이콘">인스턴트 국수 아이콘  제작자: surang - Flaticon</a>
 
 
 

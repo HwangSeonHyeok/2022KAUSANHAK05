@@ -590,7 +590,7 @@ class RefrigeratorFragment : Fragment() {
                 Log.d("Response","fail")
                 return null
             }
-            Log.d("Response","?")
+            //Log.d("Response","?"+br.readLine())
             var resultJson= JSONObject(br.readLine())
             Log.d("Response","why error?")
             var resultImage = resultJson.getJSONArray("images")
@@ -603,10 +603,19 @@ class RefrigeratorFragment : Fragment() {
             val resultSize = resultField.length()
             Log.d("Response","FieldSize"+resultSize.toString())
             var response  = ArrayList<RefItem>()
-            for(i in 0 until resultSize){
+            for(i in 0 until resultSize) {
                 resultJson = resultField.getJSONObject(i)
-                val itemName = resultJson.getJSONObject("name").getJSONObject("formatted").getString("value")
-                val itemAmount = resultJson.getJSONObject("count").getJSONObject("formatted").getInt("value")
+                val itemName =
+                    resultJson.getJSONObject("name").getJSONObject("formatted").getString("value")
+                //Log.d("Response", "Name:" + itemName + resultJson.getJSONObject("count").toString())
+                val count = resultJson.optJSONObject("count")
+                var itemAmount: Int = 1
+                if (count != null) {
+                    itemAmount =
+                        count.getJSONObject("formatted")
+                            .getInt("value")
+                }
+
                 response.add(RefItem(itemName,null,null,itemAmount,null, null))
             }
             br.close()

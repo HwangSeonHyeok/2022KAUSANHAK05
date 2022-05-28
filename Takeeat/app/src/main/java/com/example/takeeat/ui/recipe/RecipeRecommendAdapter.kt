@@ -119,6 +119,7 @@ class RecipeRecommendAdapter (var data: ArrayList<RecipeItem>):  RecyclerView.Ad
             content.append(line)
         }
         val data =content.toString()
+        Log.d("ResponseErr",data.toString())
         val jsonArr = JSONArray(data)
         Log.d("Response","get_ingre_myRef"+jsonArr.toString())
         for (i in 0 until jsonArr.length()) {

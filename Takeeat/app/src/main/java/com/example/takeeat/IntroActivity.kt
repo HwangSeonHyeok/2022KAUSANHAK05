@@ -24,16 +24,16 @@ class IntroActivity : AppCompatActivity() {
         val handler = Handler()
         Thread {
             connectURLGet()
-            handler.post{
+            /*handler.post{
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
                 finish()
-            }
-            /*handler.postDelayed(Runnable() {
+            }*/
+            handler.postDelayed(Runnable() {
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
                 finish()
-            }, 1500)*/
+            }, 1500)
         }.start()
     }
 
