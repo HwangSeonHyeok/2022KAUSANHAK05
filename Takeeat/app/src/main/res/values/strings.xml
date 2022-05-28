@@ -9,6 +9,9 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_order_description">조리 방법 입력 후 사진\n아이콘을 눌러서 사진 추가</string>
+    <string name="notification_toggle">notification_toggle</string>
+    <string name="notification_hour">notification_hour</string>
+    <string name="notification_minute">notification_minute</string>
     <string-array name="categorySpinnerItems">
         <item>카테고리</item>
         <item>밥/죽/떡</item>

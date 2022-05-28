@@ -27,6 +27,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import androidx.preference.PreferenceManager
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId
@@ -98,12 +99,20 @@ class MainActivity : AppCompatActivity() {
     companion object {
         fun startAlarm(context: Context){
             val intent = Intent(context, AlarmReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
             val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val sharedPref = PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
 
+            val notificationToggle = sharedPref?.getBoolean(context.getString(R.string.notification_toggle),true)
+            if(notificationToggle == false){
+                Log.d("Alarm disabled","")
+                return
+            }
             // 알림 시간 설정
-            // 보통 설정시간후 3분이내에 울립니다
-            val alarmTime = LocalTime.of(20, 15)
+            val alarmHour = sharedPref.getInt(context.getString(R.string.notification_hour),10)
+            val alarmMinute = sharedPref.getInt(context.getString(R.string.notification_minute),0)
+
+            val alarmTime = LocalTime.of(alarmHour,alarmMinute)
             var now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
             val nowTime = now.toLocalTime()
             // if same time, schedule for next day as well
@@ -130,6 +139,14 @@ class MainActivity : AppCompatActivity() {
             else {
                 alarm.set(AlarmManager.RTC_WAKEUP, startMillis, pendingIntent)
             }
+        }
+
+        fun cancelAlarm(context: Context) {
+            val intent = Intent(context, AlarmReceiver::class.java)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+            val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            Log.d("Alarm has been canceled", "")
+            alarm.cancel(pendingIntent)
         }
 
         fun createNotificationChannel(context: Context) {
