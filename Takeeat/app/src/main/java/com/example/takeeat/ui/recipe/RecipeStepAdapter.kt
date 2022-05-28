@@ -140,26 +140,10 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
 
 
             var requestBody = job.toString()
-            Log.d("Response : requestBody = ",requestBody)
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
-
-            var responseCode = conn.getResponseCode()
-            Log.d("Response : responseCode",responseCode.toString())
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
-                Log.d("Response","Success")
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
-                Log.d("Response","fail")
-            }
-
-            var resultJson= JSONObject(br.readLine())
-            Log.d("Response : resultJson = ",resultJson.toString())
-
 
         }).start()
     }

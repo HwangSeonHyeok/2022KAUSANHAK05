@@ -154,18 +154,6 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             wr.flush()
             wr.close()
 
-            var responseCode = conn.getResponseCode()
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
-            }
-
-            var resultJson= JSONObject(br.readLine())
-
-
-
             handler.post{
                 sleep(500)
                 progressOFF()
