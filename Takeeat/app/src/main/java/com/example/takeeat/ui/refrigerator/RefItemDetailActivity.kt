@@ -255,25 +255,11 @@ class RefItemDetailActivity : AppCompatActivity() {
             conn.setDoInput(true)
 
             var requestBody = job.toString()
-            Log.d("Responseeee : requestBody", requestBody)
-
 
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
-
-            var responseCode = conn.getResponseCode()
-
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream()))
-                Log.d("Response","Success Success Success Success Success Success")
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream()))
-                Log.d("Response","fail")
-            }
-
 
             handler.post{
                 Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_LONG).show()
