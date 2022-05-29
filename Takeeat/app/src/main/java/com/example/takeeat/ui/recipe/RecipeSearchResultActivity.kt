@@ -80,4 +80,6 @@ class RecipeSearchResultActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }

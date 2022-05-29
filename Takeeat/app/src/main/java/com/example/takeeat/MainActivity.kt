@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         fun startAlarm(context: Context){
             val intent = Intent(context, AlarmReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE)
             val alarm = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val sharedPref = PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
 

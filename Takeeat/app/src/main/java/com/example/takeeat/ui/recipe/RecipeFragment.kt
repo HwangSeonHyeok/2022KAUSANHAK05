@@ -26,10 +26,12 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.InputStreamReader
+import java.lang.Math.min
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
 import java.util.*
+import kotlin.collections.ArrayList
 
 class RecipeFragment : Fragment() {
 
@@ -57,31 +59,43 @@ class RecipeFragment : Fragment() {
         val categoryTabLayout : TabLayout = binding.recipefragmentTabLayout
 
         val handler = Handler()
-
-
-
         (context as MainActivity).progressON()
         Thread {
-            refItemArray=get_ref_item()
+            refItemArray = get_ref_item()
             post_recommend_recipe()
-            val recipe_list: ArrayList<RecipeItem> = get_recommend_recipe()//테스트용 코드 나중에 추천코드로 변경
+            val recipe_list: ArrayList<RecipeItem> =
+                get_recommend_recipe()//테스트용 코드 나중에 추천코드로 변경
+            var ingreRecipeArray: ArrayList<RecipeItem> = ArrayList<RecipeItem>()
+            var recommendIngre : RefItem? = null
+            if(refItemArray.size!=0) {
+                recommendIngre = refItemArray.minByOrNull { it.itemexp!!}
 
-            handler.post{
+                if (recommendIngre != null){
+                    val rObject = JSONObject()
+                    rObject.put(
+                        "item_tag",
+                        URLEncoder.encode(recommendIngre.itemtag, "UTF-8")
+                    )
+                    ingreRecipeArray = get_recipe_item(rObject)
+                }
+            }
 
-                for(item in refItemArray){
-                    if(item.itemtag!=null) {
-                        if(!refItemTagArray.contains(item.itemtag))
+            handler.post {
+
+                for (item in refItemArray) {
+                    if (item.itemtag != null) {
+                        if (!refItemTagArray.contains(item.itemtag))
                             refItemTagArray.add(item.itemtag!!)
                     }
                 }
 
-                val categoryAdapter = CategoryPagerAdapter(refItemTagArray,recipeCategoryList)
+                val categoryAdapter = CategoryPagerAdapter(refItemTagArray, recipeCategoryList)
                 categoryPager.adapter = categoryAdapter
                 categoryTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
                     override fun onTabSelected(tab: TabLayout.Tab) {
                         val position = tab.position
                         val refPage = (categoryPager.adapter as CategoryPagerAdapter).refPage
-                        if (position == 0&&categoryPager.currentItem>=refPage) {
+                        if (position == 0 && categoryPager.currentItem >= refPage) {
                             categoryPager.setCurrentItem(0)
                         } else if (position == 1) {
                             categoryPager.setCurrentItem(refPage)
@@ -91,7 +105,8 @@ class RecipeFragment : Fragment() {
                     override fun onTabUnselected(tab: TabLayout.Tab) {}
                     override fun onTabReselected(tab: TabLayout.Tab) {}
                 })
-                categoryPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+                categoryPager.registerOnPageChangeCallback(object :
+                    ViewPager2.OnPageChangeCallback() {
                     override fun onPageScrolled(
                         position: Int,
                         positionOffset: Float,
@@ -104,11 +119,10 @@ class RecipeFragment : Fragment() {
                     override fun onPageSelected(position: Int) {
                         super.onPageSelected(position)
                         val refPage = (categoryPager.adapter as CategoryPagerAdapter).refPage
-                        if(position == refPage) {
+                        if (position == refPage) {
                             categoryTabLayout.selectTab(categoryTabLayout.getTabAt(1)!!)
-                            Log.d("ResponsePageChange","1"+"position"+position.toString())
-                        }
-                        else if (position==refPage-1){
+                            Log.d("ResponsePageChange", "1" + "position" + position.toString())
+                        } else if (position == refPage - 1) {
                             categoryTabLayout.selectTab(categoryTabLayout.getTabAt(0)!!)
                             Log.d("ResponsePageChange", "0" + "position" + position.toString())
                         }
@@ -122,39 +136,34 @@ class RecipeFragment : Fragment() {
                     }
                 })
 
-
-
-            //테스트용
-                val blockName = "추천테스트용"
-                val recipeArray = ArrayList<RecipeItem>()
-                val recipeArray2 = ArrayList<RecipeItem>()
-                for(i in 0 until recipe_list.size){
-                    if(i<5){
-                        recipeArray.add(recipe_list[i])
-                        if(recipeArray.size==5){
-                            recommendData.add(RecipeBlock("추천테스트"+recommendData.size.toString(),recipeArray))
-                        }
+                if(recommendData.size == 0) {
+                    var name = AWSMobileClient.getInstance().username.split("@")
+                    recommendData.add(
+                        RecipeBlock(
+                            name[0] + "님을 위한 추천요리",
+                            recipe_list
+                        )
+                    )
+                    if(recommendIngre != null) {
+                        ingreRecipeArray.sortByDescending{it.recipeRating}
+                        val blockitem = ingreRecipeArray.slice(0..min(9,ingreRecipeArray.size)) as ArrayList<RecipeItem>
+                        recommendData.add(RecipeBlock("냉장고에 " + recommendIngre.itemname + "로 요리해보세요",blockitem))
                     }
-                    if(4<=i){
-                        recipeArray2.add(recipe_list[i])
-                        if(recipeArray.size==5){
-                            recommendData.add(RecipeBlock("추천테스트"+recommendData.size.toString(),recipeArray2))
-                        }
-                    }
-
                 }
+
                 adapter = RecipeRecommendBlockAdapter(recommendData)
                 recommendRecyclerView.adapter = adapter
-                for(i in recommendData) {
+                for (i in recommendData) {
                     Log.d("Response", "why" + i.recommendList.toString())
                 }
-            //테스토용 여기까지
+                //테스토용 여기까지
                 (context as MainActivity).progressOFF()
 
 
             }
 
         }.start()
+
 
         //
 
@@ -372,6 +381,88 @@ class RecipeFragment : Fragment() {
         wr.close()
 
         conn.disconnect()
+    }
+
+    fun get_recipe_item(job : JSONObject) : java.util.ArrayList<RecipeItem> {
+        val recipeTestList = java.util.ArrayList<RecipeItem>()
+
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/item_get_recipe")
+        var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+        conn.setUseCaches(false)
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setRequestProperty("Connection","keep-alive")
+        conn.setRequestProperty("Accept", "application/json")
+        conn.setDoOutput(true)
+        conn.setDoInput(true)
+
+
+        var requestBody = job.toString()
+        val wr = DataOutputStream(conn.getOutputStream())
+        wr.writeBytes(requestBody)
+        wr.flush()
+        wr.close()
+
+        val streamReader = InputStreamReader(conn.inputStream)
+        val buffered = BufferedReader(streamReader)
+
+        val content = StringBuilder()
+        while(true) {
+            val line = buffered.readLine() ?: break
+            content.append(line)
+        }
+        val data =content.toString()
+        val jsonArr = JSONArray(data)
+        for (i in 0 until jsonArr.length()) {
+            val jsonObj = jsonArr.getJSONObject(i)
+            val recipeStep = java.util.ArrayList<RecipeProcess>()
+            val recipeIngre = java.util.ArrayList<IngredientsInfo>()
+            val reciperecipeIngredientsTag = java.util.ArrayList<String>()
+            val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
+            for(j in 0 until recipeItemArray.length()){
+                recipeStep.add(
+                    RecipeProcess(
+                        recipeItemArray.getJSONObject(j).getString("txt"),
+                        URL(recipeItemArray.getJSONObject(j).getString("img"))
+                    )
+                )
+            }
+            val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
+            for(j in 0 until ingreArray.length()){
+                recipeIngre.add(
+                    IngredientsInfo(
+                        ingreArray.getJSONObject(j).getString("ingre_name"),
+                        ingreArray.getJSONObject(j).getString("ingre_count").toDoubleOrNull(),
+                        ingreArray.getJSONObject(j).getString("ingre_unit"))
+                )
+            }
+
+            val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
+            for(j in 0 until ingreSearchArray.length()){
+                reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
+            }
+
+            recipeTestList.add(
+                RecipeItem(
+                    jsonObj.getString("id"),
+                    jsonObj.getString("name"),
+                    recipeIngre,
+                    jsonObj.getString("summary"),
+                    jsonObj.getDouble("rate_sum")/jsonObj.getDouble("rate_num"),
+                    jsonObj.getString("time"),
+                    jsonObj.getString("difficult"),
+                    jsonObj.getString("author"),
+                    URL(jsonObj.getString("img")),
+                    recipeStep,
+                    reciperecipeIngredientsTag,
+                    jsonObj.getString("serving")
+                )
+            )
+        }
+        buffered.close()
+        conn.disconnect()
+
+        return recipeTestList
     }
 
 }
