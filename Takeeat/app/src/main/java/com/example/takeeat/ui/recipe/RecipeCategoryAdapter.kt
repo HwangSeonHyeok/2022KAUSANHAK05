@@ -101,10 +101,6 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
     }
 
     fun get_recipe_item(job : JSONObject) : java.util.ArrayList<RecipeItem> {
-        //Thread(Runnable{
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
         val recipeTestList = java.util.ArrayList<RecipeItem>()
 
         val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/item_get_recipe")
@@ -119,9 +115,6 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
 
 
         var requestBody = job.toString()
-
-
-        Log.d("Response1 = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -137,16 +130,11 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
         }
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        //Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
-        //Log.d("Response : jsonlength",jsonArr.length().toString())
-        val i = 0
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val recipeStep = java.util.ArrayList<RecipeProcess>()
             val recipeIngre = java.util.ArrayList<IngredientsInfo>()
             val reciperecipeIngredientsTag = java.util.ArrayList<String>()
-
-            Log.d("Response : recipe", "들어옴")
             val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
             for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(
@@ -156,11 +144,7 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
                     )
                 )
             }
-            Log.d("Response : recipe", "나감")
-
-            //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
             val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
-            Log.d("Response : ingre", "들어옴")
             for(j in 0 until ingreArray.length()){
                 recipeIngre.add(
                     IngredientsInfo(
@@ -169,18 +153,12 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
                         ingreArray.getJSONObject(j).getString("ingre_unit"))
                 )
             }
-            Log.d("Response : ingre", recipeIngre.toString())
-
-            Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
-            //Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(1).toString())
 
             val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
             for(j in 0 until ingreSearchArray.length()){
                 reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
             }
 
-            Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
-            Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(
                 RecipeItem(
                     jsonObj.getString("id"),
@@ -197,28 +175,14 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
                     jsonObj.getString("serving")
                 )
             )
-            Log.d("Response : ingreeee",recipeIngre.toString())
-            Log.d("Response : ingreeee",reciperecipeIngredientsTag.toString())
         }
-
-        // 스트림과 커넥션 해제
         buffered.close()
         conn.disconnect()
 
-
-
-
-
-
-        //}).start()
         return recipeTestList
     }
 
     fun search_recipe_item(str : String) : ArrayList<RecipeItem>{
-        //Thread(Runnable{
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
         val recipeTestList = ArrayList<RecipeItem>()
 
         val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/search")
@@ -232,9 +196,6 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
         conn.setDoInput(true)
 
         var requestBody = str
-
-
-        //Log.d("Responsee reqB = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -249,7 +210,6 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
             content.append(line)
         }
         val data =content.toString()
-        //Log.d("Responsee data = ",data)
         val jsonArr = JSONArray(data)
         val i = 0
         for (i in 0 until jsonArr.length()) {
@@ -259,7 +219,6 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
             val reciperecipeIngredientsTag = ArrayList<String>()
 
             val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
-            Log.d("Response",recipeItemArray.toString())
             for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(
                     RecipeProcess(
@@ -300,17 +259,9 @@ class RecipeCategoryAdapter (val data: ArrayList<String>, val mode : Int) : Recy
                     jsonObj.getString("serving")
                 ))
         }
-
-        // 스트림과 커넥션 해제
         buffered.close()
         conn.disconnect()
 
-        //Log.d("Responsee : recipeTestList ",recipeTestList.toString())
-        //ResultList = recipeTestList
-
-
-        //
-        //}).start()
         return recipeTestList
     }
 

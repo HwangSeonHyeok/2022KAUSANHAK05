@@ -21,13 +21,13 @@ import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
-import androidx.preference.PreferenceManager
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId

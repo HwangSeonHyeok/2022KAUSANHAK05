@@ -99,6 +99,8 @@ class BookMarkFragment :Fragment() {
                 bookMark = bookMark.substring(0, bookMark.length - 1) + "]}"
             }
 
+            Log.d("Responseee bookMark", bookMark)
+
             if(bookMark!="{\"bookmark_list\":[") {
                 val recipeTestList = ArrayList<RecipeItem>()
                 val url1: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/getbookmarkrecipe")
@@ -159,6 +161,7 @@ class BookMarkFragment :Fragment() {
                         reciperecipeIngredientsTag1.add(ingreSearchArray1.getString(j).toString())
                     }
 
+                    Log.d("Responseeee id : ", jsonObj1.getString("id"))
                     recipeTestList.add(
                         RecipeItem(
                             jsonObj1.getString("id"),

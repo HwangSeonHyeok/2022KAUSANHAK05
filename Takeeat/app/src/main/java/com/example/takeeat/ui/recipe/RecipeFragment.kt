@@ -55,15 +55,16 @@ class RecipeFragment : Fragment() {
         val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
         val categoryPager : ViewPager2 = binding.recipefragmentViewPager
         val categoryTabLayout : TabLayout = binding.recipefragmentTabLayout
-        val rObject = JSONObject()
+
         val handler = Handler()
 
 
-        rObject.put("item_tag", URLEncoder.encode("감자", "UTF-8"))
+
         (context as MainActivity).progressON()
         Thread {
             refItemArray=get_ref_item()
-            val recipe_list: ArrayList<RecipeItem> = get_recipe_item(rObject)//테스트용 코드 나중에 추천코드로 변경
+            post_recommend_recipe()
+            val recipe_list: ArrayList<RecipeItem> = get_recommend_recipe()//테스트용 코드 나중에 추천코드로 변경
 
             handler.post{
 
@@ -212,19 +213,17 @@ class RecipeFragment : Fragment() {
         _binding = null
     }
 
+
+
     fun get_ref_item(): ArrayList<RefItem> {
         val itemTestList = ArrayList<RefItem>()
 
-        // 네트워킹 예외처리를 위한 try ~ catch 문
         try {
             val url:URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref" + "/" + AWSMobileClient.getInstance().username)
-
-            // 서버와의 연결 생성
             val urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.requestMethod = "GET"
 
             if (urlConnection.responseCode == HttpURLConnection.HTTP_OK) {
-                // 데이터 읽기
                 val streamReader = InputStreamReader(urlConnection.inputStream)
                 val buffered = BufferedReader(streamReader)
 
@@ -258,11 +257,8 @@ class RecipeFragment : Fragment() {
                         jsonObj.getString("item_amount").toInt(),
                         jsonObj.getString("item_unit"),
                         jsonObj.getString("item_id")))
-                    Log.d("Response : jsonObj",jsonObj.toString())
 
                 }
-
-                // 스트림과 커넥션 해제
                 buffered.close()
                 urlConnection.disconnect()
             }
@@ -274,14 +270,10 @@ class RecipeFragment : Fragment() {
         return itemTestList
     }
 
-    fun get_recipe_item(job : JSONObject) : ArrayList<RecipeItem>{
-        //Thread(Runnable{
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
+    fun get_recommend_recipe() : ArrayList<RecipeItem>{
         val recipeTestList = ArrayList<RecipeItem>()
 
-        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/item_get_recipe")
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recommend/get_recommend")
         var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
         conn.setUseCaches(false)
         conn.setRequestMethod("POST")
@@ -292,10 +284,8 @@ class RecipeFragment : Fragment() {
         conn.setDoInput(true)
 
 
-        var requestBody = job.toString()
+        var requestBody = "{}"
 
-
-        Log.d("Response1 = ",requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
@@ -311,16 +301,12 @@ class RecipeFragment : Fragment() {
         }
         val data =content.toString()
         val jsonArr = JSONArray(data)
-        //Log.d("Response : jsonArr",jsonArr.getJSONObject(0).getJSONArray("recipe").toString())
-        //Log.d("Response : jsonlength",jsonArr.length().toString())
-        val i = 0
+
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val recipeStep = ArrayList<RecipeProcess>()
             val recipeIngre = ArrayList<IngredientsInfo>()
             val reciperecipeIngredientsTag = ArrayList<String>()
-
-            Log.d("Response : recipe", "들어옴")
             val recipeItemArray = jsonArr.getJSONObject(i).getJSONObject("recipe").getJSONArray("recipe_item")
             for(j in 0 until recipeItemArray.length()){
                 recipeStep.add(
@@ -329,11 +315,7 @@ class RecipeFragment : Fragment() {
                     URL(recipeItemArray.getJSONObject(j).getString("img")))
                 )
             }
-            Log.d("Response : recipe", "나감")
-
-            //Log.d("Response : ingre", jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item").length().toString())
             val ingreArray =jsonArr.getJSONObject(i).getJSONObject("ingre").getJSONArray("ingre_item")
-            Log.d("Response : ingre", "들어옴")
             for(j in 0 until ingreArray.length()){
                 recipeIngre.add(
                     IngredientsInfo(
@@ -342,18 +324,12 @@ class RecipeFragment : Fragment() {
                     ingreArray.getJSONObject(j).getString("ingre_unit"))
                 )
             }
-            Log.d("Response : ingre", recipeIngre.toString())
-
-            Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").toString())
-            //Log.d("Response : scc", jsonArr.getJSONObject(i).getJSONArray("ingre_search").getString(1).toString())
 
             val ingreSearchArray = jsonArr.getJSONObject(i).getJSONArray("ingre_search")
             for(j in 0 until ingreSearchArray.length()){
                 reciperecipeIngredientsTag.add(ingreSearchArray.getString(j).toString())
             }
 
-            Log.d("Response : recipeStep", "RecipeStep"+recipeStep.toString())
-            Log.d("Response : jsonObj",jsonObj.toString())
             recipeTestList.add(
                 RecipeItem(
                     jsonObj.getString("id"),
@@ -369,21 +345,33 @@ class RecipeFragment : Fragment() {
                     reciperecipeIngredientsTag,
                     jsonObj.getString("serving")
                 ))
-            Log.d("Response : ingreeee",recipeIngre.toString())
-            Log.d("Response : ingreeee",reciperecipeIngredientsTag.toString())
         }
 
-        // 스트림과 커넥션 해제
         buffered.close()
         conn.disconnect()
 
-
-
-
-
-
-        //}).start()
         return recipeTestList
+    }
+
+    fun post_recommend_recipe(){
+        val url: URL = URL("http://52.78.228.196/recom")
+        var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+        conn.setUseCaches(false)
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setRequestProperty("Connection","keep-alive")
+        conn.setRequestProperty("Accept", "application/json")
+        conn.setDoOutput(true)
+        conn.setDoInput(true)
+
+        var requestBody = "{\"user_name\":\"" + AWSMobileClient.getInstance().username + "\"}"
+
+        val wr = DataOutputStream(conn.getOutputStream())
+        wr.writeBytes(requestBody)
+        wr.flush()
+        wr.close()
+
+        conn.disconnect()
     }
 
 }

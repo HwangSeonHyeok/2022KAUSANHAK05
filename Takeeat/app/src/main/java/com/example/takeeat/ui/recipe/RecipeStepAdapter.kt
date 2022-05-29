@@ -79,7 +79,10 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             holder.commitButton.setOnClickListener {
                 //여기 별점 db반영코드  holder.ratingBar.rating
 
-                post_recipe_rating(holder.ratingBar.rating)
+                val rate = holder.ratingBar.rating
+                post_recipe_rating(rate)
+                recipe_rating_update(rate)
+                post_recipe_recommend(rate)
 
 
                 val dialogBuilder = AlertDialog.Builder(holder.commitButton.context)
@@ -115,6 +118,7 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
     override fun getItemCount(): Int {
         return data.size+1
     }
+
     fun setRecipeIngre(ingrelist:ArrayList<IngredientsInfo>){
         ingreList = ingrelist
     }
@@ -147,4 +151,64 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
 
         }).start()
     }
+
+    fun recipe_rating_update(rate:Float){
+        Thread(Runnable{
+
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/rating_update")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("POST")
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+
+
+            var job = JSONObject()
+            job.put("user_id", AWSMobileClient.getInstance().username)
+            job.put("recipe_id", recipeID)
+            job.put("rating", rate)
+
+
+            var requestBody = job.toString()
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+        }).start()
+    }
+
+    fun post_recipe_recommend(rate:Float){
+        Thread(Runnable{
+            val url: URL = URL("http://52.78.228.196/recom")
+            var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
+            conn.setUseCaches(false)
+            conn.setRequestMethod("GET")
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Connection","keep-alive")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setDoOutput(true)
+            conn.setDoInput(true)
+
+            var job = JSONObject()
+            job.put("user_id", AWSMobileClient.getInstance().username)
+            job.put("recipe_id", recipeID)
+            job.put("rating", rate)
+
+
+            var requestBody = job.toString()
+            val wr = DataOutputStream(conn.getOutputStream())
+            wr.writeBytes(requestBody)
+            wr.flush()
+            wr.close()
+
+
+
+        }).start()
+    }
+
+
 }
