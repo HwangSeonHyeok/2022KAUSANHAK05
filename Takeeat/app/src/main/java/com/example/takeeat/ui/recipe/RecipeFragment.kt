@@ -146,7 +146,7 @@ class RecipeFragment : Fragment() {
                     )
                     if(recommendIngre != null) {
                         ingreRecipeArray.sortByDescending{it.recipeRating}
-                        val blockitem = ingreRecipeArray.slice(0..min(9,ingreRecipeArray.size)) as ArrayList<RecipeItem>
+                        val blockitem = ingreRecipeArray.slice(0..min(9,ingreRecipeArray.size-1)) as ArrayList<RecipeItem>
                         recommendData.add(RecipeBlock("냉장고에 " + recommendIngre.itemname + "로 요리해보세요",blockitem))
                     }
                 }
