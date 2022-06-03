@@ -52,19 +52,8 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        if(position<data.size) {
-            data.get(position).let { item ->
-                with(holder) {
-                    stepText.text =
-                        "Step " + (this.absoluteAdapterPosition + 1).toString() + "/" + (itemCount-1).toString()
-
-                    explanation.text = item.recipeExplanation
-                    Glide.with(holder.image.context).load(item.imgURL).into(image)
-                }
-            }
-        }
-        else{
-
+        Log.d("ResponseStep",position.toString())
+        if(holder.absoluteAdapterPosition==data.size) {
             holder.stepText.visibility  = View.INVISIBLE
             holder.explanation.visibility  = View.INVISIBLE
             holder.image.visibility  = View.INVISIBLE
@@ -112,6 +101,28 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             }
 
         }
+        else{
+
+            data.get(position).let { item ->
+                with(holder) {
+                    holder.stepText.visibility  = View.VISIBLE
+                    holder.explanation.visibility  = View.VISIBLE
+                    holder.image.visibility  = View.VISIBLE
+                    holder.ratingText.visibility = View.INVISIBLE
+                    holder.askRatingText.visibility = View.INVISIBLE
+                    holder.ratingBar.visibility = View.INVISIBLE
+                    holder.commitButton.visibility = View.INVISIBLE
+                    Log.d("ResponseStep","1")
+                    stepText.text =
+                        "Step " + (this.absoluteAdapterPosition + 1).toString() + "/" + (itemCount-1).toString()
+                    explanation.text = item.recipeExplanation
+                    Glide.with(holder.image.context).load(item.imgURL).into(image)
+                }
+            }
+
+
+
+        }
 
     }
 
@@ -148,13 +159,13 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
+            Log.d("ResponseRating",conn.responseCode.toString())
 
         }).start()
     }
 
     fun recipe_rating_update(rate:Float){
         Thread(Runnable{
-
             val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/rating_update")
             var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
             conn.setUseCaches(false)
@@ -177,6 +188,7 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
+            Log.d("ResponseRating",conn.responseCode.toString())
 
         }).start()
     }
