@@ -242,8 +242,6 @@ class RefItemDetailActivity : AppCompatActivity() {
         val handler = Handler()
         Thread(Runnable{
 
-            AWSMobileClient.getInstance()
-
             val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/delete")
             var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
             conn.setUseCaches(false)
@@ -255,18 +253,20 @@ class RefItemDetailActivity : AppCompatActivity() {
             conn.setDoInput(true)
 
             var requestBody = job.toString()
+            Log.d("Responseeee req: ", requestBody)
 
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
 
+            Log.d("Responseeee code: ", conn.responseCode.toString())
             handler.post{
                 Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_LONG).show()
                 finish()
             }
 
-
+            conn.disconnect()
 
 
         }).start()

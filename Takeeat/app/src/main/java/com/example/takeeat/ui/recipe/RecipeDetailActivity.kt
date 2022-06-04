@@ -130,7 +130,6 @@ class RecipeDetailActivity : AppCompatActivity() {
 
             var job = JSONObject()
             job.put("user_id", AWSMobileClient.getInstance().username)
-            //job.put("bookmark_id", bookmarkId)
             job.put("bookmark_id", URLEncoder.encode(bookmarkId, "UTF-8"))
             job.put("bookmark", "true")
 
@@ -142,20 +141,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             wr.flush()
             wr.close()
 
-            var responseCode = conn.getResponseCode()
-            Log.d("Response : responseCode", responseCode.toString())
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
-                Log.d("Response", "Success")
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
-                Log.d("Response", "fail")
-            }
-
-
-            var resultJson = JSONObject(br.readLine())
-            Log.d("Response : resultJson = ", resultJson.toString())
+            conn.disconnect()
 
 
         }).start()
@@ -182,22 +168,13 @@ class RecipeDetailActivity : AppCompatActivity() {
 
 
             var requestBody = job.toString()
-            Log.d("Response : requestBody = ", requestBody)
+            Log.d("Responseeee : requestBody = ", requestBody)
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
 
-            var responseCode = conn.getResponseCode()
-            Log.d("Response : responseCode", responseCode.toString())
-            val br: BufferedReader
-            if (responseCode == 200) {
-                br = BufferedReader(InputStreamReader(conn.getInputStream(), "euc-kr"))
-                Log.d("Response", "Success")
-            } else {
-                br = BufferedReader(InputStreamReader(conn.getErrorStream(), "euc-kr"))
-                Log.d("Response", "fail")
-            }
+            conn.disconnect()
 
         }).start()
     }
@@ -245,9 +222,11 @@ class RecipeDetailActivity : AppCompatActivity() {
 
                 if(bmi == recipeItem.recipeWriter!!){
                     writerbookmarked = true
+                    Log.d("Responseeee user : ", "true")
                 }
                 if(bmi == recipeItem.recipeId){
                     recipebookmarked = true
+                    Log.d("Responseeee id : ", "true")
                 }
             }
 
@@ -260,6 +239,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
                 }
             }
+
+            conn.disconnect()
 
         }).start()
 

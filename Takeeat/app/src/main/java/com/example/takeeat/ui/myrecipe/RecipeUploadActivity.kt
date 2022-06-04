@@ -198,18 +198,18 @@ class RecipeUploadActivity: AppCompatActivity() {
                     cookingOrderList
                 )
 
-                val name = URLEncoder.encode(uploadData.name, "UTF-8")
+                val name = URLEncoder.encode(uploadData.name, "UTF-8").replace("+", " ")
                 val img = uploadData.img
-                val summary = URLEncoder.encode(uploadData.summary, "UTF-8")
-                val serving = URLEncoder.encode(uploadData.serving, "UTF-8")
-                val time = URLEncoder.encode(uploadData.cooktime, "UTF-8")
-                val category = URLEncoder.encode(uploadData.category, "UTF-8")
-                val difficult = URLEncoder.encode(uploadData.difficulty, "UTF-8")
+                val summary = URLEncoder.encode(uploadData.summary, "UTF-8").replace("+", " ")
+                val serving = URLEncoder.encode(uploadData.serving, "UTF-8").replace("+", " ")
+                val time = URLEncoder.encode(uploadData.cooktime, "UTF-8").replace("+", " ")
+                val category = URLEncoder.encode(uploadData.category, "UTF-8").replace("+", " ")
+                val difficult = URLEncoder.encode(uploadData.difficulty, "UTF-8").replace("+", " ")
                 val ingre = uploadData.ingre
                 var ingretxt = ""
                 val recipedata = uploadData.recipe
                 var recipetxt = ""
-                val author = AWSMobileClient.getInstance().username
+                val author = AWSMobileClient.getInstance().username.replace("+", " ")
 
                 var ingresearchtxt = ""
                 var ingrearr : ArrayList<String> = ArrayList<String>()
@@ -217,9 +217,9 @@ class RecipeUploadActivity: AppCompatActivity() {
 
                 for (item in ingre) {
                     ingretxt = ingretxt +
-                            "{\"ingre_name\":\"" + URLEncoder.encode(item.ingre_name, "UTF-8") + "\",\"ingre_count\":\"" + item.ingre_count + "\",\"ingre_unit\":\"" + URLEncoder.encode(item.ingre_unit, "UTF-8") + "\"},"
-                    if(!ingrearr.contains(URLEncoder.encode(item.ingre_name, "UTF-8"))){
-                        ingrearr.add(URLEncoder.encode(item.ingre_name, "UTF-8"))
+                            "{\"ingre_name\":\"" + URLEncoder.encode(item.ingre_name, "UTF-8").replace("+", " ") + "\",\"ingre_count\":\"" + item.ingre_count + "\",\"ingre_unit\":\"" + URLEncoder.encode(item.ingre_unit, "UTF-8") + "\"},"
+                    if(!ingrearr.contains(URLEncoder.encode(item.ingre_name, "UTF-8").replace("+", " "))){
+                        ingrearr.add(URLEncoder.encode(item.ingre_name, "UTF-8").replace("+", " "))
                     }
                 }
 
@@ -229,7 +229,7 @@ class RecipeUploadActivity: AppCompatActivity() {
 
                 for (item in recipedata) {
                     recipetxt = recipetxt +
-                            "{\"txt\":\"" + URLEncoder.encode(item.txt, "UTF-8") + "\",\"img\":\"" + item.img + "\"},"
+                            "{\"txt\":\"" + URLEncoder.encode(item.txt, "UTF-8").replace("+", " ") + "\",\"img\":\"" + item.img + "\"},"
                 }
 
                 if (recipetxt != "") {

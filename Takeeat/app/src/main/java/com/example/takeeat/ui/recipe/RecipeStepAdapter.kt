@@ -159,7 +159,9 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
+
             Log.d("ResponseRating",conn.responseCode.toString())
+            conn.disconnect()
 
         }).start()
     }
@@ -190,6 +192,8 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.close()
             Log.d("ResponseRating",conn.responseCode.toString())
 
+            conn.disconnect()
+
         }).start()
     }
 
@@ -216,6 +220,8 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
+
+            conn.disconnect()
 
 
 

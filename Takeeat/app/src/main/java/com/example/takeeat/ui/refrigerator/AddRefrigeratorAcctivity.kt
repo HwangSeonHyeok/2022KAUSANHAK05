@@ -85,7 +85,7 @@ class AddRefrigeratorActivity :AppCompatActivity() {
                     }else{
                         sObject.put("item_exdate", viewmodel.liveData.value!![i].itemexp!!.year.toString() + "-" + (viewmodel.liveData.value!![i].itemexp!!.month+1).toString() + "-" +viewmodel.liveData.value!![i].itemexp!!.date.toString())
                     }
-                    sObject.put("item_amount", viewmodel.liveData.value!![i].itemamount)
+                    sObject.put("item_amount", viewmodel.liveData.value!![i].itemamount.toString())
                     sObject.put("item_unit", en_unit)
                     sObject.put("user_id", AWSMobileClient.getInstance().username)
                     jArray.put(sObject)
@@ -148,17 +148,25 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             conn.setDoInput(true)
 
             var requestBody = job.toString()
+            Log.d("Responseeee", job.toString())
 
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
 
+            Log.d("Responseeee : code ", conn.responseCode.toString())
+
+            conn.disconnect()
+
+
+
             handler.post{
                 sleep(500)
                 progressOFF()
                 finish()
             }
+
 
 
 
