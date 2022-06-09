@@ -115,7 +115,6 @@ class RecipeDetailActivity : AppCompatActivity() {
         val handler = Handler()
         Thread(Runnable {
 
-
             val url: URL =
                 URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/bookmark_on")
             var conn: HttpURLConnection = url.openConnection() as HttpURLConnection
@@ -135,13 +134,15 @@ class RecipeDetailActivity : AppCompatActivity() {
 
 
             var requestBody = job.toString()
-            Log.d("Response : requestBody = ", requestBody)
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
 
+            Log.d("Responseeee : code = ", conn.responseCode.toString())
+
             conn.disconnect()
+
 
 
         }).start()
@@ -168,13 +169,15 @@ class RecipeDetailActivity : AppCompatActivity() {
 
 
             var requestBody = job.toString()
-            Log.d("Responseeee : requestBody = ", requestBody)
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
             wr.close()
 
+            Log.d("Responseeee : code = ", conn.responseCode.toString())
+
             conn.disconnect()
+
 
         }).start()
     }
