@@ -62,7 +62,6 @@ class AddRefrigeratorActivity :AppCompatActivity() {
             //값은 viewmodel.liveData.value(ArrayList<RefItem>타입)을 for문돌려서 추가하면 될거 같아요
             progressON(this)
             val jArray = JSONArray()//배열
-            // viewmodel -> json 변환
 
             try {
 

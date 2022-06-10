@@ -27,9 +27,6 @@ class BookMarkFragment :Fragment() {
     private var bookmarkList : String? = null
 
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -85,6 +82,8 @@ class BookMarkFragment :Fragment() {
             }
             val data = content.toString()
 
+            Log.d("Responseeeee : bookmarklist :: ", data)
+
             buffered.close()
             conn.disconnect()
 
@@ -99,7 +98,7 @@ class BookMarkFragment :Fragment() {
                 bookMark = bookMark.substring(0, bookMark.length - 1) + "]}"
             }
 
-            Log.d("Responseee bookMark", bookMark)
+            Log.d("Responseeeee bookMark 123 :: ", bookMark)
 
             if(bookMark!="{\"bookmark_list\":[") {
                 val recipeTestList = ArrayList<RecipeItem>()

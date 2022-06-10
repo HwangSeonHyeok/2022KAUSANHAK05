@@ -221,6 +221,8 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.flush()
             wr.close()
 
+            Log.d("Responseeee : code = ", conn.responseCode.toString())
+
             conn.disconnect()
 
 
