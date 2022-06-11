@@ -18,8 +18,8 @@ import kotlin.time.Duration.Companion.milliseconds
 
 class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : RecyclerView.Adapter<RefrigeratorIconAdapter.IconViewHolder>() {
 
-    lateinit var categoryIconArray : TypedArray
-    lateinit var ingreTagArray: Array<String>
+    //lateinit var categoryIconArray : TypedArray
+    //lateinit var ingreTagArray: Array<String>
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
         val txtItemName: TextView = itemView.findViewById(R.id.refrigerator_item_name_icon)
         val imgItem: ImageView = itemView.findViewById(R.id.refrigerator_item_image_icon)
@@ -28,6 +28,8 @@ class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : Recycle
         var year = calendar.get(Calendar.YEAR)
         var month = calendar.get(Calendar.MONTH)
         var date = calendar.get(Calendar.DAY_OF_MONTH)
+        var categoryIconArray: TypedArray = itemView.context.resources.obtainTypedArray(R.array.IngreIconArray)
+        var ingreTagArray: Array<String> = itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
         override fun onClick(view: View?) {
             Log.d("Response","ItemTouch")
             val intent = Intent(view!!.context, RefItemDetailActivity::class.java)
@@ -36,9 +38,9 @@ class RefrigeratorIconAdapter(private val itemTestList: List<RefItem>) : Recycle
             view.context.startActivity(intent)
         }
         init{
-            categoryIconArray =
+            /*categoryIconArray =
                 itemView.context.resources.obtainTypedArray(R.array.IngreIconArray)
-            ingreTagArray =itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
+            ingreTagArray =itemView.context.resources.getStringArray(R.array.RefrigeratorItemTagArray)*/
 
             itemView.setOnClickListener {onClick(itemView)}
         }

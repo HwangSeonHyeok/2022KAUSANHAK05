@@ -380,6 +380,8 @@ class RecipeFragment : Fragment() {
         wr.flush()
         wr.close()
 
+        Log.d("Responseeee : code = ", conn.responseCode.toString())
+
         conn.disconnect()
     }
 

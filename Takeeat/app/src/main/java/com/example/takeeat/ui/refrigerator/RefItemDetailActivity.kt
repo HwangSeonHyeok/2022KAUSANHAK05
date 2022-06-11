@@ -207,26 +207,19 @@ class RefItemDetailActivity : AppCompatActivity() {
 
     fun update_ref_item(job : JSONObject){
         Thread(Runnable{
-            AWSMobileClient.getInstance()
 
             val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/update")
             var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
             conn.setUseCaches(false)
             conn.setRequestMethod("POST")
-            //conn.setRequestProperty("Cache-Control", "no-cache");
             conn.setRequestProperty("Content-Type", "application/json")
             conn.setRequestProperty("Connection","keep-alive")
-            //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
             conn.setRequestProperty("Accept", "application/json")
             conn.setDoOutput(true)
             conn.setDoInput(true)
-            //conn.connect()
-
 
             var requestBody = job.toString()
 
-
-            Log.d("Response1 = ",requestBody)
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
             wr.flush()
@@ -253,7 +246,6 @@ class RefItemDetailActivity : AppCompatActivity() {
             conn.setDoInput(true)
 
             var requestBody = job.toString()
-            Log.d("Responseeee req: ", requestBody)
 
             val wr = DataOutputStream(conn.getOutputStream())
             wr.writeBytes(requestBody)
