@@ -55,6 +55,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
                     val recipeData = data[this.absoluteAdapterPosition]
                     recipeData.recipeId
                     intent.putExtra("InMyRef", inMyRef)
+                    Log.d("Responsegim",inMyRef.toString())
                     intent.putExtra("Recipe_Data", recipeData)
                     progressOFF()
                     view.context.startActivity(intent)
@@ -131,6 +132,8 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
     fun get_ingre_myref(recipeId : String) :ArrayList<RefItem>{
 
 
+
+
         val recipeMyIngreList = ArrayList<RefItem>()
 
         val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/isingreinmyref")
@@ -166,6 +169,7 @@ class RecipeItemAdapter(var data: ArrayList<RecipeItem>):  RecyclerView.Adapter<
         }
         val data =content.toString()
         val jsonArr = JSONArray(data)
+        Log.d("Responsegim",data)
         for (i in 0 until jsonArr.length()) {
             val jsonObj = jsonArr.getJSONObject(i)
             val datestr: String = jsonObj.getString("item_exdate")

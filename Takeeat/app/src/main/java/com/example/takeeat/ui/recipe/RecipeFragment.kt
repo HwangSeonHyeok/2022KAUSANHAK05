@@ -45,7 +45,7 @@ class RecipeFragment : Fragment() {
     lateinit var refItemArray : ArrayList<RefItem>
 
     val refItemTagArray = ArrayList<String>()
-    val recommendData = ArrayList<RecipeBlock>() //여기 모델값이 들어가야함
+     //여기 모델값이 들어가야함
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +57,7 @@ class RecipeFragment : Fragment() {
         val recipeCategoryList: Array<String> = resources.getStringArray(R.array.CategoryTagArray)
         val categoryPager : ViewPager2 = binding.recipefragmentViewPager
         val categoryTabLayout : TabLayout = binding.recipefragmentTabLayout
+        val recommendData = ArrayList<RecipeBlock>()
 
         val handler = Handler()
         (context as MainActivity).progressON()
@@ -67,8 +68,10 @@ class RecipeFragment : Fragment() {
                 get_recommend_recipe()//테스트용 코드 나중에 추천코드로 변경
             var ingreRecipeArray: ArrayList<RecipeItem> = ArrayList<RecipeItem>()
             var recommendIngre : RefItem? = null
+            Log.d("ResponseRefItem",refItemArray.toString())
             if(refItemArray.size!=0) {
                 recommendIngre = refItemArray.minByOrNull { it.itemexp!!}
+                Log.d("ResponseRefItem",recommendIngre.toString())
 
                 if (recommendIngre != null){
                     val rObject = JSONObject()
@@ -178,6 +181,7 @@ class RecipeFragment : Fragment() {
 
         return root
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.removeItem(R.id.app_bar_search_refrigerator)
