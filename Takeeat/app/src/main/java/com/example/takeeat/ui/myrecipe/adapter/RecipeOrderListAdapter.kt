@@ -41,7 +41,7 @@ class RecipeOrderListAdapter(private val listener: ChangeContentInterface): List
             override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(text: Editable?) {
                listener.writeDescription(getItem(holder.absoluteAdapterPosition), text.toString())
-                holder.binding.edittextDescription.clearFocus()
+              //  holder.binding.edittextDescription.clearFocus()
             }
         })
     }

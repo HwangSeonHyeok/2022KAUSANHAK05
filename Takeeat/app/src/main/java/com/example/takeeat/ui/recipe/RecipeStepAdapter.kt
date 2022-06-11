@@ -15,6 +15,7 @@ import com.example.takeeat.IngredientsInfo
 import com.example.takeeat.R
 import com.example.takeeat.RecipeProcess
 import com.example.takeeat.ui.refrigerator.RefItem
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.DataOutputStream
@@ -72,6 +73,7 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
                 post_recipe_rating(rate)
                 recipe_rating_update(rate)
                 post_recipe_recommend(rate)
+                //get_recom_item(rate)
 
 
                 val dialogBuilder = AlertDialog.Builder(holder.commitButton.context)
@@ -202,7 +204,7 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             val url: URL = URL("http://52.78.228.196/recom")
             var conn: HttpURLConnection =url.openConnection() as HttpURLConnection
             conn.setUseCaches(false)
-            conn.setRequestMethod("GET")
+            conn.setRequestMethod("PUT")
             conn.setRequestProperty("Content-Type", "application/json")
             conn.setRequestProperty("Connection","keep-alive")
             conn.setRequestProperty("Accept", "application/json")
@@ -210,10 +212,13 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             conn.setDoInput(true)
 
             var job = JSONObject()
-            job.put("user_id", AWSMobileClient.getInstance().username)
+            job.put("user_name", AWSMobileClient.getInstance().username)
             job.put("recipe_id", recipeID)
             job.put("rating", rate)
 
+            Log.d("Responseeee : code = name", AWSMobileClient.getInstance().username)
+            Log.d("Responseeee : code = id", recipeID)
+            Log.d("Responseeee : code = rate", rate.toString())
 
             var requestBody = job.toString()
             val wr = DataOutputStream(conn.getOutputStream())
@@ -221,7 +226,20 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             wr.flush()
             wr.close()
 
-            Log.d("Responseeee : code = ", conn.responseCode.toString())
+            val streamReader = InputStreamReader(conn.inputStream)
+            val buffered = BufferedReader(streamReader)
+            val content = StringBuilder()
+            while (true) {
+                val line = buffered.readLine() ?: break
+                content.append(line)
+            }
+            val data = content.toString()
+
+            Log.d("Responseeee : code = get   :  ", data)
+
+            buffered.close()
+
+            Log.d("Responseeee : code = get", conn.responseCode.toString())
 
             conn.disconnect()
 
@@ -229,6 +247,5 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
 
         }).start()
     }
-
 
 }
