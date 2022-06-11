@@ -98,7 +98,7 @@ class SubtractRefActivity : AppCompatActivity() {
                         val sObject = JSONObject() //배열 내에 들어갈 json
                         sObject.put(
                             "id",
-                            AWSMobileClient.getInstance().username + item.selectedItem.itemid
+                            AWSMobileClient.getInstance().username+"item:" + item.selectedItem.itemid
                         )
                         sObject.put("item_id", item.selectedItem.itemid)
 
@@ -109,8 +109,7 @@ class SubtractRefActivity : AppCompatActivity() {
                         //update
                         val sObject = JSONObject() //배열 내에 들어갈 json
                         sObject.put(
-                            "id",
-                            AWSMobileClient.getInstance().username + item.selectedItem.itemid
+                            "id",AWSMobileClient.getInstance().username + "item:" +item.selectedItem.itemid
                         )
                         sObject.put("item_id", item.selectedItem.itemid)
                         sObject.put(
@@ -151,182 +150,51 @@ class SubtractRefActivity : AppCompatActivity() {
 
     fun update_ref_item(job: JSONObject) {
 
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
-
-        val url: URL =
-            URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/update")
+        val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/update")
         var conn: HttpURLConnection = url.openConnection() as HttpURLConnection
         conn.setUseCaches(false)
         conn.setRequestMethod("POST")
-        //conn.setRequestProperty("Cache-Control", "no-cache");
         conn.setRequestProperty("Content-Type", "application/json")
         conn.setRequestProperty("Connection", "keep-alive")
-        //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
         conn.setRequestProperty("Accept", "application/json")
         conn.setDoOutput(true)
         conn.setDoInput(true)
-        //conn.connect()
-
 
         var requestBody = job.toString()
 
-
-        Log.d("Response1 = ", requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
         wr.close()
 
-        var responseCode = conn.getResponseCode()
-        Log.d("Response : responseCode", responseCode.toString())
-        val br: BufferedReader
-        if (responseCode == 200) {
-            br = BufferedReader(InputStreamReader(conn.getInputStream()))
-
-            //var re = br.readLine()
-            //Log.d("Response : br.readLine(1) = ",re)
-            //var re1 = br.readLine()
-            //Log.d("Response : br.readLine(2) = ",re1)
-            //var re2 = br.readLine()
-            //Log.d("Response : br.readLine(3) = ",re2)
-            //var re3 = br.readLine()
-            //Log.d("Response : br.readLine() = ",re3)
-            //var re4 = br.readLine()
-            //Log.d("Response : br.readLine() = ",re4)
-
-            //var ree = JSONObject(re)
-            //Log.d("Response : JSONObject(br.readLine()) = ",ree.toString())
-            //var reee = ree.toString()
-            //Log.d("Response : resultJson = ",reee)
-            Log.d("Response", "Success Success Success Success Success Success")
-        } else {
-            br = BufferedReader(InputStreamReader(conn.getErrorStream()))
-            Log.d("Response", "fail")
-        }
-
-        /*
-            var re = br.readLine()
-            var ree = JSONObject(re)
-            var reee = ree.toString()
-            Log.d("Response : resultJson = ",reee)
-             */
-
-        //var resultJson= JSONObject(br.readLine())
-        //var rrr = br.readLine()
-        //Log.d("Response : resultJson = ",resultJson.toString())
-
-        /*
-            var response  = ArrayList<RefItem>()
-            val result = resultJson.get("result")
-            val age = resultJson.get("age");
-            val job = resultJson.get("job");
-            */
-        //Log.i("Response", "DATA response = " + response)
-
-        //conn.disconnect()
-        /*
-            } catch (e:Exception) {
-                Toast.makeText(getApplicationContext(),"데이터 전송 준비 과정 중 오류 발생",Toast.LENGTH_SHORT).show();
-                Log.i("Response", "DATA FAil")
-                return aff;
-            }
-            */
-
-        //}
-
+        Log.d("Response : responseCode", conn.getResponseCode().toString())
+        conn.disconnect()
 
     }
 
 
     fun delete_ref_item(job: JSONObject) {
 
-        //handler.post{
-        //try {
-        AWSMobileClient.getInstance()
-
         val url: URL =
             URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/ref/delete")
         var conn: HttpURLConnection = url.openConnection() as HttpURLConnection
         conn.setUseCaches(false)
         conn.setRequestMethod("POST")
-        //conn.setRequestProperty("Cache-Control", "no-cache");
         conn.setRequestProperty("Content-Type", "application/json")
         conn.setRequestProperty("Connection", "keep-alive")
-        //conn.setRequestProperty("x-api-key","xL0xZytlwwcGVllGMWN34yrPsaiEbBa5undCLf50")
         conn.setRequestProperty("Accept", "application/json")
         conn.setDoOutput(true)
         conn.setDoInput(true)
-        //conn.connect()
-
 
         var requestBody = job.toString()
 
-
-        Log.d("Response1 = ", requestBody)
         val wr = DataOutputStream(conn.getOutputStream())
         wr.writeBytes(requestBody)
         wr.flush()
         wr.close()
 
-        var responseCode = conn.getResponseCode()
-        Log.d("Response : responseCode", responseCode.toString())
-        val br: BufferedReader
-        if (responseCode == 200) {
-            br = BufferedReader(InputStreamReader(conn.getInputStream()))
-
-            //var re = br.readLine()
-            //Log.d("Response : br.readLine(1) = ",re)
-            //var re1 = br.readLine()
-            //Log.d("Response : br.readLine(2) = ",re1)
-            //var re2 = br.readLine()
-            //Log.d("Response : br.readLine(3) = ",re2)
-            //var re3 = br.readLine()
-            //Log.d("Response : br.readLine() = ",re3)
-            //var re4 = br.readLine()
-            //Log.d("Response : br.readLine() = ",re4)
-
-            //var ree = JSONObject(re)
-            //Log.d("Response : JSONObject(br.readLine()) = ",ree.toString())
-            //var reee = ree.toString()
-            //Log.d("Response : resultJson = ",reee)
-            Log.d("Response", "Success Success Success Success Success Success")
-        } else {
-            br = BufferedReader(InputStreamReader(conn.getErrorStream()))
-            Log.d("Response", "fail")
-        }
-
-        /*
-            var re = br.readLine()
-            var ree = JSONObject(re)
-            var reee = ree.toString()
-            Log.d("Response : resultJson = ",reee)
-             */
-
-        //var resultJson= JSONObject(br.readLine())
-        //var rrr = br.readLine()
-        //Log.d("Response : resultJson = ",resultJson.toString())
-
-        /*
-            var response  = ArrayList<RefItem>()
-            val result = resultJson.get("result")
-            val age = resultJson.get("age");
-            val job = resultJson.get("job");
-            */
-        //Log.i("Response", "DATA response = " + response)
-
-        //conn.disconnect()
-        /*
-            } catch (e:Exception) {
-                Toast.makeText(getApplicationContext(),"데이터 전송 준비 과정 중 오류 발생",Toast.LENGTH_SHORT).show();
-                Log.i("Response", "DATA FAil")
-                return aff;
-            }
-            */
-
-        //}
-
+        Log.d("Response : responseCode", conn.getResponseCode().toString())
+        conn.disconnect()
 
     }
 

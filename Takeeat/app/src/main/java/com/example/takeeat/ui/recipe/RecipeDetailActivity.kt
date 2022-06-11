@@ -150,9 +150,7 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     fun bookmark_off(bookmarkId: String) {
         Thread(Runnable {
-
-            val url: URL =
-                URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/bookmark_off")
+            val url: URL = URL("https://b62cvdj81b.execute-api.ap-northeast-2.amazonaws.com/ref-api-test/recipe/bookmark_off")
             var conn: HttpURLConnection = url.openConnection() as HttpURLConnection
             conn.setUseCaches(false)
             conn.setRequestMethod("POST")
@@ -178,10 +176,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
             conn.disconnect()
 
-
         }).start()
     }
-
 
     fun bookmark_bool() {
         val handler = Handler()

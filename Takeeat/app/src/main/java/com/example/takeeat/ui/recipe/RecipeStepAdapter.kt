@@ -244,7 +244,6 @@ class RecipeStepAdapter(val data: ArrayList<RecipeProcess>): RecyclerView.Adapte
             conn.disconnect()
 
 
-
         }).start()
     }
 
