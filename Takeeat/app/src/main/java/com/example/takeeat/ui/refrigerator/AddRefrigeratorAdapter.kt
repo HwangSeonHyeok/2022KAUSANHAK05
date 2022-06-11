@@ -1,11 +1,13 @@
 package com.example.takeeat.ui.refrigerator
 
+
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
+import android.app.Dialog
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
+import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +16,11 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.takeeat.R
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerView.Adapter<AddRefrigeratorAdapter.ViewHolder>() {
 
-    class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_addref, parent,false)){
+    class ViewHolder(val parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_addref, parent,false)){
         val itemNameEdit: EditText
         val itemTagButton : Button
         val itemEXPText: TextView
@@ -92,6 +93,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
                     itemAmountEdit.setText(item.itemamount.toString())
                 if(item.itemtag!=null)holder.itemTagButton.text=item.itemtag
                 holder.itemTagButton.setOnClickListener {
+
                     val tags = context.resources.getStringArray(R.array.RefrigeratorItemTagArray)
                     val dialogBuilder = AlertDialog.Builder(context)
                     dialogBuilder.setTitle("태그를 선택해주세요")
@@ -103,6 +105,7 @@ class AddRefrigeratorAdapter(var data: LiveData<ArrayList<RefItem>>):  RecyclerV
                     }
                     val alertDialog = dialogBuilder.create()
                     alertDialog.show()
+
                 }
                 val spinnerUnitItem = context.getResources().getStringArray(R.array.unitArray)
                 val spinnerAdapter : ArrayAdapter<String> =

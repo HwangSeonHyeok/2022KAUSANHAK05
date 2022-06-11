@@ -140,7 +140,7 @@ class SubtractRefActivity : AppCompatActivity() {
                 }
                 handler.post {
                     progressOFF()
-                    Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_LONG).show()
                     finish()
                 }
             }.start()
